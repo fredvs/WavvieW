@@ -3,8 +3,9 @@ unit main;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms, mseaudiouos,
- msestrings,msesignal,msesigaudiouos,msesignoise,msechartedit,msedataedits,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
+ uos_mseaudio,uos_msesigaudio,
+ msestrings,msesignal,msesignoise,msechartedit,msedataedits,
  mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
  msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
  msesplitter,msesimplewidgets,msefilter,mseact,msestream,sysutils, msebitmap;

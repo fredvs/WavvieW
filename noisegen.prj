@@ -18,8 +18,8 @@ order15=0
 order16=0
 order17=0
 [projectoptions]
-projectdir=/home/fred/noisegenerator
-projectfilename=/home/fred/noisegenerator/noisegen.prj
+projectdir=/home/fred/NoiseGenerator
+projectfilename=/home/fred/NoiseGenerator/noisegen.prj
 mainfile=
 targetfile=
 messageoutputfile=

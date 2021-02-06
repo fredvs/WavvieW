@@ -7,7 +7,7 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 }
-unit mseaudiouos;
+unit uos_mseaudio;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses

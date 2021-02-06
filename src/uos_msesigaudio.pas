@@ -7,7 +7,7 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 }
-unit msesigaudiouos;
+unit uos_msesigaudio;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 {$ifndef mse_allwarnings}
@@ -22,7 +22,7 @@ interface
  {$endif}
 {$endif}
 uses
- mseaudiouos ,uos_portaudio, msesignal,classes,mclasses,msethread,msetypes,msestrings;
+ uos_mseaudio ,uos_portaudio, msesignal,classes,mclasses,msethread,msetypes,msestrings;
 
 const
  defaultblocksize = 1000;
