@@ -1,0 +1,578 @@
+object mainfo: tmainfo
+  visible = False
+  bounds_x = 127
+  bounds_y = 217
+  bounds_cx = 535
+  bounds_cy = 270
+  container.frame.localprops = []
+  container.frame.localprops1 = []
+  container.face.localprops = []
+  container.face.template = tfacecomp1
+  container.bounds = (
+    0
+    0
+    535
+    270
+  )
+  font.color = -1610612731
+  font.name = 'stf_default'
+  font.localprops = [flp_color]
+  statfile = sta
+  caption = 'Noise Generator'
+  icon.origformat = 'png'
+  icon.image = {
+    0000000000000000100000000F000000D0020000000000000000000000000000
+    0000000000000000000000000000000000000000C0DCC005BFDBBF01889C8801
+    4E594E01586558019BB19B01C0DCC00ABFDBBF0173847301030403015A675A01
+    48534801090A090197AE9701C0DCC005BDD8BD01C0DCC001BFDBBF01C0DCC002
+    292F290174857401C0DCC001C2DEC2014B574B014D584D01C0DCC002BFDBBF01
+    C0DCC001BDD8BD01667666013D473D01BDD9BD01C0DCC002181C180197AD9701
+    C0DCC002879B8701606E6001C0DCC002BDD9BD013D473D0166766601AEC7AE01
+    2328230149544901C1DDC101C0DCC0013B443B01424B4201A0B8A0019EB59E01
+    ACC6AC01C3E0C301C0DCC001C1DDC1014954490121262101A9C1A901BFDBBF01
+    B1CBB1010A0C0A018A9E8A01B8D3B8013941390100000003090A090148524801
+    B8D3B8018A9E8A010A0C0A01A9C1A901BFDBBF01C0DCC002525E52012D342D02
+    1633160152B752015AC95A013475340101030101040B04012D342D02525E5201
+    C0DCC003BFDBBF0193A9930100000001163216016DF66D0170FF700271FF7101
+    2E652E012A602A01163216010000000193A99301BFDBBF01C0DCC003A0B8A001
+    0000000156C556014093400169EF690170FF70023B7F3B012A612A0155C35501
+    00000001A0B8A001C0DCC004A0B8A001060F060167EC67011735170143964301
+    70FE70022B5D2B012C662C0166EA6601050D0501A0B8A001C0DCC004A0B8A001
+    0711070168ED68014399430109150901419641013A863A01050B050155C05501
+    68ED680107110701A0B8A001C0DCC004B0CAB0010205020162E062016FFE6F01
+    41944101173517011A3D1A014CAD4C0170FE700162E0620102050201B0CAB001
+    C0DCC004C2DFC201363E36013171310171FE710170FF700171FF710270FF7001
+    71FE710131713101363E3601C2DFC201C0DCC004BFDBBF019BB29B01090C0901
+    3F8D3F0171FF71016FFE6F0271FF71013F8D3F01090C09019BB29B01BFDBBF01
+    C0DCC0068CA08C010D0F0D01132C130133763302132C13010D0F0D018CA08C01
+    C0DCC004
+  }
+  windowopacity = -Inf
+  onclose = onclosexe
+  moduleclassname = 'tmainform'
+  object tlayouter1: tlayouter
+    color = -2147483645
+    face.localprops = []
+    bounds_x = 51
+    bounds_y = 246
+    bounds_cx = 478
+    bounds_cy = 19
+    anchors = [an_left, an_right, an_bottom]
+    optionsscale = [osc_expandy, osc_shrinky, osc_expandshrinkx, osc_expandshrinky]
+    optionslayout = [lao_placex, lao_aligny]
+    align_glue = wam_start
+    place_mindist = 4
+    place_maxdist = 4
+    place_options = [plo_endmargin]
+    linktop = tlayouter2
+    dist_top = 1
+    options = [spao_glueright, spao_gluebottom]
+    object average: tbooleanedit
+      frame.caption = 'average'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        2
+        51
+        2
+      )
+      bounds_x = 414
+      bounds_y = 1
+      bounds_cx = 64
+      bounds_cy = 17
+      anchors = [an_top, an_right]
+      statfile = sta
+      onsetvalue = averagesetev
+    end
+    object averagecount: tintegerdisp
+      frame.caption = 'count'
+      frame.captionpos = cp_right
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        0
+        38
+        0
+      )
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 1
+      bounds_x = 320
+      bounds_y = 0
+      bounds_cx = 90
+      bounds_cy = 19
+      reffontheight = 15
+    end
+    object sampcountdi: tintegerdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 2
+      bounds_x = 0
+      bounds_y = 0
+      bounds_cx = 20
+      bounds_cy = 19
+      reffontheight = 15
+    end
+    object tsimplewidget1: tsimplewidget
+      taborder = 3
+      bounds_x = 24
+      bounds_y = 4
+      bounds_cx = 292
+      bounds_cy = 10
+      anchors = [an_left, an_top, an_right]
+    end
+  end
+  object tlayouter2: tlayouter
+    color = -2147483645
+    taborder = 1
+    bounds_x = 0
+    bounds_y = 0
+    bounds_cx = 530
+    bounds_cy = 245
+    anchors = [an_left, an_top, an_right, an_bottom]
+    object tsplitter1: tsplitter
+      color = -1610612734
+      bounds_x = 272
+      bounds_y = 0
+      bounds_cx = 4
+      bounds_cy = 245
+      anchors = [an_left]
+      options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
+      linkleft = scope
+      linkright = fft
+      statfile = sta
+    end
+    object fft: tsigscopefft
+      frame.leveli = -1
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_leveli, frl_firight, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 1
+      bounds_x = 276
+      bounds_y = 0
+      bounds_cx = 254
+      bounds_cy = 245
+      anchors = [an_right]
+      traces.count = 1
+      traces.chartkind = tck_bar
+      traces.options = [cto_logx, cto_logy]
+      traces.xrange = 1
+      traces.xserrange = 22050
+      traces.yrange = 1
+      traces.items = <      
+        item
+          color = -1610612728
+          widthmm = 0.3
+          xserrange = 22050
+          xrange = 22000
+          xstart = 10
+          yrange = 0.999
+          ystart = 0.001
+          options = [cto_logx, cto_logy]
+        end>
+      facechart.localprops = []
+      facechart.template = tfacecomp1
+      xrange = 1
+      yrange = 1
+      xdials.count = 1
+      xdials.start = 10
+      xdials.range = 22000
+      xdials.items = <      
+        item
+          options = [do_log]
+          widthmm = 0.3
+          start = 10
+          range = 22000
+          ticks.count = 2
+          ticks.items = <          
+            item
+              caption = '0g'
+              font.color = -1610612731
+              font.name = 'stf_default'
+              font.localprops = [flp_color]
+              intervalcount = 1
+              interval = 10
+            end          
+            item
+              intervalcount = 10
+              interval = 10
+            end>
+        end>
+      ydials.count = 1
+      ydials.start = -60
+      ydials.range = 60
+      ydials.items = <      
+        item
+          options = [do_opposite, do_sideline, do_boxline]
+          widthmm = 0.3
+          start = -60
+          range = 60
+          ticks.count = 1
+          ticks.items = <          
+            item
+              caption = '0'
+              captionunit = 'dB'
+              font.color = -1610612731
+              font.name = 'stf_default'
+              font.localprops = [flp_color]
+              interval = 10
+            end>
+        end>
+      fitframe_left = 22
+      fitframe_top = 7
+      fitframe_bottom = 17
+      sampler.controller = cont
+      sampler.inputs.count = 1
+      sampler.inputs.items = <      
+        item
+          source = noise.output
+          gain = 4
+          min = -Inf
+          max = -Inf
+          expstart = -Inf
+          expend = -Inf
+        end>
+      sampler.bufferlength = 65536
+      sampler.trigger.gain = 1
+      sampler.trigger.min = -Inf
+      sampler.trigger.max = -Inf
+      sampler.trigger.expstart = -Inf
+      sampler.trigger.expend = -Inf
+      sampler.triggerlevel.gain = 1
+      sampler.triggerlevel.min = -Inf
+      sampler.triggerlevel.max = -Inf
+      sampler.triggerlevel.expstart = -Inf
+      sampler.triggerlevel.expend = -Inf
+      sampler.options = [sso_fulltick, sso_autorun, sso_fftmag]
+      sampler.onbufferfull = buffullev
+      sampler.refreshus = 500000
+    end
+    object scope: tsigscope
+      frame.levelo = -1
+      frame.colorclient = -2147483645
+      frame.localprops = [frl_levelo, frl_firight, frl_colorclient]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 2
+      bounds_x = 88
+      bounds_y = 0
+      bounds_cx = 184
+      bounds_cy = 245
+      anchors = [an_left]
+      traces.count = 1
+      traces.options = [cto_smooth]
+      traces.xrange = 1
+      traces.xserrange = 1
+      traces.yrange = 1
+      traces.items = <      
+        item
+          color = -1610612728
+          widthmm = 0.3
+          xserrange = 1
+          xrange = 1
+          yrange = 4
+          ystart = -2
+          options = [cto_smooth]
+        end>
+      facechart.localprops = []
+      facechart.template = tfacecomp1
+      xrange = 1
+      yrange = 1
+      xdials.count = 1
+      xdials.range = 1
+      xdials.items = <      
+        item
+          color = -1610612732
+          widthmm = 0.3
+          range = 0.0928798
+          ticks.count = 1
+          ticks.items = <          
+            item
+              caption = '0g'
+              font.color = -1610612731
+              font.name = 'stf_default'
+              font.localprops = [flp_color]
+              interval = 0.02
+            end>
+        end>
+      ydials.count = 1
+      ydials.start = -1
+      ydials.range = 1
+      ydials.items = <      
+        item
+          color = -1610612732
+          widthmm = 0.3
+          start = -1
+          range = 2
+          ticks.count = 2
+          ticks.items = <          
+            item
+              caption = '0.0'
+              font.color = -1610612731
+              font.name = 'stf_default'
+              font.localprops = [flp_color]
+              interval = 0.2
+              options = [dto_opposite]
+            end          
+            item
+              dashes = #1#1
+              font.color = -1610612731
+              font.name = 'stf_default'
+              font.localprops = [flp_color]
+              interval = 0.1
+            end>
+        end>
+      fitframe_left = 26
+      fitframe_top = 7
+      fitframe_bottom = 17
+      sampler.controller = cont
+      sampler.inputs.count = 1
+      sampler.inputs.items = <      
+        item
+          source = noise.output
+          gain = 1
+          min = -Inf
+          max = -Inf
+          expstart = -Inf
+          expend = -Inf
+        end>
+      sampler.trigger.gain = 1
+      sampler.trigger.min = -Inf
+      sampler.trigger.max = -Inf
+      sampler.trigger.expstart = -Inf
+      sampler.trigger.expend = -Inf
+      sampler.triggerlevel.gain = 1
+      sampler.triggerlevel.min = -Inf
+      sampler.triggerlevel.max = -Inf
+      sampler.triggerlevel.expstart = -Inf
+      sampler.triggerlevel.expend = -Inf
+      sampler.options = [sso_fulltick, sso_autorun]
+      sampler.refreshus = 500000
+    end
+    object sampcount: tslider
+      frame.caption = 'crest'
+      frame.captionpos = cp_top
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        6
+        18
+        6
+        0
+      )
+      taborder = 3
+      bounds_x = 45
+      bounds_y = 26
+      bounds_cx = 32
+      bounds_cy = 219
+      anchors = [an_left, an_top, an_bottom]
+      statfile = sta
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp1
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp1
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp1
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp1
+      scrollbar.framebutton.localprops = []
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = samcountsetexe
+      direction = gd_up
+    end
+    object tsigslider1: tsigslider
+      frame.caption = 'amp'
+      frame.captionpos = cp_top
+      frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        4
+        18
+        5
+        0
+      )
+      taborder = 4
+      bounds_x = 11
+      bounds_y = 26
+      bounds_cx = 29
+      bounds_cy = 219
+      anchors = [an_left, an_top, an_bottom]
+      statfile = sta
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp1
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp1
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp1
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp1
+      scrollbar.framebutton.localprops = []
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      direction = gd_up
+      controller = cont
+      max = 1
+      options = [sieo_expzero]
+    end
+    object kinded: tenumtypeedit
+      color = -2147483645
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp1
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = tfacecomp1
+        end>
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 5
+      bounds_x = 8
+      bounds_y = 0
+      bounds_cx = 76
+      bounds_cy = 21
+      statfile = sta
+      value = 0
+      valuemin = 0
+      onsetvalue = kindsetexe
+      dropdown.colorclient = -1610612734
+      dropdown.facetemplate = tfacecomp1
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = -1610612733
+      dropdown.cols.facetemplate = tfacecomp1
+      dropdown.cols.items = <      
+        item
+          colorselect = -1610612733
+          facetemplate = tfacecomp1
+        end>
+      oninit = typinitexe
+      reffontheight = 15
+    end
+  end
+  object cont: tsigcontroller
+    samplefrequ = 44100
+    left = 128
+    top = 80
+  end
+  object out: tsigoutaudio
+    controller = cont
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = noise.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    audio.active = True
+    audio.latency = 0.1
+    left = 128
+    top = 128
+  end
+  object noise: tsignoise
+    controller = cont
+    amplitude.source = tsigslider1.output
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    cutofffrequ = 0.0001
+    left = 128
+    top = 104
+  end
+  object sta: tstatfile
+    filename = 'status.sta'
+    left = 128
+    top = 152
+  end
+  object tfacecomp1: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      4540994
+      0
+    )
+    template.fade_direction = gd_down
+    left = 224
+    top = 56
+  end
+  object tframecomp1: tframecomp
+    left = 400
+    top = 56
+  end
+  object tframecomp2: tframecomp
+    template.framei_left = 4
+    template.framei_top = 2
+    template.framei_right = 4
+    template.framei_bottom = 2
+    template.frameimage_list = timagelist3
+    template.frameimage_left = -4
+    template.frameimage_top = -4
+    template.frameimage_right = -4
+    template.frameimage_bottom = -4
+    template.optionsskin = [fso_flat]
+    left = 292
+    top = 81
+  end
+  object timagelist3: timagelist
+    width = 4
+    height = 4
+    count = 8
+    cornermask_topleft = #2#1
+    cornermask_bottomleft = #2#1
+    cornermask_bottomright = #2#1
+    cornermask_topright = #2#1
+    left = 310
+    top = 31
+    image = {
+      00000000020000000C0000000C000000E8000000000000000000000000000000
+      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
+      000000038B8B8B01FFFFFF048B8B8B01FFFFFF02A5A5A501000000038B8B8B01
+      FFFFFF038B8B8B01FFFFFF03A5A5A50100000003FFFFFF018B8B8B01FFFFFF02
+      8B8B8B01FFFFFF03A5A5A50100000003FFFFFF028B8B8B03FFFFFF068B8B8B01
+      FFFFFF038B8B8B02FFFFFF068B8B8B01FFFFFF038B8B8B01FFFFFF018B8B8B01
+      FFFFFF048B8B8B01FFFFFF048B8B8B07FFFFFF04D6D6D6018B8B8B03FFFFFF02
+      8B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D60100000004FFFFFF03
+      8B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04000000041C010000
+      1201000011020000110C00008008000080080000400800003F080000F3000000
+      040000000800000008000000
+    }
+  end
+end
