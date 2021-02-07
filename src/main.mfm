@@ -9098,20 +9098,20 @@ object mainfo: tmainfo
   end
   object noiseactive: tbooleanedit
     color = -2147483645
-    frame.caption = 'Noise ON'
+    frame.caption = 'Noise View'
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp2
     frame.outerframe = (
       0
       2
-      57
+      67
       2
     )
     taborder = 2
     bounds_x = 8
-    bounds_y = 419
-    bounds_cx = 70
+    bounds_y = 413
+    bounds_cx = 80
     bounds_cy = 17
     anchors = [an_left, an_bottom]
     statfile = sta
@@ -9119,20 +9119,20 @@ object mainfo: tmainfo
   end
   object pianoactive: tbooleanedit
     color = -2147483645
-    frame.caption = 'Piano ON'
+    frame.caption = 'Piano View'
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp2
     frame.outerframe = (
       0
       2
-      57
+      67
       2
     )
     taborder = 3
-    bounds_x = 120
+    bounds_x = 8
     bounds_y = 434
-    bounds_cx = 70
+    bounds_cx = 80
     bounds_cy = 17
     anchors = [an_right, an_bottom]
     statfile = sta
@@ -9169,6 +9169,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.active = True
     audio.latency = 0.1
     left = 128
     top = 128
@@ -9265,6 +9266,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.active = True
     audio.latency = 0.1
     left = 920
     top = 112

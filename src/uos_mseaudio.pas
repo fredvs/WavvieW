@@ -260,7 +260,6 @@ var
  err: integer;
  
 begin
-
  PAParam.hostApiSpecificStreamInfo := nil;
  PAParam.device := Pa_GetDefaultOutputDevice();
  PAParam.SuggestedLatency :=  
@@ -273,12 +272,25 @@ begin
   //paInt16;
   
    PAParam.channelCount := fchannels; 
+   
+    if fformat = sfm_s16 then
+   PAParam.SampleFormat := paInt16
+   else
+   if fformat = sfm_s32 then
+   PAParam.SampleFormat := paInt32
+   else
+   if fformat = sfm_f32 then
+   PAParam.SampleFormat := paFloat32
+   else
    PAParam.SampleFormat := paFloat32;
+ 
+ //err := Pa_OpenStream(@HandleSt, nil, @PAParam,
+ // 44100, 512, paClipOff, nil, nil);
      
  // err := Pa_OpenDefaultStream(@HandleSt, 2, 1, paFloat32,44100, 1024, nil, nil);
   
   err := Pa_OpenStream(@HandleSt, nil, @PAParam,
-   44100, 1024*2, paClipOff, nil, nil);
+   44100, 512, paClipOff, nil, nil);
    
   application.processmessages;
    sleep(10);

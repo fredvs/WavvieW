@@ -805,9 +805,9 @@ findhistory=20
  samplebuffersizematrix
 findoptions=1
 editpos=6
- 0,14
- 0,-1073741823
- 0,-1073741823
+ 0,123
+ 0,376
+ 0,471
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -851,11 +851,11 @@ order=6
  0
  1
  2
- 4
  5
  3
+ 4
 firsttab=0
-index=0
+index=2
 [layout]
 windowlayout=587
  [mainfo.basedock]
@@ -871,8 +871,8 @@ windowlayout=587
  ny=0
  ncx=0
  ncy=0
- x=128
- y=144
+ x=65
+ y=52
  cx=1224
  cy=621
  rcx=0
@@ -897,7 +897,7 @@ windowlayout=587
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1320,11 +1320,11 @@ windowlayout=587
  nx=0
  ny=0
  ncx=1197
- ncy=26
+ ncy=24
  x=0
  y=0
  cx=1212
- cy=24
+ cy=22
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1334,7 +1334,7 @@ windowlayout=587
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/NoiseGenerator/src/main.pas
+ value=/home/fred/NoiseGenerator/src/uos_msesigaudio.pas
  history=20
   /home/fred/NoiseGenerator/src/main.pas
   /home/fred/NoiseGenerator/src/uos_msesigaudio.pas
@@ -1381,11 +1381,11 @@ windowlayout=587
   0
   1
   2
-  4
   5
   3
+  4
  firsttab=0
- index=0
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1429,7 +1429,7 @@ windowlayout=587
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

@@ -368,16 +368,25 @@ begin
  controller1:= fsigout.controller;
  if controller1 <> nil then begin
   factive:= true;
+
   //datasize1:= samplebuffersizematrix[fformat];
-  datasize1:= 4; // float 32
+  if fformat = sfm_s16 then
+   datasize1:= 2
+   else
+   if fformat = sfm_s32 then
+   datasize1:= 4
+   else
+   if fformat = sfm_f32 then
+   datasize1:= 4
+   else
+   datasize1:= 4;
+   
   blocksize1:= fblocksize;
   valuehigh1:= fsigout.inputs.count*blocksize1;
   bufferlength1:= datasize1*valuehigh1;
   dec(valuehigh1);
   info.valuehigh:= valuehigh1;
   setlength(fbuffer,bufferlength1);
-  
-  // fformat := sfm_f32;
   
   case fformat of
    sfm_u8,sfm_8alaw,sfm_8ulaw: begin
@@ -448,7 +457,7 @@ begin
     controller1.unlock;
    end;
    if assigned(HandleSt) then
-   Pa_WriteStream(HandleSt, @fBuffer[0], 1024 div fchannels) else break;
+   Pa_WriteStream(HandleSt, @fBuffer[0], length(fbuffer) div fchannels div datasize1) else break;
    end;
  end;
 end;
@@ -459,9 +468,8 @@ var
 begin
  int1:= fsigout.inputs.count;
  channels:= int1;
- //setlength(fsigout.fbuffer,int1*fblocksize);
-  setlength(fsigout.fbuffer,1024 * channels);
- inherited;
+ setlength(fsigout.fbuffer,int1*fblocksize);
+  inherited;
 end;
 
 procedure tsigaudioout.stop;
