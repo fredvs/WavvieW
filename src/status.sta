@@ -1,9 +1,53 @@
 [mainfo.pianoactive]
-value=0
+value=1
 [mainfo.noiseactive]
 value=0
+[mainfo.tenvelopeedit1]
+[mainfo.tenvelopeedit1.0]
+zoomx=1
+zoomy=1
+scrollx=0
+scrolly=0
+activetrace=0
+value0=3
+ 0.0036496350364964,0.0114566284779051
+ 0.032846715328467,0.9885433715221
+ 0.081021897810219,0.89852700490998
+value1=0
+[mainfo.tenvelopeedit1.1]
+x=104
+y=0
+xprop=0.34680134680135
+yprop=1
+[mainfo.tenvelopeedit1.2]
+marker0_0=10
+zoomx=1
+zoomy=1
+scrollx=0
+scrolly=0
+activetrace=0
+value0=3
+ 0.3448275862069,0.9328968903437
+ 4.46043165467626,0.97545008183306
+ 7.9136690647482,0.89525368248773
+value1=0
+[mainfo.tenvelopeedit1.3]
+x=217
+y=0
+xprop=0.71253071253071
+yprop=1
+[mainfo.tenvelopeedit1.4]
+zoomx=1
+zoomy=1
+scrollx=0
+scrolly=0
+activetrace=0
+value0=2
+ 0.094017094017094,0.96726677577741
+ 0.22764227642276,0.98527004909984
+value1=0
 [mainfo.tsplitter2]
-x=952
+x=723
 y=0
 xprop=0.70142180094787
 yprop=1
@@ -14,7 +58,7 @@ value=0.3
 [mainfo.sampcount]
 value=0
 [mainfo.tsplitter1]
-x=508
+x=385
 y=0
 xprop=0.37535545023697
 yprop=1
@@ -30,6 +74,6 @@ x=136
 y=131
 cx=1042
 cy=503
-wsize=6
+wsize=0
 active=1
 visible=1

@@ -805,8 +805,8 @@ findhistory=20
  samplebuffersizematrix
 findoptions=1
 editpos=6
- 62,9
- 0,12
+ 70,8
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -855,9 +855,9 @@ order=6
  0
  1
  2
- 4
  5
  3
+ 4
 firsttab=0
 index=0
 [layout]
@@ -875,8 +875,8 @@ windowlayout=606
  ny=0
  ncx=0
  ncy=0
- x=141
- y=144
+ x=91
+ y=73
  cx=1224
  cy=621
  rcx=0
@@ -901,7 +901,7 @@ windowlayout=606
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1281,7 +1281,7 @@ windowlayout=606
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1296,7 +1296,7 @@ windowlayout=606
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -1324,11 +1324,11 @@ windowlayout=606
  nx=0
  ny=0
  ncx=1197
- ncy=38
+ ncy=36
  x=0
  y=0
  cx=1212
- cy=36
+ cy=34
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1385,9 +1385,9 @@ windowlayout=606
   0
   1
   2
-  4
   5
   3
+  4
  firsttab=0
  index=0
  [confideufo.fontname]
@@ -1452,7 +1452,7 @@ windowlayout=606
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

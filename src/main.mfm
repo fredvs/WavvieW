@@ -9052,6 +9052,7 @@ object mainfo: tmainfo
       splitter2.bounds_y = 0
       splitter2.bounds_cx = 4
       splitter2.bounds_cy = 396
+      statfile = sta
       envelope.controller = tsigcontroller1
       envelope.trigger.gain = 1
       envelope.trigger.min = -Inf
