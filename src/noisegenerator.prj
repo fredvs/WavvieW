@@ -210,11 +210,11 @@ compnamedialog=5
  y=268
  cx=300
  cy=203
-bmpfiledialog=26
+bmpfiledialog=28
  [filedialog]
  filenamescust=0
  filenames=1
-  /home/fred/Pictures/piano88dk.png
+  /home/fred/Pictures/buttonslider.png
  filecolwidth=150
  x=0
  y=0
@@ -231,7 +231,9 @@ bmpfiledialog=26
  splitterplaces=243
  splitterlateral=126
  lastdir=/home/fred/Pictures/
- filehistory=3
+ filehistory=5
+  /home/fred/Pictures/buttonslider.png
+  /home/fred/Pictures/keyboard4oct.png
   /home/fred/Pictures/piano88dk.png
   /home/fred/Pictures/piano88.png
   /home/fred/uos/uos.png
@@ -483,7 +485,7 @@ modulefiles=1
 befcommandon=0
 makeoptionson=5
  63
- 35
+ 3
  2
  36
  4095
@@ -779,8 +781,10 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=Pa_WriteStream
-findhistory=18
+finddtext=scope
+findhistory=20
+ scope
+ tdoubleoutputconn
  Pa_WriteStream
  fformat
  defaultsampleformat
@@ -801,8 +805,8 @@ findhistory=18
  samplebuffersizematrix
 findoptions=1
 editpos=6
- 0,17
- 0,-1073741823
+ 62,9
+ 0,12
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -835,17 +839,17 @@ ismoduletexts=6
  0
  0
 modules=2
- /home/fred/NoiseGenerator/src/main.mfm
  /home/fred/mseuniverse/samples/skin/defaultskin.mfm
+ /home/fred/NoiseGenerator/src/main.mfm
 moduleoptions=2
  0
  0
 visiblemodules=2
- -1
  0
+ -1
 nomenumodules=2
- 0
  -1
+ 0
 [sourcefo.files_tab]
 order=6
  0
@@ -871,8 +875,8 @@ windowlayout=606
  ny=0
  ncx=0
  ncy=0
- x=95
- y=132
+ x=141
+ y=144
  cx=1224
  cy=621
  rcx=0
@@ -897,7 +901,7 @@ windowlayout=606
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1277,7 +1281,7 @@ windowlayout=606
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -1292,9 +1296,9 @@ windowlayout=606
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=4
+ activetab=0
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1320,11 +1324,11 @@ windowlayout=606
  nx=0
  ny=0
  ncx=1197
- ncy=44
+ ncy=38
  x=0
  y=0
  cx=1212
- cy=42
+ cy=36
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1394,7 +1398,7 @@ windowlayout=606
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_defaultskinmo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1426,29 +1430,10 @@ windowlayout=606
  cy=451
  rcx=0
  rcy=0
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=objectinspectorfo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=143
- y=212
- cx=1070
- cy=502
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
  [_mse_defaultskinmo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=threadsfo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0
@@ -1464,6 +1449,25 @@ windowlayout=606
  wsize=0
  active=0
  visible=0
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=objectinspectorfo
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=196
+ y=218
+ cx=1052
+ cy=495
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
 [targetconsole]
 finddtext=
 findhistory=0

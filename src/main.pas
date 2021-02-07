@@ -39,9 +39,12 @@ type
    tsigcontroller1: tsigcontroller;
    tsigkeyboard1: tsigkeyboard;
    tsigslider3: tsigslider;
-   noisecative: tbooleanedit;
-   pianoon: tbooleanedit;
+   noiseactive: tbooleanedit;
+   pianoactive: tbooleanedit;
    tenvelopeedit1: tenvelopeedit;
+   tlabel1: tlabel;
+   tlabel2: tlabel;
+   tlabel3: tlabel;
    procedure onclosexe(const sender: TObject);
    procedure samcountsetexe(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
@@ -109,12 +112,33 @@ procedure tmainfo.onnoiseactiv(const sender: TObject; var avalue: Boolean;
                var accept: Boolean);
 begin
   out.audio.active := avalue;
+if avalue then 
+begin
+tsigoutaudio1.audio.active := false;
+pianoactive.value:= false;
+scope.sampler.controller := cont;
+scope.sampler.inputs[0].source := noise.output;
+fft.sampler.controller := cont;
+fft.sampler.inputs[0].source := noise.output;
+end;
+ 
+
 end;
 
 procedure tmainfo.onpianoactiv(const sender: TObject; var avalue: Boolean;
                var accept: Boolean);
 begin
 tsigoutaudio1.audio.active := avalue;
+if avalue then
+begin
+ out.audio.active := false;
+ noiseactive.value:= false;
+ scope.sampler.controller := tsigcontroller1;
+ scope.sampler.inputs[0].source := tsigfilter1.output;
+ fft.sampler.controller := tsigcontroller1;
+ fft.sampler.inputs[0].source := tsigfilter1.output;
+end;
+
 end;
 
 end.
