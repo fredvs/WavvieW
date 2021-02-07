@@ -1,5 +1,5 @@
 [mainfo.pianoactive]
-value=1
+value=0
 [mainfo.noiseactive]
 value=0
 [mainfo.tenvelopeedit1]
@@ -9,15 +9,17 @@ zoomy=1
 scrollx=0
 scrolly=0
 activetrace=0
-value0=3
- 0.0036496350364964,0.0114566284779051
- 0.032846715328467,0.9885433715221
- 0.081021897810219,0.89852700490998
+value0=5
+ 0.003030303030303,0.0082644628099174
+ 0.025252525252525,0.9862258953168
+ 0.045454545454546,0.96418732782369
+ 0.078787878787879,0.89256198347107
+ 0.090909090909091,0.85399449035813
 value1=0
 [mainfo.tenvelopeedit1.1]
-x=104
+x=99
 y=0
-xprop=0.34680134680135
+xprop=0.34797297297297
 yprop=1
 [mainfo.tenvelopeedit1.2]
 marker0_0=10
@@ -27,14 +29,14 @@ scrollx=0
 scrolly=0
 activetrace=0
 value0=3
- 0.3448275862069,0.9328968903437
- 4.46043165467626,0.97545008183306
- 7.9136690647482,0.89525368248773
+ 0.4,0.79614325068871
+ 3.8,0.97796143250689
+ 8.8,0.74380165289256
 value1=0
 [mainfo.tenvelopeedit1.3]
-x=217
+x=203
 y=0
-xprop=0.71253071253071
+xprop=0.69932432432432
 yprop=1
 [mainfo.tenvelopeedit1.4]
 zoomx=1
@@ -43,13 +45,13 @@ scrollx=0
 scrolly=0
 activetrace=0
 value0=2
- 0.094017094017094,0.96726677577741
- 0.22764227642276,0.98527004909984
+ 0.067415730337079,0.93112947658402
+ 0.51685393258427,0.98347107438017
 value1=0
 [mainfo.tsplitter2]
-x=723
+x=736
 y=0
-xprop=0.70142180094787
+xprop=0.71428571428571
 yprop=1
 [mainfo.kinded]
 value=0
@@ -58,22 +60,22 @@ value=0.3
 [mainfo.sampcount]
 value=0
 [mainfo.tsplitter1]
-x=385
+x=392
 y=0
-xprop=0.37535545023697
+xprop=0.38223938223938
 yprop=1
 [mainfo.tsigslider3]
-value=0.61904761904762
+value=0.5
 [mainfo.tsigkeyboard1]
 value=100
 [mainfo.average]
 value=0
 [mainfo]
 stackedunder=
-x=136
-y=131
-cx=1042
-cy=503
+x=176
+y=101
+cx=1038
+cy=456
 wsize=0
 active=1
 visible=1

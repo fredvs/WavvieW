@@ -26,8 +26,6 @@ type
    tsigslider1: tsigslider;
    kinded: tenumtypeedit;
    averagecount: tintegerdisp;
-   sampcountdi: tintegerdisp;
-   tsimplewidget1: tsimplewidget;
    tfacecomp1: tfacecomp;
    tframecomp1: tframecomp;
    tframecomp2: tframecomp;
@@ -45,6 +43,12 @@ type
    tlabel1: tlabel;
    tlabel2: tlabel;
    tlabel3: tlabel;
+   tsigwavetable1: tsigwavetable;
+   tsigin1: tsigin;
+   tsigcontroller2: tsigcontroller;
+   tsigoutaudio2: tsigoutaudio;
+   sampcountdi: tintegerdisp;
+   tsimplewidget1: tsimplewidget;
    procedure onclosexe(const sender: TObject);
    procedure samcountsetexe(const sender: TObject; var avalue: realty;
                    var accept: Boolean);

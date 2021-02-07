@@ -1,10 +1,11 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 196
-  bounds_y = 218
-  bounds_cx = 1042
-  bounds_cy = 495
-  bounds_cxmin = 1042
+  bounds_x = 176
+  bounds_y = 101
+  bounds_cx = 1038
+  bounds_cy = 456
+  bounds_cxmin = 1038
+  bounds_cymin = 342
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
@@ -12,8 +13,8 @@ object mainfo: tmainfo
   container.bounds = (
     0
     0
-    1042
-    495
+    1038
+    456
   )
   font.color = -1610612731
   font.name = 'stf_default'
@@ -54,9 +55,9 @@ object mainfo: tmainfo
   object tlayouter1: tlayouter
     color = -2147483645
     face.localprops = []
-    bounds_x = 51
-    bounds_y = 415
-    bounds_cx = 985
+    bounds_x = 40
+    bounds_y = 382
+    bounds_cx = 981
     bounds_cy = 67
     anchors = [an_left, an_right, an_bottom]
     optionsscale = [osc_expandy, osc_shrinky, osc_expandshrinkx, osc_expandshrinky]
@@ -80,7 +81,7 @@ object mainfo: tmainfo
         19
         0
       )
-      bounds_x = 935
+      bounds_x = 931
       bounds_y = 9
       bounds_cx = 50
       bounds_cy = 31
@@ -103,30 +104,17 @@ object mainfo: tmainfo
       face.localprops = []
       face.template = tfacecomp1
       taborder = 1
-      bounds_x = 879
+      bounds_x = 875
       bounds_y = 6
       bounds_cx = 52
       bounds_cy = 37
       reffontheight = 15
     end
-    object sampcountdi: tintegerdisp
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      face.localprops = []
-      face.template = tfacecomp1
-      taborder = 2
-      bounds_x = 0
-      bounds_y = 24
-      bounds_cx = 20
-      bounds_cy = 19
-      reffontheight = 15
-    end
     object tsimplewidget1: tsimplewidget
-      taborder = 3
-      bounds_x = 24
+      taborder = 4
+      bounds_x = 0
       bounds_y = 18
-      bounds_cx = 25
+      bounds_cx = 55
       bounds_cy = 30
       anchors = [an_left, an_top, an_right]
     end
@@ -8466,8 +8454,8 @@ object mainfo: tmainfo
         414141013B3B3B012A2A2A0111111101B2958AFFB2958A2C
       }
       face.localprops = [fal_image]
-      taborder = 4
-      bounds_x = 187
+      taborder = 2
+      bounds_x = 183
       bounds_y = 0
       bounds_cx = 688
       bounds_cy = 67
@@ -8479,7 +8467,7 @@ object mainfo: tmainfo
       min = 0.005
     end
     object tsigslider3: tsigslider
-      frame.caption = 'Volume'
+      frame.caption = 'Piano Volume'
       frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
@@ -8491,10 +8479,10 @@ object mainfo: tmainfo
         0
       )
       face.localprops = []
-      taborder = 5
-      bounds_x = 53
+      taborder = 3
+      bounds_x = 59
       bounds_y = 1
-      bounds_cx = 130
+      bounds_cx = 120
       bounds_cy = 47
       anchors = [an_left, an_bottom]
       statfile = sta
@@ -8534,15 +8522,15 @@ object mainfo: tmainfo
     taborder = 1
     bounds_x = 0
     bounds_y = 0
-    bounds_cx = 1037
-    bounds_cy = 414
+    bounds_cx = 1036
+    bounds_cy = 381
     anchors = [an_left, an_top, an_right, an_bottom]
     object tsplitter1: tsplitter
       color = -1610612734
       bounds_x = 392
       bounds_y = 0
       bounds_cx = 4
-      bounds_cy = 414
+      bounds_cy = 381
       anchors = [an_left]
       options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
       linkleft = scope
@@ -8569,7 +8557,7 @@ object mainfo: tmainfo
       bounds_x = 396
       bounds_y = 0
       bounds_cx = 340
-      bounds_cy = 414
+      bounds_cy = 381
       anchors = [an_right]
       traces.count = 1
       traces.chartkind = tck_bar
@@ -8685,7 +8673,7 @@ object mainfo: tmainfo
       bounds_x = 88
       bounds_y = 0
       bounds_cx = 304
-      bounds_cy = 414
+      bounds_cy = 381
       anchors = [an_left]
       traces.count = 1
       traces.options = [cto_smooth]
@@ -8790,10 +8778,11 @@ object mainfo: tmainfo
         0
       )
       taborder = 3
+      hint = 'Samples count of noise'
       bounds_x = 45
       bounds_y = 26
       bounds_cx = 32
-      bounds_cy = 388
+      bounds_cy = 355
       anchors = [an_left, an_top, an_bottom]
       statfile = sta
       scrollbar.buttonlength = 20
@@ -8826,10 +8815,11 @@ object mainfo: tmainfo
         0
       )
       taborder = 4
+      hint = 'Amplitude of noise'
       bounds_x = 11
       bounds_y = 26
       bounds_cx = 29
-      bounds_cy = 388
+      bounds_cy = 355
       anchors = [an_left, an_top, an_bottom]
       statfile = sta
       value = 0.3
@@ -8870,9 +8860,9 @@ object mainfo: tmainfo
       face.localprops = []
       face.template = tfacecomp1
       taborder = 5
-      bounds_x = 8
-      bounds_y = 0
-      bounds_cx = 76
+      bounds_x = 4
+      bounds_y = 2
+      bounds_cx = 82
       bounds_cy = 21
       statfile = sta
       value = 0
@@ -8897,7 +8887,7 @@ object mainfo: tmainfo
       bounds_x = 736
       bounds_y = 0
       bounds_cx = 4
-      bounds_cy = 414
+      bounds_cy = 381
       anchors = [an_left]
       options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
       linkleft = fft
@@ -8908,8 +8898,8 @@ object mainfo: tmainfo
       taborder = 7
       bounds_x = 740
       bounds_y = 16
-      bounds_cx = 297
-      bounds_cy = 396
+      bounds_cx = 296
+      bounds_cy = 363
       anchors = [an_left, an_top, an_right, an_bottom]
       attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
       attack.frame.localprops = []
@@ -8919,7 +8909,7 @@ object mainfo: tmainfo
       attack.bounds_x = 0
       attack.bounds_y = 0
       attack.bounds_cx = 99
-      attack.bounds_cy = 396
+      attack.bounds_cy = 363
       attack.traces.count = 2
       attack.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       attack.traces.xrange = 0.1
@@ -8958,7 +8948,7 @@ object mainfo: tmainfo
       decay.bounds_x = 103
       decay.bounds_y = 0
       decay.bounds_cx = 100
-      decay.bounds_cy = 396
+      decay.bounds_cy = 363
       decay.traces.count = 2
       decay.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       decay.traces.xrange = 10
@@ -9009,8 +8999,8 @@ object mainfo: tmainfo
       release.taborder = 2
       release.bounds_x = 207
       release.bounds_y = 0
-      release.bounds_cx = 90
-      release.bounds_cy = 396
+      release.bounds_cx = 89
+      release.bounds_cy = 363
       release.traces.count = 2
       release.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       release.traces.xrange = 1
@@ -9045,13 +9035,13 @@ object mainfo: tmainfo
       splitter1.bounds_x = 99
       splitter1.bounds_y = 0
       splitter1.bounds_cx = 4
-      splitter1.bounds_cy = 396
+      splitter1.bounds_cy = 363
       splitter2.color = -2147483645
       splitter2.taborder = 4
       splitter2.bounds_x = 203
       splitter2.bounds_y = 0
       splitter2.bounds_cx = 4
-      splitter2.bounds_cy = 396
+      splitter2.bounds_cy = 363
       statfile = sta
       envelope.controller = tsigcontroller1
       envelope.trigger.gain = 1
@@ -9077,7 +9067,7 @@ object mainfo: tmainfo
     end
     object tlabel1: tlabel
       taborder = 8
-      bounds_x = 739
+      bounds_x = 746
       bounds_y = 0
       bounds_cx = 75
       bounds_cy = 15
@@ -9087,7 +9077,7 @@ object mainfo: tmainfo
     end
     object tlabel2: tlabel
       taborder = 9
-      bounds_x = 845
+      bounds_x = 852
       bounds_y = 0
       bounds_cx = 73
       bounds_cy = 15
@@ -9097,7 +9087,7 @@ object mainfo: tmainfo
     end
     object tlabel3: tlabel
       taborder = 10
-      bounds_x = 945
+      bounds_x = 950
       bounds_y = 0
       bounds_cx = 81
       bounds_cy = 15
@@ -9119,8 +9109,8 @@ object mainfo: tmainfo
       2
     )
     taborder = 2
-    bounds_x = 15
-    bounds_y = 418
+    bounds_x = 8
+    bounds_y = 419
     bounds_cx = 70
     bounds_cy = 17
     anchors = [an_left, an_bottom]
@@ -9140,13 +9130,27 @@ object mainfo: tmainfo
       2
     )
     taborder = 3
-    bounds_x = 124
-    bounds_y = 468
+    bounds_x = 120
+    bounds_y = 434
     bounds_cx = 70
     bounds_cy = 17
     anchors = [an_right, an_bottom]
     statfile = sta
     onsetvalue = onpianoactiv
+  end
+  object sampcountdi: tintegerdisp
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp2
+    face.localprops = []
+    face.template = tfacecomp1
+    taborder = 4
+    bounds_x = 46
+    bounds_y = 387
+    bounds_cx = 29
+    bounds_cy = 22
+    anchors = [an_left, an_bottom]
+    reffontheight = 15
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -9331,5 +9335,60 @@ object mainfo: tmainfo
     samplefrequ = 44100
     left = 736
     top = 80
+  end
+  object tsigwavetable1: tsigwavetable
+    controller = tsigcontroller2
+    frequency.gain = 1
+    frequency.min = -Inf
+    frequency.max = -Inf
+    frequency.expstart = -Inf
+    frequency.expend = -Inf
+    frequency.value = 0.01
+    frequfact.gain = 1
+    frequfact.min = -Inf
+    frequfact.max = -Inf
+    frequfact.expstart = -Inf
+    frequfact.expend = -Inf
+    frequfact.value = 1
+    phase.gain = 1
+    phase.min = -Inf
+    phase.max = -Inf
+    phase.expstart = -Inf
+    phase.expend = -Inf
+    amplitude.source = tsigin1.output
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = -Inf
+    amplitude.expend = -Inf
+    amplitude.value = 1
+    left = 792
+    top = 312
+  end
+  object tsigin1: tsigin
+    controller = tsigcontroller2
+    left = 784
+    top = 272
+  end
+  object tsigcontroller2: tsigcontroller
+    samplefrequ = 44100
+    left = 780
+    top = 240
+  end
+  object tsigoutaudio2: tsigoutaudio
+    controller = tsigcontroller1
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = tsigfilter1.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    audio.latency = 0.1
+    left = 888
+    top = 280
   end
 end
