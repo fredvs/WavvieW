@@ -204,11 +204,17 @@ colordialog=5
  y=234
  cx=338
  cy=298
-bmpfiledialog=24
+compnamedialog=5
+ [compnametreefo]
+ x=534
+ y=268
+ cx=300
+ cy=203
+bmpfiledialog=26
  [filedialog]
  filenamescust=0
  filenames=1
-  /home/fred/uos/uos.png
+  /home/fred/Pictures/piano88dk.png
  filecolwidth=150
  x=0
  y=0
@@ -224,8 +230,10 @@ bmpfiledialog=24
  coldatewidth=126
  splitterplaces=243
  splitterlateral=126
- lastdir=/home/fred/uos/
- filehistory=1
+ lastdir=/home/fred/Pictures/
+ filehistory=3
+  /home/fred/Pictures/piano88dk.png
+  /home/fred/Pictures/piano88.png
   /home/fred/uos/uos.png
  filefilterindex=0
  filefilter="*.jpg" "*.jpeg" "*.bmp" "*.ico" "*.png" "*.pnm" "*.pgm" "*.pbm" "*.tga" "*.tif" "*.tiff" "*.xpm"
@@ -475,7 +483,7 @@ modulefiles=1
 befcommandon=0
 makeoptionson=5
  63
- 3
+ 35
  2
  36
  4095
@@ -793,12 +801,12 @@ findhistory=18
  samplebuffersizematrix
 findoptions=1
 editpos=6
- 0,0
- 36,274
- 0,0
- 0,0
- 0,284
- 0,0
+ 0,17
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -816,7 +824,7 @@ relpaths=6
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
- ../uos/src/uos.pas
+ uos/src/uos.pas
  uos_portaudio.pas
  noisegenerator.pas
 ismoduletexts=6
@@ -841,13 +849,13 @@ nomenumodules=2
 [sourcefo.files_tab]
 order=6
  0
- 2
  1
+ 2
  4
  5
  3
 firsttab=0
-index=2
+index=0
 [layout]
 windowlayout=606
  [mainfo.basedock]
@@ -863,8 +871,8 @@ windowlayout=606
  ny=0
  ncx=0
  ncy=0
- x=63
- y=73
+ x=95
+ y=132
  cx=1224
  cy=621
  rcx=0
@@ -881,8 +889,8 @@ windowlayout=606
  ny=0
  ncx=0
  ncy=0
- x=726
- y=180
+ x=542
+ y=233
  cx=497
  cy=314
  rcx=0
@@ -1312,11 +1320,11 @@ windowlayout=606
  nx=0
  ny=0
  ncx=1197
- ncy=52
+ ncy=44
  x=0
  y=0
  cx=1212
- cy=50
+ cy=42
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1326,9 +1334,10 @@ windowlayout=606
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/NoiseGenerator/src/uos_mseaudio.pas
+ value=/home/fred/NoiseGenerator/src/main.pas
  history=20
   /home/fred/NoiseGenerator/src/main.pas
+  /home/fred/NoiseGenerator/src/uos_msesigaudio.pas
   /home/fred/noisegenerator/src/main.pas
   /home/fred/noisegenerator/mseaudiouos.pas
   /home/fred/uos/examples/consolesynth.pas
@@ -1347,7 +1356,6 @@ windowlayout=606
   /home/fred/Downloads/Oscilloscope-main/source/3rdParty/uos/uos.pas
   /home/fred/uos/examples/uos.pas
   /home/fred/uos.pas
-  /home/fred/Oscilloscope/source/odatacollector.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1371,13 +1379,13 @@ windowlayout=606
  [sourcefo.files_tab]
  order=6
   0
-  2
   1
+  2
   4
   5
   3
  firsttab=0
- index=2
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1386,7 +1394,7 @@ windowlayout=606
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=_mse_defaultskinmo_mse_
+ stackedunder=confdebuggerfo
  parent=
  mdistate=0
  nx=0
@@ -1421,17 +1429,17 @@ windowlayout=606
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=127
- y=217
- cx=545
- cy=270
+ x=143
+ y=212
+ cx=1070
+ cy=502
  rcx=0
  rcy=0
  wsize=0
@@ -1440,7 +1448,7 @@ windowlayout=606
  [_mse_defaultskinmo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=confdebuggerfo
+ stackedunder=threadsfo
  parent=
  mdistate=3
  nx=0

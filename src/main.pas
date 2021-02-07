@@ -3,12 +3,12 @@ unit main;
 interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,
- uos_mseaudio,uos_msesigaudio,
- msestrings,msesignal,msesignoise,msechartedit,msedataedits,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
+ uos_msesigaudio,msestrings,msesignal,msesignoise,msechartedit,msedataedits,
  mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
  msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
- msesplitter,msesimplewidgets,msefilter,mseact,msestream,sysutils, msebitmap;
+ msesplitter,msesimplewidgets,msefilter,mseact,msestream,sysutils, msebitmap,
+ msedropdownlist, msesigaudio;
 
 type
  tmainfo = class(tmainform)
@@ -32,6 +32,16 @@ type
    tframecomp1: tframecomp;
    tframecomp2: tframecomp;
    timagelist3: timagelist;
+   tsplitter2: tsplitter;
+   tsigoutaudio1: tsigoutaudio;
+   tsigfilter1: tsigfilter;
+   tsignoise1: tsignoise;
+   tsigcontroller1: tsigcontroller;
+   tsigkeyboard1: tsigkeyboard;
+   tsigslider3: tsigslider;
+   noisecative: tbooleanedit;
+   pianoon: tbooleanedit;
+   tenvelopeedit1: tenvelopeedit;
    procedure onclosexe(const sender: TObject);
    procedure samcountsetexe(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
@@ -42,6 +52,10 @@ type
                    var accept: Boolean);
    procedure buffullev(const sender: tsigsampler;
                    const abuffer: samplerbufferty);
+   procedure onnoiseactiv(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onpianoactiv(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
  end;
 var
  mainfo: tmainfo;
@@ -89,6 +103,18 @@ begin
  sender.lockapplication();
  averagecount.value:= tsigsamplerfft(sender).averagecount;
  sender.unlockapplication();
+end;
+
+procedure tmainfo.onnoiseactiv(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+  out.audio.active := avalue;
+end;
+
+procedure tmainfo.onpianoactiv(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+tsigoutaudio1.audio.active := avalue;
 end;
 
 end.
