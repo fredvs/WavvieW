@@ -191,7 +191,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=1
+ index=2
  [projectoptionsfo]
  stackedunder=
  x=302
@@ -248,7 +248,7 @@ befcommand=0
 aftcommand=0
 makeoptions=5
  -l -Mobjfpc -Sh ${fpcflags}
- -gl
+ -ghl
  -B
  -XX -Xs
  -FUunits
@@ -476,7 +476,7 @@ befcommandon=0
 makeoptionson=5
  63
  3
- 34
+ 2
  36
  4095
 compilerusedon=29
@@ -793,12 +793,12 @@ findhistory=18
  samplebuffersizematrix
 findoptions=1
 editpos=6
- 0,6
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
- 0,-1073741823
+ 0,0
+ 36,274
+ 0,0
+ 0,0
+ 0,284
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -807,16 +807,16 @@ bookmarks4=0
 bookmarks5=0
 sourcefiles=6
  ${PROJECTDIR}/main.pas
- ${PROJECTDIR}/mseaudiouos.pas
- ${PROJECTDIR}/msesigaudiouos.pas
+ ${PROJECTDIR}/uos_mseaudio.pas
+ ${PROJECTDIR}/uos_msesigaudio.pas
  /home/fred/uos/src/uos.pas
  ${PROJECTDIR}/uos_portaudio.pas
  ${PROJECTDIR}/noisegenerator.pas
 relpaths=6
  main.pas
- mseaudiouos.pas
- msesigaudiouos.pas
- uos/src/uos.pas
+ uos_mseaudio.pas
+ uos_msesigaudio.pas
+ ../uos/src/uos.pas
  uos_portaudio.pas
  noisegenerator.pas
 ismoduletexts=6
@@ -842,12 +842,12 @@ nomenumodules=2
 order=6
  0
  2
- 3
+ 1
  4
  5
- 1
+ 3
 firsttab=0
-index=0
+index=2
 [layout]
 windowlayout=606
  [mainfo.basedock]
@@ -881,8 +881,8 @@ windowlayout=606
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=726
+ y=180
  cx=497
  cy=314
  rcx=0
@@ -1269,7 +1269,7 @@ windowlayout=606
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1311,12 +1311,12 @@ windowlayout=606
  mdistate=0
  nx=0
  ny=0
- ncx=1212
- ncy=56
+ ncx=1197
+ ncy=52
  x=0
  y=0
  cx=1212
- cy=56
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1326,7 +1326,7 @@ windowlayout=606
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/NoiseGenerator/src/main.pas
+ value=/home/fred/NoiseGenerator/src/uos_mseaudio.pas
  history=20
   /home/fred/NoiseGenerator/src/main.pas
   /home/fred/noisegenerator/src/main.pas
@@ -1372,12 +1372,12 @@ windowlayout=606
  order=6
   0
   2
-  3
+  1
   4
   5
-  1
+  3
  firsttab=0
- index=0
+ index=2
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1386,7 +1386,7 @@ windowlayout=606
  irqoff=0
  splitdir=0
  useroptions=268451947
- stackedunder=confdebuggerfo
+ stackedunder=_mse_defaultskinmo_mse_
  parent=
  mdistate=0
  nx=0
@@ -1440,7 +1440,7 @@ windowlayout=606
  [_mse_defaultskinmo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=componentpalettefo
+ stackedunder=confdebuggerfo
  parent=
  mdistate=3
  nx=0

@@ -187,8 +187,12 @@ begin
     {$ENDIF}  
  {$ENDIF}
    
- if Pa_Load(pchar(PA_FileName)) then Pa_Initialize();
- 
+ if Pa_Load(pchar(PA_FileName)) then
+ begin
+  //sleep(10);
+  Pa_Initialize();
+  
+ end;
  //writeln('OK Portaudio loaded') else 
  // writeln('OK Portaudio NOT loaded');
    
@@ -276,14 +280,16 @@ begin
   err := Pa_OpenStream(@HandleSt, nil, @PAParam,
    44100, 1024*2, paClipOff, nil, nil);
    
-   if HandleSt <> nil then Pa_StartStream(HandleSt)
+  application.processmessages;
+   sleep(10);
+ 
+    if HandleSt <> nil then Pa_StartStream(HandleSt)
    else  raiseerror(err);
+  
+  application.processmessages;
+  sleep(10);
  
- application.processmessages;
-//sleep(10);
-  fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,
-                                   fstacksizekb);
- 
+  fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,fstacksizekb);
   factive:= true;
 end;
 
