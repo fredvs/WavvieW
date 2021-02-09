@@ -11,7 +11,7 @@ unit uos_mseaudio;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
 uses
- classes,mclasses,mseclasses,msethread,msetypes, uos_portaudio,
+ classes,mclasses,mseclasses,msethread,msetypes, uos_portaudio, uos_libsndfile,
  msesys,msestrings;
 
 type
@@ -69,8 +69,8 @@ type
    fappname: msestring;
    fstreamname: msestring;
   //fpulsestream: ppa_simple;
-   HandleSt:pointer;
-   
+   HandlePA:pointer;
+   HandleSF:pointer;
    procedure initnames; virtual;
    procedure loaded; override;
    procedure run; virtual;
@@ -120,82 +120,39 @@ type
    property onerror;
  end;
  
- var
- HandleSt: pointer; 
-  
+function uos_mseLoadLib(PA_FileName, SF_FileName : string): integer;
+function uos_mseUnLoadLib(): integer;
+
+   
 implementation
 uses
  sysutils,msesysintf,mseapplication;
+ 
+function uos_mseLoadLib(PA_FileName, SF_FileName : string): integer;
+begin
+ if Pa_Load(pchar(PA_FileName)) then
+ begin
+  Pa_Initialize();
+ end;
+ 
+ Sf_Load(SF_FileName); 
+end; 
+
+function uos_mseUnLoadLib(): integer;
+begin
+sf_Unload();
+pa_unload; 
+end;
 
 { tcustomaudioout }
 
 constructor tcustomaudioout.create(aowner: tcomponent);
-var
-PA_FileName, ordir, opath : string;
 begin
 // syserror(sys_mutexcreate(fmutex),self);
  fchannels:= defaultsamplechannels;
  fformat:= defaultsampleformat;
  frate:= defaultsamplerate;
  flatency:= defaultlatency;
- 
-    ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
-
- {$IFDEF Windows}
-     {$if defined(cpu64)}
-    PA_FileName := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
-     {$else}
-    PA_FileName := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
-     {$endif}
- {$ENDIF}
-
-  {$if defined(CPUAMD64) and  defined(linux) }
-    PA_FileName := ordir + 'lib/Linux/64bit/LibPortaudio-64.so';
-  {$ENDIF}
-
-  {$if defined(cpu86) and defined(linux)}
-    PA_FileName := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
-  {$ENDIF}
-
-  {$if defined(linux) and defined(cpuarm)}
-    PA_FileName := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
-  {$ENDIF}
-
-  {$if defined(linux) and defined(cpuaarch64)}
-  PA_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
-  {$ENDIF}
-
- {$IFDEF freebsd}
-    {$if defined(cpu64)}
-    PA_FileName := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
-    {$else}
-    PA_FileName := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
-    {$endif}
-  {$ENDIF}
-
- {$IFDEF Darwin}
-  {$IFDEF CPU32}
-    opath := ordir;
-    opath := copy(opath, 1, Pos('/UOS', opath) - 1);
-    PA_FileName := opath + '/lib/Mac/32bit/LibPortaudio-32.dylib';
-    {$ENDIF}
-  
-   {$IFDEF CPU64}
-    opath := ordir;
-    opath := copy(opath, 1, Pos('/UOS', opath) - 1);
-    PA_FileName := opath + '/lib/Mac/64bit/LibPortaudio-64.dylib';
-    {$ENDIF}  
- {$ENDIF}
-   
- if Pa_Load(pchar(PA_FileName)) then
- begin
-  //sleep(10);
-  Pa_Initialize();
-  
- end;
- //writeln('OK Portaudio loaded') else 
- // writeln('OK Portaudio NOT loaded');
-   
  inherited;
 end;
 
@@ -247,10 +204,10 @@ begin
   fthread.terminate;
   application.waitforthread(fthread);
   freeandnil(fthread);
-  Pa_StopStream(HandleSt);
-  Pa_CloseStream(HandleSt);
-  pa_unload;  
- end;
+  Pa_StopStream(HandlePA);
+  Pa_CloseStream(HandlePA);
+  sf_close(HandleSF); 
+  end;
  factive:= false;
 end;
 
@@ -258,6 +215,8 @@ procedure tcustomaudioout.run;
 var
  PAParam: PaStreamParameters;
  err: integer;
+ sfInfo: TSF_INFO;
+ SoundFilename, ordir : string;
  
 begin
  PAParam.hostApiSpecificStreamInfo := nil;
@@ -266,6 +225,8 @@ begin
      ((Pa_GetDeviceInfo(PAParam.device)^.   defaultHighOutputLatency)) * 1;
    
  flatency := PAParam.SuggestedLatency;
+ 
+  FRate := FRate * 2; 
  
   //paFloat32;
   //paInt32;
@@ -283,24 +244,16 @@ begin
    PAParam.SampleFormat := paFloat32
    else
    PAParam.SampleFormat := paFloat32;
- 
- //err := Pa_OpenStream(@HandleSt, nil, @PAParam,
- // 44100, 512, paClipOff, nil, nil);
-     
- // err := Pa_OpenDefaultStream(@HandleSt, 2, 1, paFloat32,44100, 1024, nil, nil);
-  
-  err := Pa_OpenStream(@HandleSt, nil, @PAParam,
-   44100, 512, paClipOff, nil, nil);
+       
+      err := Pa_OpenStream(@HandlePA, nil, @PAParam,
+   frate , 512, paClipOff, nil, nil);
    
-  application.processmessages;
-   sleep(10);
- 
-    if HandleSt <> nil then Pa_StartStream(HandleSt)
+     if HandlePA <> nil then Pa_StartStream(HandlePA)
    else  raiseerror(err);
-  
+   
+   sleep(10);
   application.processmessages;
-  sleep(10);
- 
+  
   fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,fstacksizekb);
   factive:= true;
 end;
@@ -347,8 +300,8 @@ begin
 
    if data <> nil then begin
    
-   if assigned(HandleSt) then
-   Pa_WriteStream(HandleSt,
+   if assigned(HandlePA) then
+   Pa_WriteStream(HandlePA,
   @data, length(bytearty(data))*datasize);
   
    end;

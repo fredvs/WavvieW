@@ -1,7 +1,38 @@
-[mainfo.pianoactive]
+[mainfo.tfilenameeditx1]
+filenames=1
+ sound/test.ogg
+filenamescust=0
+filecolwidth=174
+x=0
+y=0
+cx=0
+cy=0
+nopanel=0
+noicon=0
+compact=0
+showhidden=0
+colnamewidth=211
+colsizewidth=81
+colextwidth=45
+coldatewidth=119
+splitterplaces=242
+splitterlateral=126
+lastdir=sound/
+filehistory=0
+filefilterindex=0
+filefilter=
+[mainfo.kinded]
+value=2
+[mainfo.sampcount]
 value=1
-[mainfo.noiseactive]
+[mainfo.tsigslider1]
+value=0.51188872895206
+[mainfo.average]
 value=0
+[mainfo.tsigslider3]
+value=1
+[mainfo.tsigkeyboard1]
+value=100
 [mainfo.tenvelopeedit1]
 [mainfo.tenvelopeedit1.0]
 zoomx=1
@@ -9,13 +40,15 @@ zoomy=1
 scrollx=0
 scrolly=0
 activetrace=0
-value0=3
+value0=5
  0.003030303030303,0.0082644628099174
- 0.025252525252525,0.9862258953168
- 0.085858585858586,0.88429752066116
+ 0.0091836734693878,0.067039106145251
+ 0.035714285714286,0.98603351955307
+ 0.071428571428571,0.85754189944134
+ 0.08265306122449,0.37430167597765
 value1=0
 [mainfo.tenvelopeedit1.1]
-x=99
+x=98
 y=0
 xprop=0.34797297297297
 yprop=1
@@ -27,12 +60,12 @@ scrollx=0
 scrolly=0
 activetrace=0
 value0=3
- 0.7,0.93112947658402
- 3.8,0.97796143250689
- 8.8,0.74380165289256
+ 0.20408163265306,0.87150837988827
+ 3.97959183673469,0.98603351955307
+ 8.36734693877551,0.70391061452514
 value1=0
 [mainfo.tenvelopeedit1.3]
-x=203
+x=200
 y=0
 xprop=0.69932432432432
 yprop=1
@@ -42,37 +75,26 @@ zoomy=1
 scrollx=0
 scrolly=0
 activetrace=0
-value0=2
- 0.067415730337079,0.93112947658402
- 0.51685393258427,0.98347107438017
+value0=3
+ 0.125,0.97206703910615
+ 0.43181818181818,0.99441340782123
+ 0.73863636363636,0.84916201117318
 value1=0
 [mainfo.tsplitter2]
-x=736
+x=726
 y=0
 xprop=0.71428571428571
 yprop=1
-[mainfo.kinded]
-value=0
-[mainfo.tsigslider1]
-value=0.52760736196319
-[mainfo.sampcount]
-value=0
 [mainfo.tsplitter1]
-x=392
+x=387
 y=0
 xprop=0.38223938223938
 yprop=1
-[mainfo.tsigslider3]
-value=0.88461538461539
-[mainfo.tsigkeyboard1]
-value=100
-[mainfo.average]
-value=0
 [mainfo]
 stackedunder=
-x=171
-y=94
-cx=1038
+x=174
+y=66
+cx=1024
 cy=505
 wsize=0
 active=1
