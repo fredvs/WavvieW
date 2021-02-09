@@ -1,3 +1,5 @@
+[mainfo.viewinput]
+value=0
 [mainfo.viewpiano]
 value=0
 [mainfo.viewfile]
@@ -6,7 +8,7 @@ value=0
 value=1
 [mainfo.tfilenameeditx1]
 filenames=1
- /home/fred/NoiseGenerator/src/sound/Sine_wave_440_mono.ogg
+ /home/fred/NoiseGenerator/src/sound/Sine_wave_440_stereo.ogg
 filenamescust=0
 filecolwidth=174
 x=0
@@ -25,8 +27,8 @@ splitterplaces=242
 splitterlateral=126
 lastdir=/home/fred/NoiseGenerator/src/sound/
 filehistory=4
- /home/fred/NoiseGenerator/src/sound/Sine_wave_440_mono.ogg
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_stereo.ogg
+ /home/fred/NoiseGenerator/src/sound/Sine_wave_440_mono.ogg
  /home/fred/NoiseGenerator/src/sound/test.ogg
  /home/fred/Downloads/Sine_wave_440.ogg
 filefilterindex=-1

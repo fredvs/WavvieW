@@ -9139,7 +9139,7 @@ object mainfo: tmainfo
     face.template = tfacecomp1
     taborder = 9
     bounds_x = 8
-    bounds_y = 350
+    bounds_y = 342
     bounds_cx = 148
     bounds_cy = 42
     anchors = [an_left, an_bottom]
@@ -9169,9 +9169,9 @@ object mainfo: tmainfo
       0
     )
     taborder = 10
-    bounds_x = 352
+    bounds_x = 336
     bounds_y = 340
-    bounds_cx = 266
+    bounds_cx = 298
     bounds_cy = 41
     anchors = [an_right, an_bottom]
     object viewnoise: tbooleaneditradio
@@ -9184,7 +9184,7 @@ object mainfo: tmainfo
         35
         2
       )
-      bounds_x = 102
+      bounds_x = 78
       bounds_y = 18
       bounds_cx = 48
       bounds_cy = 17
@@ -9221,12 +9221,30 @@ object mainfo: tmainfo
         2
       )
       taborder = 2
-      bounds_x = 206
+      bounds_x = 142
       bounds_y = 18
       bounds_cx = 48
       bounds_cy = 17
       statfile = sta
       onsetvalue = onpianoview
+    end
+    object viewinput: tbooleaneditradio
+      frame.caption = 'Input/Mic'
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.outerframe = (
+        0
+        2
+        60
+        2
+      )
+      taborder = 3
+      bounds_x = 206
+      bounds_y = 18
+      bounds_cx = 73
+      bounds_cy = 17
+      statfile = sta
+      onsetvalue = oninputview
     end
   end
   object onoiseon: tbooleanedit
@@ -9281,9 +9299,9 @@ object mainfo: tmainfo
     face.template = tfacecomp1
     taborder = 13
     bounds_x = 24
-    bounds_y = 408
+    bounds_y = 388
     bounds_cx = 58
-    bounds_cy = 29
+    bounds_cy = 24
     anchors = [an_left, an_bottom]
     state = [as_localcaption, as_localonexecute]
     caption = 'Start'
@@ -9297,13 +9315,34 @@ object mainfo: tmainfo
     face.template = tfacecomp1
     taborder = 14
     bounds_x = 88
-    bounds_y = 408
+    bounds_y = 388
     bounds_cx = 58
-    bounds_cy = 29
+    bounds_cy = 24
     anchors = [an_left, an_bottom]
     state = [as_localcaption, as_localonexecute]
     caption = 'Stop'
     onexecute = onstop
+  end
+  object oninputon: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Activate Input/Mic'
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      49
+      18
+      50
+      0
+    )
+    taborder = 15
+    bounds_x = 34
+    bounds_y = 420
+    bounds_cx = 112
+    bounds_cy = 32
+    anchors = [an_left, an_bottom]
+    onsetvalue = oninputactivate
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -9526,5 +9565,43 @@ object mainfo: tmainfo
     cutofffrequ = 0.0001
     left = 744
     top = 288
+  end
+  object tsignoise3: tsignoise
+    controller = tsigcontroller3
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    cutofffrequ = 0.0001
+    left = 880
+    top = 288
+  end
+  object tsigoutaudio3: tsigoutaudio
+    controller = tsigcontroller3
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = tsignoise3.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    audio.latency = 0.1
+    left = 880
+    top = 264
+  end
+  object tsigcontroller3: tsigcontroller
+    samplefrequ = 44100
+    left = 880
+    top = 240
   end
 end

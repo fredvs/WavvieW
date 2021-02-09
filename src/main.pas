@@ -4,13 +4,48 @@ unit main;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
- uos_msesigaudio,msestrings,msesignal,msesignoise,msechartedit,msedataedits,
- mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
- msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
- msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
- msedropdownlist, msefiledialogx;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  uos_mseaudio,
+  uos_msesigaudio,
+  msestrings,
+  msesignal,
+  msesignoise,
+  msechartedit,
+  msedataedits,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msesiggui,
+  msestatfile,
+  msesigfft,
+  msesigfftgui,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msesplitter,
+  msesimplewidgets,
+  msefilter,
+  mseact,
+  msestream,
+  SysUtils,
+  msebitmap,
+  msedropdownlist,
+  msefiledialogx;
 
 type
   tmainfo = class(tmainform)
@@ -36,51 +71,52 @@ type
     tlabel2: tlabel;
     tlabel3: tlabel;
     sampcountdi: tintegerdisp;
-   tsigoutaudio2: tsigoutaudio;
-   tsigcontroller2: tsigcontroller;
-   tsigkeyboard1: tsigkeyboard;
-   tsigslider3: tsigslider;
-   averagecount: tintegerdisp;
-   average: tbooleanedit;
-   tsigslider1: tsigslider;
-   sampcount: tslider;
-   kinded: tenumtypeedit;
-   tfilenameeditx1: tfilenameeditx;
-   tgroupbox1: tgroupbox;
-   viewnoise: tbooleaneditradio;
-   viewfile: tbooleaneditradio;
-   viewpiano: tbooleaneditradio;
-   onoiseon: tbooleanedit;
-   onpianoon: tbooleanedit;
-   tsignoise2: tsignoise;
-   bstart: tbutton;
-   tbutton2: tbutton;
+    tsigoutaudio2: tsigoutaudio;
+    tsigcontroller2: tsigcontroller;
+    tsigkeyboard1: tsigkeyboard;
+    tsigslider3: tsigslider;
+    averagecount: tintegerdisp;
+    average: tbooleanedit;
+    tsigslider1: tsigslider;
+    sampcount: tslider;
+    kinded: tenumtypeedit;
+    tfilenameeditx1: tfilenameeditx;
+    tgroupbox1: tgroupbox;
+    viewnoise: tbooleaneditradio;
+    viewfile: tbooleaneditradio;
+    viewpiano: tbooleaneditradio;
+    onoiseon: tbooleanedit;
+    onpianoon: tbooleanedit;
+    tsignoise2: tsignoise;
+    bstart: TButton;
+    tbutton2: TButton;
+    tsignoise3: tsignoise;
+    tsigoutaudio3: tsigoutaudio;
+    tsigcontroller3: tsigcontroller;
+    viewinput: tbooleaneditradio;
+    oninputon: tbooleanedit;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
     procedure kindsetexe(const Sender: TObject; var avalue: integer; var accept: Boolean);
     procedure averagesetev(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure buffullev(const Sender: tsigsampler; const abuffer: samplerbufferty);
-    procedure onnoiseview(const Sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-    procedure onpianoview(const Sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure oncreated(const sender: TObject);
-   procedure onfileactivate(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onnoiseactivate(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onpianoactivate(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onfileview(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onstart(const sender: TObject);
-   procedure onstop(const sender: TObject);
+    procedure onnoiseview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onpianoview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure oncreated(const Sender: TObject);
+    procedure onfileactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onnoiseactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onfileview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onstart(const Sender: TObject);
+    procedure onstop(const Sender: TObject);
+    procedure oninputview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
   end;
 
 var
   mainfo: tmainfo;
-  hasinit : boolean = false;
+  hasinit: Boolean = False;
 
 implementation
 
@@ -89,9 +125,10 @@ uses
 
 procedure tmainfo.onclosexe(const Sender: TObject);
 begin
-  out.audio.active := False;
-  tsigoutaudio1.audio.active := false;
-  tsigoutaudio2.audio.active := false;
+  out.audio.active           := False;
+  tsigoutaudio1.audio.active := False;
+  tsigoutaudio2.audio.active := False;
+  tsigoutaudio3.audio.active := False;
   uos_mseUnLoadLib();
 end;
 
@@ -126,39 +163,37 @@ begin
   Sender.unlockapplication();
 end;
 
-procedure tmainfo.onnoiseview(const Sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onnoiseview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
   if avalue then
   begin
     //cont.inputtype := 1;
-    scope.sampler.controller := cont;
+    scope.sampler.controller       := cont;
     scope.sampler.inputs[0].Source := noise.output;
-    fft.sampler.controller   := cont;
-    fft.sampler.inputs[0].Source := noise.output;
-  end;
- end;
-
-procedure tmainfo.onpianoview(const Sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-  if avalue then
-  begin
-    scope.sampler.controller := tsigcontroller1;
-    scope.sampler.inputs[0].Source := tsigfilter1.output;
-    fft.sampler.controller   := tsigcontroller1;
-    fft.sampler.inputs[0].Source := tsigfilter1.output;
+    fft.sampler.controller         := cont;
+    fft.sampler.inputs[0].Source   := noise.output;
   end;
 end;
 
-procedure tmainfo.oncreated(const sender: TObject);
+procedure tmainfo.onpianoview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if avalue then
+  begin
+    scope.sampler.controller       := tsigcontroller1;
+    scope.sampler.inputs[0].Source := tsigfilter1.output;
+    fft.sampler.controller         := tsigcontroller1;
+    fft.sampler.inputs[0].Source   := tsigfilter1.output;
+  end;
+end;
+
+procedure tmainfo.oncreated(const Sender: TObject);
 var
-PA_FileName, SF_FileName, ordir : string;
-xx : float;
+  PA_FileName, SF_FileName, ordir: string;
+  xx: float;
 begin
 
- ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
- 
+  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
+
 {$IFDEF Windows}
      {$if defined(cpu64)}
     PA_FileName := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
@@ -211,109 +246,122 @@ begin
       {$ENDIF}  
  {$ENDIF}
 
-uos_mseLoadLib(PA_FileName, SF_FileName);
+  uos_mseLoadLib(PA_FileName, SF_FileName);
 
-cont.inputtype := 0;
-tsigcontroller1.inputtype := 0;
-tsigcontroller2.inputtype := 1;
+  cont.inputtype := 0;            // from synth/noise
+  tsigcontroller1.inputtype := 0; // from synth/piano
+  tsigcontroller2.inputtype := 1; // from file
+  tsigcontroller3.inputtype := 2; // from input/mic
 
-scope.sampler.controller := cont;
-scope.sampler.inputs[0].Source := noise.output;
-fft.sampler.controller   := cont;
-fft.sampler.inputs[0].Source := noise.output;
-
- if viewfile.value then
+  if viewinput.Value then
   begin
-    scope.sampler.controller := tsigcontroller2;
-   scope.sampler.inputs[0].Source := tsignoise2.output;
-    fft.sampler.controller   := tsigcontroller2;
-   fft.sampler.inputs[0].Source := tsignoise2.output;
-     end;
-     
-  if viewnoise.value then
-  begin
-    scope.sampler.controller := cont;
-    scope.sampler.inputs[0].Source := noise.output;
-    fft.sampler.controller   := cont;
-    fft.sampler.inputs[0].Source := noise.output;
+    scope.sampler.controller       := tsigcontroller3;
+    scope.sampler.inputs[0].Source := tsignoise3.output;
+    fft.sampler.controller         := tsigcontroller3;
+    fft.sampler.inputs[0].Source   := tsignoise3.output;
   end;
-      
- if viewpiano.value then
+
+  if viewfile.Value then
   begin
-    scope.sampler.controller := tsigcontroller1;
+    scope.sampler.controller       := tsigcontroller2;
+    scope.sampler.inputs[0].Source := tsignoise2.output;
+    fft.sampler.controller         := tsigcontroller2;
+    fft.sampler.inputs[0].Source   := tsignoise2.output;
+  end;
+
+  if viewnoise.Value then
+  begin
+    scope.sampler.controller       := cont;
+    scope.sampler.inputs[0].Source := noise.output;
+    fft.sampler.controller         := cont;
+    fft.sampler.inputs[0].Source   := noise.output;
+  end;
+
+  if viewpiano.Value then
+  begin
+    scope.sampler.controller       := tsigcontroller1;
     scope.sampler.inputs[0].Source := tsigfilter1.output;
-    fft.sampler.controller   := tsigcontroller1;
-    fft.sampler.inputs[0].Source := tsigfilter1.output;
-  end;    
+    fft.sampler.controller         := tsigcontroller1;
+    fft.sampler.inputs[0].Source   := tsigfilter1.output;
+  end;
 
-hasinit  := true;
+  hasinit := True;
 end;
 
-procedure tmainfo.onfileactivate(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onfileactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
-if hasinit then
-begin
-if avalue then
-begin
-tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename; 
-tsigoutaudio2.audio.active := true;
-//fileon.enabled := false;
-end else tsigoutaudio2.audio.active := false;
-
-end;
+  if hasinit then
+    if avalue then
+    begin
+      tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename;
+      tsigoutaudio2.audio.active    := True;
+      //fileon.enabled := false;
+    end
+    else
+      tsigoutaudio2.audio.active    := False;
 end;
 
-procedure tmainfo.onnoiseactivate(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onnoiseactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
-if hasinit then
-begin
-if avalue then
-begin
- out.audio.active := true;
- //onoiseon.enabled := false;
- end else out.audio.active := false;
-end;
+  if hasinit then
+    if avalue then
+      out.audio.active := True//onoiseon.enabled := false;
+    else
+      out.audio.active := False;
 end;
 
-procedure tmainfo.onpianoactivate(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
-if avalue then
-begin
-tsigoutaudio1.audio.active := true;
-end else tsigoutaudio1.audio.active := false;
+  if avalue then
+    tsigoutaudio1.audio.active := True
+  else
+    tsigoutaudio1.audio.active := False;
 end;
 
-procedure tmainfo.onfileview(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onfileview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
- if avalue then
+  if avalue then
   begin
-    scope.sampler.controller := tsigcontroller2;
-   scope.sampler.inputs[0].Source := tsignoise2.output;
-    fft.sampler.controller   := tsigcontroller2;
-   fft.sampler.inputs[0].Source := tsignoise2.output;
-     end;
+    scope.sampler.controller       := tsigcontroller2;
+    scope.sampler.inputs[0].Source := tsignoise2.output;
+    fft.sampler.controller         := tsigcontroller2;
+    fft.sampler.inputs[0].Source   := tsignoise2.output;
+  end;
 end;
 
-procedure tmainfo.onstart(const sender: TObject);
+procedure tmainfo.onstart(const Sender: TObject);
 begin
-if hasinit then
-begin
-tsigoutaudio2.audio.active := false;
-tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename; 
-tsigoutaudio2.audio.active := true;
-end;
+  if hasinit then
+  begin
+    tsigoutaudio2.audio.active    := False;
+    tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename;
+    tsigoutaudio2.audio.active    := True;
+  end;
 end;
 
-procedure tmainfo.onstop(const sender: TObject);
+procedure tmainfo.onstop(const Sender: TObject);
 begin
-if hasinit then
-begin
-tsigoutaudio2.audio.active := false;
+  if hasinit then
+    tsigoutaudio2.audio.active := False;
 end;
+
+procedure tmainfo.oninputview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if avalue then
+  begin
+    scope.sampler.controller       := tsigcontroller3;
+    scope.sampler.inputs[0].Source := tsignoise3.output;
+    fft.sampler.controller         := tsigcontroller3;
+    fft.sampler.inputs[0].Source   := tsignoise3.output;
+  end;
+end;
+
+procedure tmainfo.oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if avalue then
+    tsigoutaudio3.audio.active := True
+  else
+    tsigoutaudio3.audio.active := False;
 end;
 
 end.

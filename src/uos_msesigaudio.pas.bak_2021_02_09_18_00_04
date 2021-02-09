@@ -90,6 +90,8 @@ type
 
 var
   fbuffer3: array of single;
+// fbuffer2: bytearty; 
+
 
 implementation
 
@@ -353,23 +355,28 @@ end;
 
 function tsigaudioout.threadproc(Sender: tmsethread): integer;
 var
+  // data: pointer;
   int1, i: integer;
   datasize1, blocksize1, bufferlength1, valuehigh1: integer;
   controller1: tsigcontroller;
+  // po1: pointer;
+  // po2: pdouble;
+  // do1: double;
   convert: convertprocty;
   info: convertinfoty;
   sfInfo: TSF_INFO;
   PAParamIn, PAParamOut: PaStreamParameters;
   err: integer;
-  parate: single;
+  parate : single;
+
 begin
   Result      := 0;
   controller1 := fsigout.controller;
 
   if controller1 <> nil then
   begin
-    factive := True;
-
+    factive    := True;
+      
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
@@ -378,75 +385,70 @@ begin
       // Length := sfInfo.frames;
       //  frames := SFinfo.frames;
       // samplerate := SFinfo.samplerate;
-      controller1.samplefrequ := SFinfo.samplerate;
-      controller1.channels := SFinfo.channels;
-    end;
-
-    if controller1.inputtype = 2 then // input of sound card
+      controller1.samplefrequ := SFinfo.samplerate ; 
+      controller1.channels := SFinfo.channels ; 
+      end; 
+      
+     if controller1.inputtype = 2 then // input of sound card
     begin
-      PAParamIn.HostApiSpecificStreamInfo := nil;
-      PAParamIn.device           := Pa_GetDefaultInputDevice();
-      PAParamIn.SuggestedLatency := 0.0;
+     PAParamIn.HostApiSpecificStreamInfo := nil;
+     PAParamIn.device := Pa_GetDefaultInputDevice();
+     PAParamIn.SuggestedLatency := 0.0;
+     
+     PAParamIn.SampleFormat := paFloat32;
+     // PAParamIn.SampleFormat := paInt32;
+     // PAParamIn.SampleFormat := paInt16;
+     
+     if  ((Pa_GetDeviceInfo(PAParamIn.device)^.  maxInputChannels)) > 1 then
+  PAParamIn.channelCount := 2 else
+  PAParamIn.channelCount := 1 ;
+  
+  err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
+   512, paClipOff, nil, nil);
 
-      if fformat = sfm_s16 then
-        PAParamIn.SampleFormat := paInt16
-      else if fformat = sfm_s32 then
-        PAParamIn.SampleFormat := paInt32
-      else if fformat = sfm_f32 then
-        PAParamIn.SampleFormat := paFloat32
-      else
-        PAParamIn.SampleFormat := paFloat32;
-        
-        if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
-        PAParamIn.channelCount := 2
-      else
-        PAParamIn.channelCount := 1;
-        
-      PAParamIn.channelCount := 1;
- 
-        controller1.channels := PAParamIn.channelCount;
-
-      err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
-        512, paClipOff, nil, nil);
-
-      if (HandlePAIn <> nil) then
-        Pa_StartStream(HandlePAIn)
-      else
-        raiseerror(err);
-    end;
-
-    // output
-    PAParamOut.hostApiSpecificStreamInfo := nil;
-    PAParamOut.device           := Pa_GetDefaultOutputDevice();
-    PAParamOut.SuggestedLatency :=
-      ((Pa_GetDeviceInfo(PAParamOut.device)^.defaultHighOutputLatency)) * 1;
-
-    // flatency := PAParam.SuggestedLatency;
-
-    PAParamOut.channelCount := 1;  // sortie mono
-
-    if controller1.inputtype = 1 then
-      parate := SFinfo.samplerate * SFinfo.channels
-    else
-      parate := controller1.samplefrequ;
-
-    if fformat = sfm_s16 then
-      PAParamOut.SampleFormat := paInt16
-    else if fformat = sfm_s32 then
-      PAParamOut.SampleFormat := paInt32
-    else if fformat = sfm_f32 then
-      PAParamOut.SampleFormat := paFloat32
-    else
-      PAParamOut.SampleFormat := paFloat32;
+   if (HandlePAIn <> nil)  then Pa_StartStream(HandlePAIn);
    
-     err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
-      parate, 512, paClipOff, nil, nil);
-
-    if HandlePAOut <> nil then
-      Pa_StartStream(HandlePAOut)
-    else
-      raiseerror(err);
-
+    end;
+   
+      
+      
+      // output
+       PAParamOut.hostApiSpecificStreamInfo := nil;
+ PAParamOut.device := Pa_GetDefaultOutputDevice();
+ PAParamOut.SuggestedLatency :=  
+     ((Pa_GetDeviceInfo(PAParamOut.device)^.   defaultHighOutputLatency)) * 1;
+   
+ // flatency := PAParam.SuggestedLatency;
+  
+  //paFloat32;
+  //paInt32;
+  //paInt16;
+  
+   PAParamOut.channelCount := 1;  // sortie mono
+  
+   if controller1.inputtype = 1 then
+   begin  
+   parate := SFinfo.samplerate * SFinfo.channels;
+   end else parate := controller1.samplefrequ ;  
+   
+    if fformat = sfm_s16 then
+   PAParamOut.SampleFormat := paInt16
+   else
+   if fformat = sfm_s32 then
+   PAParamOut.SampleFormat := paInt32
+   else
+   if fformat = sfm_f32 then
+   PAParamOut.SampleFormat := paFloat32
+   else
+   PAParamOut.SampleFormat := paFloat32;
+       
+      err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
+   parate , 512, paClipOff, nil, nil);
+   
+     if HandlePAOut <> nil then Pa_StartStream(HandlePAOut)
+   else  raiseerror(err);
+   
+ 
     //datasize1:= samplebuffersizematrix[fformat];
     if fformat = sfm_s16 then
       datasize1 := 2
@@ -465,7 +467,7 @@ begin
     setlength(fbuffer, bufferlength1);
     setlength(fbuffer2, bufferlength1 * datasize1);
     setlength(fbuffer3, bufferlength1 * datasize1);
-  
+    
     case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
@@ -522,9 +524,12 @@ begin
     while not Sender.terminated do
     begin
 
+      //  writeln(' name ' +controller1.SoundFilename);  
+
       controller1.lock;
       try
-     
+        //{
+
         if (controller1.inputtype = 1) and (HandleSF <> nil) then
         begin
           if fformat = sfm_s16 then
@@ -542,29 +547,26 @@ begin
           fbuffer3 := fbuffer2;
         end;
 
-        if (controller1.inputtype = 2) and (HandlePAin <> nil) then
-        begin
-         // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
-            Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
-           fbuffer3      := fbuffer2;
-        end;
-
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
         controller1.step(blocksize1);
+
         info.Source := Pointer(fsigout.fbuffer);
         info.dest   := Pointer(fbuffer);
         convert(info);
       finally
         controller1.unlock;
       end;
-     if Assigned(HandlePAOut) then
+
+      //  writeln(inttostr(controller1.inputtype));
+
+      if Assigned(HandlePAOut) then
       begin
         if controller1.inputtype = 0 then
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
-        if (controller1.inputtype = 1) or (controller1.inputtype = 2) then
+        if controller1.inputtype = 1 then
           Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
-       end
+      end
       else
         break;
 

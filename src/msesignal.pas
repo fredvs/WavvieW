@@ -3180,7 +3180,7 @@ begin
     with po1^.dest[int2] do begin
   
     if inputtype = 0 then  dest^:= source^;
-    if inputtype = 1 then   dest^:= asample;
+    if (inputtype = 1) or (inputtype = 2) then   dest^:= asample;
   
     // dest^:= fbuffer3[int1];
    // writeln('length source ' + inttostr(po1^.desthigh));
@@ -3235,7 +3235,7 @@ begin
   
    for int1:= acount-1 downto 0 do begin
   
-   if inputtype = 1 then if length(fbuffer3) > 0 then
+   if (inputtype = 1) or (inputtype = 2) then if length(fbuffer3) > 0 then
    begin
    if channels = 1 then
     asample := fbuffer3[int2];

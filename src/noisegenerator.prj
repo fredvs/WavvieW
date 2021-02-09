@@ -20,7 +20,7 @@ order17=0
 [projectoptions]
 projectdir=/home/fred/NoiseGenerator/src
 projectfilename=/home/fred/NoiseGenerator/src/noisegenerator.prj
-findinfiledialog=59
+findinfiledialog=60
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -63,8 +63,9 @@ findinfiledialog=59
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=msesignal
- history=9
+ value=inputtype
+ history=10
+  inputtype
   msesignal
   internalstep
   floattostrf
@@ -85,8 +86,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=757
- y=302
+ x=936
+ y=202
  cx=234
  cy=269
 options=114
@@ -787,8 +788,11 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=sf_read_float
+finddtext=pa_read
 findhistory=20
+ pa_read
+ HandlePA
+ pa_
  sf_read_float
  inputtype
  writeln
@@ -806,15 +810,13 @@ findhistory=20
  stepinternal
  step(
  step
- internal
- pa
- sf_
 findoptions=1
-editpos=7
- 15,291
- 0,0
- 0,511
- 0,9146
+editpos=8
+ 0,130
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -825,7 +827,8 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-sourcefiles=7
+bookmarks7=0
+sourcefiles=8
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_mseaudio.pas
  ${PROJECTDIR}/uos_msesigaudio.pas
@@ -833,15 +836,18 @@ sourcefiles=7
  ${PROJECTDIR}/uos_portaudio.pas
  ${PROJECTDIR}/noisegenerator.pas
  ${PROJECTDIR}/msesignal.pas
-relpaths=7
+ ${PROJECTDIR}/msesignal.pas
+relpaths=8
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
- ../uos/src/uos.pas
+ uos/src/uos.pas
  uos_portaudio.pas
  noisegenerator.pas
  msesignal.pas
-ismoduletexts=7
+ msesignal.pas
+ismoduletexts=8
+ 0
  0
  0
  0
@@ -858,10 +864,19 @@ visiblemodules=1
 nomenumodules=1
  0
 [sourcefo.files_tab]
+order=8
+ 0
+ 1
+ 2
+ 4
+ 5
+ 6
+ 7
+ 3
 firsttab=0
 index=0
 [layout]
-windowlayout=580
+windowlayout=589
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -875,8 +890,8 @@ windowlayout=580
  ny=0
  ncx=0
  ncy=0
- x=3
- y=78
+ x=119
+ y=144
  cx=1224
  cy=621
  rcx=0
@@ -995,7 +1010,7 @@ windowlayout=580
  x=0
  y=0
  cx=205
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1177,9 +1192,9 @@ windowlayout=580
  ncx=0
  ncy=0
  x=0
- y=582
+ y=581
  cx=1356
- cy=107
+ cy=108
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1281,7 +1296,7 @@ windowlayout=580
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -1296,7 +1311,7 @@ windowlayout=580
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=0
  [debuggerfo]
@@ -1312,7 +1327,7 @@ windowlayout=580
  x=0
  y=0
  cx=1356
- cy=57
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1324,11 +1339,11 @@ windowlayout=580
  nx=0
  ny=0
  ncx=1356
- ncy=5
+ ncy=0
  x=0
  y=0
  cx=1356
- cy=5
+ cy=-1
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1341,6 +1356,7 @@ windowlayout=580
  value=/home/fred/NoiseGenerator/src/main.pas
  history=20
   /home/fred/NoiseGenerator/src/main.pas
+  /home/fred/NoiseGenerator_mic/src/uos_msesigaudio.pas
   /home/fred/NoiseGenerator/src/msesignal.pas
   /home/fred/noisegenerator/src/noisegenerator.pas
   /home/fred/noisegenerator/mseaudiouos.pas
@@ -1359,7 +1375,6 @@ windowlayout=580
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
   /home/fred/Downloads/Oscilloscope-main/source/3rdParty/uos/uos.pas
   /home/fred/uos/examples/uos.pas
-  /home/fred/uos.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1377,10 +1392,19 @@ windowlayout=580
  x=208
  y=0
  cx=1148
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [sourcefo.files_tab]
+ order=8
+  0
+  1
+  2
+  4
+  5
+  6
+  7
+  3
  firsttab=0
  index=0
  [confideufo.fontname]
@@ -1418,15 +1442,15 @@ windowlayout=580
  ncx=0
  ncy=0
  x=0
- y=60
+ y=53
  cx=1356
- cy=519
+ cy=525
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=threadsfo
  parent=
  mdistate=3
  nx=0

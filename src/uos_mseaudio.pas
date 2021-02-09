@@ -69,7 +69,8 @@ type
    fappname: msestring;
    fstreamname: msestring;
   //fpulsestream: ppa_simple;
-   HandlePA:pointer;
+   HandlePAIn:pointer;
+   HandlePAOut:pointer;
    HandleSF:pointer;
    procedure initnames; virtual;
    procedure loaded; override;
@@ -204,21 +205,19 @@ begin
   fthread.terminate;
   application.waitforthread(fthread);
   freeandnil(fthread);
-  Pa_StopStream(HandlePA);
-  Pa_CloseStream(HandlePA);
+  if assigned(HandlePAIn) then
+  begin
+  Pa_StopStream(HandlePAIn);
+  Pa_CloseStream(HandlePAIn);
+  end;
+  Pa_StopStream(HandlePAOut);
+  Pa_CloseStream(HandlePAOut);
   sf_close(HandleSF); 
   end;
  factive:= false;
 end;
 
 procedure tcustomaudioout.run;
-var
- PAParam: PaStreamParameters;
- err: integer;
- sfInfo: TSF_INFO;
- SoundFilename, ordir : string;
- parate : single;
- 
 begin
   fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,fstacksizekb);
   factive:= true;
@@ -266,8 +265,8 @@ begin
 
    if data <> nil then begin
    
-   if assigned(HandlePA) then
-   Pa_WriteStream(HandlePA,
+   if assigned(HandlePAOut) then
+   Pa_WriteStream(HandlePAOut,
   @data, length(bytearty(data))*datasize);
   
    end;
