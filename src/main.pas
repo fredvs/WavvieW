@@ -50,10 +50,11 @@ type
    viewnoise: tbooleaneditradio;
    viewfile: tbooleaneditradio;
    viewpiano: tbooleaneditradio;
-   fileon: tbooleanedit;
    onoiseon: tbooleanedit;
    onpianoon: tbooleanedit;
    tsignoise2: tsignoise;
+   bstart: tbutton;
+   tbutton2: tbutton;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -73,6 +74,8 @@ type
                    var accept: Boolean);
    procedure onfileview(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
+   procedure onstart(const sender: TObject);
+   procedure onstop(const sender: TObject);
   end;
 
 var
@@ -255,8 +258,9 @@ if avalue then
 begin
 tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename; 
 tsigoutaudio2.audio.active := true;
-fileon.enabled := false;
-end;
+//fileon.enabled := false;
+end else tsigoutaudio2.audio.active := false;
+
 end;
 end;
 
@@ -268,9 +272,8 @@ begin
 if avalue then
 begin
  out.audio.active := true;
- onoiseon.enabled := false;
- end;
-// else out.audio.active := false;
+ //onoiseon.enabled := false;
+ end else out.audio.active := false;
 end;
 end;
 
@@ -280,8 +283,7 @@ begin
 if avalue then
 begin
 tsigoutaudio1.audio.active := true;
-onpianoon.enabled := false;
-end;
+end else tsigoutaudio1.audio.active := false;
 end;
 
 procedure tmainfo.onfileview(const sender: TObject; var avalue: Boolean;
@@ -294,6 +296,24 @@ begin
     fft.sampler.controller   := tsigcontroller2;
    fft.sampler.inputs[0].Source := tsignoise2.output;
      end;
+end;
+
+procedure tmainfo.onstart(const sender: TObject);
+begin
+if hasinit then
+begin
+tsigoutaudio2.audio.active := false;
+tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename; 
+tsigoutaudio2.audio.active := true;
+end;
+end;
+
+procedure tmainfo.onstop(const sender: TObject);
+begin
+if hasinit then
+begin
+tsigoutaudio2.audio.active := false;
+end;
 end;
 
 end.

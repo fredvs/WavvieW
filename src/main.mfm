@@ -1,7 +1,7 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 164
-  bounds_y = 246
+  bounds_x = 211
+  bounds_y = 141
   bounds_cx = 1024
   bounds_cy = 466
   bounds_cxmin = 1024
@@ -9139,7 +9139,7 @@ object mainfo: tmainfo
     face.template = tfacecomp1
     taborder = 9
     bounds_x = 8
-    bounds_y = 358
+    bounds_y = 350
     bounds_cx = 148
     bounds_cy = 42
     anchors = [an_left, an_bottom]
@@ -9229,28 +9229,6 @@ object mainfo: tmainfo
       onsetvalue = onpianoview
     end
   end
-  object fileon: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Activate File'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      79
-      1
-      0
-      2
-    )
-    taborder = 11
-    bounds_x = 32
-    bounds_y = 405
-    bounds_cx = 92
-    bounds_cy = 17
-    anchors = [an_left, an_bottom]
-    onsetvalue = onfileactivate
-  end
   object onoiseon: tbooleanedit
     color = -2147483645
     frame.caption = 'Activate Noise'
@@ -9265,7 +9243,7 @@ object mainfo: tmainfo
       0
       2
     )
-    taborder = 12
+    taborder = 11
     bounds_x = 196
     bounds_y = 443
     bounds_cx = 104
@@ -9287,13 +9265,45 @@ object mainfo: tmainfo
       37
       0
     )
-    taborder = 13
+    taborder = 12
     bounds_x = 794
     bounds_y = 343
     bounds_cx = 87
     bounds_cy = 35
     anchors = [an_right, an_bottom]
     onsetvalue = onpianoactivate
+  end
+  object bstart: tbutton
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp1
+    face.localprops = []
+    face.template = tfacecomp1
+    taborder = 13
+    bounds_x = 24
+    bounds_y = 408
+    bounds_cx = 58
+    bounds_cy = 29
+    anchors = [an_left, an_bottom]
+    state = [as_localcaption, as_localonexecute]
+    caption = 'Start'
+    onexecute = onstart
+  end
+  object tbutton2: tbutton
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp1
+    face.localprops = []
+    face.template = tfacecomp1
+    taborder = 14
+    bounds_x = 88
+    bounds_y = 408
+    bounds_cx = 58
+    bounds_cy = 29
+    anchors = [an_left, an_bottom]
+    state = [as_localcaption, as_localonexecute]
+    caption = 'Stop'
+    onexecute = onstop
   end
   object cont: tsigcontroller
     samplefrequ = 44100
