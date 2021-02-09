@@ -1,7 +1,7 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 211
-  bounds_y = 141
+  bounds_x = 247
+  bounds_y = 536
   bounds_cx = 1024
   bounds_cy = 466
   bounds_cxmin = 1024
@@ -20,7 +20,7 @@ object mainfo: tmainfo
   font.name = 'stf_default'
   font.localprops = [flp_color]
   statfile = sta
-  caption = 'Noise Generator'
+  caption = 'WavvieW'
   icon.origformat = 'png'
   icon.image = {
     0000000000000000100000000F000000D0020000000000000000000000000000

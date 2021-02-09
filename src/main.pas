@@ -117,7 +117,7 @@ type
 var
   mainfo: tmainfo;
   hasinit: Boolean = False;
-
+ 
 implementation
 
 uses
@@ -188,8 +188,27 @@ end;
 procedure tmainfo.oncreated(const Sender: TObject);
 var
   PA_FileName, SF_FileName, ordir: string;
-  xx: float;
+  ara, arb: msestringarty;
+
 begin
+  setlength(ara, 5);
+  setlength(arb, 5);
+
+  ara[0] := 'All sound files';
+  ara[1] := 'wav';
+  ara[2] := 'ogg';
+  ara[3] := 'flac';
+  ara[4] := 'All';
+
+  arb[0] := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"' ;
+  arb[1] := '"*.wav" "*.WAV"';
+  arb[2] := '"*.ogg" "*.OGG"';
+  arb[3] := '"*.flac" "*.FLAC"';
+  arb[4] := '"*.*"';
+
+  tfilenameeditx1.controller.filterlist.asarraya := ara;
+  tfilenameeditx1.controller.filterlist.asarrayb := arb;
+  tfilenameeditx1.controller.filter := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"';
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 

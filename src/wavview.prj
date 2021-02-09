@@ -18,8 +18,8 @@ order15=0
 order16=0
 order17=0
 [projectoptions]
-projectdir=/home/fred/NoiseGenerator/src
-projectfilename=/home/fred/NoiseGenerator/src/noisegenerator.prj
+projectdir=/home/fred/WavvieW/src
+projectfilename=/home/fred/WavvieW/src/wavview.prj
 findinfiledialog=60
  [findinfileadialogfo.subdirs]
  value=1
@@ -488,7 +488,7 @@ modulenames=1
 moduletypes=1
  TMAINFO
 modulefiles=1
- /home/fred/NoiseGenerator/src/main.mfm
+ /home/fred/WavvieW/src/main.mfm
 befcommandon=0
 makeoptionson=5
  63
@@ -788,8 +788,11 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=pa_read
+finddtext=tiledialog
 findhistory=20
+ tiledialog
+ tfiledialog
+ tfiledialogx1
  pa_read
  HandlePA
  pa_
@@ -807,16 +810,13 @@ findhistory=20
  internalstep
  float
  uses
- stepinternal
- step(
- step
 findoptions=1
 editpos=7
+ 0,190
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
- 0,0
+ 0,13
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -851,7 +851,7 @@ ismoduletexts=7
  0
  0
 modules=1
- /home/fred/NoiseGenerator/src/main.mfm
+ /home/fred/WavvieW/src/main.mfm
 moduleoptions=1
  0
 visiblemodules=1
@@ -860,7 +860,7 @@ nomenumodules=1
  0
 [sourcefo.files_tab]
 firsttab=0
-index=4
+index=0
 [layout]
 windowlayout=580
  [mainfo.basedock]
@@ -920,7 +920,7 @@ windowlayout=580
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [memoryfo]
  splitdir=0
  useroptions=268451963
@@ -996,7 +996,7 @@ windowlayout=580
  x=0
  y=0
  cx=205
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1026,7 +1026,7 @@ windowlayout=580
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [watchpointsfo]
  splitdir=0
  useroptions=268451945
@@ -1282,7 +1282,7 @@ windowlayout=580
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
@@ -1313,7 +1313,7 @@ windowlayout=580
  x=0
  y=0
  cx=1356
- cy=49
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1329,7 +1329,7 @@ windowlayout=580
  x=0
  y=0
  cx=1341
- cy=-2
+ cy=1
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1339,8 +1339,9 @@ windowlayout=580
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/NoiseGenerator/src/uos_portaudio.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
+  /home/fred/WavvieW/src/uos_portaudio.pas
   /home/fred/NoiseGenerator/src/uos_portaudio.pas
   /home/fred/NoiseGenerator/src/main.pas
   /home/fred/NoiseGenerator_mic/src/uos_msesigaudio.pas
@@ -1360,7 +1361,6 @@ windowlayout=580
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/Oscilloscope.lpr
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/ouosdatacollector.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
-  /home/fred/Downloads/Oscilloscope-main/source/3rdParty/uos/uos.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1378,12 +1378,12 @@ windowlayout=580
  x=208
  y=0
  cx=1148
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=4
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1419,23 +1419,23 @@ windowlayout=580
  ncx=0
  ncy=0
  x=0
- y=52
+ y=53
  cx=1356
- cy=526
+ cy=525
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=threadsfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=211
- y=141
+ x=247
+ y=536
  cx=1034
  cy=466
  rcx=0

@@ -1,4 +1,4 @@
-program noisegenerator;
+program wavview;
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 {$ifdef FPC}
  {$ifdef mswindows}{$apptype gui}{$endif}
