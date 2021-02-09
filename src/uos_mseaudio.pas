@@ -217,43 +217,9 @@ var
  err: integer;
  sfInfo: TSF_INFO;
  SoundFilename, ordir : string;
+ parate : single;
  
 begin
- PAParam.hostApiSpecificStreamInfo := nil;
- PAParam.device := Pa_GetDefaultOutputDevice();
- PAParam.SuggestedLatency :=  
-     ((Pa_GetDeviceInfo(PAParam.device)^.   defaultHighOutputLatency)) * 1;
-   
- flatency := PAParam.SuggestedLatency;
- 
-  FRate := FRate * 2; 
- 
-  //paFloat32;
-  //paInt32;
-  //paInt16;
-  
-   PAParam.channelCount := fchannels; 
-   
-    if fformat = sfm_s16 then
-   PAParam.SampleFormat := paInt16
-   else
-   if fformat = sfm_s32 then
-   PAParam.SampleFormat := paInt32
-   else
-   if fformat = sfm_f32 then
-   PAParam.SampleFormat := paFloat32
-   else
-   PAParam.SampleFormat := paFloat32;
-       
-      err := Pa_OpenStream(@HandlePA, nil, @PAParam,
-   frate , 512, paClipOff, nil, nil);
-   
-     if HandlePA <> nil then Pa_StartStream(HandlePA)
-   else  raiseerror(err);
-   
-   sleep(10);
-  application.processmessages;
-  
   fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,fstacksizekb);
   factive:= true;
 end;

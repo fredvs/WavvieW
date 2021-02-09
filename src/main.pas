@@ -151,6 +151,7 @@ end;
 procedure tmainfo.oncreated(const sender: TObject);
 var
 PA_FileName, SF_FileName, ordir : string;
+xx : float;
 begin
 
  ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));

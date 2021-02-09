@@ -365,24 +365,64 @@ var
   convert: convertprocty;
   info: convertinfoty;
   sfInfo: TSF_INFO;
-  aarray: array of single;
+  PAParam: PaStreamParameters;
+  err: integer;
+  parate : single;
+
 begin
   Result      := 0;
   controller1 := fsigout.controller;
-
 
   if controller1 <> nil then
   begin
     factive    := True;
     if controller1.inputtype = 1 then
-      HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo)//writeln(' name ' +controller1.SoundFilename);
+    begin
+      HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
+      //writeln(' name ' +controller1.SoundFilename);
       //  channels := SFinfo.channels;
       // Length := sfInfo.frames;
       //  frames := SFinfo.frames;
       // samplerate := SFinfo.samplerate;
-      //controller1.FRate := SFinfo.samplerate ;   
-    ;
-
+      controller1.samplefrequ := SFinfo.samplerate ;  
+      end; 
+      
+       PAParam.hostApiSpecificStreamInfo := nil;
+ PAParam.device := Pa_GetDefaultOutputDevice();
+ PAParam.SuggestedLatency :=  
+     ((Pa_GetDeviceInfo(PAParam.device)^.   defaultHighOutputLatency)) * 1;
+   
+ // flatency := PAParam.SuggestedLatency;
+  
+  //paFloat32;
+  //paInt32;
+  //paInt16;
+  
+   PAParam.channelCount := 1;  // sortie mono
+  
+   if controller1.inputtype = 1 then
+   begin  
+   parate := SFinfo.samplerate * SFinfo.channels;
+   end else parate := controller1.samplefrequ ;  
+   
+    if fformat = sfm_s16 then
+   PAParam.SampleFormat := paInt16
+   else
+   if fformat = sfm_s32 then
+   PAParam.SampleFormat := paInt32
+   else
+   if fformat = sfm_f32 then
+   PAParam.SampleFormat := paFloat32
+   else
+   PAParam.SampleFormat := paFloat32;
+       
+      err := Pa_OpenStream(@HandlePA, nil, @PAParam,
+   parate , 512, paClipOff, nil, nil);
+   
+     if HandlePA <> nil then Pa_StartStream(HandlePA)
+   else  raiseerror(err);
+   
+ 
     //datasize1:= samplebuffersizematrix[fformat];
     if fformat = sfm_s16 then
       datasize1 := 2
@@ -401,8 +441,7 @@ begin
     setlength(fbuffer, bufferlength1);
     setlength(fbuffer2, bufferlength1 * datasize1);
     setlength(fbuffer3, bufferlength1 * datasize1);
-    setlength(aarray, bufferlength1 * datasize1);
-
+    
     case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
