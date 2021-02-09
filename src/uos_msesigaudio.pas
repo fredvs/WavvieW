@@ -384,7 +384,8 @@ begin
       // Length := sfInfo.frames;
       //  frames := SFinfo.frames;
       // samplerate := SFinfo.samplerate;
-      controller1.samplefrequ := SFinfo.samplerate ;  
+      controller1.samplefrequ := SFinfo.samplerate ; 
+      controller1.channels := SFinfo.channels ; 
       end; 
       
        PAParam.hostApiSpecificStreamInfo := nil;

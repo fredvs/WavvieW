@@ -9174,7 +9174,7 @@ object mainfo: tmainfo
     bounds_cx = 266
     bounds_cy = 41
     anchors = [an_right, an_bottom]
-    object noiseactive: tbooleaneditradio
+    object viewnoise: tbooleaneditradio
       frame.caption = 'Noise'
       frame.localprops = []
       frame.localprops1 = []
@@ -9188,10 +9188,11 @@ object mainfo: tmainfo
       bounds_y = 18
       bounds_cx = 48
       bounds_cy = 17
+      statfile = sta
       onsetvalue = onnoiseview
       value = True
     end
-    object tbooleaneditradio2: tbooleaneditradio
+    object viewfile: tbooleaneditradio
       frame.caption = 'File'
       frame.localprops = []
       frame.localprops1 = []
@@ -9206,9 +9207,10 @@ object mainfo: tmainfo
       bounds_y = 18
       bounds_cx = 36
       bounds_cy = 17
+      statfile = sta
       onsetvalue = onfileview
     end
-    object pianoactive: tbooleaneditradio
+    object viewpiano: tbooleaneditradio
       frame.caption = 'Piano'
       frame.localprops = []
       frame.localprops1 = []
@@ -9223,6 +9225,7 @@ object mainfo: tmainfo
       bounds_y = 18
       bounds_cx = 48
       bounds_cy = 17
+      statfile = sta
       onsetvalue = onpianoview
     end
   end

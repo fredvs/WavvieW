@@ -787,8 +787,10 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=of cfloat
+finddtext=inputtype
 findhistory=20
+ inputtype
+ writeln
  of cfloat
  of float
  tsigout
@@ -807,20 +809,15 @@ findhistory=20
  pa
  sf_
  ReadFile
- read
- scope
 findoptions=1
-editpos=10
- 41,9
- 0,222
+editpos=7
+ 0,237
+ 0,0
  0,403
  0,-1073741823
  0,0
- 0,-1073741823
- 0,-1073741823
- 0,1058
  0,0
- 0,0
+ 0,3234
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -828,38 +825,26 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-bookmarks7=0
-bookmarks8=0
-bookmarks9=0
-sourcefiles=10
+sourcefiles=7
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_mseaudio.pas
  ${PROJECTDIR}/uos_msesigaudio.pas
  /home/fred/uos/src/uos.pas
  ${PROJECTDIR}/uos_portaudio.pas
- ${PROJECTDIR}/main.mfm
  ${PROJECTDIR}/noisegenerator.pas
- /home/fred/mseide-msegui/lib/common/math/msesignal.pas
- ${PROJECTDIR}/main.pas
- /home/fred/mseide-msegui/lib/common/kernel/msetypes.pas
-relpaths=10
+ ${PROJECTDIR}/msesignal.pas
+relpaths=7
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
  uos/src/uos.pas
  uos_portaudio.pas
- main.mfm
  noisegenerator.pas
- ../mseide-msegui/lib/common/math/msesignal.pas
- main.pas
- ../mseide-msegui/lib/common/kernel/msetypes.pas
-ismoduletexts=10
+ msesignal.pas
+ismoduletexts=7
  0
  0
  0
- 0
- 0
- -1
  0
  0
  0
@@ -873,21 +858,18 @@ visiblemodules=1
 nomenumodules=1
  0
 [sourcefo.files_tab]
-order=10
+order=7
  0
- 7
- 8
- 10
  1
  2
+ 7
  3
  4
- 5
  6
 firsttab=0
 index=0
 [layout]
-windowlayout=591
+windowlayout=618
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1365,19 +1347,16 @@ windowlayout=591
  value=Pascal
  [debuggerfo.file_history]
  value=/home/fred/NoiseGenerator/src/main.pas
- history=20
-  /home/fred/mseide-msegui/lib/common/math/msesignal.pas
-  /home/fred/NoiseGenerator/src/uos_msesigaudio.pas
-  /home/fred/NoiseGenerator/src/main.pas
-  /home/fred/NoiseGenerator/src/uos_mseaudio.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/noisegenerator/src/main.pas
+ history=50
+  /home/fred/NoiseGenerator/src/msesignal.pas
+  /home/fred/noisegenerator/src/noisegenerator.pas
   /home/fred/noisegenerator/mseaudiouos.pas
   /home/fred/uos/examples/consolesynth.pas
   /home/fred/mseuniverse/samples/signal/noisegen/mseaudiouos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudiouos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/uos_portaudio.pas
   /home/fred/uos/src/uos_portaudio.pas
+  /home/fred/uos/src/uos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudio.pas
   /home/fred/mseuniverse/samples/signal/noisegen/mseaudio.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/3rdParty/uos/define.inc
@@ -1386,6 +1365,39 @@ windowlayout=591
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/ouosdatacollector.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
   /home/fred/Downloads/Oscilloscope-main/source/3rdParty/uos/uos.pas
+  /home/fred/uos/examples/uos.pas
+  /home/fred/uos.pas
+  /home/fred/Oscilloscope/source/odatacollector.pas
+  /home/fred/Oscilloscope/source/obassdatacollector.pas
+  /home/fred/uos/examples/simplerecorder_fpGUI.pas
+  /home/fred/Oscilloscope/source/ospectrumframe.pas
+  /home/fred/uos/modifiedLGPL.txt
+  /home/fred/Oscilloscope/source/3rdParty/uos/uos_flat.pas
+  /home/fred/Oscilloscope/source/3rdParty/uos/uos.pas
+  /home/fred/Oscilloscope/source/omainuos.pas
+  /home/fred/uos/examples/simpleplayer_fpGUI.pas
+  /home/fred/ideu/src/msepointer.pas
+  /home/fred/strumpract/src/uos_flat.pas
+  /home/fred/mseide-msegui/lib/common/kernel/msedynload.pas
+  /home/fred/mseide-msegui/lib/common/kernel/linux/msesysintf.pas
+  /home/fred/mseide-msegui/lib/common/kernel/msethread.pas
+  /home/fred/strumpract/src/mclasses.pas
+  /home/fred/msetest/mclasses.pas
+  /home/fred/ideu/src/msefpreadpng.pas
+  /home/fred/ideu/src/mseztream.pas
+  /home/fred/ideu/src/mclasses.pas
+  /home/fred/mseide-msegui-master/lib/common/fpccompatibility/mclasses.pas
+  /home/fred/msemartin/msegui/lib/common/kernel/msestreaming.pas
+  /home/fred/msemartin/msegui/lib/common/kernel/msearrayprops.pas
+  /home/fred/msemartin/msegui/lib/common/fpccompatibility/mclasses.pas
+  /home/fred/uos/src/uos_flat.pas
+  /home/fred/uos/src/uos.lpk
+  /home/fred/uos/examples/uos_flat.pas
+  /home/fred/uos/examples/consoleplay.pas
+  /home/fred/uos/credits.txt
+  /home/fred/mseide-msegui/lib/common/kernel/mseactions.pas
+  /home/fred/mseide-msegui-master/apps/ide/main.pas
+  /home/fred/mseide-msegui-aarch64/lib/common/kernel/linux/mseguiintf.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1407,16 +1419,13 @@ windowlayout=591
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=10
+ order=7
   0
-  7
-  8
-  10
   1
   2
+  7
   3
   4
-  5
   6
  firsttab=0
  index=0
@@ -1463,7 +1472,7 @@ windowlayout=591
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=threadsfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

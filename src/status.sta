@@ -1,3 +1,9 @@
+[mainfo.viewpiano]
+value=0
+[mainfo.viewfile]
+value=0
+[mainfo.viewnoise]
+value=1
 [mainfo.tfilenameeditx1]
 filenames=1
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_stereo.ogg
@@ -20,15 +26,15 @@ splitterlateral=126
 lastdir=/home/fred/NoiseGenerator/src/sound/
 filehistory=4
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_stereo.ogg
- /home/fred/NoiseGenerator/src/sound/test.ogg
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_mono.ogg
+ /home/fred/NoiseGenerator/src/sound/test.ogg
  /home/fred/Downloads/Sine_wave_440.ogg
 filefilterindex=-1
 filefilter=
 [mainfo.kinded]
 value=2
 [mainfo.sampcount]
-value=1
+value=0
 [mainfo.tsigslider1]
 value=0.91489361702128
 [mainfo.average]
@@ -44,12 +50,11 @@ zoomy=1
 scrollx=0
 scrolly=0
 activetrace=0
-value0=5
+value0=4
  0.003030303030303,0.0082644628099174
  0.0091836734693878,0.067039106145251
  0.035714285714286,0.98603351955307
  0.071428571428571,0.85754189944134
- 0.08265306122449,0.37430167597765
 value1=0
 [mainfo.tenvelopeedit1.1]
 x=98
@@ -79,10 +84,12 @@ zoomy=1
 scrollx=0
 scrolly=0
 activetrace=0
-value0=3
+value0=5
  0.125,0.97206703910615
  0.43181818181818,0.99441340782123
  0.73863636363636,0.84916201117318
+ 0.77272727272727,0.84078212290503
+ 0.89772727272727,0.93854748603352
 value1=0
 [mainfo.tsplitter2]
 x=726

@@ -1040,6 +1040,7 @@ type
    procedure doautotick(const sender: tobject);
   public
    inputtype : integer;
+   channels : integer;
    SoundFilename: string;
    constructor create(aowner: tcomponent); override;
    destructor destroy; override;
@@ -3208,7 +3209,7 @@ end;
 
 procedure tsigcontroller.step(acount: integer);
 var
- int1: integer;
+ int1, int2: integer;
  bo1: boolean;
  
 begin
@@ -3229,11 +3230,21 @@ begin
   end;
   lock;
   try
+ 
+   int2 := (acount * channels) -1;
+  
    for int1:= acount-1 downto 0 do begin
   
    if inputtype = 1 then if length(fbuffer3) > 0 then
+   begin
+   if channels = 1 then
+    asample := fbuffer3[int2];
+    
+   if channels = 2 then
+   asample := (fbuffer3[int2] + fbuffer3[int2-1])/2;
   
-   asample := fbuffer3[int1];
+   int2 := int2 - channels;
+   end; 
      
     internalstep;
    end;

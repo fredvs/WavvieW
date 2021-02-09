@@ -47,9 +47,9 @@ type
    kinded: tenumtypeedit;
    tfilenameeditx1: tfilenameeditx;
    tgroupbox1: tgroupbox;
-   noiseactive: tbooleaneditradio;
-   tbooleaneditradio2: tbooleaneditradio;
-   pianoactive: tbooleaneditradio;
+   viewnoise: tbooleaneditradio;
+   viewfile: tbooleaneditradio;
+   viewpiano: tbooleaneditradio;
    fileon: tbooleanedit;
    onoiseon: tbooleanedit;
    onpianoon: tbooleanedit;
@@ -218,6 +218,30 @@ scope.sampler.controller := cont;
 scope.sampler.inputs[0].Source := noise.output;
 fft.sampler.controller   := cont;
 fft.sampler.inputs[0].Source := noise.output;
+
+ if viewfile.value then
+  begin
+    scope.sampler.controller := tsigcontroller2;
+   scope.sampler.inputs[0].Source := tsignoise2.output;
+    fft.sampler.controller   := tsigcontroller2;
+   fft.sampler.inputs[0].Source := tsignoise2.output;
+     end;
+     
+  if viewnoise.value then
+  begin
+    scope.sampler.controller := cont;
+    scope.sampler.inputs[0].Source := noise.output;
+    fft.sampler.controller   := cont;
+    fft.sampler.inputs[0].Source := noise.output;
+  end;
+      
+ if viewpiano.value then
+  begin
+    scope.sampler.controller := tsigcontroller1;
+    scope.sampler.inputs[0].Source := tsigfilter1.output;
+    fft.sampler.controller   := tsigcontroller1;
+    fft.sampler.inputs[0].Source := tsigfilter1.output;
+  end;    
 
 hasinit  := true;
 end;
