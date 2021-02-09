@@ -812,11 +812,11 @@ findhistory=20
  uses
 findoptions=1
 editpos=7
- 0,190
+ 0,181
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,13
+ 0,-1073741823
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -902,7 +902,7 @@ windowlayout=580
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -996,7 +996,7 @@ windowlayout=580
  x=0
  y=0
  cx=205
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1282,7 +1282,7 @@ windowlayout=580
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1313,7 +1313,7 @@ windowlayout=580
  x=0
  y=0
  cx=1356
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1325,11 +1325,11 @@ windowlayout=580
  nx=0
  ny=0
  ncx=1341
- ncy=0
+ ncy=1
  x=0
  y=0
  cx=1341
- cy=1
+ cy=-1
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1341,6 +1341,7 @@ windowlayout=580
  [debuggerfo.file_history]
  value=/home/fred/WavvieW/src/main.pas
  history=20
+  /home/fred/WavvieW/src/main.pas
   /home/fred/WavvieW/src/uos_portaudio.pas
   /home/fred/NoiseGenerator/src/uos_portaudio.pas
   /home/fred/NoiseGenerator/src/main.pas
@@ -1360,7 +1361,6 @@ windowlayout=580
   /home/fred/Downloads/Oscilloscope-no_timer_branch_moi/source/3rdParty/uos/uos.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/Oscilloscope.lpr
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/ouosdatacollector.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1378,7 +1378,7 @@ windowlayout=580
  x=208
  y=0
  cx=1148
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -1419,15 +1419,15 @@ windowlayout=580
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1356
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
