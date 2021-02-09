@@ -5,8 +5,9 @@ program wavview;
 {$endif}
 uses
  {$ifdef FPC}{$ifdef unix}cthreads,{$endif}{$endif} 
- msegui,main;
+ msegui,about, main;
 begin
  application.createform(tmainfo,mainfo);
+ application.createform(taboutfo,aboutfo);
  application.run;
 end.

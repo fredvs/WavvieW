@@ -1,7 +1,7 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 247
-  bounds_y = 536
+  bounds_x = 135
+  bounds_y = 162
   bounds_cx = 1024
   bounds_cy = 466
   bounds_cxmin = 1024
@@ -8880,11 +8880,12 @@ object mainfo: tmainfo
   end
   object tsigslider3: tsigslider
     color = -2147483645
-    frame.caption = 'Piano Volume'
+    frame.levelo = 0
+    frame.caption = 'Volume Piano'
     frame.captionpos = cp_top
-    frame.localprops = []
+    frame.localprops = [frl_levelo]
     frame.localprops1 = []
-    frame.template = tframecomp2
+    frame.template = tframecomp1
     frame.outerframe = (
       0
       18
@@ -8893,29 +8894,27 @@ object mainfo: tmainfo
     )
     face.localprops = []
     taborder = 3
-    bounds_x = 891
-    bounds_y = 337
-    bounds_cx = 120
-    bounds_cy = 47
+    bounds_x = 867
+    bounds_y = 338
+    bounds_cx = 144
+    bounds_cy = 44
     anchors = [an_right, an_bottom]
     statfile = sta
-    scrollbar.buttonlength = 20
+    scrollbar.buttonlength = 16
     scrollbar.buttonendlength = 16
     scrollbar.face.localprops = []
     scrollbar.face.template = tfacecomp1
     scrollbar.face1.localprops = []
-    scrollbar.face1.template = tfacecomp1
+    scrollbar.face1.template = tfacecomp3
     scrollbar.face2.localprops = []
-    scrollbar.face2.template = tfacecomp1
+    scrollbar.face2.template = tfacecomp4
     scrollbar.facebutton.image.origformat = 'png'
     scrollbar.facebutton.localprops = [fal_image]
-    scrollbar.facebutton.template = tfacecomp1
+    scrollbar.facebutton.template = tfacecomp2
     scrollbar.faceendbutton.localprops = []
-    scrollbar.faceendbutton.template = tfacecomp1
-    scrollbar.frame.localprops = []
-    scrollbar.frame.localprops1 = []
-    scrollbar.frame.template = tframecomp2
-    scrollbar.framebutton.localprops = []
+    scrollbar.faceendbutton.template = tfacecomp2
+    scrollbar.framebutton.optionsskin = [fso_flat]
+    scrollbar.framebutton.localprops = [frl_optionsskin]
     scrollbar.framebutton.localprops1 = []
     scrollbar.framebutton.template = tframecomp2
     scrollbar.frameendbutton1.localprops = []
@@ -8980,7 +8979,7 @@ object mainfo: tmainfo
     frame.captionpos = cp_left
     frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
     frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-    frame.template = tframecomp2
+    frame.template = tframecomp1
     frame.outerframe = (
       31
       0
@@ -8996,19 +8995,27 @@ object mainfo: tmainfo
     anchors = [an_left, an_right, an_bottom]
     statfile = sta
     value = 0.3
-    scrollbar.buttonlength = 20
+    scrollbar.buttonlength = 16
+    scrollbar.buttonendlength = 16
     scrollbar.face.localprops = []
     scrollbar.face1.localprops = []
-    scrollbar.face1.template = tfacecomp1
+    scrollbar.face1.template = tfacecomp3
     scrollbar.face2.localprops = []
-    scrollbar.face2.template = tfacecomp1
+    scrollbar.face2.template = tfacecomp4
     scrollbar.facebutton.localprops = []
-    scrollbar.facebutton.template = tfacecomp1
+    scrollbar.facebutton.template = tfacecomp2
     scrollbar.faceendbutton.localprops = []
-    scrollbar.faceendbutton.template = tfacecomp1
-    scrollbar.framebutton.localprops = []
+    scrollbar.faceendbutton.template = tfacecomp2
+    scrollbar.framebutton.optionsskin = [fso_flat]
+    scrollbar.framebutton.localprops = [frl_optionsskin]
     scrollbar.framebutton.localprops1 = []
     scrollbar.framebutton.template = tframecomp2
+    scrollbar.frameendbutton1.localprops = []
+    scrollbar.frameendbutton1.localprops1 = []
+    scrollbar.frameendbutton1.template = tframecomp2
+    scrollbar.frameendbutton2.localprops = []
+    scrollbar.frameendbutton2.localprops1 = []
+    scrollbar.frameendbutton2.template = tframecomp2
     scrollbar.colorglyph = -1610612730
     controller = cont
     max = 1
@@ -9020,7 +9027,7 @@ object mainfo: tmainfo
     frame.captionpos = cp_left
     frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
     frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-    frame.template = tframecomp2
+    frame.template = tframecomp1
     frame.outerframe = (
       34
       0
@@ -9035,19 +9042,27 @@ object mainfo: tmainfo
     bounds_cy = 24
     anchors = [an_left, an_right, an_bottom]
     statfile = sta
-    scrollbar.buttonlength = 20
+    scrollbar.buttonlength = 16
+    scrollbar.buttonendlength = 16
     scrollbar.face.localprops = []
     scrollbar.face1.localprops = []
-    scrollbar.face1.template = tfacecomp1
+    scrollbar.face1.template = tfacecomp3
     scrollbar.face2.localprops = []
-    scrollbar.face2.template = tfacecomp1
+    scrollbar.face2.template = tfacecomp4
     scrollbar.facebutton.localprops = []
-    scrollbar.facebutton.template = tfacecomp1
+    scrollbar.facebutton.template = tfacecomp2
     scrollbar.faceendbutton.localprops = []
-    scrollbar.faceendbutton.template = tfacecomp1
-    scrollbar.framebutton.localprops = []
+    scrollbar.faceendbutton.template = tfacecomp2
+    scrollbar.framebutton.optionsskin = [fso_flat]
+    scrollbar.framebutton.localprops = [frl_optionsskin]
     scrollbar.framebutton.localprops1 = []
     scrollbar.framebutton.template = tframecomp2
+    scrollbar.frameendbutton1.localprops = []
+    scrollbar.frameendbutton1.localprops1 = []
+    scrollbar.frameendbutton1.template = tframecomp2
+    scrollbar.frameendbutton2.localprops = []
+    scrollbar.frameendbutton2.localprops1 = []
+    scrollbar.frameendbutton2.template = tframecomp2
     scrollbar.colorglyph = -1610612730
     onsetvalue = samcountsetexe
   end
@@ -9057,11 +9072,11 @@ object mainfo: tmainfo
     frame.captionpos = cp_top
     frame.localprops = []
     frame.localprops1 = []
-    frame.template = tframecomp2
+    frame.template = tframecomp1
     frame.button.colorglyph = -1610612730
     frame.button.face.localprops = []
-    frame.button.face.template = tfacecomp1
-    frame.button.frame.localprops = []
+    frame.button.face.template = tfacecomp2
+    frame.button.frame.localprops = [frl_optionsskin]
     frame.button.frame.localprops1 = []
     frame.button.frame.template = tframecomp2
     frame.buttons.count = 1
@@ -9069,8 +9084,8 @@ object mainfo: tmainfo
       item
         colorglyph = -1610612730
         face.localprops = []
-        face.template = tfacecomp1
-        frame.localprops = []
+        face.template = tfacecomp2
+        frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
         frame.template = tframecomp2
       end>
@@ -9083,8 +9098,9 @@ object mainfo: tmainfo
     face.localprops = []
     face.template = tfacecomp1
     taborder = 8
-    bounds_x = 196
+    bounds_x = 204
     bounds_y = 339
+    bounds_cx = 114
     bounds_cy = 42
     anchors = [an_left, an_right, an_bottom]
     statfile = sta
@@ -9110,22 +9126,22 @@ object mainfo: tmainfo
     frame.caption = 'File wav, ogg or flac'
     frame.localprops = [frl_colorclient]
     frame.localprops1 = []
-    frame.template = tframecomp2
+    frame.template = tframecomp1
     frame.buttons.count = 1
     frame.buttons.items = <    
       item
         colorglyph = -1610612730
         face.localprops = []
-        face.template = tfacecomp1
-        frame.localprops = []
+        face.template = tfacecomp2
+        frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
         frame.template = tframecomp2
         imagenr = 17
       end>
     frame.button.colorglyph = -1610612730
     frame.button.face.localprops = []
-    frame.button.face.template = tfacecomp1
-    frame.button.frame.localprops = []
+    frame.button.face.template = tfacecomp2
+    frame.button.frame.localprops = [frl_optionsskin]
     frame.button.frame.localprops1 = []
     frame.button.frame.template = tframecomp2
     frame.button.imagenr = 17
@@ -9178,6 +9194,7 @@ object mainfo: tmainfo
       frame.caption = 'Noise'
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = tframecomp2
       frame.outerframe = (
         0
         2
@@ -9196,6 +9213,7 @@ object mainfo: tmainfo
       frame.caption = 'File'
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = tframecomp2
       frame.outerframe = (
         0
         2
@@ -9214,6 +9232,7 @@ object mainfo: tmainfo
       frame.caption = 'Piano'
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = tframecomp2
       frame.outerframe = (
         0
         2
@@ -9232,6 +9251,7 @@ object mainfo: tmainfo
       frame.caption = 'Input/Mic'
       frame.localprops = []
       frame.localprops1 = []
+      frame.template = tframecomp2
       frame.outerframe = (
         0
         2
@@ -9284,7 +9304,7 @@ object mainfo: tmainfo
       0
     )
     taborder = 12
-    bounds_x = 794
+    bounds_x = 762
     bounds_y = 343
     bounds_cx = 87
     bounds_cy = 35
@@ -9292,15 +9312,16 @@ object mainfo: tmainfo
     onsetvalue = onpianoactivate
   end
   object bstart: tbutton
-    frame.localprops = []
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     frame.template = tframecomp1
     face.localprops = []
     face.template = tfacecomp1
     taborder = 13
-    bounds_x = 24
+    bounds_x = 8
     bounds_y = 388
-    bounds_cx = 58
+    bounds_cx = 74
     bounds_cy = 24
     anchors = [an_left, an_bottom]
     state = [as_localcaption, as_localonexecute]
@@ -9308,7 +9329,8 @@ object mainfo: tmainfo
     onexecute = onstart
   end
   object tbutton2: tbutton
-    frame.localprops = []
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     frame.template = tframecomp1
     face.localprops = []
@@ -9316,7 +9338,7 @@ object mainfo: tmainfo
     taborder = 14
     bounds_x = 88
     bounds_y = 388
-    bounds_cx = 58
+    bounds_cx = 68
     bounds_cy = 24
     anchors = [an_left, an_bottom]
     state = [as_localcaption, as_localonexecute]
@@ -9343,6 +9365,21 @@ object mainfo: tmainfo
     bounds_cy = 32
     anchors = [an_left, an_bottom]
     onsetvalue = oninputactivate
+  end
+  object tbutton3: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = tfacecomp1
+    taborder = 16
+    bounds_x = 8
+    bounds_y = 2
+    bounds_cx = 56
+    bounds_cy = 16
+    state = [as_localcaption, as_localonexecute]
+    caption = 'About'
+    onexecute = onabout
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -9417,7 +9454,6 @@ object mainfo: tmainfo
     template.frameimage_top = -4
     template.frameimage_right = -4
     template.frameimage_bottom = -4
-    template.optionsskin = [fso_flat]
     left = 436
     top = 65
   end
@@ -9603,5 +9639,49 @@ object mainfo: tmainfo
     samplefrequ = 44100
     left = 880
     top = 240
+  end
+  object tfacecomp2: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      8753023
+      6052956
+    )
+    template.fade_direction = gd_left
+    left = 560
+    top = 88
+  end
+  object tfacecomp3: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      4540994
+      0
+    )
+    template.fade_direction = gd_left
+    left = 552
+    top = 136
+  end
+  object tfacecomp4: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      4540994
+      0
+    )
+    left = 560
+    top = 184
   end
 end

@@ -4,48 +4,16 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  uos_mseaudio,
-  uos_msesigaudio,
-  msestrings,
-  msesignal,
-  msesignoise,
-  msechartedit,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msesiggui,
-  msestatfile,
-  msesigfft,
-  msesigfftgui,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msesplitter,
-  msesimplewidgets,
-  msefilter,
-  mseact,
-  msestream,
-  SysUtils,
-  msebitmap,
-  msedropdownlist,
-  msefiledialogx;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
+ uos_msesigaudio,msestrings,msesignal,msesignoise,msechartedit,msedataedits,
+ mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
+ msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
+ msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
+ msedropdownlist,msefiledialogx;
+
+const
+  versiontext = '1.0.0';
 
 type
   tmainfo = class(tmainform)
@@ -95,6 +63,10 @@ type
     tsigcontroller3: tsigcontroller;
     viewinput: tbooleaneditradio;
     oninputon: tbooleanedit;
+   tfacecomp2: tfacecomp;
+   tfacecomp3: tfacecomp;
+   tfacecomp4: tfacecomp;
+   tbutton3: tbutton;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -112,6 +84,7 @@ type
     procedure onstop(const Sender: TObject);
     procedure oninputview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+   procedure onabout(const sender: TObject);
   end;
 
 var
@@ -121,7 +94,7 @@ var
 implementation
 
 uses
-  main_mfm;
+ about, main_mfm;
 
 procedure tmainfo.onclosexe(const Sender: TObject);
 begin
@@ -379,6 +352,25 @@ begin
     tsigoutaudio3.audio.active := True
   else
     tsigoutaudio3.audio.active := False;
+end;
+
+procedure tmainfo.onabout(const sender: TObject);
+begin
+ aboutfo.Caption          := 'About WavvieW';
+  aboutfo.about_text.frame.colorclient := $DFFFB2;
+  aboutfo.about_text.Value := c_linefeed + 'WavvieW ' + versiontext + ' for ' + platformtext +
+    c_linefeed +
+    'https://github.com/fredvs/WavvieW/releases/' + c_linefeed +
+    c_linefeed + 'Compiled with FPC 3.2.0.' +
+    c_linefeed + 'http://www.freepascal.org' + c_linefeed + c_linefeed +
+    'Graphic widget: MSEgui ' + mseguiversiontext +
+    '.' + c_linefeed + 'https://github.com/mse-org/mseide-msegui' +
+    c_linefeed + c_linefeed +
+    'Audio library: uos 1.8. (United Openlib of Sound)' + c_linefeed +
+    'https://github.com/fredvs/uos' + c_linefeed +
+    c_linefeed + 'Copyright 2021' + c_linefeed +
+    'Fred van Stappen <fiens@hotmail.com>';
+  aboutfo.Show(True);
 end;
 
 end.

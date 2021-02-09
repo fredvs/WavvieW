@@ -8,13 +8,13 @@ value=0
 value=1
 [mainfo.tfilenameeditx1]
 filenames=1
- /sound/test.ogg
+ /home/fred/WavvieW/src/sound/test.ogg
 filenamescust=0
 filecolwidth=174
-x=0
-y=0
-cx=0
-cy=0
+x=440
+y=189
+cx=608
+cy=484
 nopanel=0
 noicon=0
 compact=0
@@ -25,9 +25,10 @@ colextwidth=45
 coldatewidth=119
 splitterplaces=242
 splitterlateral=126
-lastdir=/sound/
-filehistory=6
+lastdir=/home/fred/WavvieW/src/sound/
+filehistory=7
  /home/fred/WavvieW/src/sound/test.ogg
+ /Z:/home/fred/WavvieW/src/sound/test.ogg
  /home/fred/Music/pianochords/Cm_PIANO.ogg
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_stereo.ogg
  /home/fred/NoiseGenerator/src/sound/Sine_wave_440_mono.ogg
@@ -38,13 +39,13 @@ filefilter="*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"
 [mainfo.kinded]
 value=0
 [mainfo.sampcount]
-value=0
+value=0.55555555555556
 [mainfo.tsigslider1]
-value=0.21276595744681
+value=0.34328358208955
 [mainfo.average]
 value=0
 [mainfo.tsigslider3]
-value=1
+value=0.63541666666667
 [mainfo.tsigkeyboard1]
 value=100
 [mainfo.tenvelopeedit1]
