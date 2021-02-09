@@ -7,288 +7,276 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 }
+
+// Link to Portaudio and LibSnfile by FredvS
+
 unit uos_mseaudio;
+
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
 interface
+
 uses
- classes,mclasses,mseclasses,msethread,msetypes, uos_portaudio, uos_libsndfile,
- msesys,msestrings;
+  Classes,
+  mclasses,
+  mseclasses,
+  msethread,
+  msetypes,
+  uos_portaudio,
+  uos_libsndfile,
+  msesys,
+  msestrings;
 
 type
 
-pa_sample_spec = record
-  format: shortint; //**< The sample format */
-  rate: integer;             //**< The sample rate. (e.g. 44100) */
-  channels: shortint;          //**< Audio channels. (1 for mono, 2 for stereo, ...) */
- end;
- ppa_sample_spec = ^pa_sample_spec;
+  pa_sample_spec = record
+    format: shortint;          //**< The sample format */
+    rate: integer;             //**< The sample rate. (e.g. 44100) */
+    channels: shortint;          //**< Audio channels. (1 for mono, 2 for stereo, ...) */
+  end;
+  ppa_sample_spec = ^pa_sample_spec;
 
 
- sampleformatty = (sfm_u8,sfm_8alaw,sfm_8ulaw,
-                   sfm_s16,sfm_s24,sfm_s32,sfm_f32,smf_s2432,
-                   sfm_s16le,sfm_s24le,sfm_s32le,sfm_f32le,smf_s2432le,
-                   sfm_s16be,sfm_s24be,sfm_s32be,sfm_f32be,smf_s2432be);
+  sampleformatty = (sfm_u8, sfm_8alaw, sfm_8ulaw,
+    sfm_s16, sfm_s24, sfm_s32, sfm_f32, smf_s2432,
+    sfm_s16le, sfm_s24le, sfm_s32le, sfm_f32le, smf_s2432le,
+    sfm_s16be, sfm_s24be, sfm_s32be, sfm_f32be, smf_s2432be);
+
 const
- defaultsampleformat = sfm_f32;
- defaultsamplechannels = 2;
- defaultsamplerate = 44100;
- defaultlatency = 0.1;
+  defaultsampleformat   = sfm_f32;
+  defaultsamplechannels = 2;
+  defaultsamplerate     = 44100;
+  defaultlatency        = 0.1;
 
 type
 
- toutstreamthread = class(tmsethread)
- end;
+  toutstreamthread = class(tmsethread)
+  end;
 
- sendeventty = procedure(var data: pointer) of object;
-                  //data =
-                  //bytearty       (sfm_u8,sfm_8alaw,sfm_8ulaw,
-                  //                sfm_s24,sfm_s24le,sfm_s24be)
-                  //smallintarty   (sfm_s16,sfm_s16le,sfm_s16be)
-                  //integerarty    (sfm_s32,smf_s2432,sfm_s32le,smf_s2432le,
-                  //                sfm_s32be,smf_s2432be)
-                  //or singlearty  (sfm_f32,sfm_f32le,sfm_f32be)
+  sendeventty = procedure(var Data: Pointer) of object;
+  //data =
+  //bytearty       (sfm_u8,sfm_8alaw,sfm_8ulaw,
+  //                sfm_s24,sfm_s24le,sfm_s24be)
+  //smallintarty   (sfm_s16,sfm_s16le,sfm_s16be)
+  //integerarty    (sfm_s32,smf_s2432,sfm_s32le,smf_s2432le,
+  //                sfm_s32be,smf_s2432be)
+  //or singlearty  (sfm_f32,sfm_f32le,sfm_f32be)
 
- erroreventty = procedure(const sender: tobject; const errorcode: integer;
-                  const errortext: msestring) of object;
+  erroreventty = procedure(const Sender: TObject; const errorcode: integer; const errortext: msestring) of object;
 
- tcustomaudioout = class(tmsecomponent)
+  tcustomaudioout = class(tmsecomponent)
   private
-   fthread: toutstreamthread;
-   fstacksizekb: integer;
-   fonsend: sendeventty;
-   fonerror: erroreventty;
-   fserver: msestring;
-   fdev: msestring;
-   //fchannels: integer;
-   frate: integer;
-   flatency: real;
-   procedure setactive(const avalue: boolean);
+    fthread: toutstreamthread;
+    fstacksizekb: integer;
+    fonsend: sendeventty;
+    fonerror: erroreventty;
+    fserver: msestring;
+    fdev: msestring;
+    frate: integer;
+    flatency: real;
+    procedure setactive(const avalue: Boolean);
   protected
-   factive: boolean;
-   fformat: sampleformatty;
-   fappname: msestring;
-   fstreamname: msestring;
-  //fpulsestream: ppa_simple;
-   HandlePAIn:pointer;
-   HandlePAOut:pointer;
-   HandleSF:pointer;
-   procedure initnames; virtual;
-   procedure loaded; override;
-   procedure run; virtual;
-   procedure stop; virtual;
-   function threadproc(sender: tmsethread): integer; virtual;
-   procedure raiseerror(const aerror: integer);
-   procedure doerror(const aerror: integer);
+    factive: Boolean;
+    fformat: sampleformatty;
+    fappname: msestring;
+    fstreamname: msestring;
+    HandlePAIn: Pointer;
+    HandlePAOut: Pointer;
+    HandleSF: Pointer;
+    procedure initnames; virtual;
+    procedure loaded; override;
+    procedure run; virtual;
+    procedure stop; virtual;
+    function threadproc(Sender: tmsethread): integer; virtual;
+    procedure raiseerror(const aerror: integer);
+    procedure doerror(const aerror: integer);
   public
-   fchannels: integer;
-   constructor create(aowner: tcomponent); override;
-   destructor destroy; override;
-//   function lock: boolean;
-//   procedure unlock;
-   procedure flush();
-   procedure drain();
+    fchannels: integer;
+    constructor Create(aowner: TComponent); override;
+    destructor Destroy; override;
+    procedure flush();
+    procedure drain();
 
-   property active: boolean read factive write setactive default false;
-   property server: msestring read fserver write fserver;
-   property dev: msestring read fdev write fdev;
-   property appname: msestring read fappname write fappname;
-   property streamname: msestring read fstreamname write fstreamname;
-   property channels: integer read fchannels write fchannels
-                                                 default defaultsamplechannels;
-   property format: sampleformatty read fformat write fformat
-                                              default defaultsampleformat;
-   property rate: integer read frate write frate default defaultsamplerate;
-   property stacksizekb: integer read fstacksizekb write fstacksizekb default 0;
-   property latency: real read flatency write flatency;
-           //seconds, 0 -> server default
-   property onsend: sendeventty read fonsend write fonsend;
-   property onerror: erroreventty read fonerror write fonerror;
- end;
+    property active: Boolean read factive write setactive default False;
+    property server: msestring read fserver write fserver;
+    property dev: msestring read fdev write fdev;
+    property appname: msestring read fappname write fappname;
+    property streamname: msestring read fstreamname write fstreamname;
+    property channels: integer read fchannels write fchannels default defaultsamplechannels;
+    property format: sampleformatty read fformat write fformat default defaultsampleformat;
+    property rate: integer read frate write frate default defaultsamplerate;
+    property stacksizekb: integer read fstacksizekb write fstacksizekb default 0;
+    property latency: real read flatency write flatency;
+    //seconds, 0 -> server default
+    property onsend: sendeventty read fonsend write fonsend;
+    property onerror: erroreventty read fonerror write fonerror;
+  end;
 
- taudioout = class(tcustomaudioout)
+  taudioout = class(tcustomaudioout)
   published
-   property active;
-   property server;
-   property dev;
-   property appname;
-   property streamname;
-   property channels;
-   property format;
-   property rate;
-   property latency;
-   property stacksizekb;
-   property onsend;
-   property onerror;
- end;
- 
-function uos_mseLoadLib(PA_FileName, SF_FileName : string): integer;
+    property active;
+    property server;
+    property dev;
+    property appname;
+    property streamname;
+    property channels;
+    property format;
+    property rate;
+    property latency;
+    property stacksizekb;
+    property onsend;
+    property onerror;
+  end;
+
+function uos_mseLoadLib(PA_FileName, SF_FileName: string): integer;
 function uos_mseUnLoadLib(): integer;
 
-   
 implementation
+
 uses
- sysutils,msesysintf,mseapplication;
- 
-function uos_mseLoadLib(PA_FileName, SF_FileName : string): integer;
+  SysUtils,
+  msesysintf,
+  mseapplication;
+
+function uos_mseLoadLib(PA_FileName, SF_FileName: string): integer;
 begin
- if Pa_Load(pchar(PA_FileName)) then
- begin
-  Pa_Initialize();
- end;
- 
- Sf_Load(SF_FileName); 
-end; 
+  if Pa_Load(PChar(PA_FileName)) then
+    Pa_Initialize();
+
+  Sf_Load(SF_FileName);
+end;
 
 function uos_mseUnLoadLib(): integer;
 begin
-sf_Unload();
-pa_unload; 
+  sf_Unload();
+  pa_unload;
 end;
 
 { tcustomaudioout }
 
-constructor tcustomaudioout.create(aowner: tcomponent);
+constructor tcustomaudioout.Create(aowner: TComponent);
 begin
-// syserror(sys_mutexcreate(fmutex),self);
- fchannels:= defaultsamplechannels;
- fformat:= defaultsampleformat;
- frate:= defaultsamplerate;
- flatency:= defaultlatency;
- inherited;
+  fchannels := defaultsamplechannels;
+  fformat   := defaultsampleformat;
+  frate     := defaultsamplerate;
+  flatency  := defaultlatency;
+  inherited;
 end;
 
-destructor tcustomaudioout.destroy;
+destructor tcustomaudioout.Destroy;
 begin
- active:= false;
- inherited;
-// sys_mutexdestroy(fmutex);
+  active := False;
+  inherited;
 end;
 
 procedure tcustomaudioout.flush();
 begin
-{
- if fpulsestream <> nil then begin
-  pa_simple_flush(fpulsestream,nil);
- end;
- }
+
 end;
 
 procedure tcustomaudioout.drain();
 begin
-{
- if fpulsestream <> nil then begin
-  pa_simple_drain(fpulsestream,nil);
- end;
- }
+
 end;
 
-procedure tcustomaudioout.setactive(const avalue: boolean);
+procedure tcustomaudioout.setactive(const avalue: Boolean);
 begin
- if factive <> avalue then begin
-  if componentstate * [csloading,csdesigning] = [] then begin
-   if not avalue then begin
-    stop;
-   end
-   else begin
-    run;
-   end;
-  end
-  else begin
-   factive:= avalue;
-  end;
- end;
+  if factive <> avalue then
+    if componentstate * [csloading, csdesigning] = [] then
+    begin
+      if not avalue then
+        stop
+      else
+      begin
+        run;
+      end;
+    end
+    else
+      factive := avalue;
 end;
 
 procedure tcustomaudioout.stop;
 begin
- if fthread <> nil then begin
-  fthread.terminate;
-  application.waitforthread(fthread);
-  freeandnil(fthread);
-  if assigned(HandlePAIn) then
+  if fthread <> nil then
   begin
-  Pa_StopStream(HandlePAIn);
-  Pa_CloseStream(HandlePAIn);
+    fthread.terminate;
+    application.waitforthread(fthread);
+    FreeAndNil(fthread);
+    if Assigned(HandlePAIn) then
+    begin
+      Pa_StopStream(HandlePAIn);
+      Pa_CloseStream(HandlePAIn);
+    end;
+    Pa_StopStream(HandlePAOut);
+    Pa_CloseStream(HandlePAOut);
+    sf_close(HandleSF);
   end;
-  Pa_StopStream(HandlePAOut);
-  Pa_CloseStream(HandlePAOut);
-  sf_close(HandleSF); 
-  end;
- factive:= false;
+  factive := False;
 end;
 
 procedure tcustomaudioout.run;
 begin
-  fthread:= toutstreamthread.create({$ifdef FPC}@{$endif}threadproc,false,fstacksizekb);
-  factive:= true;
+  fthread := toutstreamthread.Create(
+{$ifdef FPC}
+    @
+{$endif}
+    threadproc, False, fstacksizekb);
+  factive := True;
 end;
 
 procedure tcustomaudioout.initnames;
 begin
- //
+
 end;
 
 procedure tcustomaudioout.loaded;
 begin
- inherited;
- if not (csdesigning in componentstate) then begin
-  initnames;
-  if factive and (fthread = nil) then begin
-   run;
+  inherited;
+  if not (csdesigning in componentstate) then
+  begin
+    initnames;
+    if factive and (fthread = nil) then
+      run;
   end;
- end;
-end;
-{
-function tcustomaudioout.lock: boolean;
-begin
- result:= sys_mutexlock(fmutex) = sye_ok;
 end;
 
-procedure tcustomaudioout.unlock;
-begin
- sys_mutexunlock(fmutex);
-end;
-}
-function tcustomaudioout.threadproc(sender: tmsethread): integer;
+function tcustomaudioout.threadproc(Sender: tmsethread): integer;
 var
- data: pointer;
- datasize: integer;
+  Data: Pointer;
+  datasize: integer;
 begin
- result:= 0;
- if canevent(tmethod(fonsend)) then begin
-  factive:= true;
-  datasize:= 4; // (float 32 bit)
-  
-  while not sender.terminated do begin
-   data:= nil;
-    fonsend(data);
+  Result := 0;
+  if canevent(tmethod(fonsend)) then
+  begin
+    factive  := True;
+    datasize := 4; // (float 32 bit)
 
-   if data <> nil then begin
-   
-   if assigned(HandlePAOut) then
-   Pa_WriteStream(HandlePAOut,
-  @data, length(bytearty(data))*datasize);
-  
-   end;
+    while not Sender.terminated do
+    begin
+      Data := nil;
+      fonsend(Data);
+
+      if Data <> nil then
+        if Assigned(HandlePAOut) then
+          Pa_WriteStream(HandlePAOut, @Data, length(bytearty(Data)) * datasize);
+    end;
   end;
- end;
 end;
 
 procedure tcustomaudioout.raiseerror(const aerror: integer);
 begin
-raise exception.create('Error');
+  raise Exception.Create('Error');
 end;
 
 procedure tcustomaudioout.doerror(const aerror: integer);
 begin
- application.lock;
- try
-  if canevent(tmethod(fonerror)) then begin
-   // fonerror(self,aerror,pa_strerror(aerror));
+  application.lock;
+  try
+    if canevent(tmethod(fonerror)) then // fonerror(self,aerror,pa_strerror(aerror));
+    ;
+  finally
+    application.unlock;
   end;
- finally
-  application.unlock;
- end;
 end;
 
 end.
+

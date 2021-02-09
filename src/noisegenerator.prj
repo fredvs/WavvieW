@@ -30,9 +30,9 @@ findinfiledialog=60
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
- [findinfileadialogfo.inprojectdir]
  value=1
+ [findinfileadialogfo.inprojectdir]
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -63,10 +63,10 @@ findinfiledialog=60
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=inputtype
+ value=msesignal
  history=10
-  inputtype
   msesignal
+  inputtype
   internalstep
   floattostrf
   fbuffer
@@ -77,8 +77,8 @@ findinfiledialog=60
   
  [findinfileadialogfo]
  stackedunder=
- x=707
- y=43
+ x=530
+ y=212
  cx=234
  cy=308
 finddialog=8
@@ -811,13 +811,12 @@ findhistory=20
  step(
  step
 findoptions=1
-editpos=8
- 0,130
+editpos=7
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,-1073741823
+ 0,0
  0,-1073741823
  0,-1073741823
 bookmarks0=0
@@ -827,8 +826,7 @@ bookmarks3=0
 bookmarks4=0
 bookmarks5=0
 bookmarks6=0
-bookmarks7=0
-sourcefiles=8
+sourcefiles=7
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_mseaudio.pas
  ${PROJECTDIR}/uos_msesigaudio.pas
@@ -836,8 +834,7 @@ sourcefiles=8
  ${PROJECTDIR}/uos_portaudio.pas
  ${PROJECTDIR}/noisegenerator.pas
  ${PROJECTDIR}/msesignal.pas
- ${PROJECTDIR}/msesignal.pas
-relpaths=8
+relpaths=7
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
@@ -845,9 +842,7 @@ relpaths=8
  uos_portaudio.pas
  noisegenerator.pas
  msesignal.pas
- msesignal.pas
-ismoduletexts=8
- 0
+ismoduletexts=7
  0
  0
  0
@@ -864,19 +859,10 @@ visiblemodules=1
 nomenumodules=1
  0
 [sourcefo.files_tab]
-order=8
- 0
- 1
- 2
- 4
- 5
- 6
- 7
- 3
 firsttab=0
-index=0
+index=4
 [layout]
-windowlayout=589
+windowlayout=580
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -1010,7 +996,7 @@ windowlayout=589
  x=0
  y=0
  cx=205
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1296,7 +1282,7 @@ windowlayout=589
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=objectinspectorfo
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1327,7 +1313,7 @@ windowlayout=589
  x=0
  y=0
  cx=1356
- cy=50
+ cy=49
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1338,12 +1324,12 @@ windowlayout=589
  mdistate=0
  nx=0
  ny=0
- ncx=1356
+ ncx=1341
  ncy=0
  x=0
  y=0
- cx=1356
- cy=-1
+ cx=1341
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1353,8 +1339,9 @@ windowlayout=589
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/NoiseGenerator/src/main.pas
+ value=/home/fred/NoiseGenerator/src/uos_portaudio.pas
  history=20
+  /home/fred/NoiseGenerator/src/uos_portaudio.pas
   /home/fred/NoiseGenerator/src/main.pas
   /home/fred/NoiseGenerator_mic/src/uos_msesigaudio.pas
   /home/fred/NoiseGenerator/src/msesignal.pas
@@ -1374,7 +1361,6 @@ windowlayout=589
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/ouosdatacollector.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
   /home/fred/Downloads/Oscilloscope-main/source/3rdParty/uos/uos.pas
-  /home/fred/uos/examples/uos.pas
  [debuggerfo.project_options]
  value=4
  [debuggerfo.hints]
@@ -1392,21 +1378,12 @@ windowlayout=589
  x=208
  y=0
  cx=1148
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=8
-  0
-  1
-  2
-  4
-  5
-  6
-  7
-  3
  firsttab=0
- index=0
+ index=4
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1442,9 +1419,9 @@ windowlayout=589
  ncx=0
  ncy=0
  x=0
- y=53
+ y=52
  cx=1356
- cy=525
+ cy=526
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]

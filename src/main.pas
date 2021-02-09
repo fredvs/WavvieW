@@ -167,7 +167,6 @@ procedure tmainfo.onnoiseview(const Sender: TObject; var avalue: Boolean; var ac
 begin
   if avalue then
   begin
-    //cont.inputtype := 1;
     scope.sampler.controller       := cont;
     scope.sampler.inputs[0].Source := noise.output;
     fft.sampler.controller         := cont;
@@ -295,7 +294,6 @@ begin
     begin
       tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename;
       tsigoutaudio2.audio.active    := True;
-      //fileon.enabled := false;
     end
     else
       tsigoutaudio2.audio.active    := False;
@@ -305,7 +303,7 @@ procedure tmainfo.onnoiseactivate(const Sender: TObject; var avalue: Boolean; va
 begin
   if hasinit then
     if avalue then
-      out.audio.active := True//onoiseon.enabled := false;
+      out.audio.active := True
     else
       out.audio.active := False;
 end;

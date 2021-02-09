@@ -7,6 +7,9 @@
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 }
+
+// Link to Portaudio and LibSnfile by FredvS
+
 unit uos_msesigaudio;
 
 {$ifdef FPC}{$mode objfpc}{$h+}{$endif}
@@ -61,13 +64,10 @@ type
     property dev;
     property appname;
     property streamname;
-    //   property channels;
     property format;
     property rate;
     property latency;
     property stacksizekb;
-    //   property onsend;
-    //   property onerror;
 
   end;
 
@@ -373,11 +373,6 @@ begin
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
-      //writeln(' name ' +controller1.SoundFilename);
-      //  channels := SFinfo.channels;
-      // Length := sfInfo.frames;
-      //  frames := SFinfo.frames;
-      // samplerate := SFinfo.samplerate;
       controller1.samplefrequ := SFinfo.samplerate;
       controller1.channels := SFinfo.channels;
     end;
@@ -396,15 +391,17 @@ begin
         PAParamIn.SampleFormat := paFloat32
       else
         PAParamIn.SampleFormat := paFloat32;
-        
+
+        {
         if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
         PAParamIn.channelCount := 2
       else
         PAParamIn.channelCount := 1;
-        
+        }
+
       PAParamIn.channelCount := 1;
- 
-        controller1.channels := PAParamIn.channelCount;
+
+      controller1.channels := PAParamIn.channelCount;
 
       err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
         512, paClipOff, nil, nil);
@@ -438,8 +435,8 @@ begin
       PAParamOut.SampleFormat := paFloat32
     else
       PAParamOut.SampleFormat := paFloat32;
-   
-     err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
+
+    err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
       parate, 512, paClipOff, nil, nil);
 
     if HandlePAOut <> nil then
@@ -465,7 +462,7 @@ begin
     setlength(fbuffer, bufferlength1);
     setlength(fbuffer2, bufferlength1 * datasize1);
     setlength(fbuffer3, bufferlength1 * datasize1);
-  
+
     case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
@@ -524,7 +521,7 @@ begin
 
       controller1.lock;
       try
-     
+
         if (controller1.inputtype = 1) and (HandleSF <> nil) then
         begin
           if fformat = sfm_s16 then
@@ -544,27 +541,27 @@ begin
 
         if (controller1.inputtype = 2) and (HandlePAin <> nil) then
         begin
-         // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
-            Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
-           fbuffer3      := fbuffer2;
+          // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
+          fbuffer3 := fbuffer2;
         end;
 
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
         controller1.step(blocksize1);
-        info.Source := Pointer(fsigout.fbuffer);
-        info.dest   := Pointer(fbuffer);
+        info.Source    := Pointer(fsigout.fbuffer);
+        info.dest      := Pointer(fbuffer);
         convert(info);
       finally
         controller1.unlock;
       end;
-     if Assigned(HandlePAOut) then
+      if Assigned(HandlePAOut) then
       begin
         if controller1.inputtype = 0 then
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
         if (controller1.inputtype = 1) or (controller1.inputtype = 2) then
           Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
-       end
+      end
       else
         break;
 
@@ -609,15 +606,8 @@ destructor tsigoutaudio.Destroy;
 begin
   faudio.Free;
   inherited;
-  // finputs.free;
 end;
 
-{
-procedure tsigoutaudio.setinputs(const avalue: taudioinpconnarrayprop);
-begin
- finputs.assign(avalue);
-end;
-}
 procedure tsigoutaudio.setaudio(const avalue: tsigaudioout);
 begin
   faudio.Assign(avalue);
