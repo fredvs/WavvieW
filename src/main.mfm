@@ -50,6 +50,7 @@ object mainfo: tmainfo
     C0DCC004
   }
   windowopacity = -Inf
+  oncreate = oninit
   oncreated = oncreated
   onclose = onclosexe
   moduleclassname = 'tmainform'
@@ -76,6 +77,7 @@ object mainfo: tmainfo
       frame.leveli = -1
       frame.colorclient = -2147483645
       frame.caption = '   FFT Spectrum'
+      frame.captionpos = cp_top
       frame.localprops = [frl_leveli, frl_firight, frl_colorclient]
       frame.localprops1 = []
       frame.template = tframecomp2
@@ -9421,7 +9423,7 @@ object mainfo: tmainfo
     top = 104
   end
   object sta: tstatfile
-    filename = 'status.sta'
+    filename = 'stat.ini'
     left = 128
     top = 152
   end

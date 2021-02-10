@@ -1,0 +1,18 @@
+
+To install WavvieW, unzip the file from the release.
+https://github.com/fredvs/WavvieW/releases
+
+To run it, 2xclick on wavview in /WavvieW_xxx/ directory.
+
+For fft calculation library fftw3 is needed.
+
+For Linux and FreeBSD, fftw3 library is installed by default.
+If you need to install it, just do:
+
+$ sudo apt-get install fftw3
+
+For Windows the library fftw3 is included in the release.
+
+Enjoy ;-)
+
+FredvS

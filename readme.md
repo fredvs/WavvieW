@@ -1,11 +1,11 @@
 # WavvieW.
 
 
-WavvieW is deeply inspired by noisegen from mseide-msegui.
+WavvieW is deeply inspired by msesignal from mseide-msegui.
 
-WavvieW analyzes and show the build-in noise-generator and synhtesizer, audio files, input-mic with his oscilloscope and spectrum FFT using uos_PortAudio, LibSndfile libraries...
+WavvieW analyzes the build-in noise-generator-synhtesizer, audio files, input-mic and shows the result with his oscilloscope and FFT-spectrum...
 
-![WavvieW](https://user-images.githubusercontent.com/3421249/107425069-ca2bef80-6b1e-11eb-8b0c-f422d66de2b3.png)
+![WavvieW](https://user-images.githubusercontent.com/3421249/107452508-a4681000-6b49-11eb-8da5-35e341ee109e.png)
 
 Fred van Stappen 
 fiens@hotmail.com

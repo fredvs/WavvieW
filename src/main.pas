@@ -6,11 +6,11 @@ interface
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
  msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
- uos_msesigaudio,msestrings,msesignal,msesignoise,msechartedit,msedataedits,
+ uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
  mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
  msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
  msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
- msedropdownlist,msefiledialogx;
+ msedropdownlist,msefiledialogx,math;
 
 const
   versiontext = '1.0.0';
@@ -85,6 +85,7 @@ type
     procedure oninputview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
    procedure onabout(const sender: TObject);
+   procedure oninit(const sender: TObject);
   end;
 
 var
@@ -210,7 +211,8 @@ begin
 
   {$if defined(linux) and defined(cpuarm)}
     PA_FileName := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
-    SF_FileName := ordir + ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so';   {$ENDIF}
+    SF_FileName := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so'; 
+    {$ENDIF}
 
  {$IFDEF freebsd}
     {$if defined(cpu64)}
@@ -371,6 +373,15 @@ begin
     c_linefeed + 'Copyright 2021' + c_linefeed +
     'Fred van Stappen <fiens@hotmail.com>';
   aboutfo.Show(True);
+end;
+
+procedure tmainfo.oninit(const sender: TObject);
+begin
+  SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
+    [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
+
+ sta.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+    'ini' + directoryseparator + 'stat.ini';
 end;
 
 end.
