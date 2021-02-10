@@ -361,15 +361,13 @@ var
   sfInfo: TSF_INFO;
   PAParamIn, PAParamOut: PaStreamParameters;
   err: integer;
-  parate: single;
-begin
+ begin
   Result      := 0;
   controller1 := fsigout.controller;
 
   if controller1 <> nil then
   begin
     factive := True;
-
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
@@ -392,15 +390,11 @@ begin
       else
         PAParamIn.SampleFormat := paFloat32;
 
-        {
-        if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
+       if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
         PAParamIn.channelCount := 2
       else
         PAParamIn.channelCount := 1;
-        }
-
-      PAParamIn.channelCount := 1;
-
+     
       controller1.channels := PAParamIn.channelCount;
 
       err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
@@ -418,15 +412,10 @@ begin
     PAParamOut.SuggestedLatency :=
       ((Pa_GetDeviceInfo(PAParamOut.device)^.defaultHighOutputLatency)) * 1;
 
-    // flatency := PAParam.SuggestedLatency;
-
-    PAParamOut.channelCount := 1;  // sortie mono
-
-    if controller1.inputtype = 1 then
-      parate := SFinfo.samplerate * SFinfo.channels
-    else
-      parate := controller1.samplefrequ;
-
+    if controller1.inputtype = 0 then
+    PAParamOut.channelCount := 1 else
+    PAParamOut.channelCount := controller1.channels;  
+   
     if fformat = sfm_s16 then
       PAParamOut.SampleFormat := paInt16
     else if fformat = sfm_s32 then
@@ -437,7 +426,7 @@ begin
       PAParamOut.SampleFormat := paFloat32;
 
     err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
-      parate, 512, paClipOff, nil, nil);
+      controller1.samplefrequ, 512, paClipOff, nil, nil);
 
     if HandlePAOut <> nil then
       Pa_StartStream(HandlePAOut)
@@ -453,17 +442,17 @@ begin
       datasize1 := 4
     else
       datasize1 := 4;
-
+    
     blocksize1     := fblocksize;
     valuehigh1     := fsigout.inputs.Count * blocksize1;
     bufferlength1  := datasize1 * valuehigh1;
     Dec(valuehigh1);
     info.valuehigh := valuehigh1;
     setlength(fbuffer, bufferlength1);
-    setlength(fbuffer2, bufferlength1 * datasize1);
-    setlength(fbuffer3, bufferlength1 * datasize1);
-
-    case fformat of
+    setlength(fbuffer2, blocksize1 * controller1.channels);
+    setlength(fbuffer3, length(fbuffer2));
+  
+      case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
 {$ifdef endian_little},sfm_s16le{$else}
@@ -525,16 +514,16 @@ begin
         if (controller1.inputtype = 1) and (HandleSF <> nil) then
         begin
           if fformat = sfm_s16 then
-            sf_read_short(HandleSF, @fsigout.fbuffer[0], length(fsigout.fbuffer) div fchannels div datasize1)
+            sf_read_short(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_s32 then
-            sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels div datasize1)
+            sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_f32 then
           begin
             if HandleSF <> nil then
-              sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2) div fchannels div datasize1);
+              sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
           end
           else
-            sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2) div fchannels div datasize1);
+            sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
 
           fbuffer3 := fbuffer2;
         end;
@@ -542,7 +531,7 @@ begin
         if (controller1.inputtype = 2) and (HandlePAin <> nil) then
         begin
           // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
-          Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
+          Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div controller1.channels);
           fbuffer3 := fbuffer2;
         end;
 
@@ -560,7 +549,7 @@ begin
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
         if (controller1.inputtype = 1) or (controller1.inputtype = 2) then
-          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div datasize1 div fchannels);
+          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div controller1.channels);
       end
       else
         break;
@@ -599,7 +588,6 @@ constructor tsigoutaudio.Create(aowner: TComponent);
 begin
   faudio := tsigaudioout.Create(self);
   inherited;
-  // finputs:= taudioinpconnarrayprop.create(self);
 end;
 
 destructor tsigoutaudio.Destroy;

@@ -2895,11 +2895,16 @@ begin
     lock;
     try
 
-      int2 := (acount * channels) - 1;
+      int2 := length(fbuffer3) - 1;
+   
+     // writeln('length(fbuffer) = '+ inttostr(length(fbuffer)));
+     //  writeln('length(fbuffer3) = '+ inttostr(length(fbuffer3)));
+     // writeln('length(acount) = '+ inttostr(acount));
+     // writeln('channels = '+ inttostr(acount));
 
       for int1 := acount - 1 downto 0 do
       begin
-
+   
         if (inputtype = 1) or (inputtype = 2) then
           if length(fbuffer3) > 0 then
           begin
