@@ -89,7 +89,7 @@ type
   end;
 
 var
-  fbuffer3: array of single;
+fbuffer3: array of single;
 
 implementation
 
@@ -368,6 +368,7 @@ var
   if controller1 <> nil then
   begin
     factive := True;
+    
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
@@ -405,8 +406,16 @@ var
       else
         raiseerror(err);
     end;
-
-    // output
+    
+     if controller1.inputtype = 3 then // WaveForm
+      begin
+      controller1.SetWaveTable(0, 1,  0, 0); 
+      controller1.SetWaveTable(0, 2,  0, 0); 
+      controller1.channels := 2;
+      controller1.WaveFillBuffer(FBuffer2);
+      end;
+    
+     // output
     PAParamOut.hostApiSpecificStreamInfo := nil;
     PAParamOut.device           := Pa_GetDefaultOutputDevice();
     PAParamOut.SuggestedLatency :=
@@ -510,10 +519,15 @@ var
 
       controller1.lock;
       try
-
+       
+        //  if controller1.intodd = 1 then
+        //   controller1.intodd := -1 else controller1.intodd := 1;
+       
         if (controller1.inputtype = 1) and (HandleSF <> nil) then
         begin
-          if fformat = sfm_s16 then
+          //writeln('sndfile');
+           //  for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+                       if fformat = sfm_s16 then
             sf_read_short(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_s32 then
             sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2))
@@ -523,18 +537,28 @@ var
               sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
           end
           else
-            sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
-
-          fbuffer3 := fbuffer2;
+           sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
+           controller1.FillBufferVolume(fbuffer2); 
+           fbuffer3 := fbuffer2;
         end;
 
         if (controller1.inputtype = 2) and (HandlePAin <> nil) then
         begin
-          // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+         // writeln('mic');
+         // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
           Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div controller1.channels);
+          controller1.FillBufferVolume(fbuffer2); 
           fbuffer3 := fbuffer2;
         end;
-
+        
+          if (controller1.inputtype = 3) then
+        begin
+          //writeln('wavebuffer');
+         for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          controller1.WaveFillBuffer(FBuffer2);
+          fbuffer3 := fbuffer2;
+         end; 
+          
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
         controller1.step(blocksize1);
         info.Source    := Pointer(fsigout.fbuffer);
@@ -548,8 +572,8 @@ var
         if controller1.inputtype = 0 then
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
-        if (controller1.inputtype = 1) or (controller1.inputtype = 2) then
-          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div controller1.channels);
+        if (controller1.inputtype = 1) or (controller1.inputtype = 2) or (controller1.inputtype = 3) then
+          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2)  div controller1.channels);
       end
       else
         break;

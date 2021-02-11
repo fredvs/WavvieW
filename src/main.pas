@@ -4,13 +4,49 @@ unit main;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
- uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
- mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
- msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
- msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
- msedropdownlist,msefiledialogx,math;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  uos_mseaudio,
+  uos_msesigaudio,
+  msesignal,
+  msestrings,
+  msesignoise,
+  msechartedit,
+  msedataedits,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msesiggui,
+  msestatfile,
+  msesigfft,
+  msesigfftgui,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msesplitter,
+  msesimplewidgets,
+  msefilter,
+  mseact,
+  msestream,
+  SysUtils,
+  msebitmap,
+  msedropdownlist,
+  msefiledialogx,
+  Math;
 
 const
   versiontext = '1.0.0';
@@ -29,44 +65,64 @@ type
     tframecomp1: tframecomp;
     tframecomp2: tframecomp;
     timagelist3: timagelist;
-    tsplitter2: tsplitter;
     tsigoutaudio1: tsigoutaudio;
     tsigfilter1: tsigfilter;
     tsignoise1: tsignoise;
     tsigcontroller1: tsigcontroller;
-    tenvelopeedit1: tenvelopeedit;
-    tlabel1: tlabel;
-    tlabel2: tlabel;
-    tlabel3: tlabel;
-    sampcountdi: tintegerdisp;
     tsigoutaudio2: tsigoutaudio;
     tsigcontroller2: tsigcontroller;
     tsigkeyboard1: tsigkeyboard;
     tsigslider3: tsigslider;
     averagecount: tintegerdisp;
     average: tbooleanedit;
-    tsigslider1: tsigslider;
-    sampcount: tslider;
-    kinded: tenumtypeedit;
-    tfilenameeditx1: tfilenameeditx;
     tgroupbox1: tgroupbox;
     viewnoise: tbooleaneditradio;
     viewfile: tbooleaneditradio;
     viewpiano: tbooleaneditradio;
-    onoiseon: tbooleanedit;
     onpianoon: tbooleanedit;
     tsignoise2: tsignoise;
-    bstart: TButton;
-    tbutton2: TButton;
+    viewinput: tbooleaneditradio;
+    tfacecomp2: tfacecomp;
+    tfacecomp3: tfacecomp;
+    tfacecomp4: tfacecomp;
+    tbutton3: TButton;
     tsignoise3: tsignoise;
     tsigoutaudio3: tsigoutaudio;
     tsigcontroller3: tsigcontroller;
-    viewinput: tbooleaneditradio;
+    tsignoise4: tsignoise;
+    tsigoutaudio4: tsigoutaudio;
+    tsigcontroller4: tsigcontroller;
+    tgroupbox2: tgroupbox;
+    tbutton2: TButton;
+    bstart: TButton;
+    tfilenameeditx1: tfilenameeditx;
+    tgroupbox3: tgroupbox;
+    sampcount: tslider;
+    tsigslider1: tsigslider;
+    kinded: tenumtypeedit;
+    sampcountdi: tintegerdisp;
+    tlabel2: tlabel;
+    tlabel3: tlabel;
+    tgroupbox4: tgroupbox;
+    wavetype: tenumtypeedit;
+    tbooleaneditradio2: tbooleaneditradio;
+    tgroupbox5: tgroupbox;
+    sliderwave: tslider;
+    slidermic: tslider;
+    tlabel4: tlabel;
+    freqwav: tintegeredit;
+    sliderfreqwave: tslider;
+    volwav: tintegeredit;
+    harmonwave: tintegeredit;
+    Oddwave: tbooleanedit;
+    tenvelopeedit1: tenvelopeedit;
+    sliderfile: tslider;
+    volfile: tintegeredit;
     oninputon: tbooleanedit;
-   tfacecomp2: tfacecomp;
-   tfacecomp3: tfacecomp;
-   tfacecomp4: tfacecomp;
-   tbutton3: tbutton;
+    onoiseon: tbooleanedit;
+    onwaveon: tbooleanedit;
+    volmic: tintegeredit;
+    noiseamp: tintegerdisp;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -84,18 +140,30 @@ type
     procedure onstop(const Sender: TObject);
     procedure oninputview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
     procedure oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
-   procedure onabout(const sender: TObject);
-   procedure oninit(const sender: TObject);
+    procedure onabout(const Sender: TObject);
+    procedure oninit(const Sender: TObject);
+    procedure onwaveactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onvolwave(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onfreqwave(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onchangewave(const Sender: TObject);
+    procedure onwaveview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onfilevol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onchangefile(const Sender: TObject);
+    procedure onmicvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onchangemic(const Sender: TObject);
+    procedure onsetampnoise(const Sender: TObject; var avalue: realty; var accept: Boolean);
+    procedure onresizeform(const Sender: TObject);
   end;
 
 var
   mainfo: tmainfo;
   hasinit: Boolean = False;
- 
+
 implementation
 
 uses
- about, main_mfm;
+  about,
+  main_mfm;
 
 procedure tmainfo.onclosexe(const Sender: TObject);
 begin
@@ -103,6 +171,7 @@ begin
   tsigoutaudio1.audio.active := False;
   tsigoutaudio2.audio.active := False;
   tsigoutaudio3.audio.active := False;
+  tsigoutaudio4.audio.active := False;
   uos_mseUnLoadLib();
 end;
 
@@ -163,7 +232,6 @@ procedure tmainfo.oncreated(const Sender: TObject);
 var
   PA_FileName, SF_FileName, ordir: string;
   ara, arb: msestringarty;
-
 begin
   setlength(ara, 5);
   setlength(arb, 5);
@@ -174,7 +242,7 @@ begin
   ara[3] := 'flac';
   ara[4] := 'All';
 
-  arb[0] := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"' ;
+  arb[0] := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"';
   arb[1] := '"*.wav" "*.WAV"';
   arb[2] := '"*.ogg" "*.OGG"';
   arb[3] := '"*.flac" "*.FLAC"';
@@ -245,6 +313,7 @@ begin
   tsigcontroller1.inputtype := 0; // from synth/piano
   tsigcontroller2.inputtype := 1; // from file
   tsigcontroller3.inputtype := 2; // from input/mic
+  tsigcontroller4.inputtype := 3; // from waveform
 
   if viewinput.Value then
   begin
@@ -279,6 +348,7 @@ begin
   end;
 
   hasinit := True;
+  tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
 end;
 
 procedure tmainfo.onfileactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -304,10 +374,11 @@ end;
 
 procedure tmainfo.onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
-  if avalue then
-    tsigoutaudio1.audio.active := True
-  else
-    tsigoutaudio1.audio.active := False;
+  if hasinit then
+    if avalue then
+      tsigoutaudio1.audio.active := True
+    else
+      tsigoutaudio1.audio.active := False;
 end;
 
 procedure tmainfo.onfileview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -328,6 +399,8 @@ begin
     tsigoutaudio2.audio.active    := False;
     tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename;
     tsigoutaudio2.audio.active    := True;
+    sleep(10);
+    onchangefile(Sender);
   end;
 end;
 
@@ -351,14 +424,18 @@ end;
 procedure tmainfo.oninputactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
   if avalue then
-    tsigoutaudio3.audio.active := True
+  begin
+    tsigoutaudio3.audio.active := True;
+    sleep(10);
+    onchangemic(Sender);
+  end
   else
     tsigoutaudio3.audio.active := False;
 end;
 
-procedure tmainfo.onabout(const sender: TObject);
+procedure tmainfo.onabout(const Sender: TObject);
 begin
- aboutfo.Caption          := 'About WavvieW';
+  aboutfo.Caption          := 'About WavvieW';
   aboutfo.about_text.frame.colorclient := $DFFFB2;
   aboutfo.about_text.Value := c_linefeed + 'WavvieW ' + versiontext + ' for ' + platformtext +
     c_linefeed +
@@ -375,14 +452,117 @@ begin
   aboutfo.Show(True);
 end;
 
-procedure tmainfo.oninit(const sender: TObject);
+procedure tmainfo.oninit(const Sender: TObject);
 begin
   SetExceptionMask(GetExceptionMask + [exZeroDivide] + [exInvalidOp] +
     [exDenormalized] + [exOverflow] + [exUnderflow] + [exPrecision]);
 
- sta.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
+  sta.filename := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0))) +
     'ini' + directoryseparator + 'stat.ini';
 end;
+
+procedure tmainfo.onwaveactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if hasinit then
+    if avalue then
+    begin
+      tsigoutaudio4.audio.active := True;
+      sleep(10);
+      onchangewave(Sender);
+    end
+    else
+      tsigoutaudio4.audio.active := False;
+
+end;
+
+procedure tmainfo.onvolwave(const Sender: TObject; var avalue: realty; var accept: Boolean);
+begin
+  volwav.Value := round(100 * avalue);
+end;
+
+procedure tmainfo.onfreqwave(const Sender: TObject; var avalue: realty; var accept: Boolean);
+var
+  bvalue: integer;
+begin
+  bvalue   := round(avalue * avalue * 10000);
+  if bvalue > 10000 then
+    bvalue := 10000;
+  if bvalue < 100 then
+    bvalue := 100;
+  freqwav.Value := bvalue;
+end;
+
+
+procedure tmainfo.onchangewave(const Sender: TObject);
+var
+  isodd: integer;
+begin
+  if hasinit then
+  begin
+    if oddwave.Value then
+      isodd := 1
+    else
+      isodd := 0;
+
+    tsigcontroller4.SetWaveForm(wavetype.Value, wavetype.Value,
+      harmonwave.Value, harmonwave.Value,
+      isodd, isodd,
+      freqwav.Value, freqwav.Value,
+      volwav.Value / 100, volwav.Value / 100);
+
+{TypeWaveL, TypeWaveR,
+AHarmonicsL,AHarmonicsR : Integer;
+EvenHarmonicsL, EvenHarmonicsR : Shortint;
+FreqL, FreqR, VolL, VolR: single);  
+}
+  end;
+end;
+
+procedure tmainfo.onwaveview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if hasinit then
+    if avalue then
+    begin
+      scope.sampler.controller       := tsigcontroller4;
+      scope.sampler.inputs[0].Source := tsignoise4.output;
+      fft.sampler.controller         := tsigcontroller4;
+      fft.sampler.inputs[0].Source   := tsignoise4.output;
+    end;
+end;
+
+procedure tmainfo.onfilevol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+begin
+  volfile.Value := round(100 * avalue);
+end;
+
+procedure tmainfo.onchangefile(const Sender: TObject);
+begin
+  if hasinit then
+    tsigcontroller2.SetVolume(volfile.Value / 100, volfile.Value / 100);
+end;
+
+procedure tmainfo.onmicvol(const Sender: TObject; var avalue: realty; var accept: Boolean);
+begin
+  volmic.Value := round(100 * avalue);
+end;
+
+procedure tmainfo.onchangemic(const Sender: TObject);
+begin
+  if hasinit then
+    tsigcontroller3.SetVolume(volmic.Value / 100, volmic.Value / 100);
+end;
+
+procedure tmainfo.onsetampnoise(const Sender: TObject; var avalue: realty; var accept: Boolean);
+begin
+  noiseamp.Value := round(avalue * 100);
+end;
+
+procedure tmainfo.onresizeform(const Sender: TObject);
+begin
+  if hasinit then
+    tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
+end;
+
 
 end.
 

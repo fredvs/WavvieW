@@ -18,9 +18,9 @@ order15=0
 order16=0
 order17=0
 [projectoptions]
-projectdir=/home/fred/WavvieW/src
-projectfilename=/home/fred/WavvieW/src/wavview.prj
-findinfiledialog=60
+projectdir=/home/fred/WavvieW_pr/src
+projectfilename=/home/fred/WavvieW_pr/src/wavview.prj
+findinfiledialog=61
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -30,9 +30,9 @@ findinfiledialog=60
  [findinfileadialogfo.wholeword]
  value=0
  [findinfileadialogfo.indirectories]
- value=0
- [findinfileadialogfo.inprojectdir]
  value=1
+ [findinfileadialogfo.inprojectdir]
+ value=0
  [findinfileadialogfo.casesensitive]
  value=0
  [findinfileadialogfo.mask]
@@ -63,8 +63,9 @@ findinfiledialog=60
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=msesignal
- history=10
+ value=fftw
+ history=11
+  fftw
   msesignal
   inputtype
   internalstep
@@ -76,7 +77,7 @@ findinfiledialog=60
   ppa_simple
   
  [findinfileadialogfo]
- stackedunder=
+ stackedunder=finddialogfo
  x=530
  y=212
  cx=234
@@ -86,8 +87,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=936
- y=202
+ x=803
+ y=347
  cx=234
  cy=269
 options=114
@@ -205,6 +206,22 @@ options=114
  y=81
  cx=727
  cy=620
+imageselector=9
+ [imageselectorfo]
+ stackedunder=
+ x=524
+ y=247
+ cx=320
+ cy=244
+ wsize=0
+ active=1
+ visible=1
+stringlisteditor=5
+ [stringlisteditor]
+ x=639
+ y=297
+ cx=275
+ cy=237
 colordialog=5
  [colordialogfo]
  x=140
@@ -489,11 +506,11 @@ modulenames=1
 moduletypes=1
  TMAINFO
 modulefiles=1
- /home/fred/WavvieW/src/main.mfm
+ /home/fred/WavvieW_pr/src/main.mfm
 befcommandon=0
 makeoptionson=5
  4095
- 3
+ 7
  202
  252
  4095
@@ -789,55 +806,60 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=tiledialog
+finddtext=tsigkeyboard1.keywidth
 findhistory=20
- tiledialog
- tfiledialog
- tfiledialogx1
- pa_read
- HandlePA
- pa_
- sf_read_float
+ SetWavetable
+ VLeft
+ sf_r
  inputtype
- writeln
- of cfloat
- of float
- tsigout
- tsigaut
- tcustomaudioout
- asample
- tsigcontroller.cre
- tsigcontroller
- internalstep
- float
- uses
+ SetWaveForm
+ LookupTableRight
+ 1024
+ 1000
+ SetWaveTable
+ WaveFillBuffer
+ fbuffer2
+ setwavetable
+ tsigcontroller3
+ FBuffer2
+ FBuffer3
+ freqLsine
+ FillLookupTable
+ setwaveTable
+ waveTable
+ Table
 findoptions=1
-editpos=4
- 0,206
- 0,-1073741823
- 0,420
- 0,444
+editpos=5
+ 11,6
+ 0,0
+ 0,583
+ 0,1028
+ 0,0
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
-sourcefiles=4
- /home/fred/WavvieW/src/main.pas
+bookmarks4=0
+sourcefiles=5
+ ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_mseaudio.pas
- /home/fred/WavvieW/src/uos_msesigaudio.pas
- /home/fred/WavvieW/src/uos_msesigaudionew.pas
-relpaths=4
+ ${PROJECTDIR}/uos_msesigaudio.pas
+ ${PROJECTDIR}/msesignal.pas
+ ${PROJECTDIR}/uos_libsndfile.pas
+relpaths=5
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
- uos_msesigaudionew.pas
-ismoduletexts=4
+ msesignal.pas
+ uos_libsndfile.pas
+ismoduletexts=5
+ 0
  0
  0
  0
  0
 modules=1
- /home/fred/WavvieW/src/main.mfm
+ /home/fred/WavvieW_pr/src/main.mfm
 moduleoptions=1
  0
 visiblemodules=1
@@ -846,7 +868,7 @@ nomenumodules=1
  0
 [sourcefo.files_tab]
 firsttab=0
-index=2
+index=0
 [layout]
 windowlayout=584
  [mainfo.basedock]
@@ -888,7 +910,7 @@ windowlayout=584
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -982,7 +1004,7 @@ windowlayout=584
  x=0
  y=0
  cx=205
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -993,7 +1015,7 @@ windowlayout=584
  sortdescend1=0
  sorted=0
  col=1
- row=-1073741823
+ row=0
  rowheight=16
  [stackfo]
  splitdir=0
@@ -1272,7 +1294,7 @@ windowlayout=584
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -1287,9 +1309,9 @@ windowlayout=584
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [componentpalettefo.componentpages]
- activetab=0
+ activetab=6
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1303,7 +1325,7 @@ windowlayout=584
  x=0
  y=0
  cx=1212
- cy=51
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1315,11 +1337,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1197
- ncy=55
+ ncy=57
  x=0
  y=0
  cx=1212
- cy=54
+ cy=55
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1329,28 +1351,28 @@ windowlayout=584
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/uos_msesigaudio.pas
+ value=/home/fred/WavvieW_pr/src/main.pas
  history=20
-  /home/fred/WavvieW/src/uos_msesigaudio.pas
-  /home/fred/WavvieW/src/msesignal.pas
-  /home/fred/WavvieW/src/uos_msesignal.pas
-  /home/fred/WavvieW/src/wavview.pas
-  /home/fred/NoiseGenerator/src/msesignal.pas
-  /home/fred/noisegenerator/src/noisegenerator.pas
-  /home/fred/noisegenerator/mseaudiouos.pas
-  /home/fred/uos/examples/consolesynth.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/mseaudiouos.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/msesigaudiouos.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/uos_portaudio.pas
-  /home/fred/uos/src/uos_portaudio.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/msesigaudio.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/mseaudio.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/3rdParty/uos/define.inc
-  /home/fred/Downloads/Oscilloscope-no_timer_branch_moi/source/3rdParty/uos/uos.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/Oscilloscope.lpr
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/ouosdatacollector.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/obassdatacollector.pas
+  /home/fred/WavvieW_pr/src/main.pas
+  /home/fred/atest/test.prj
+  /home/fred/ideu/src/ideU.prj
+  /home/fred/mseide-msegui/apps/ide/mseide.prj
+  /home/fred/uos/examples/simpleplayer.prj
+  /home/fred/ideu_ok/src/ideU.prj
+  /home/fred/eschecs_mse/eschecs.prj
+  /home/fred/mselang-master/src/mselang.prj
+  /home/fred/mseide-msegui/apps/ide/mseide_zeos.prj
+  /home/fred/strumpract/src/strumpract.prj
+  /home/fred/ideu_badplug/src/demos/voiceassist/helloworld/helloworld.prj
+  /home/fred/xtop/src/ptop.prj
+  /home/fred/xtop/src/jtop.prj
+  /home/fred/idegraeme/mseide.prj
+  /home/fred/fptop/src/jtop.prj
+  /home/fred/fptop/src/ptop.prj
+  /home/fred/ptop_fred/ptop.prj
+  /home/fred/eschecs_mse_argh/eschecs.prj
+  /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
+  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -1368,12 +1390,12 @@ windowlayout=584
  x=208
  y=0
  cx=1004
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
  firsttab=0
- index=2
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1409,25 +1431,25 @@ windowlayout=584
  ncx=0
  ncy=0
  x=0
- y=54
+ y=53
  cx=1212
- cy=450
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=mainfo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=135
- y=162
+ x=184
+ y=94
  cx=1034
- cy=466
+ cy=616
  rcx=0
  rcy=0
  wsize=0

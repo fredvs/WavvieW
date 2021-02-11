@@ -1,9 +1,9 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 135
-  bounds_y = 162
+  bounds_x = 184
+  bounds_y = 94
   bounds_cx = 1024
-  bounds_cy = 466
+  bounds_cy = 616
   bounds_cxmin = 1024
   bounds_cymin = 342
   container.frame.localprops = []
@@ -14,7 +14,7 @@ object mainfo: tmainfo
     0
     0
     1024
-    466
+    616
   )
   font.color = -1610612731
   font.name = 'stf_default'
@@ -53,20 +53,21 @@ object mainfo: tmainfo
   oncreate = oninit
   oncreated = oncreated
   onclose = onclosexe
+  onresize = onresizeform
   moduleclassname = 'tmainform'
   object tlayouter2: tlayouter
     color = -2147483645
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 1022
-    bounds_cy = 335
+    bounds_cy = 448
     anchors = [an_left, an_top, an_right, an_bottom]
     object tsplitter1: tsplitter
       color = -1610612734
-      bounds_x = 344
+      bounds_x = 508
       bounds_y = 0
       bounds_cx = 4
-      bounds_cy = 335
+      bounds_cy = 448
       anchors = [an_left]
       options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
       linkleft = scope
@@ -90,10 +91,10 @@ object mainfo: tmainfo
       face.localprops = []
       face.template = tfacecomp1
       taborder = 1
-      bounds_x = 348
+      bounds_x = 512
       bounds_y = 0
-      bounds_cx = 388
-      bounds_cy = 335
+      bounds_cx = 508
+      bounds_cy = 448
       anchors = [an_right]
       traces.count = 1
       traces.chartkind = tck_bar
@@ -208,23 +209,22 @@ object mainfo: tmainfo
       taborder = 2
       bounds_x = 0
       bounds_y = 0
-      bounds_cx = 344
-      bounds_cy = 335
+      bounds_cx = 508
+      bounds_cy = 448
       anchors = [an_left]
       traces.count = 1
-      traces.options = [cto_smooth]
       traces.xrange = 1
       traces.xserrange = 1
       traces.yrange = 1
       traces.items = <      
         item
+          xdatalist.dummy = 0
           color = -1610612728
           widthmm = 0.3
           xserrange = 1
           xrange = 1
           yrange = 4
           ystart = -2
-          options = [cto_smooth]
         end>
       facechart.localprops = []
       facechart.template = tfacecomp1
@@ -301,234 +301,6 @@ object mainfo: tmainfo
       sampler.options = [sso_fulltick, sso_autorun]
       sampler.refreshus = 500000
     end
-    object tsplitter2: tsplitter
-      color = -1610612734
-      taborder = 3
-      bounds_x = 736
-      bounds_y = 0
-      bounds_cx = 4
-      bounds_cy = 335
-      anchors = [an_left]
-      options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
-      linkleft = fft
-      linkright = tenvelopeedit1
-      statfile = sta
-    end
-    object tenvelopeedit1: tenvelopeedit
-      taborder = 4
-      bounds_x = 740
-      bounds_y = 16
-      bounds_cx = 282
-      bounds_cy = 319
-      anchors = [an_left, an_top, an_right, an_bottom]
-      attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
-      attack.frame.localprops = []
-      attack.frame.localprops1 = []
-      attack.frame.template = tframecomp1
-      attack.frame.zoomwidthstep = 1.5
-      attack.bounds_x = 0
-      attack.bounds_y = 0
-      attack.bounds_cx = 94
-      attack.bounds_cy = 319
-      attack.traces.count = 2
-      attack.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
-      attack.traces.xrange = 0.1
-      attack.traces.xserrange = 1
-      attack.traces.yrange = 1
-      attack.traces.items = <      
-        item
-          color = -1610612728
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 0.1
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 45
-        end      
-        item
-          color = -1610612729
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 0.1
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 48
-        end>
-      attack.colorchart = 3356465
-      attack.xrange = 0.1
-      attack.yrange = 1
-      attack.xdials.range = 0.1
-      attack.ydials.range = 1
-      decay.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
-      decay.frame.localprops = []
-      decay.frame.localprops1 = []
-      decay.frame.template = tframecomp1
-      decay.frame.zoomwidthstep = 1.5
-      decay.taborder = 1
-      decay.bounds_x = 98
-      decay.bounds_y = 0
-      decay.bounds_cx = 95
-      decay.bounds_cy = 319
-      decay.traces.count = 2
-      decay.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
-      decay.traces.xrange = 10
-      decay.traces.xserrange = 1
-      decay.traces.yrange = 1
-      decay.traces.items = <      
-        item
-          color = -1610612728
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 10
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 45
-        end      
-        item
-          color = -1610612729
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 10
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 48
-        end>
-      decay.colorchart = 3356465
-      decay.xrange = 10
-      decay.yrange = 1
-      decay.xdials.count = 1
-      decay.xdials.range = 10
-      decay.xdials.items = <      
-        item
-          widthmm = 0.3
-          range = 10
-          markers.count = 1
-          markers.items = <          
-            item
-              color = -1610612729
-              value = 10
-              options = [dmo_savevalue]
-            end>
-        end>
-      decay.ydials.range = 1
-      release.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
-      release.frame.localprops = []
-      release.frame.localprops1 = []
-      release.frame.template = tframecomp1
-      release.frame.zoomwidthstep = 1.5
-      release.taborder = 2
-      release.bounds_x = 197
-      release.bounds_y = 0
-      release.bounds_cx = 85
-      release.bounds_cy = 319
-      release.traces.count = 2
-      release.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
-      release.traces.xrange = 1
-      release.traces.xserrange = 1
-      release.traces.yrange = 1
-      release.traces.items = <      
-        item
-          color = -1610612728
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 1
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 45
-        end      
-        item
-          color = -1610612729
-          widthmm = 0.3
-          xserrange = 1
-          xrange = 1
-          yrange = 1
-          options = [cto_smooth, cto_stockglyphs, cto_xordered]
-          imagenr = 48
-        end>
-      release.colorchart = 3356465
-      release.xrange = 1
-      release.yrange = 1
-      release.xdials.range = 1
-      release.ydials.range = 1
-      splitter1.color = -2147483645
-      splitter1.taborder = 3
-      splitter1.bounds_x = 94
-      splitter1.bounds_y = 0
-      splitter1.bounds_cx = 4
-      splitter1.bounds_cy = 319
-      splitter2.color = -2147483645
-      splitter2.taborder = 4
-      splitter2.bounds_x = 193
-      splitter2.bounds_y = 0
-      splitter2.bounds_cx = 4
-      splitter2.bounds_cy = 319
-      statfile = sta
-      envelope.controller = tsigcontroller1
-      envelope.trigger.gain = 1
-      envelope.trigger.min = -Inf
-      envelope.trigger.max = -Inf
-      envelope.trigger.expstart = -Inf
-      envelope.trigger.expend = -Inf
-      envelope.amplitude.gain = 1
-      envelope.amplitude.min = -Inf
-      envelope.amplitude.max = -Inf
-      envelope.amplitude.expstart = -Inf
-      envelope.amplitude.expend = -Inf
-      envelope.amplitude.value = 1
-      envelope.mix.gain = 1
-      envelope.mix.max = 1
-      envelope.mix.expstart = -Inf
-      envelope.mix.expend = -Inf
-      envelope.timescale = 1
-      envelope.min = 0.001
-      envelope.max = 1
-      envelope.eventthreshold = 0.1
-      envelope.attack_options = [sero_exp]
-    end
-    object tlabel1: tlabel
-      taborder = 5
-      bounds_x = 748
-      bounds_y = 0
-      bounds_cx = 75
-      bounds_cy = 15
-      anchors = [an_top, an_right]
-      caption = 'Piano Attack'
-      reffontheight = 15
-    end
-    object tlabel2: tlabel
-      taborder = 6
-      bounds_x = 846
-      bounds_y = 0
-      bounds_cx = 73
-      bounds_cy = 15
-      anchors = [an_top, an_right]
-      caption = 'Piano Decay'
-      reffontheight = 15
-    end
-    object tlabel3: tlabel
-      taborder = 7
-      bounds_x = 936
-      bounds_y = 0
-      bounds_cx = 81
-      bounds_cy = 15
-      anchors = [an_top, an_right]
-      caption = 'Piano Release'
-      reffontheight = 15
-    end
-  end
-  object sampcountdi: tintegerdisp
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = tframecomp2
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 1
-    bounds_x = 290
-    bounds_y = 415
-    bounds_cx = 29
-    bounds_cy = 22
-    anchors = [an_right, an_bottom]
-    reffontheight = 15
   end
   object tsigkeyboard1: tsigkeyboard
     color = -2147483645
@@ -8868,42 +8640,43 @@ object mainfo: tmainfo
       414141013B3B3B012A2A2A0111111101B2958AFFB2958A2C
     }
     face.localprops = [fal_image]
-    taborder = 2
-    bounds_x = 336
-    bounds_y = 391
-    bounds_cx = 672
+    taborder = 1
+    bounds_x = 568
+    bounds_y = 541
+    bounds_cx = 448
     bounds_cy = 67
-    anchors = [an_right, an_bottom]
-    statfile = sta
+    anchors = [an_left, an_right, an_bottom]
     value = 100
-    keywidth = 24
+    keywidth = 12
     controller = tsigcontroller1
     min = 0.005
   end
   object tsigslider3: tsigslider
     color = -2147483645
     frame.levelo = 0
-    frame.caption = 'Volume Piano'
-    frame.captionpos = cp_top
+    frame.caption = 'Vol'
+    frame.captionpos = cp_left
     frame.localprops = [frl_levelo]
     frame.localprops1 = []
     frame.template = tframecomp1
     frame.outerframe = (
+      21
       0
-      18
       0
       0
     )
     face.localprops = []
-    taborder = 3
-    bounds_x = 867
-    bounds_y = 338
-    bounds_cx = 144
-    bounds_cy = 44
-    anchors = [an_right, an_bottom]
+    taborder = 2
+    hint = 'Volume of piano'
+    bounds_x = 654
+    bounds_y = 510
+    bounds_cx = 109
+    bounds_cy = 21
+    anchors = [an_left, an_bottom]
     statfile = sta
+    value = 0.5
     scrollbar.buttonlength = 16
-    scrollbar.buttonendlength = 16
+    scrollbar.buttonendlength = -1
     scrollbar.face.localprops = []
     scrollbar.face.template = tfacecomp1
     scrollbar.face1.localprops = []
@@ -8919,12 +8692,6 @@ object mainfo: tmainfo
     scrollbar.framebutton.localprops = [frl_optionsskin]
     scrollbar.framebutton.localprops1 = []
     scrollbar.framebutton.template = tframecomp2
-    scrollbar.frameendbutton1.localprops = []
-    scrollbar.frameendbutton1.localprops1 = []
-    scrollbar.frameendbutton1.template = tframecomp2
-    scrollbar.frameendbutton2.localprops = []
-    scrollbar.frameendbutton2.localprops1 = []
-    scrollbar.frameendbutton2.template = tframecomp2
     scrollbar.colorglyph = -1610612730
     controller = tsigcontroller1
     max = 1
@@ -8944,12 +8711,11 @@ object mainfo: tmainfo
     )
     face.localprops = []
     face.template = tfacecomp1
-    taborder = 4
-    bounds_x = 644
-    bounds_y = 362
+    taborder = 3
+    bounds_x = 92
+    bounds_y = 0
     bounds_cx = 75
     bounds_cy = 19
-    anchors = [an_right, an_bottom]
     reffontheight = 15
   end
   object average: tbooleanedit
@@ -8966,217 +8732,18 @@ object mainfo: tmainfo
       0
       2
     )
-    taborder = 5
-    bounds_x = 648
-    bounds_y = 341
+    taborder = 4
+    bounds_x = 16
+    bounds_y = 1
     bounds_cx = 68
     bounds_cy = 17
-    anchors = [an_right, an_bottom]
     statfile = sta
     onsetvalue = averagesetev
   end
-  object tsigslider1: tsigslider
-    color = -2147483645
-    frame.caption = 'Amp'
-    frame.captionpos = cp_left
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-    frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-    frame.template = tframecomp1
-    frame.outerframe = (
-      31
-      0
-      0
-      0
-    )
-    taborder = 6
-    hint = 'Amplitude of noise'
-    bounds_x = 173
-    bounds_y = 386
-    bounds_cx = 146
-    bounds_cy = 24
-    anchors = [an_left, an_right, an_bottom]
-    statfile = sta
-    value = 0.3
-    scrollbar.buttonlength = 16
-    scrollbar.buttonendlength = 16
-    scrollbar.face.localprops = []
-    scrollbar.face1.localprops = []
-    scrollbar.face1.template = tfacecomp3
-    scrollbar.face2.localprops = []
-    scrollbar.face2.template = tfacecomp4
-    scrollbar.facebutton.localprops = []
-    scrollbar.facebutton.template = tfacecomp2
-    scrollbar.faceendbutton.localprops = []
-    scrollbar.faceendbutton.template = tfacecomp2
-    scrollbar.framebutton.optionsskin = [fso_flat]
-    scrollbar.framebutton.localprops = [frl_optionsskin]
-    scrollbar.framebutton.localprops1 = []
-    scrollbar.framebutton.template = tframecomp2
-    scrollbar.frameendbutton1.localprops = []
-    scrollbar.frameendbutton1.localprops1 = []
-    scrollbar.frameendbutton1.template = tframecomp2
-    scrollbar.frameendbutton2.localprops = []
-    scrollbar.frameendbutton2.localprops1 = []
-    scrollbar.frameendbutton2.template = tframecomp2
-    scrollbar.colorglyph = -1610612730
-    controller = cont
-    max = 1
-    options = [sieo_expzero]
-  end
-  object sampcount: tslider
-    color = -2147483645
-    frame.caption = 'Crest'
-    frame.captionpos = cp_left
-    frame.localprops = [frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-    frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
-    frame.template = tframecomp1
-    frame.outerframe = (
-      34
-      0
-      0
-      0
-    )
-    taborder = 7
-    hint = 'Samples count of noise'
-    bounds_x = 169
-    bounds_y = 415
-    bounds_cx = 118
-    bounds_cy = 24
-    anchors = [an_left, an_right, an_bottom]
-    statfile = sta
-    scrollbar.buttonlength = 16
-    scrollbar.buttonendlength = 16
-    scrollbar.face.localprops = []
-    scrollbar.face1.localprops = []
-    scrollbar.face1.template = tfacecomp3
-    scrollbar.face2.localprops = []
-    scrollbar.face2.template = tfacecomp4
-    scrollbar.facebutton.localprops = []
-    scrollbar.facebutton.template = tfacecomp2
-    scrollbar.faceendbutton.localprops = []
-    scrollbar.faceendbutton.template = tfacecomp2
-    scrollbar.framebutton.optionsskin = [fso_flat]
-    scrollbar.framebutton.localprops = [frl_optionsskin]
-    scrollbar.framebutton.localprops1 = []
-    scrollbar.framebutton.template = tframecomp2
-    scrollbar.frameendbutton1.localprops = []
-    scrollbar.frameendbutton1.localprops1 = []
-    scrollbar.frameendbutton1.template = tframecomp2
-    scrollbar.frameendbutton2.localprops = []
-    scrollbar.frameendbutton2.localprops1 = []
-    scrollbar.frameendbutton2.template = tframecomp2
-    scrollbar.colorglyph = -1610612730
-    onsetvalue = samcountsetexe
-  end
-  object kinded: tenumtypeedit
-    color = -2147483645
-    frame.caption = 'Noise Type'
-    frame.captionpos = cp_top
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = tframecomp1
-    frame.button.colorglyph = -1610612730
-    frame.button.face.localprops = []
-    frame.button.face.template = tfacecomp2
-    frame.button.frame.localprops = [frl_optionsskin]
-    frame.button.frame.localprops1 = []
-    frame.button.frame.template = tframecomp2
-    frame.buttons.count = 1
-    frame.buttons.items = <    
-      item
-        colorglyph = -1610612730
-        face.localprops = []
-        face.template = tfacecomp2
-        frame.localprops = [frl_optionsskin]
-        frame.localprops1 = []
-        frame.template = tframecomp2
-      end>
-    frame.outerframe = (
-      0
-      18
-      0
-      0
-    )
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 8
-    bounds_x = 204
-    bounds_y = 339
-    bounds_cx = 114
-    bounds_cy = 42
-    anchors = [an_left, an_right, an_bottom]
-    statfile = sta
-    value = 0
-    valuemin = 0
-    onsetvalue = kindsetexe
-    dropdown.colorclient = -1610612734
-    dropdown.facetemplate = tfacecomp1
-    dropdown.cols.count = 1
-    dropdown.cols.colorselect = -1610612733
-    dropdown.cols.facetemplate = tfacecomp1
-    dropdown.cols.items = <    
-      item
-        colorselect = -1610612733
-        facetemplate = tfacecomp1
-      end>
-    oninit = typinitexe
-    reffontheight = 15
-  end
-  object tfilenameeditx1: tfilenameeditx
-    color = -2147483645
-    frame.colorclient = -2147483645
-    frame.caption = 'File wav, ogg or flac'
-    frame.localprops = [frl_colorclient]
-    frame.localprops1 = []
-    frame.template = tframecomp1
-    frame.buttons.count = 1
-    frame.buttons.items = <    
-      item
-        colorglyph = -1610612730
-        face.localprops = []
-        face.template = tfacecomp2
-        frame.localprops = [frl_optionsskin]
-        frame.localprops1 = []
-        frame.template = tframecomp2
-        imagenr = 17
-      end>
-    frame.button.colorglyph = -1610612730
-    frame.button.face.localprops = []
-    frame.button.face.template = tfacecomp2
-    frame.button.frame.localprops = [frl_optionsskin]
-    frame.button.frame.localprops1 = []
-    frame.button.frame.template = tframecomp2
-    frame.button.imagenr = 17
-    frame.outerframe = (
-      0
-      18
-      0
-      0
-    )
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 9
-    bounds_x = 8
-    bounds_y = 342
-    bounds_cx = 148
-    bounds_cy = 42
-    anchors = [an_left, an_bottom]
-    statfile = sta
-    Value = 'sound/test.ogg'
-    controller.filename = 'sound/test.ogg'
-    controller.lastdir = 'sound/'
-    controller.fontheight = 0
-    controller.fontname = 'stf_default'
-    controller.fontcolor = -1610612734
-    controller.backcolor = -2147483647
-    controller.nopanel = False
-    controller.compact = False
-    controller.showhidden = False
-    reffontheight = 15
-  end
   object tgroupbox1: tgroupbox
     color = -2147483645
-    frame.caption = ' Source of Oscilloscope and FFT Spectrum'
+    frame.caption = ' View Source'
+    frame.captionpos = cp_top
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp2
@@ -9186,187 +8753,135 @@ object mainfo: tmainfo
       0
       0
     )
-    taborder = 10
-    bounds_x = 336
-    bounds_y = 340
-    bounds_cx = 298
-    bounds_cy = 41
-    anchors = [an_right, an_bottom]
+    taborder = 5
+    bounds_x = 560
+    bounds_y = 450
+    bounds_cx = 208
+    bounds_cy = 52
+    anchors = [an_left, an_bottom]
     object viewnoise: tbooleaneditradio
       frame.caption = 'Noise'
+      frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
       frame.template = tframecomp2
       frame.outerframe = (
+        10
+        18
+        11
         0
-        2
-        35
-        2
       )
-      bounds_x = 78
-      bounds_y = 18
-      bounds_cx = 48
-      bounds_cy = 17
+      bounds_x = 44
+      bounds_y = 14
+      bounds_cx = 34
+      bounds_cy = 31
       statfile = sta
       onsetvalue = onnoiseview
       value = True
     end
     object viewfile: tbooleaneditradio
       frame.caption = 'File'
+      frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
       frame.template = tframecomp2
       frame.outerframe = (
+        4
+        18
+        5
         0
-        2
-        23
-        2
       )
       taborder = 1
-      bounds_x = 22
-      bounds_y = 18
-      bounds_cx = 36
-      bounds_cy = 17
+      bounds_x = 10
+      bounds_y = 14
+      bounds_cx = 22
+      bounds_cy = 31
       statfile = sta
       onsetvalue = onfileview
     end
     object viewpiano: tbooleaneditradio
       frame.caption = 'Piano'
+      frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
       frame.template = tframecomp2
       frame.outerframe = (
+        10
+        18
+        11
         0
-        2
-        35
-        2
       )
       taborder = 2
-      bounds_x = 142
-      bounds_y = 18
-      bounds_cx = 48
-      bounds_cy = 17
+      bounds_x = 84
+      bounds_y = 14
+      bounds_cx = 34
+      bounds_cy = 31
       statfile = sta
       onsetvalue = onpianoview
     end
     object viewinput: tbooleaneditradio
-      frame.caption = 'Input/Mic'
+      frame.caption = 'Mic'
+      frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
       frame.template = tframecomp2
       frame.outerframe = (
+        4
+        18
+        5
         0
-        2
-        60
-        2
       )
       taborder = 3
-      bounds_x = 206
-      bounds_y = 18
-      bounds_cx = 73
-      bounds_cy = 17
+      bounds_x = 130
+      bounds_y = 14
+      bounds_cx = 22
+      bounds_cy = 31
       statfile = sta
       onsetvalue = oninputview
     end
+    object tbooleaneditradio2: tbooleaneditradio
+      frame.caption = 'Wave'
+      frame.captionpos = cp_top
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        11
+        18
+        11
+        0
+      )
+      taborder = 4
+      bounds_x = 163
+      bounds_y = 14
+      bounds_cx = 35
+      bounds_cy = 31
+      statfile = sta
+      onsetvalue = onwaveview
+    end
   end
-  object onoiseon: tbooleanedit
+  object onpianoon: tbooleanedit
     color = -2147483645
-    frame.caption = 'Activate Noise'
+    frame.caption = 'Activate'
     frame.captionpos = cp_left
     frame.captiondist = 4
     frame.localprops = []
     frame.localprops1 = [frl1_captiondist]
     frame.template = tframecomp2
     frame.outerframe = (
-      91
+      55
       1
       0
       2
     )
-    taborder = 11
-    bounds_x = 196
-    bounds_y = 443
-    bounds_cx = 104
-    bounds_cy = 17
-    anchors = [an_right, an_bottom]
-    onsetvalue = onnoiseactivate
-  end
-  object onpianoon: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Activate Piano'
-    frame.captionpos = cp_top
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      37
-      21
-      37
-      0
-    )
-    taborder = 12
-    bounds_x = 762
-    bounds_y = 343
-    bounds_cx = 87
-    bounds_cy = 35
-    anchors = [an_right, an_bottom]
-    onsetvalue = onpianoactivate
-  end
-  object bstart: tbutton
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = tframecomp1
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 13
-    bounds_x = 8
-    bounds_y = 388
-    bounds_cx = 74
-    bounds_cy = 24
-    anchors = [an_left, an_bottom]
-    state = [as_localcaption, as_localonexecute]
-    caption = 'Start'
-    onexecute = onstart
-  end
-  object tbutton2: tbutton
-    frame.optionsskin = [fso_flat]
-    frame.localprops = [frl_optionsskin]
-    frame.localprops1 = []
-    frame.template = tframecomp1
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 14
-    bounds_x = 88
-    bounds_y = 388
+    taborder = 6
+    hint = 'Activate Piano'
+    bounds_x = 576
+    bounds_y = 513
     bounds_cx = 68
-    bounds_cy = 24
+    bounds_cy = 17
     anchors = [an_left, an_bottom]
-    state = [as_localcaption, as_localonexecute]
-    caption = 'Stop'
-    onexecute = onstop
-  end
-  object oninputon: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Activate Input/Mic'
-    frame.captionpos = cp_top
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      49
-      18
-      50
-      0
-    )
-    taborder = 15
-    bounds_x = 34
-    bounds_y = 420
-    bounds_cx = 112
-    bounds_cy = 32
-    anchors = [an_left, an_bottom]
-    onsetvalue = oninputactivate
+    onsetvalue = onpianoactivate
   end
   object tbutton3: tbutton
     frame.optionsskin = [fso_flat]
@@ -9374,14 +8889,943 @@ object mainfo: tmainfo
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp1
-    taborder = 16
-    bounds_x = 8
+    taborder = 7
+    bounds_x = 960
     bounds_y = 2
     bounds_cx = 56
     bounds_cy = 16
+    anchors = [an_top, an_right]
     state = [as_localcaption, as_localonexecute]
     caption = 'About'
     onexecute = onabout
+  end
+  object tgroupbox2: tgroupbox
+    color = -2147483645
+    frame.caption = 'Audio Files'
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    taborder = 8
+    bounds_x = 8
+    bounds_y = 450
+    bounds_cx = 178
+    bounds_cy = 106
+    anchors = [an_left, an_bottom]
+    object tbutton2: tbutton
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp1
+      face.localprops = []
+      face.template = tfacecomp1
+      bounds_x = 96
+      bounds_y = 50
+      bounds_cx = 68
+      bounds_cy = 26
+      state = [as_localcaption, as_localonexecute]
+      caption = 'Stop'
+      onexecute = onstop
+    end
+    object bstart: tbutton
+      frame.optionsskin = [fso_flat]
+      frame.localprops = [frl_optionsskin]
+      frame.localprops1 = []
+      frame.template = tframecomp1
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 1
+      bounds_x = 12
+      bounds_y = 50
+      bounds_cx = 74
+      bounds_cy = 26
+      state = [as_localcaption, as_localonexecute]
+      caption = 'Start'
+      onexecute = onstart
+    end
+    object tfilenameeditx1: tfilenameeditx
+      color = -2147483645
+      frame.colorclient = -2147483645
+      frame.captionpos = cp_left
+      frame.captiondist = 2
+      frame.localprops = [frl_colorclient]
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = tframecomp1
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = tfacecomp2
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+          frame.template = tframecomp2
+          imagenr = 17
+        end>
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp2
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = tframecomp2
+      frame.button.imagenr = 17
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 2
+      hint = 'Audio file: wav, ogg or flac.'
+      bounds_x = 2
+      bounds_y = 25
+      bounds_cx = 173
+      bounds_cy = 22
+      statfile = sta
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      Value = 'sound/test.ogg'
+      controller.filename = 'sound/test.ogg'
+      controller.lastdir = 'sound/'
+      controller.fontheight = 0
+      controller.fontname = 'stf_default'
+      controller.fontcolor = -1610612734
+      controller.backcolor = -2147483647
+      controller.nopanel = False
+      controller.compact = False
+      controller.showhidden = False
+      reffontheight = 15
+    end
+    object sliderfile: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Vol'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        21
+        0
+        0
+        0
+      )
+      taborder = 3
+      hint = 'Volume of Audio File'
+      bounds_x = 9
+      bounds_y = 78
+      bounds_cx = 114
+      bounds_cy = 21
+      statfile = sta
+      value = 0.5
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onfilevol
+    end
+    object volfile: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 4
+      hint = 'Volume'
+      bounds_x = 128
+      bounds_y = 78
+      bounds_cx = 42
+      bounds_cy = 21
+      statfile = sta
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangefile
+      value = 50
+      valuedefault = 50
+      valuemax = 100
+      reffontheight = 15
+    end
+  end
+  object tgroupbox3: tgroupbox
+    color = -2147483645
+    frame.caption = '                                    '
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    taborder = 9
+    bounds_x = 192
+    bounds_y = 450
+    bounds_cx = 178
+    bounds_cy = 158
+    anchors = [an_left, an_bottom]
+    object sampcount: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Cres'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        29
+        0
+        0
+        0
+      )
+      hint = 'Samples count of noise'
+      bounds_x = 7
+      bounds_y = 120
+      bounds_cx = 121
+      bounds_cy = 21
+      statfile = sta
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = samcountsetexe
+    end
+    object tsigslider1: tsigslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Amp'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        31
+        0
+        0
+        0
+      )
+      taborder = 1
+      hint = 'Amplitude of noise'
+      bounds_x = 8
+      bounds_y = 70
+      bounds_cx = 122
+      bounds_cy = 21
+      statfile = sta
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onsetampnoise
+      controller = cont
+      max = 1
+      options = [sieo_expzero]
+    end
+    object kinded: tenumtypeedit
+      color = -2147483645
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp1
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp2
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = tfacecomp2
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+          frame.template = tframecomp2
+        end>
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 2
+      hint = 'Kind of Noise'
+      bounds_x = 2
+      bounds_y = 25
+      bounds_cx = 173
+      bounds_cy = 22
+      statfile = sta
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      value = 0
+      valuemin = 0
+      onsetvalue = kindsetexe
+      dropdown.colorclient = -1610612734
+      dropdown.facetemplate = tfacecomp1
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = -1610612733
+      dropdown.cols.facetemplate = tfacecomp1
+      dropdown.cols.items = <      
+        item
+          colorselect = -1610612733
+          facetemplate = tfacecomp1
+        end>
+      oninit = typinitexe
+      reffontheight = 15
+    end
+    object sampcountdi: tintegerdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 3
+      bounds_x = 128
+      bounds_y = 120
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+    object noiseamp: tintegerdisp
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 4
+      bounds_x = 128
+      bounds_y = 70
+      bounds_cx = 42
+      bounds_cy = 21
+      textflags = [tf_xcentered, tf_right, tf_ycentered]
+      reffontheight = 15
+    end
+  end
+  object tlabel2: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoheight]
+    color = -2147483645
+    taborder = 10
+    bounds_x = 858
+    bounds_y = 453
+    bounds_cx = 85
+    bounds_cy = 15
+    anchors = [an_left, an_right, an_bottom]
+    caption = 'Decay'
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 15
+  end
+  object tlabel3: tlabel
+    color = -2147483645
+    taborder = 11
+    bounds_x = 958
+    bounds_y = 453
+    bounds_cx = 45
+    bounds_cy = 15
+    anchors = [an_right, an_bottom]
+    caption = 'Release'
+    reffontheight = 15
+  end
+  object tgroupbox4: tgroupbox
+    color = -2147483645
+    frame.caption = '                                    '
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    taborder = 12
+    bounds_x = 376
+    bounds_y = 450
+    bounds_cx = 178
+    bounds_cy = 158
+    anchors = [an_left, an_bottom]
+    object wavetype: tenumtypeedit
+      color = -2147483645
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp1
+      frame.button.colorglyph = -1610612730
+      frame.button.face.localprops = []
+      frame.button.face.template = tfacecomp2
+      frame.button.frame.localprops = [frl_optionsskin]
+      frame.button.frame.localprops1 = []
+      frame.button.frame.template = tframecomp2
+      frame.buttons.count = 1
+      frame.buttons.items = <      
+        item
+          colorglyph = -1610612730
+          face.localprops = []
+          face.template = tfacecomp2
+          frame.localprops = [frl_optionsskin]
+          frame.localprops1 = []
+          frame.template = tframecomp2
+        end>
+      face.localprops = []
+      face.template = tfacecomp1
+      hint = 'Type of Wave'
+      bounds_x = 2
+      bounds_y = 25
+      bounds_cx = 173
+      bounds_cy = 22
+      statfile = sta
+      textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      value = 0
+      valuedefault = 0
+      valuemin = 0
+      dropdown.colorclient = -1610612734
+      dropdown.facetemplate = tfacecomp1
+      dropdown.cols.count = 1
+      dropdown.cols.colorselect = -1610612733
+      dropdown.cols.facetemplate = tfacecomp1
+      dropdown.cols.items = <      
+        item
+          colorselect = -1610612733
+          facetemplate = tfacecomp1
+          data = (
+            'Sine'
+            'Square'
+            'Triangle'
+          )
+        end>
+      reffontheight = 15
+    end
+    object sliderwave: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Vol'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        21
+        0
+        0
+        0
+      )
+      taborder = 1
+      hint = 'Volume of Wave'
+      bounds_x = 9
+      bounds_y = 62
+      bounds_cx = 121
+      bounds_cy = 21
+      value = 0.5
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onvolwave
+    end
+    object freqwav: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 2
+      hint = 'Frequency in HZ'
+      bounds_x = 120
+      bounds_y = 94
+      bounds_cx = 50
+      bounds_cy = 21
+      statfile = sta
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      value = 440
+      valuedefault = 440
+      valuemin = 100
+      valuemax = 10000
+      reffontheight = 15
+    end
+    object sliderfreqwave: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Fre'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        22
+        0
+        0
+        0
+      )
+      taborder = 3
+      hint = 'Frequency of Wave in Hz'
+      bounds_x = 8
+      bounds_y = 94
+      bounds_cx = 110
+      bounds_cy = 21
+      value = 0.3
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onfreqwave
+    end
+    object volwav: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 4
+      hint = 'Volume'
+      bounds_x = 128
+      bounds_y = 62
+      bounds_cx = 42
+      bounds_cy = 21
+      statfile = sta
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangewave
+      value = 50
+      valuedefault = 50
+      valuemax = 100
+      reffontheight = 15
+    end
+    object harmonwave: tintegeredit
+      frame.caption = 'Harm'
+      frame.captionpos = cp_left
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        36
+        0
+        0
+        0
+      )
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 5
+      hint = 'Number or Harmonics'
+      bounds_x = 12
+      bounds_y = 126
+      bounds_cx = 80
+      bounds_cy = 21
+      statfile = sta
+      onchange = onchangewave
+      valuemax = 20
+      reffontheight = 15
+    end
+    object Oddwave: tbooleanedit
+      color = -2147483645
+      frame.caption = 'Odd'
+      frame.captionpos = cp_left
+      frame.captiondist = 4
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = tframecomp2
+      frame.outerframe = (
+        31
+        1
+        0
+        2
+      )
+      taborder = 6
+      hint = 'Odd Harmonics only'
+      bounds_x = 118
+      bounds_y = 128
+      bounds_cx = 44
+      bounds_cy = 17
+      anchors = [an_right, an_bottom]
+      statfile = sta
+      onchange = onchangewave
+    end
+  end
+  object tgroupbox5: tgroupbox
+    color = -2147483645
+    frame.caption = '                                  '
+    frame.captionpos = cp_top
+    frame.localprops = []
+    frame.localprops1 = []
+    frame.template = tframecomp2
+    frame.outerframe = (
+      0
+      9
+      0
+      0
+    )
+    taborder = 13
+    bounds_x = 8
+    bounds_y = 558
+    bounds_cx = 178
+    bounds_cy = 49
+    anchors = [an_left, an_bottom]
+    object slidermic: tslider
+      color = -2147483645
+      frame.levelo = 0
+      frame.hiddenedges = [edg_right, edg_left]
+      frame.caption = 'Vol'
+      frame.captionpos = cp_left
+      frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+      frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+      frame.outerframe = (
+        21
+        0
+        0
+        0
+      )
+      hint = 'Volume of Input from Device'
+      bounds_x = 8
+      bounds_y = 20
+      bounds_cx = 114
+      bounds_cy = 21
+      statfile = sta
+      value = 0.5
+      scrollbar.buttonlength = 16
+      scrollbar.buttonendlength = -1
+      scrollbar.face.localprops = []
+      scrollbar.face1.localprops = []
+      scrollbar.face1.template = tfacecomp3
+      scrollbar.face2.localprops = []
+      scrollbar.face2.template = tfacecomp4
+      scrollbar.facebutton.localprops = []
+      scrollbar.facebutton.template = tfacecomp2
+      scrollbar.faceendbutton.localprops = []
+      scrollbar.faceendbutton.template = tfacecomp2
+      scrollbar.framebutton.optionsskin = [fso_flat]
+      scrollbar.framebutton.localprops = [frl_optionsskin]
+      scrollbar.framebutton.localprops1 = []
+      scrollbar.framebutton.template = tframecomp2
+      scrollbar.colorglyph = -1610612730
+      onsetvalue = onmicvol
+    end
+    object volmic: tintegeredit
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      face.localprops = []
+      face.template = tfacecomp1
+      taborder = 1
+      hint = 'Volume of Input from Device'
+      bounds_x = 128
+      bounds_y = 22
+      bounds_cx = 42
+      bounds_cy = 21
+      statfile = sta
+      textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
+      onchange = onchangemic
+      value = 50
+      valuedefault = 50
+      valuemax = 100
+      reffontheight = 15
+    end
+  end
+  object tlabel4: tlabel
+    optionswidget1 = [ow1_fontglyphheight, ow1_autoheight]
+    color = -2147483645
+    taborder = 14
+    bounds_x = 770
+    bounds_y = 453
+    bounds_cx = 85
+    bounds_cy = 15
+    anchors = [an_left, an_bottom]
+    caption = 'Attack'
+    textflags = [tf_xcentered, tf_ycentered]
+    reffontheight = 15
+  end
+  object tenvelopeedit1: tenvelopeedit
+    taborder = 15
+    bounds_x = 772
+    bounds_y = 472
+    bounds_cx = 242
+    bounds_cy = 63
+    anchors = [an_left, an_right, an_bottom]
+    attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+    attack.frame.localprops = []
+    attack.frame.localprops1 = []
+    attack.frame.template = tframecomp1
+    attack.frame.zoomwidthstep = 1.5
+    attack.bounds_x = 0
+    attack.bounds_y = 0
+    attack.bounds_cx = 80
+    attack.bounds_cy = 63
+    attack.traces.count = 2
+    attack.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
+    attack.traces.xrange = 0.1
+    attack.traces.xserrange = 1
+    attack.traces.yrange = 1
+    attack.traces.items = <    
+      item
+        color = -1610612728
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 0.1
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 45
+      end    
+      item
+        color = -1610612729
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 0.1
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 48
+      end>
+    attack.colorchart = 3356465
+    attack.xrange = 0.1
+    attack.yrange = 1
+    attack.xdials.range = 0.1
+    attack.ydials.range = 1
+    decay.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+    decay.frame.localprops = []
+    decay.frame.localprops1 = []
+    decay.frame.template = tframecomp1
+    decay.frame.zoomwidthstep = 1.5
+    decay.taborder = 1
+    decay.bounds_x = 84
+    decay.bounds_y = 0
+    decay.bounds_cx = 81
+    decay.bounds_cy = 63
+    decay.traces.count = 2
+    decay.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
+    decay.traces.xrange = 10
+    decay.traces.xserrange = 1
+    decay.traces.yrange = 1
+    decay.traces.items = <    
+      item
+        color = -1610612728
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 10
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 45
+      end    
+      item
+        color = -1610612729
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 10
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 48
+      end>
+    decay.colorchart = 3356465
+    decay.xrange = 10
+    decay.yrange = 1
+    decay.xdials.count = 1
+    decay.xdials.range = 10
+    decay.xdials.items = <    
+      item
+        widthmm = 0.3
+        range = 10
+        markers.count = 1
+        markers.items = <        
+          item
+            color = -1610612729
+            value = 10
+            options = [dmo_savevalue]
+          end>
+      end>
+    decay.ydials.range = 1
+    release.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+    release.frame.localprops = []
+    release.frame.localprops1 = []
+    release.frame.template = tframecomp1
+    release.frame.zoomwidthstep = 1.5
+    release.taborder = 2
+    release.bounds_x = 169
+    release.bounds_y = 0
+    release.bounds_cx = 73
+    release.bounds_cy = 63
+    release.traces.count = 2
+    release.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
+    release.traces.xrange = 1
+    release.traces.xserrange = 1
+    release.traces.yrange = 1
+    release.traces.items = <    
+      item
+        color = -1610612728
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 1
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 45
+      end    
+      item
+        color = -1610612729
+        widthmm = 0.3
+        xserrange = 1
+        xrange = 1
+        yrange = 1
+        options = [cto_smooth, cto_stockglyphs, cto_xordered]
+        imagenr = 48
+      end>
+    release.colorchart = 3356465
+    release.xrange = 1
+    release.yrange = 1
+    release.xdials.range = 1
+    release.ydials.range = 1
+    splitter1.color = -2147483645
+    splitter1.taborder = 3
+    splitter1.bounds_x = 80
+    splitter1.bounds_y = 0
+    splitter1.bounds_cx = 4
+    splitter1.bounds_cy = 63
+    splitter2.color = -2147483645
+    splitter2.taborder = 4
+    splitter2.bounds_x = 165
+    splitter2.bounds_y = 0
+    splitter2.bounds_cx = 4
+    splitter2.bounds_cy = 63
+    statfile = sta
+    envelope.controller = tsigcontroller1
+    envelope.trigger.gain = 1
+    envelope.trigger.min = -Inf
+    envelope.trigger.max = -Inf
+    envelope.trigger.expstart = -Inf
+    envelope.trigger.expend = -Inf
+    envelope.amplitude.gain = 1
+    envelope.amplitude.min = -Inf
+    envelope.amplitude.max = -Inf
+    envelope.amplitude.expstart = -Inf
+    envelope.amplitude.expend = -Inf
+    envelope.amplitude.value = 1
+    envelope.mix.gain = 1
+    envelope.mix.max = 1
+    envelope.mix.expstart = -Inf
+    envelope.mix.expend = -Inf
+    envelope.timescale = 1
+    envelope.min = 0.001
+    envelope.max = 1
+    envelope.eventthreshold = 0.1
+    envelope.attack_options = [sero_exp]
+  end
+  object oninputon: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Dev Input Activate'
+    frame.captionpos = cp_left
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      116
+      1
+      0
+      2
+    )
+    taborder = 16
+    bounds_x = 35
+    bounds_y = 558
+    bounds_cx = 129
+    bounds_cy = 17
+    anchors = [an_left, an_bottom]
+    onsetvalue = oninputactivate
+  end
+  object onoiseon: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Noise Gen   Activate'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      127
+      1
+      0
+      2
+    )
+    taborder = 17
+    bounds_x = 214
+    bounds_y = 451
+    bounds_cx = 140
+    bounds_cy = 17
+    anchors = [an_left, an_bottom]
+    onsetvalue = onnoiseactivate
+  end
+  object onwaveon: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Wave Gen   Activate'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      128
+      1
+      0
+      2
+    )
+    taborder = 18
+    bounds_x = 395
+    bounds_y = 451
+    bounds_cx = 144
+    bounds_cy = 17
+    anchors = [an_left, an_bottom]
+    onsetvalue = onwaveactivate
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -9495,6 +9939,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.format = sfm_f32
     audio.latency = 0.1
     left = 744
     top = 152
@@ -9556,7 +10001,6 @@ object mainfo: tmainfo
     offset.max = -Inf
     offset.expstart = -Inf
     offset.expend = -Inf
-    kind = nk_pink
     cutofffrequ = 0.1
     left = 744
     top = 104
@@ -9600,47 +10044,10 @@ object mainfo: tmainfo
     offset.max = -Inf
     offset.expstart = -Inf
     offset.expend = -Inf
+    kind = nk_brown
     cutofffrequ = 0.0001
     left = 744
     top = 288
-  end
-  object tsignoise3: tsignoise
-    controller = tsigcontroller3
-    amplitude.gain = 1
-    amplitude.min = -Inf
-    amplitude.max = -Inf
-    amplitude.expstart = 0.01
-    amplitude.expend = 1
-    amplitude.value = 1
-    offset.gain = 1
-    offset.min = -Inf
-    offset.max = -Inf
-    offset.expstart = -Inf
-    offset.expend = -Inf
-    cutofffrequ = 0.0001
-    left = 880
-    top = 288
-  end
-  object tsigoutaudio3: tsigoutaudio
-    controller = tsigcontroller3
-    inputs.count = 1
-    inputs.items = <    
-      item
-        source = tsignoise3.output
-        gain = 1
-        min = -Inf
-        max = -Inf
-        expstart = -Inf
-        expend = -Inf
-      end>
-    audio.latency = 0.1
-    left = 880
-    top = 264
-  end
-  object tsigcontroller3: tsigcontroller
-    samplefrequ = 44100
-    left = 880
-    top = 240
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -9685,5 +10092,83 @@ object mainfo: tmainfo
     )
     left = 560
     top = 184
+  end
+  object tsignoise3: tsignoise
+    controller = tsigcontroller3
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    kind = nk_brown
+    cutofffrequ = 0.0001
+    left = 880
+    top = 288
+  end
+  object tsigoutaudio3: tsigoutaudio
+    controller = tsigcontroller3
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = tsignoise3.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    audio.latency = 0.1
+    left = 880
+    top = 264
+  end
+  object tsigcontroller3: tsigcontroller
+    samplefrequ = 44100
+    left = 880
+    top = 240
+  end
+  object tsignoise4: tsignoise
+    controller = tsigcontroller4
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    kind = nk_brown
+    cutofffrequ = 0.0001
+    left = 880
+    top = 136
+  end
+  object tsigoutaudio4: tsigoutaudio
+    controller = tsigcontroller4
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = tsignoise4.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    audio.latency = 0.1
+    left = 880
+    top = 112
+  end
+  object tsigcontroller4: tsigcontroller
+    samplefrequ = 44100
+    left = 880
+    top = 88
   end
 end

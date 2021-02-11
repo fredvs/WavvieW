@@ -41,7 +41,8 @@ uses
   msesystypes,
   msereal,
   msetimer,
-  mseglob;
+  mseglob,
+  math;
 
 const
   defaultsamplefrequ = 44100; //Hz
@@ -64,6 +65,9 @@ const
      1.2599210499,1.33483985417,1.41421356237,1.49830707688,
      1.58740105197,1.6817928179283051,1.78179743628,1.88774862536,2.0);
 {$endif}
+
+type
+TArSingle = array of single;
 
 type
   siginchangeflagty   = (sic_value, sic_stream);
@@ -965,6 +969,16 @@ type
     fstepcount: integer;
     ftimer: tsimpletimer;
     asample: single;
+     // For Wave generator
+    LookupTableLeft, LookupTableRight: array [0..1023] of  single;
+    PosInTableLeft, PosInTableRight: Double;
+    VLeft, VRight: single;
+    typLsine, typRsine: integer;
+    freqLsine, freqRsine: single;
+    dursine, posdursine: integer;
+    harmonic: integer;
+    evenharm: shortint;  
+  
     procedure settickdiv(const avalue: integer);
     procedure setonbeforetick(const avalue: notifyeventty);
     procedure setonaftertick(const avalue: notifyeventty);
@@ -1006,9 +1020,26 @@ type
     procedure doidle(var again: Boolean);
     procedure doautotick(const Sender: TObject);
   public
-    inputtype: integer;
-    channels: integer;
-    SoundFilename: string;
+    // TODO set as properties
+    InputType: integer;
+    intodd : shortint;
+    SoundFilename: string;  
+    Channels: integer;
+    
+    procedure SetVolume(VolL, VolR: single); 
+
+    procedure FillBufferVolume(var TheBuffer : array of single); 
+   
+     procedure SetWaveTable(TypeWave, Channel,
+     AHarmonics: Integer; EvenHarmonics: Shortint); 
+    
+    procedure SetWaveForm(TypeWaveL, TypeWaveR,
+                          AHarmonicsL,AHarmonicsR : Integer;
+                          EvenHarmonicsL, EvenHarmonicsR : Shortint;
+                          FreqL, FreqR, VolL, VolR: single); 
+           
+    procedure WaveFillBuffer(var TheBuffer : array of single);  
+    
     constructor Create(aowner: TComponent); override;
     destructor Destroy; override;
     procedure lockapplication;  //releases controller lock, can not be nested
@@ -2212,6 +2243,192 @@ end;
 
 { tsigcontroller }
 
+procedure tsigcontroller.SetVolume(VolL, VolR: single); 
+begin
+VLeft := VolL;
+VRight := VolR;
+end;
+
+procedure tsigcontroller.FillBufferVolume(var TheBuffer: array of single); 
+var
+x : integer = 0;
+begin
+ while x < (length(TheBuffer))  do
+  begin
+   TheBuffer[x] := TheBuffer[x] * VLeft;
+   if TheBuffer[x] > 1 then TheBuffer[x] := 1;
+   if TheBuffer[x] < -1 then TheBuffer[x] := -1;
+   TheBuffer[x+1] := TheBuffer[x] * VRight;
+   if TheBuffer[x+1] > 1 then TheBuffer[x+1] := 1;
+   if TheBuffer[x+1] < -1 then TheBuffer[x+1] := -1;
+   inc(x, 2);
+  end;
+end;   
+
+procedure tsigcontroller.WaveFillBuffer(var TheBuffer : array of single);  
+var
+x : integer;
+sf1, sf2 : single;
+i: longint;
+chan : integer;
+aFreqL, aFreqR, aPosL, aPosR, aStepL, aStepR: single;
+ 
+begin
+// for x := 0 to length(TheBuffer) 
+//  do TheBuffer[x] := 0;
+ 
+ // chan := channels;
+  
+  aPosL:=PosInTableLeft;
+  aPosR:=PosInTableRight;
+  
+  aFreqL:=freqLsine;
+  aFreqR:=freqRsine;
+    
+  aStepL:=(aFreqL*1024/44100);
+  aStepR:=(aFreqR*1024/44100);;
+  
+  //posdursine := 
+  //posdursine + length(FBuffer3) div channels;
+
+  x := 0 ;
+  
+  while x < (length(TheBuffer))  do
+ begin
+  
+  sf2:= 0;
+  sf1:= 0;
+      
+  sf1:=VLeft*LookupTableLeft[trunc(aPosL) and (1023)];
+  aPosL:=aPosL+aStepL;
+  
+  if channels = 2 then
+  begin
+  sf2:=VRight*LookupTableRight[trunc(aPosR) and (1023)];
+  aPosR:=aPosR+aStepR;  
+  end;
+  
+  TheBuffer[x] := sf1;
+  if channels = 2 then TheBuffer[x+1] := sf2 ;
+   
+  inc(x, channels);
+  end;
+   
+  i:=trunc(aPosL) div 1024;
+  PosInTableLeft:=aPosL-(i*1024);
+  i:=trunc(aPosR) div 1024;
+  PosInTableRight:=aPosR-(i*1024);
+ 
+ end;
+ 
+ procedure tsigcontroller.SetWaveForm(TypeWaveL, TypeWaveR,
+                          AHarmonicsL,AHarmonicsR : Integer;
+                          EvenHarmonicsL, EvenHarmonicsR : Shortint;
+                          FreqL, FreqR, VolL, VolR: single);    
+begin
+   freqLsine := FreqL;
+   freqRsine := FreqR;
+   VLeft := VolL;
+   VRight := VolR;
+   SetWaveTable(TypeWaveL, 1, AHarmonicsL,EvenHarmonicsL);
+   SetWaveTable(TypeWaveR, 2, AHarmonicsR,EvenHarmonicsR);
+end;
+ 
+ 
+procedure tsigcontroller.SetWaveTable(TypeWave, Channel,
+     AHarmonics: Integer; EvenHarmonics: Shortint); 
+ var i, j, l: Integer;
+    nPI_l, attenuation: Double;
+begin
+  l:=1024; ; 
+  nPI_l:=2*PI/l;
+     
+for i:=0 to l-1 do  // LookUpTable
+begin 
+  
+  if typewave = 0 then // sine
+  begin
+   if Channel = 1 then
+    LookupTableLeft[i]:=sin(i*nPI_l);
+   if Channel = 2 then
+    LookupTableRight[i]:=sin(i*nPI_l);
+  end;
+  
+  if typewave = 1 then // square
+  begin
+   if Channel = 1 then
+   begin
+   if sin(i*nPI_l) >= 0 then
+    LookupTableLeft[i]:= 1 else
+    LookupTableLeft[i]:=-1 ;
+   end; 
+   if Channel = 2 then
+   begin
+   if sin(i*nPI_l) >= 0 then
+    LookupTableRight[i]:= 1 else
+    LookupTableRight[i]:=-1 ;
+    end; 
+  end;
+  
+  if typewave = 2 then // triangle
+  begin
+   if Channel = 1 then
+   begin
+    LookupTableLeft[i]:= ((l - i)/(l/2))-1;
+   end; 
+   if Channel = 2 then
+   begin
+   LookupTableRight[i]:= ((l - i)/(l/2))-1;
+    end; 
+  end;
+    
+end;
+    
+ if AHarmonics > 0 then   
+  for j:=1 to AHarmonics do
+    begin
+     if ((((j mod 2) =1) and (EvenHarmonics=1)) or (EvenHarmonics=0)) then
+       begin
+          attenuation := power(j+1, 4);
+          nPI_l:=2*j*pi/l;
+          for i:=0 to l-1 do
+          begin
+          
+          if typewave = 0 then
+          begin
+          if Channel = 1 then
+            LookupTableLeft[i]:=
+            LookupTableLeft[i]+sin(i*nPI_l)/attenuation;
+          if Channel = 2 then
+            LookupTableRight[i]:=
+            LookupTableRight[i]+sin(i*nPI_l)/attenuation;
+          end;
+          
+          if typewave = 1 then
+          begin
+          if Channel = 1 then
+          begin
+          if sin(i*nPI_l) >= 0 then
+            LookupTableLeft[i]:=
+            LookupTableLeft[i]+(1/attenuation) else
+            LookupTableLeft[i]:=
+            LookupTableLeft[i]+(-1/attenuation);
+           end ;
+          if Channel = 2 then
+          begin
+          if sin(i*nPI_l) >= 0 then
+            LookupTableRight[i]:=
+            LookupTableRight[i]+(1/attenuation) else
+            LookupTableRight[i]:=
+            LookupTableRight[i]+(-1/attenuation);
+           end ;
+          end; 
+          
+         end; 
+        end;
+    end;
+ end;   
+
 constructor tsigcontroller.Create(aowner: TComponent);
 begin
   fsamplefrequ := defaultsamplefrequ;
@@ -2221,6 +2438,13 @@ begin
   finphash     := tsiginfohash.Create;
   foutphash    := tsiginfohash.Create;
   inputtype    := 0;
+  intodd := 1;
+  PosInTableLeft  := 0.0;
+  PosInTableRight := 0.0; 
+  freqLsine := 440;
+  freqRsine := 440;
+  VLeft := 0.5;
+  VRight := 0.5; 
   inherited;
 end;
 
@@ -2840,7 +3064,7 @@ var
   po1: psighandlernodeinfoty;
 begin
   po1 := Pointer(fexecinfo);
-
+  
   for int1 := 0 to fexechigh do
   begin
     po1^.handler(psighandlerinfoty(po1));
@@ -2852,7 +3076,7 @@ begin
 
           if inputtype = 0 then
             dest^ := Source^;
-          if (inputtype = 1) or (inputtype = 2) then
+          if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
             dest^ := asample;
 
           if sca.hasscale then
@@ -2875,6 +3099,7 @@ procedure tsigcontroller.step(acount: integer);
 var
   int1, int2: integer;
   bo1: Boolean;
+  
 begin
   if not (scs_modelvalid in fstate) then
     updatemodel;
@@ -2894,8 +3119,8 @@ begin
     end;
     lock;
     try
-
-      int2 := length(fbuffer3) - 1;
+    
+       int2 := length(fbuffer3) - 1;
    
      // writeln('length(fbuffer) = '+ inttostr(length(fbuffer)));
      //  writeln('length(fbuffer3) = '+ inttostr(length(fbuffer3)));
@@ -2904,19 +3129,18 @@ begin
 
       for int1 := acount - 1 downto 0 do
       begin
-   
-        if (inputtype = 1) or (inputtype = 2) then
+         if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
           if length(fbuffer3) > 0 then
           begin
             if channels = 1 then
               asample := fbuffer3[int2];
 
             if channels = 2 then
-              asample := (fbuffer3[int2] + fbuffer3[int2 - 1]) / 2;
+              asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2) ;
 
             int2 := int2 - channels;
           end;
-
+     
         internalstep;
       end;
     finally
