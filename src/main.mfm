@@ -9592,6 +9592,7 @@ object mainfo: tmainfo
     reffontheight = 15
   end
   object tenvelopeedit1: tenvelopeedit
+    color = -2147483645
     taborder = 15
     bounds_x = 772
     bounds_y = 472

@@ -18,8 +18,8 @@ order15=0
 order16=0
 order17=0
 [projectoptions]
-projectdir=/home/fred/WavvieW_pr/src
-projectfilename=/home/fred/WavvieW_pr/src/wavview.prj
+projectdir=/home/fred/WavvieW/src
+projectfilename=/home/fred/WavvieW/src/wavview.prj
 findinfiledialog=61
  [findinfileadialogfo.subdirs]
  value=1
@@ -506,11 +506,11 @@ modulenames=1
 moduletypes=1
  TMAINFO
 modulefiles=1
- /home/fred/WavvieW_pr/src/main.mfm
+ /home/fred/WavvieW/src/main.mfm
 befcommandon=0
 makeoptionson=5
  4095
- 7
+ 3
  202
  252
  4095
@@ -830,11 +830,11 @@ findhistory=20
  Table
 findoptions=1
 editpos=5
- 11,6
- 0,0
- 0,583
- 0,1028
- 0,0
+ 0,6
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -859,7 +859,7 @@ ismoduletexts=5
  0
  0
 modules=1
- /home/fred/WavvieW_pr/src/main.mfm
+ /home/fred/WavvieW/src/main.mfm
 moduleoptions=1
  0
 visiblemodules=1
@@ -1095,9 +1095,9 @@ windowlayout=584
  value=1
  [objectinspectorfo.grid]
  propcolwidthref=553
- width0=246
+ width0=247
  sortdescend0=0
- width1=301
+ width1=300
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1294,7 +1294,7 @@ windowlayout=584
  [componentpalettefo]
  splitdir=0
  useroptions=268460139
- stackedunder=_mse_mainfo_mse_
+ stackedunder=
  parent=
  mdistate=3
  nx=0
@@ -1309,7 +1309,7 @@ windowlayout=584
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [componentpalettefo.componentpages]
  activetab=6
  [debuggerfo]
@@ -1337,11 +1337,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1197
- ncy=57
+ ncy=53
  x=0
  y=0
  cx=1212
- cy=55
+ cy=51
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1351,8 +1351,9 @@ windowlayout=584
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW_pr/src/main.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
+  /home/fred/WavvieW/src/main.pas
   /home/fred/WavvieW_pr/src/main.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
@@ -1372,7 +1373,6 @@ windowlayout=584
   /home/fred/ptop_fred/ptop.prj
   /home/fred/eschecs_mse_argh/eschecs.prj
   /home/fred/Downloads/jcf-cli-master/CommandLine/Lazarus/jcf.prj
-  /home/fred/mseuniverse/samples/widgets/grids/chessboard/chessboard.prj
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
