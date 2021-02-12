@@ -4,49 +4,13 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  uos_mseaudio,
-  uos_msesigaudio,
-  msesignal,
-  msestrings,
-  msesignoise,
-  msechartedit,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msesiggui,
-  msestatfile,
-  msesigfft,
-  msesigfftgui,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msesplitter,
-  msesimplewidgets,
-  msefilter,
-  mseact,
-  msestream,
-  SysUtils,
-  msebitmap,
-  msedropdownlist,
-  msefiledialogx,
-  Math;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
+ uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
+ mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
+ msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
+ msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
+ msedropdownlist,msefiledialogx,Math;
 
 const
   versiontext = '1.0.0';
@@ -71,17 +35,9 @@ type
     tsigcontroller1: tsigcontroller;
     tsigoutaudio2: tsigoutaudio;
     tsigcontroller2: tsigcontroller;
-    tsigkeyboard1: tsigkeyboard;
-    tsigslider3: tsigslider;
     averagecount: tintegerdisp;
     average: tbooleanedit;
-    tgroupbox1: tgroupbox;
-    viewnoise: tbooleaneditradio;
-    viewfile: tbooleaneditradio;
-    viewpiano: tbooleaneditradio;
-    onpianoon: tbooleanedit;
     tsignoise2: tsignoise;
-    viewinput: tbooleaneditradio;
     tfacecomp2: tfacecomp;
     tfacecomp3: tfacecomp;
     tfacecomp4: tfacecomp;
@@ -92,37 +48,48 @@ type
     tsignoise4: tsignoise;
     tsigoutaudio4: tsigoutaudio;
     tsigcontroller4: tsigcontroller;
-    tgroupbox2: tgroupbox;
-    tbutton2: TButton;
-    bstart: TButton;
-    tfilenameeditx1: tfilenameeditx;
-    tgroupbox3: tgroupbox;
-    sampcount: tslider;
-    tsigslider1: tsigslider;
-    kinded: tenumtypeedit;
-    sampcountdi: tintegerdisp;
-    tlabel2: tlabel;
-    tlabel3: tlabel;
-    tgroupbox4: tgroupbox;
-    wavetype: tenumtypeedit;
-    tbooleaneditradio2: tbooleaneditradio;
-    tgroupbox5: tgroupbox;
-    sliderwave: tslider;
-    slidermic: tslider;
-    tlabel4: tlabel;
-    freqwav: tintegeredit;
-    sliderfreqwave: tslider;
-    volwav: tintegeredit;
-    harmonwave: tintegeredit;
-    Oddwave: tbooleanedit;
-    tenvelopeedit1: tenvelopeedit;
-    sliderfile: tslider;
-    volfile: tintegeredit;
-    oninputon: tbooleanedit;
-    onoiseon: tbooleanedit;
-    onwaveon: tbooleanedit;
-    volmic: tintegeredit;
-    noiseamp: tintegerdisp;
+   tbooleanedit2: tbooleanedit;
+   tbooleanedit3: tbooleanedit;
+   tlayouter1: tlayouter;
+   tgroupbox2: tgroupbox;
+   tbutton2: tbutton;
+   bstart: tbutton;
+   tfilenameeditx1: tfilenameeditx;
+   sliderfile: tslider;
+   volfile: tintegeredit;
+   oninputon: tbooleanedit;
+   tgroupbox5: tgroupbox;
+   slidermic: tslider;
+   volmic: tintegeredit;
+   onoiseon: tbooleanedit;
+   tgroupbox3: tgroupbox;
+   sampcount: tslider;
+   tsigslider1: tsigslider;
+   kinded: tenumtypeedit;
+   sampcountdi: tintegerdisp;
+   noiseamp: tintegerdisp;
+   tgroupbox4: tgroupbox;
+   wavetype: tenumtypeedit;
+   sliderwave: tslider;
+   freqwav: tintegeredit;
+   sliderfreqwave: tslider;
+   volwav: tintegeredit;
+   harmonwave: tintegeredit;
+   Oddwave: tbooleanedit;
+   tgroupbox1: tgroupbox;
+   viewnoise: tbooleaneditradio;
+   viewfile: tbooleaneditradio;
+   viewpiano: tbooleaneditradio;
+   viewinput: tbooleaneditradio;
+   tbooleaneditradio2: tbooleaneditradio;
+   tsigslider3: tsigslider;
+   onpianoon: tbooleanedit;
+   tsigkeyboard1: tsigkeyboard;
+   tenvelopeedit1: tenvelopeedit;
+   tlabel2: tlabel;
+   tlabel3: tlabel;
+   tlabel4: tlabel;
+   onwavon: tbooleanedit;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -153,6 +120,10 @@ type
     procedure onchangemic(const Sender: TObject);
     procedure onsetampnoise(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure onresizeform(const Sender: TObject);
+   procedure onshowoscilloscope(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onshowspectrum(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
   end;
 
 var
@@ -563,6 +534,39 @@ begin
     tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
 end;
 
+procedure tmainfo.onshowoscilloscope(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if not avalue then
+begin
+scope.visible := false;
+tsplitter1.left := 0;
+tsplitter1.visible := false;
+end else
+begin
+tsplitter1.left := width div 2;
+tsplitter1.visible := true;
+scope.visible := true;
+end;
+end;
+
+
+procedure tmainfo.onshowspectrum(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+
+if not avalue then
+begin
+fft.visible := false;
+tsplitter1.left := width - tsplitter1.width;
+tsplitter1.visible := false;
+end else
+begin
+tsplitter1.left := width div 2;
+tsplitter1.visible := true;
+fft.visible := true;
+end;
+end;
 
 end.
 

@@ -830,7 +830,7 @@ findhistory=20
  Table
 findoptions=1
 editpos=5
- 0,6
+ 10,91
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -884,8 +884,8 @@ windowlayout=584
  ny=0
  ncx=0
  ncy=0
- x=34
- y=53
+ x=69
+ y=79
  cx=1224
  cy=621
  rcx=0
@@ -1301,8 +1301,8 @@ windowlayout=584
  ny=0
  ncx=0
  ncy=0
- x=240
- y=139
+ x=242
+ y=290
  cx=956
  cy=77
  rcx=0
@@ -1311,7 +1311,7 @@ windowlayout=584
  active=0
  visible=0
  [componentpalettefo.componentpages]
- activetab=6
+ activetab=0
  [debuggerfo]
  splitdir=0
  useroptions=24683
@@ -1337,11 +1337,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1197
- ncy=53
+ ncy=43
  x=0
  y=0
  cx=1212
- cy=51
+ cy=41
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1439,17 +1439,17 @@ windowlayout=584
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0
  ny=0
  ncx=0
  ncy=0
- x=184
- y=94
+ x=173
+ y=29
  cx=1034
- cy=616
+ cy=484
  rcx=0
  rcy=0
  wsize=0
