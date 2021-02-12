@@ -3,6 +3,9 @@ program wavview;
 {$ifdef FPC}
  {$ifdef mswindows}{$apptype gui}{$endif}
 {$endif}
+{$ifdef mswindows}
+ {$R dp.res}
+{$endif}
 uses
  {$ifdef FPC}{$ifdef unix}cthreads,{$endif}{$endif} 
  msegui,about, main;

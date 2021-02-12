@@ -10,10 +10,10 @@ uses
  mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
  msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
  msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
- msedropdownlist,msefiledialogx,Math;
+ msedropdownlist,msefiledialogx,Math,msefftw;
 
 const
-  versiontext = '1.0.0';
+  versiontext = '1.2';
 
 type
   tmainfo = class(tmainform)
@@ -41,18 +41,18 @@ type
     tfacecomp2: tfacecomp;
     tfacecomp3: tfacecomp;
     tfacecomp4: tfacecomp;
-    tbutton3: TButton;
+    babout: TButton;
     tsignoise3: tsignoise;
     tsigoutaudio3: tsigoutaudio;
     tsigcontroller3: tsigcontroller;
     tsignoise4: tsignoise;
     tsigoutaudio4: tsigoutaudio;
     tsigcontroller4: tsigcontroller;
-   tbooleanedit2: tbooleanedit;
-   tbooleanedit3: tbooleanedit;
+   oscion: tbooleanedit;
+   spectrumon: tbooleanedit;
    tlayouter1: tlayouter;
    tgroupbox2: tgroupbox;
-   tbutton2: tbutton;
+   bstop: tbutton;
    bstart: tbutton;
    tfilenameeditx1: tfilenameeditx;
    sliderfile: tslider;
@@ -91,6 +91,8 @@ type
    tlabel4: tlabel;
    onwavon: tbooleanedit;
    scaleosci: tbooleanedit;
+   tfacecomp5: tfacecomp;
+   bquit: tbutton;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -127,6 +129,7 @@ type
                    var accept: Boolean);
    procedure onscale(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
+   procedure onquit(const sender: TObject);
   end;
 
 var
@@ -232,56 +235,51 @@ begin
      {$if defined(cpu64)}
     PA_FileName := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
     SF_FileName := ordir + 'lib\Windows\64bit\LibSndFile-64.dll';
+    fftw_init(ordir + 'lib\Windows\64bit\');
+    
      {$else}
     PA_FileName := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
     SF_FileName := ordir + 'lib\Windows\32bit\LibSndFile-32.dll';
+    fftw_init(ordir + 'lib\Windows\32bit\');
      {$endif}
  {$ENDIF}
 
      {$if defined(CPUAMD64) and defined(linux) }
   SF_FileName := ordir + 'lib/Linux/64bit/LibSndFile-64.so';
-  PA_FileName := ordir + 'lib/Linux/64bit/LibPortaudio-64.so';   {$ENDIF}
+  PA_FileName := ordir + 'lib/Linux/64bit/LibPortaudio-64.so'; 
+  fftw_init(ordir + 'lib/Linux/64bit/');
+     {$ENDIF}
 
    {$if defined(cpu86) and defined(linux)}
     PA_FileName := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
-    SF_FileName := ordir + 'lib/Linux/32bit/LibSndFile-32.so';    {$ENDIF}
+    SF_FileName := ordir + 'lib/Linux/32bit/LibSndFile-32.so';   
+    fftw_init(ordir + 'lib/Linux/32bit/');
+     {$ENDIF}
 
   {$if defined(linux) and defined(cpuaarch64)}
   PA_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
   SF_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so';
+   fftw_init(ordir + 'lib/Linux/aarch64_raspberrypi/');
   {$ENDIF}
 
   {$if defined(linux) and defined(cpuarm)}
     PA_FileName := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
     SF_FileName := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so'; 
+    fftw_init(ordir + 'lib/Linux/arm_raspberrypi/'); 
     {$ENDIF}
 
  {$IFDEF freebsd}
     {$if defined(cpu64)}
     PA_FileName := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
     SF_FileName := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so';
+    fftw_init(ordir + 'lib/FreeBSD/64bit/'); 
     {$else}
     PA_FileName := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
     SF_FileName := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so';
+    fftw_init(ordir + 'lib/FreeBSD/32bit/'); 
     {$endif} {$ENDIF}
 
- {$IFDEF Darwin}
-  {$IFDEF CPU32}
-    opath := ordir;
-    opath := copy(opath, 1, Pos('/UOS', opath) - 1);
-    PA_FileName := opath + '/lib/Mac/32bit/LibPortaudio-32.dylib';
-    SF_FileName := opath + '/lib/Mac/32bit/LibSndFile-32.dylib';
-       {$ENDIF}
-  
-   {$IFDEF CPU64}
-    opath := ordir;
-    opath := copy(opath, 1, Pos('/UOS', opath) - 1);
-    PA_FileName := opath + '/lib/Mac/64bit/LibPortaudio-64.dylib';
-    SF_FileName := opath + '/lib/Mac/64bit/LibSndFile-64.dylib'; 
-      {$ENDIF}  
- {$ENDIF}
-
-  uos_mseLoadLib(PA_FileName, SF_FileName);
+   uos_mseLoadLib(PA_FileName, SF_FileName);
 
   cont.inputtype := 0;            // from synth/noise
   tsigcontroller1.inputtype := 0; // from synth/piano
@@ -330,6 +328,8 @@ begin
     end;
 
   if scaleosci.value then scope.xrange := 0.2 else scope.xrange := 0.1;
+  
+  caption :=  'WavvieW ' + versiontext + ' for ' + platformtext;
 
   hasinit := True;
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
@@ -587,6 +587,11 @@ procedure tmainfo.onscale(const sender: TObject; var avalue: Boolean;
 begin
 if avalue then scope.xrange := 0.2 else scope.xrange := 0.1;
 
+end;
+
+procedure tmainfo.onquit(const sender: TObject);
+begin
+application.terminate;
 end;
 
 end.

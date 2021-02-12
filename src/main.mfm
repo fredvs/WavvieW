@@ -89,7 +89,7 @@ object mainfo: tmainfo
         0
       )
       face.localprops = []
-      face.template = tfacecomp1
+      face.template = tfacecomp5
       taborder = 1
       hint = 'FFT Spectrum'
       bounds_x = 512
@@ -205,7 +205,7 @@ object mainfo: tmainfo
         0
       )
       face.localprops = []
-      face.template = tfacecomp1
+      face.template = tfacecomp5
       taborder = 2
       hint = 'Oscilloscope'
       bounds_x = 0
@@ -322,7 +322,7 @@ object mainfo: tmainfo
     face.template = tfacecomp1
     taborder = 1
     hint = 'Average count'
-    bounds_x = 778
+    bounds_x = 714
     bounds_y = 0
     bounds_cx = 76
     bounds_cy = 18
@@ -345,7 +345,7 @@ object mainfo: tmainfo
     )
     taborder = 2
     hint = 'Average of FFT'
-    bounds_x = 698
+    bounds_x = 634
     bounds_y = 1
     bounds_cx = 68
     bounds_cy = 17
@@ -353,23 +353,24 @@ object mainfo: tmainfo
     statfile = sta
     onsetvalue = averagesetev
   end
-  object tbutton3: tbutton
+  object babout: tbutton
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp1
     taborder = 3
-    bounds_x = 960
+    hint = 'About WavvieW'
+    bounds_x = 912
     bounds_y = 2
     bounds_cx = 56
     bounds_cy = 16
     anchors = [an_top, an_right]
-    state = [as_localcaption, as_localonexecute]
+    state = [as_localcaption, as_localhint, as_localonexecute]
     caption = 'About'
     onexecute = onabout
   end
-  object tbooleanedit2: tbooleanedit
+  object oscion: tbooleanedit
     color = -2147483645
     frame.caption = 'Oscilloscope'
     frame.captionpos = cp_left
@@ -394,7 +395,7 @@ object mainfo: tmainfo
     value = True
     valuedefault = True
   end
-  object tbooleanedit3: tbooleanedit
+  object spectrumon: tbooleanedit
     color = -2147483645
     frame.caption = 'Spectrum'
     frame.captionpos = cp_left
@@ -410,7 +411,7 @@ object mainfo: tmainfo
     )
     taborder = 5
     hint = 'FFT Spectrum ON-OFF'
-    bounds_x = 877
+    bounds_x = 805
     bounds_y = 1
     bounds_cx = 79
     bounds_cy = 17
@@ -863,7 +864,7 @@ object mainfo: tmainfo
       bounds_cx = 178
       bounds_cy = 106
       anchors = [an_left, an_bottom]
-      object tbutton2: tbutton
+      object bstop: tbutton
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
@@ -9923,6 +9924,23 @@ object mainfo: tmainfo
     statfile = sta
     onsetvalue = onscale
   end
+  object bquit: tbutton
+    frame.optionsskin = [fso_flat]
+    frame.localprops = [frl_optionsskin]
+    frame.localprops1 = []
+    face.localprops = []
+    face.template = tfacecomp1
+    taborder = 8
+    hint = 'Terminate WavvieW'
+    bounds_x = 972
+    bounds_y = 2
+    bounds_cx = 48
+    bounds_cy = 16
+    anchors = [an_top, an_right]
+    state = [as_localcaption, as_localhint, as_localonexecute]
+    caption = 'Quit'
+    onexecute = onquit
+  end
   object cont: tsigcontroller
     samplefrequ = 44100
     left = 128
@@ -10265,5 +10283,20 @@ object mainfo: tmainfo
     samplefrequ = 44100
     left = 880
     top = 88
+  end
+  object tfacecomp5: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      1583885
+      726022
+    )
+    template.fade_direction = gd_down
+    left = 568
+    top = 224
   end
 end
