@@ -93,8 +93,8 @@ finddialog=8
  value=0
  [finddialogfo]
  stackedunder=
- x=995
- y=295
+ x=941
+ y=467
  cx=234
  cy=269
 options=114
@@ -812,8 +812,9 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=initializefftw
+finddtext=latency
 findhistory=20
+ latency
  initializefftw
  initializedynlib
  SetWavetable
@@ -833,17 +834,16 @@ findhistory=20
  FBuffer3
  freqLsine
  FillLookupTable
- setwaveTable
 findoptions=1
 editpos=8
- 0,272
+ 0,2
  0,-1073741823
  0,-1073741823
- 0,6
  0,-1073741823
  0,-1073741823
- 0,18
- 0,3
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -869,7 +869,7 @@ relpaths=8
  uos_libsndfile.pas
  wavview.pas
  msefftw.pas
- ../mseide-msegui/lib/common/kernel/msedynload.pas
+ mseide-msegui/lib/common/kernel/msedynload.pas
 ismoduletexts=8
  0
  0
@@ -890,15 +890,15 @@ nomenumodules=1
 [sourcefo.files_tab]
 order=8
  0
- 2
  3
  6
- 7
- 4
  5
  1
+ 7
+ 4
+ 2
 firsttab=0
-index=2
+index=0
 [layout]
 windowlayout=593
  [mainfo.basedock]
@@ -1008,7 +1008,7 @@ windowlayout=593
  [findinfilefo]
  splitdir=0
  useroptions=268451947
- stackedunder=targetconsolefo
+ stackedunder=
  parent=
  mdistate=0
  nx=0
@@ -1367,11 +1367,11 @@ windowlayout=593
  nx=0
  ny=0
  ncx=1197
- ncy=29
+ ncy=19
  x=0
  y=0
  cx=1212
- cy=27
+ cy=17
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1381,10 +1381,12 @@ windowlayout=593
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/msesignal.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
-  /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW/src/main.pas
+  /home/fred/WavvieW/src/uos_libsndfile.pas
+  /home/fred/WavvieW/src/msefftw.pas
+  /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW_pr/src/wavview.pas
   /home/fred/WavvieW/src/uos_msesigaudionew.pas
   /home/fred/WavvieW/src/uos_msesignal.pas
@@ -1401,8 +1403,6 @@ windowlayout=593
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudio.pas
   /home/fred/mseuniverse/samples/signal/noisegen/mseaudio.pas
   /home/fred/Downloads/Oscilloscope-no_timer_branch/source/3rdParty/uos/define.inc
-  /home/fred/Downloads/Oscilloscope-no_timer_branch_moi/source/3rdParty/uos/uos.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/Oscilloscope.lpr
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -1426,15 +1426,15 @@ windowlayout=593
  [sourcefo.files_tab]
  order=8
   0
-  2
   3
   6
-  7
-  4
   5
   1
+  7
+  4
+  2
  firsttab=0
- index=2
+ index=0
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1478,7 +1478,7 @@ windowlayout=593
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=targetconsolefo
  parent=
  mdistate=3
  nx=0

@@ -1161,7 +1161,7 @@ object mainfo: tmainfo
           11
           0
         )
-        bounds_x = 44
+        bounds_x = 84
         bounds_y = 14
         bounds_cx = 34
         bounds_cy = 31
@@ -1202,7 +1202,7 @@ object mainfo: tmainfo
           0
         )
         taborder = 2
-        bounds_x = 84
+        bounds_x = 164
         bounds_y = 14
         bounds_cx = 34
         bounds_cy = 31
@@ -1222,7 +1222,7 @@ object mainfo: tmainfo
           0
         )
         taborder = 3
-        bounds_x = 130
+        bounds_x = 50
         bounds_y = 14
         bounds_cx = 22
         bounds_cy = 31
@@ -1242,7 +1242,7 @@ object mainfo: tmainfo
           0
         )
         taborder = 4
-        bounds_x = 163
+        bounds_x = 123
         bounds_y = 14
         bounds_cx = 35
         bounds_cy = 31
@@ -9964,6 +9964,7 @@ object mainfo: tmainfo
   end
   object noise: tsignoise
     controller = cont
+    amplitude.source = tsigslider1.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf

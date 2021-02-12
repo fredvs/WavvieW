@@ -382,6 +382,8 @@ var
       PAParamIn.device           := Pa_GetDefaultInputDevice();
       PAParamIn.SuggestedLatency := 0.0;
 
+      latency := PAParamIn.SuggestedLatency;
+    
       if fformat = sfm_s16 then
         PAParamIn.SampleFormat := paInt16
       else if fformat = sfm_s32 then
@@ -418,10 +420,17 @@ var
      // output
     PAParamOut.hostApiSpecificStreamInfo := nil;
     PAParamOut.device           := Pa_GetDefaultOutputDevice();
-    PAParamOut.SuggestedLatency :=
+    
+    {$if defined(cpuarm) or defined(cpuaarch64)}
+      PAParamOut.SuggestedLatency := 0.3;
+     {$else} 
+      PAParamOut.SuggestedLatency :=
       ((Pa_GetDeviceInfo(PAParamOut.device)^.defaultHighOutputLatency)) * 1;
-
-    if controller1.inputtype = 0 then
+    {$endif}
+    
+     latency := PAParamIn.SuggestedLatency;
+        
+     if controller1.inputtype = 0 then
     PAParamOut.channelCount := 1 else
     PAParamOut.channelCount := controller1.channels;  
    
