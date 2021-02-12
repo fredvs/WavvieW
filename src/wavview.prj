@@ -830,7 +830,7 @@ findhistory=20
  Table
 findoptions=1
 editpos=5
- 0,83
+ 0,335
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -910,7 +910,7 @@ windowlayout=584
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1337,11 +1337,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1197
- ncy=39
+ ncy=35
  x=0
  y=0
  cx=1212
- cy=37
+ cy=33
  rcx=0
  rcy=0
  [debuggerfo.edit_options]

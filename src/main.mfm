@@ -91,6 +91,7 @@ object mainfo: tmainfo
       face.localprops = []
       face.template = tfacecomp1
       taborder = 1
+      hint = 'FFT Spectrum'
       bounds_x = 512
       bounds_y = 0
       bounds_cx = 508
@@ -206,6 +207,7 @@ object mainfo: tmainfo
       face.localprops = []
       face.template = tfacecomp1
       taborder = 2
+      hint = 'Oscilloscope'
       bounds_x = 0
       bounds_y = 0
       bounds_cx = 508
@@ -303,6 +305,7 @@ object mainfo: tmainfo
     end
   end
   object averagecount: tintegerdisp
+    optionswidget1 = [ow1_fontglyphheight]
     color = -2147483645
     frame.caption = 'Count'
     frame.captionpos = cp_left
@@ -318,10 +321,12 @@ object mainfo: tmainfo
     face.localprops = []
     face.template = tfacecomp1
     taborder = 1
-    bounds_x = 220
+    hint = 'Average count'
+    bounds_x = 778
     bounds_y = 0
-    bounds_cx = 75
-    bounds_cy = 19
+    bounds_cx = 76
+    bounds_cy = 18
+    anchors = [an_top, an_right]
     reffontheight = 15
   end
   object average: tbooleanedit
@@ -339,10 +344,12 @@ object mainfo: tmainfo
       2
     )
     taborder = 2
-    bounds_x = 144
+    hint = 'Average of FFT'
+    bounds_x = 698
     bounds_y = 1
     bounds_cx = 68
     bounds_cy = 17
+    anchors = [an_top, an_right]
     statfile = sta
     onsetvalue = averagesetev
   end
@@ -377,7 +384,8 @@ object mainfo: tmainfo
       2
     )
     taborder = 4
-    bounds_x = 8
+    hint = 'Oscilloscope ON-OFF'
+    bounds_x = 16
     bounds_y = 1
     bounds_cx = 92
     bounds_cy = 17
@@ -401,6 +409,7 @@ object mainfo: tmainfo
       2
     )
     taborder = 5
+    hint = 'FFT Spectrum ON-OFF'
     bounds_x = 877
     bounds_y = 1
     bounds_cx = 79
@@ -639,7 +648,7 @@ object mainfo: tmainfo
           end>
         face.localprops = []
         face.template = tfacecomp1
-        hint = 'Type of Wave'
+        hint = 'Kind of Wave'
         bounds_x = 2
         bounds_y = 25
         bounds_cx = 173
@@ -1088,6 +1097,7 @@ object mainfo: tmainfo
         2
       )
       taborder = 1
+      hint = 'Activate Device Input (Mic/Line In)'
       bounds_x = 34
       bounds_y = 113
       bounds_cx = 132
@@ -1110,6 +1120,7 @@ object mainfo: tmainfo
         2
       )
       taborder = 3
+      hint = 'Activate Noise Generator'
       bounds_x = 214
       bounds_y = 1
       bounds_cx = 140
@@ -1131,6 +1142,7 @@ object mainfo: tmainfo
         0
       )
       taborder = 6
+      hint = 'Input for the Viewers'
       bounds_x = 560
       bounds_y = 2
       bounds_cx = 208
@@ -9657,6 +9669,7 @@ object mainfo: tmainfo
     object tenvelopeedit1: tenvelopeedit
       color = -2147483645
       taborder = 10
+      hint = 'Envelope of Piano: Attack, Decay and Release.'
       bounds_x = 772
       bounds_y = 15
       bounds_cx = 242
@@ -9878,6 +9891,7 @@ object mainfo: tmainfo
         2
       )
       taborder = 14
+      hint = 'Activate Wave Generator'
       bounds_x = 397
       bounds_y = 1
       bounds_cx = 141
@@ -9885,6 +9899,29 @@ object mainfo: tmainfo
       anchors = [an_left, an_bottom]
       onsetvalue = onwaveactivate
     end
+  end
+  object scaleosci: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Scale X2'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      58
+      1
+      0
+      2
+    )
+    taborder = 7
+    hint = 'Scale factor of Oscilloscope'
+    bounds_x = 125
+    bounds_y = 1
+    bounds_cx = 71
+    bounds_cy = 17
+    statfile = sta
+    onsetvalue = onscale
   end
   object cont: tsigcontroller
     samplefrequ = 44100

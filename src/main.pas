@@ -90,6 +90,7 @@ type
    tlabel3: tlabel;
    tlabel4: tlabel;
    onwavon: tbooleanedit;
+   scaleosci: tbooleanedit;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -123,6 +124,8 @@ type
    procedure onshowoscilloscope(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
    procedure onshowspectrum(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onscale(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
   end;
 
@@ -326,8 +329,11 @@ begin
       fft.sampler.inputs[0].Source   := tsignoise4.output;
     end;
 
+  if scaleosci.value then scope.xrange := 0.2 else scope.xrange := 0.1;
+
   hasinit := True;
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
+  
 end;
 
 procedure tmainfo.onfileactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -574,6 +580,13 @@ tsplitter1.left := width div 2;
 tsplitter1.visible := true;
 fft.visible := true;
 end;
+end;
+
+procedure tmainfo.onscale(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if avalue then scope.xrange := 0.2 else scope.xrange := 0.1;
+
 end;
 
 end.
