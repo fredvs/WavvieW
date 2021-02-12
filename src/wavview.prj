@@ -830,7 +830,7 @@ findhistory=20
  Table
 findoptions=1
 editpos=5
- 10,91
+ 0,83
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -1337,11 +1337,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1197
- ncy=43
+ ncy=39
  x=0
  y=0
  cx=1212
- cy=41
+ cy=37
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1439,7 +1439,7 @@ windowlayout=584
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0

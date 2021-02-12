@@ -1216,7 +1216,7 @@ object mainfo: tmainfo
         statfile = sta
         onsetvalue = oninputview
       end
-      object tbooleaneditradio2: tbooleaneditradio
+      object viewwave: tbooleaneditradio
         frame.caption = 'Wave'
         frame.captionpos = cp_top
         frame.localprops = []

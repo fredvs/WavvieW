@@ -81,7 +81,7 @@ type
    viewfile: tbooleaneditradio;
    viewpiano: tbooleaneditradio;
    viewinput: tbooleaneditradio;
-   tbooleaneditradio2: tbooleaneditradio;
+   viewwave: tbooleaneditradio;
    tsigslider3: tsigslider;
    onpianoon: tbooleanedit;
    tsigkeyboard1: tsigkeyboard;
@@ -317,6 +317,14 @@ begin
     fft.sampler.controller         := tsigcontroller1;
     fft.sampler.inputs[0].Source   := tsigfilter1.output;
   end;
+  
+   if viewwave.Value then
+   begin
+      scope.sampler.controller       := tsigcontroller4;
+      scope.sampler.inputs[0].Source := tsignoise4.output;
+      fft.sampler.controller         := tsigcontroller4;
+      fft.sampler.inputs[0].Source   := tsignoise4.output;
+    end;
 
   hasinit := True;
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
