@@ -4,7 +4,7 @@ program wavview;
  {$ifdef mswindows}{$apptype gui}{$endif}
 {$endif}
 {$ifdef mswindows}
- {$R dp.res}
+ {$R WVW.res}
 {$endif}
 uses
  {$ifdef FPC}{$ifdef unix}cthreads,{$endif}{$endif} 

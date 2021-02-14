@@ -89,7 +89,7 @@ type
   end;
 
 var
-fbuffer3: array of single;
+  fbuffer3: array of single;
 
 implementation
 
@@ -361,14 +361,14 @@ var
   sfInfo: TSF_INFO;
   PAParamIn, PAParamOut: PaStreamParameters;
   err: integer;
- begin
+begin
   Result      := 0;
   controller1 := fsigout.controller;
 
   if controller1 <> nil then
   begin
     factive := True;
-    
+
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
@@ -383,7 +383,7 @@ var
       PAParamIn.SuggestedLatency := 0.0;
 
       latency := PAParamIn.SuggestedLatency;
-    
+
       if fformat = sfm_s16 then
         PAParamIn.SampleFormat := paInt16
       else if fformat = sfm_s32 then
@@ -393,11 +393,11 @@ var
       else
         PAParamIn.SampleFormat := paFloat32;
 
-       if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
+      if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
         PAParamIn.channelCount := 2
       else
         PAParamIn.channelCount := 1;
-     
+
       controller1.channels := PAParamIn.channelCount;
 
       err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
@@ -408,32 +408,33 @@ var
       else
         raiseerror(err);
     end;
-    
-     if controller1.inputtype = 3 then // WaveForm
-      begin
-      controller1.SetWaveTable(0, 1,  0, 0); 
-      controller1.SetWaveTable(0, 2,  0, 0); 
+
+    if controller1.inputtype = 3 then // WaveForm
+    begin
+      controller1.SetWaveTable(0, 1, 0, 0);
+      controller1.SetWaveTable(0, 2, 0, 0);
       controller1.channels := 2;
       controller1.WaveFillBuffer(FBuffer2);
-      end;
-    
-     // output
+    end;
+
+    // output
     PAParamOut.hostApiSpecificStreamInfo := nil;
-    PAParamOut.device           := Pa_GetDefaultOutputDevice();
-    
+    PAParamOut.device := Pa_GetDefaultOutputDevice();
+
     {$if defined(cpuarm) or defined(cpuaarch64)}
       PAParamOut.SuggestedLatency := 0.3;
-     {$else} 
-      PAParamOut.SuggestedLatency :=
+     {$else}
+    PAParamOut.SuggestedLatency :=
       ((Pa_GetDeviceInfo(PAParamOut.device)^.defaultHighOutputLatency)) * 1;
     {$endif}
-    
-     latency := PAParamIn.SuggestedLatency;
-        
-     if controller1.inputtype = 0 then
-    PAParamOut.channelCount := 1 else
-    PAParamOut.channelCount := controller1.channels;  
-   
+
+    latency := PAParamIn.SuggestedLatency;
+
+    if controller1.inputtype = 0 then
+      PAParamOut.channelCount := 1
+    else
+      PAParamOut.channelCount := controller1.channels;
+
     if fformat = sfm_s16 then
       PAParamOut.SampleFormat := paInt16
     else if fformat = sfm_s32 then
@@ -460,7 +461,7 @@ var
       datasize1 := 4
     else
       datasize1 := 4;
-    
+
     blocksize1     := fblocksize;
     valuehigh1     := fsigout.inputs.Count * blocksize1;
     bufferlength1  := datasize1 * valuehigh1;
@@ -469,8 +470,8 @@ var
     setlength(fbuffer, bufferlength1);
     setlength(fbuffer2, blocksize1 * controller1.channels);
     setlength(fbuffer3, length(fbuffer2));
-  
-      case fformat of
+
+    case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
 {$ifdef endian_little},sfm_s16le{$else}
@@ -528,15 +529,15 @@ var
 
       controller1.lock;
       try
-       
+
         //  if controller1.intodd = 1 then
         //   controller1.intodd := -1 else controller1.intodd := 1;
-       
+
         if (controller1.inputtype = 1) and (HandleSF <> nil) then
         begin
           //writeln('sndfile');
-           //  for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
-                       if fformat = sfm_s16 then
+          //  for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          if fformat = sfm_s16 then
             sf_read_short(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_s32 then
             sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2))
@@ -546,28 +547,29 @@ var
               sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
           end
           else
-           sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
-           controller1.FillBufferVolume(fbuffer2); 
-           fbuffer3 := fbuffer2;
+            sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
+          controller1.FillBufferVolume(fbuffer2);
+          fbuffer3 := fbuffer2;
         end;
 
         if (controller1.inputtype = 2) and (HandlePAin <> nil) then
         begin
-         // writeln('mic');
-         // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          // writeln('mic');
+          // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
           Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div controller1.channels);
-          controller1.FillBufferVolume(fbuffer2); 
+          controller1.FillBufferVolume(fbuffer2);
           fbuffer3 := fbuffer2;
         end;
-        
-          if (controller1.inputtype = 3) then
+
+        if (controller1.inputtype = 3) then
         begin
           //writeln('wavebuffer');
-         for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          for i := 0 to length(fbuffer2) - 1 do
+            fbuffer2[i] := 0.0;// clear input
           controller1.WaveFillBuffer(FBuffer2);
-          fbuffer3 := fbuffer2;
-         end; 
-          
+          fbuffer3      := fbuffer2;
+        end;
+
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
         controller1.step(blocksize1);
         info.Source    := Pointer(fsigout.fbuffer);
@@ -582,7 +584,7 @@ var
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
         if (controller1.inputtype = 1) or (controller1.inputtype = 2) or (controller1.inputtype = 3) then
-          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2)  div controller1.channels);
+          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2) div controller1.channels);
       end
       else
         break;
