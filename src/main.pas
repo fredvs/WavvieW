@@ -179,15 +179,14 @@ begin
 end;
 
 procedure tmainfo.buffullev(const Sender: tsigsampler; const abuffer: samplerbufferty);
+{
 var
 i, i2  : integer;
 freq: double;
+}
 begin
- i := 0;
- i2 := 0;
- freq := 0.0;
- 
   Sender.lockapplication();
+ {
   //writeln(inttostr(length(abuffer)));
   //writeln(inttostr(length(abuffer[0])));
   //for i := 0 to length(abuffer[0]) -1
@@ -200,7 +199,7 @@ begin
    end;
   
  // writeln('freq pos = ' + inttostr(i2));
- 
+ }
   averagecount.Value := tsigsamplerfft(Sender).averagecount;
   Sender.unlockapplication();
 end;
@@ -618,9 +617,11 @@ end;
 
 procedure tmainfo.evonfft(const sender: tsigsamplerfft;
                const abuffer: samplerbufferty);
+{
 var
 i, i2  : integer;
 freq: double;
+}
 begin
  {
  i := 0;
