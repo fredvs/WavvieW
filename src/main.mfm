@@ -186,8 +186,7 @@ object mainfo: tmainfo
       bounds_cy = 305
       anchors = [an_right]
       traces.count = 1
-      traces.chartkind = tck_bar
-      traces.options = [cto_logx, cto_logy]
+      traces.options = [cto_smooth, cto_logx, cto_logy]
       traces.xrange = 1
       traces.xserrange = 22050
       traces.yrange = 1
@@ -200,7 +199,9 @@ object mainfo: tmainfo
           xstart = 10
           yrange = 0.999
           ystart = 0.001
-          options = [cto_logx, cto_logy]
+          options = [cto_smooth, cto_logx, cto_logy]
+          hint_captionx = 'freqx'
+          hint_captiony = 'freqY'
         end>
       facechart.localprops = []
       facechart.template = tfacecomp1
@@ -239,6 +240,10 @@ object mainfo: tmainfo
           widthmm = 0.3
           start = -60
           range = 60
+          markers.count = 1
+          markers.items = <          
+            item
+            end>
           ticks.count = 1
           ticks.items = <          
             item
@@ -278,6 +283,7 @@ object mainfo: tmainfo
       sampler.options = [sso_fulltick, sso_autorun, sso_fftmag]
       sampler.onbufferfull = buffullev
       sampler.refreshus = 500000
+      sampler.onfft = evonfft
     end
     object scope: tsigscope
       frame.levelo = -1
@@ -655,11 +661,11 @@ object mainfo: tmainfo
         dropdown.colorclient = -1610612734
         dropdown.facetemplate = tfacecomp1
         dropdown.cols.count = 1
-        dropdown.cols.colorselect = -1610612733
+        dropdown.cols.colorselect = 17664
         dropdown.cols.facetemplate = tfacecomp1
         dropdown.cols.items = <        
           item
-            colorselect = -1610612733
+            colorselect = 17664
             facetemplate = tfacecomp1
           end>
         oninit = typinitexe
@@ -751,11 +757,11 @@ object mainfo: tmainfo
         dropdown.colorclient = -1610612734
         dropdown.facetemplate = tfacecomp1
         dropdown.cols.count = 1
-        dropdown.cols.colorselect = -1610612733
+        dropdown.cols.colorselect = 17664
         dropdown.cols.facetemplate = tfacecomp1
         dropdown.cols.items = <        
           item
-            colorselect = -1610612733
+            colorselect = 17664
             facetemplate = tfacecomp1
             data = (
               'wk_sine'
@@ -10341,14 +10347,15 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.format = sfm_f32
     audio.latency = 0.1
     left = 600
     top = 128
   end
   object tsigcontroller2: tsigcontroller
     samplefrequ = 44100
-    left = 600
-    top = 80
+    left = 608
+    top = 72
   end
   object tsignoise2: tsignoise
     controller = tsigcontroller2
@@ -10380,8 +10387,8 @@ object mainfo: tmainfo
       6052956
     )
     template.fade_direction = gd_left
-    left = 560
-    top = 88
+    left = 280
+    top = 160
   end
   object tfacecomp3: tfacecomp
     template.fade_pos.count = 2
@@ -10395,8 +10402,8 @@ object mainfo: tmainfo
       0
     )
     template.fade_direction = gd_left
-    left = 616
-    top = 120
+    left = 320
+    top = 144
   end
   object tfacecomp4: tfacecomp
     template.fade_pos.count = 2

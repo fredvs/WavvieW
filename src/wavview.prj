@@ -20,7 +20,7 @@ order17=0
 [projectoptions]
 projectdir=/home/fred/WavvieW/src
 projectfilename=/home/fred/WavvieW/src/wavview.prj
-findinfiledialog=67
+findinfiledialog=70
  [findinfileadialogfo.subdirs]
  value=1
  [findinfileadialogfo.incurrentfile]
@@ -58,13 +58,16 @@ findinfiledialog=67
  coldatewidth=126
  splitterplaces=243
  splitterlateral=126
- filehistory=1
+ filehistory=2
   /home/fred/mseide-msegui/
+  /home/fred/mseuniverse/
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=mseff
- history=17
+ value=samplerbufferty
+ history=19
+  samplerbufferty
+  tsigscopefft
   mseff
   msefftw
   libfftw3.so
@@ -817,10 +820,12 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=wavetype
+finddtext=about_text
 findhistory=20
- wavetype
+ about_text
  SetWaveForm
+ bufferfull
+ wavetype
  inputtype
  latency
  initializefftw
@@ -837,19 +842,16 @@ findhistory=20
  setwavetable
  tsigcontroller3
  FBuffer2
- FBuffer3
- freqLsine
 findoptions=1
-editpos=9
- 0,5
+editpos=8
+ 0,438
+ 0,-1073741823
+ 0,-1073741823
+ 0,2318
+ 0,-1073741823
+ 77,6
+ 0,-1073741823
  0,0
- 0,0
- 0,2589
- 0,-1073741823
- 0,7
- 0,9
- 0,-1073741823
- 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -858,29 +860,25 @@ bookmarks4=0
 bookmarks5=0
 bookmarks6=0
 bookmarks7=0
-bookmarks8=0
-sourcefiles=9
+sourcefiles=8
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_mseaudio.pas
  ${PROJECTDIR}/uos_msesigaudio.pas
  ${PROJECTDIR}/msesignal.pas
- ${PROJECTDIR}/uos_libsndfile.pas
  ${PROJECTDIR}/wavview.pas
- ${PROJECTDIR}/msefftw.pas
- /home/fred/mseide-msegui/lib/common/kernel/msedynload.pas
  ${PROJECTDIR}/about.pas
-relpaths=9
+ /home/fred/mseide-msegui/lib/common/math/msesigfft.pas
+ /home/fred/mseide-msegui/lib/common/kernel/msetypes.pas
+relpaths=8
  main.pas
  uos_mseaudio.pas
  uos_msesigaudio.pas
  msesignal.pas
- uos_libsndfile.pas
  wavview.pas
- msefftw.pas
- mseide-msegui/lib/common/kernel/msedynload.pas
  about.pas
-ismoduletexts=9
- 0
+ mseide-msegui/lib/common/math/msesigfft.pas
+ ../mseide-msegui/lib/common/kernel/msetypes.pas
+ismoduletexts=8
  0
  0
  0
@@ -890,8 +888,8 @@ ismoduletexts=9
  0
  0
 modules=2
- /home/fred/WavvieW/src/about.mfm
  /home/fred/WavvieW/src/main.mfm
+ /home/fred/WavvieW/src/about.mfm
 moduleoptions=2
  0
  0
@@ -902,20 +900,10 @@ nomenumodules=2
  0
  0
 [sourcefo.files_tab]
-order=9
- 0
- 6
- 3
- 7
- 1
- 4
- 5
- 8
- 2
 firsttab=0
-index=8
+index=5
 [layout]
-windowlayout=613
+windowlayout=603
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -929,13 +917,13 @@ windowlayout=613
  ny=0
  ncx=0
  ncy=0
- x=69
- y=79
+ x=141
+ y=144
  cx=1224
  cy=621
  rcx=0
  rcy=0
- wsize=0
+ wsize=6
  active=1
  visible=1
  [targetconsolefo]
@@ -947,15 +935,15 @@ windowlayout=613
  ny=0
  ncx=0
  ncy=0
- x=493
- y=171
+ x=29
+ y=45
  cx=497
  cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1032,7 +1020,7 @@ windowlayout=613
  ncy=0
  x=239
  y=115
- cx=678
+ cx=913
  cy=414
  rcx=0
  rcy=0
@@ -1049,7 +1037,7 @@ windowlayout=613
  x=0
  y=0
  cx=205
- cy=451
+ cy=519
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1235,9 +1223,9 @@ windowlayout=613
  ncx=0
  ncy=0
  x=0
- y=507
- cx=1212
- cy=93
+ y=582
+ cx=1356
+ cy=107
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1369,8 +1357,8 @@ windowlayout=613
  ncy=0
  x=0
  y=0
- cx=1212
- cy=50
+ cx=1356
+ cy=57
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1382,11 +1370,11 @@ windowlayout=613
  nx=0
  ny=0
  ncx=1197
- ncy=15
+ ncy=9
  x=0
  y=0
- cx=1212
- cy=13
+ cx=1356
+ cy=14
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1396,14 +1384,17 @@ windowlayout=613
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/uos_msesigaudio.pas
+ value=/home/fred/WavvieW/src/about.pas
  history=20
+  /home/fred/WavvieW/src/main.pas
+  /home/fred/WavvieW/src/uos_msesigaudio.pas
+  /home/fred/WavvieW/src/msesignal.pas
+  /home/fred/WavvieW/src/about.pas
   /home/fred/WavvieW/src/msefftw.pas
   /home/fred/WavvieW/src/uos_msefftw.pas
   /home/fred/WavvieW/src/wavview.pas
   /home/fred/WavvieW_pr/src/wavview.pas
   /home/fred/WavvieW/src/uos_msesigaudionew.pas
-  /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW/src/uos_msesignal.pas
   /home/fred/NoiseGenerator/src/msesignal.pas
   /home/fred/noisegenerator/src/noisegenerator.pas
@@ -1415,9 +1406,6 @@ windowlayout=613
   /home/fred/uos/src/uos_portaudio.pas
   /home/fred/uos/src/uos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudio.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/mseaudio.pas
-  /home/fred/Downloads/Oscilloscope-no_timer_branch/source/3rdParty/uos/define.inc
-  /home/fred/Downloads/Oscilloscope-no_timer_branch_moi/source/3rdParty/uos/uos.pas
  [debuggerfo.project_options]
  value=1
  [debuggerfo.hints]
@@ -1434,23 +1422,13 @@ windowlayout=613
  ncy=0
  x=208
  y=0
- cx=1004
- cy=451
+ cx=1148
+ cy=519
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
-  0
-  6
-  3
-  7
-  1
-  4
-  5
-  8
-  2
  firsttab=0
- index=8
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1486,11 +1464,30 @@ windowlayout=613
  ncx=0
  ncy=0
  x=0
- y=53
- cx=1212
- cy=451
+ y=60
+ cx=1356
+ cy=519
  rcx=0
  rcy=0
+ [_mse_mainfo_mse_]
+ splitdir=0
+ useroptions=268451963
+ stackedunder=_mse_aboutfo_mse_
+ parent=
+ mdistate=3
+ nx=0
+ ny=0
+ ncx=0
+ ncy=0
+ x=173
+ y=29
+ cx=1034
+ cy=484
+ rcx=0
+ rcy=0
+ wsize=0
+ active=0
+ visible=1
  [_mse_aboutfo_mse_]
  splitdir=0
  useroptions=268451963
@@ -1505,25 +1502,6 @@ windowlayout=613
  y=258
  cx=385
  cy=278
- rcx=0
- rcy=0
- wsize=0
- active=0
- visible=1
- [_mse_mainfo_mse_]
- splitdir=0
- useroptions=268451963
- stackedunder=targetconsolefo
- parent=
- mdistate=3
- nx=0
- ny=0
- ncx=0
- ncy=0
- x=173
- y=29
- cx=1034
- cy=484
  rcx=0
  rcy=0
  wsize=0

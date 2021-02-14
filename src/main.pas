@@ -130,6 +130,8 @@ type
    procedure onscale(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
    procedure onquit(const sender: TObject);
+   procedure evonfft(const sender: tsigsamplerfft;
+                   const abuffer: samplerbufferty);
   end;
 
 var
@@ -177,8 +179,28 @@ begin
 end;
 
 procedure tmainfo.buffullev(const Sender: tsigsampler; const abuffer: samplerbufferty);
+var
+i, i2  : integer;
+freq: double;
 begin
+ i := 0;
+ i2 := 0;
+ freq := 0.0;
+ 
   Sender.lockapplication();
+  //writeln(inttostr(length(abuffer)));
+  //writeln(inttostr(length(abuffer[0])));
+  //for i := 0 to length(abuffer[0]) -1
+  for i := 0 to 1000  
+  do if abuffer[0][i] > freq then
+  begin
+   abuffer[0][i] := freq;
+  //  writeln(floattostr(abuffer[0][i]));
+    i2 := i;
+   end;
+  
+ // writeln('freq pos = ' + inttostr(i2));
+ 
   averagecount.Value := tsigsamplerfft(Sender).averagecount;
   Sender.unlockapplication();
 end;
@@ -422,7 +444,7 @@ procedure tmainfo.onabout(const Sender: TObject);
 begin
   aboutfo.Caption          := 'About WavvieW';
   aboutfo.about_text.frame.colorclient := $DFFFB2;
-  aboutfo.about_text.Value := c_linefeed + 'WavvieW ' + versiontext + ' for ' + platformtext +
+  aboutfo.about_text.Value := c_linefeed + c_linefeed + 'WavvieW ' + versiontext + ' for ' + platformtext +
     c_linefeed +
     'https://github.com/fredvs/WavvieW/releases/' + c_linefeed +
     c_linefeed + 'Compiled with FPC 3.2.0.' +
@@ -592,6 +614,35 @@ end;
 procedure tmainfo.onquit(const sender: TObject);
 begin
 application.terminate;
+end;
+
+procedure tmainfo.evonfft(const sender: tsigsamplerfft;
+               const abuffer: samplerbufferty);
+var
+i, i2  : integer;
+freq: double;
+begin
+ {
+ i := 0;
+ i2 := 0;
+ freq := 0.0;
+ 
+  //Sender.lockapplication();
+ // writeln('fft ' + inttostr(length(abuffer)));
+//  writeln('fft ' + inttostr(length(abuffer[0])));
+  for i := 0 to length(abuffer[0]) -1 
+  // for i := 0 to 100 
+  do if abuffer[0][i] > freq then
+  begin
+   abuffer[0][i] := freq;
+//   writeln('fft ' + floattostr(abuffer[0][i]));  
+     i2 := i;
+   end;
+   
+  writeln('fft freq pos = ' + inttostr(i2));
+ 
+    Sender.unlockapplication();
+  }  
 end;
 
 end.

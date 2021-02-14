@@ -2259,7 +2259,10 @@ begin
           if inputtype = 0 then
             dest^ := Source^;
           if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
+
+            //if  intodd = 0 then
             dest^ := asample;
+            // else dest^ := -1 * asample;
 
           if sca.hasscale then
           begin
@@ -2303,28 +2306,29 @@ begin
 
       int2 := length(fbuffer3) - 1;
 
-      // writeln('length(fbuffer) = '+ inttostr(length(fbuffer)));
+      //  if intodd = 1 then intodd := 0; 
       //  writeln('length(fbuffer3) = '+ inttostr(length(fbuffer3)));
       // writeln('length(acount) = '+ inttostr(acount));
-      // writeln('channels = '+ inttostr(acount));
-
+      
       for int1 := acount - 1 downto 0 do
       begin
         if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
+
           if length(fbuffer3) > 0 then
-          begin
-            if channels = 1 then
-              asample := fbuffer3[int2];
+            begin
+              if channels = 1 then
+                asample := fbuffer3[int2];
 
-            if channels = 2 then
-              asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2);
+              if channels = 2 then
+                asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2);
 
-            int2 := int2 - channels;
-          end;
+              int2 := int2 - channels;
+            end;
 
         internalstep;
       end;
     finally
+      // inc(intodd) ;
       unlock;
     end;
     if Assigned(fonafterstep) then
@@ -2569,7 +2573,7 @@ begin
   finphash        := tsiginfohash.Create;
   foutphash       := tsiginfohash.Create;
   inputtype       := 0;
-  intodd          := 1;
+  intodd          := 0;
   PosInTableLeft  := 0.0;
   PosInTableRight := 0.0;
   freqLsine       := 440;
