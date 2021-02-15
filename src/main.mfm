@@ -1289,6 +1289,7 @@ object mainfo: tmainfo
         bounds_cx = 42
         bounds_cy = 21
         textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangefile
         value = 50
         reffontheight = 15
       end
@@ -1363,6 +1364,7 @@ object mainfo: tmainfo
         bounds_cx = 42
         bounds_cy = 21
         textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangemic
         value = 50
         reffontheight = 15
       end
