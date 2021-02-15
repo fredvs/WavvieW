@@ -414,7 +414,7 @@ begin
       controller1.SetWaveTable(0, 1, 0, 0);
       controller1.SetWaveTable(0, 2, 0, 0);
       controller1.channels := 2;
-      controller1.WaveFillBuffer(FBuffer2);
+      //controller1.WaveFillBuffer(FBuffer2);
     end;
 
     // output
@@ -570,11 +570,17 @@ begin
           fbuffer3      := fbuffer2;
         end;
 
+        if (controller1.inputtype = 0) then
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
+       
         controller1.step(blocksize1);
-        info.Source    := Pointer(fsigout.fbuffer);
+        
+         if (controller1.inputtype = 0) then
+        begin
+         info.Source    := Pointer(fsigout.fbuffer);
         info.dest      := Pointer(fbuffer);
         convert(info);
+        end;
       finally
         controller1.unlock;
       end;

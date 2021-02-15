@@ -4,13 +4,50 @@ unit main;
 interface
 
 uses
- msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
- msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
- uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
- mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
- msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
- msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
- msedropdownlist,msefiledialogx,Math,msefftw;
+  msetypes,
+  mseglob,
+  mseguiglob,
+  mseguiintf,
+  mseapplication,
+  msestat,
+  msemenus,
+  msegui,
+  msegraphics,
+  msegraphutils,
+  mseevent,
+  mseclasses,
+  msewidgets,
+  mseforms,
+  uos_mseaudio,
+  uos_msesigaudio,
+  msesignal,
+  msestrings,
+  msesignoise,
+  msechartedit,
+  msedataedits,
+  mseedit,
+  mseificomp,
+  mseificompglob,
+  mseifiglob,
+  msesiggui,
+  msestatfile,
+  msesigfft,
+  msesigfftgui,
+  msegraphedits,
+  msescrollbar,
+  msedispwidgets,
+  mserichstring,
+  msesplitter,
+  msesimplewidgets,
+  msefilter,
+  mseact,
+  msestream,
+  SysUtils,
+  msebitmap,
+  msedropdownlist,
+  msefiledialogx,
+  Math,
+  msefftw;
 
 const
   versiontext = '1.2';
@@ -48,51 +85,51 @@ type
     tsignoise4: tsignoise;
     tsigoutaudio4: tsigoutaudio;
     tsigcontroller4: tsigcontroller;
-   oscion: tbooleanedit;
-   spectrumon: tbooleanedit;
-   tlayouter1: tlayouter;
-   tgroupbox2: tgroupbox;
-   bstop: tbutton;
-   bstart: tbutton;
-   tfilenameeditx1: tfilenameeditx;
-   sliderfile: tslider;
-   volfile: tintegeredit;
-   oninputon: tbooleanedit;
-   tgroupbox5: tgroupbox;
-   slidermic: tslider;
-   volmic: tintegeredit;
-   onoiseon: tbooleanedit;
-   tgroupbox3: tgroupbox;
-   sampcount: tslider;
-   tsigslider1: tsigslider;
-   kinded: tenumtypeedit;
-   sampcountdi: tintegerdisp;
-   noiseamp: tintegerdisp;
-   tgroupbox4: tgroupbox;
-   wavetype: tenumtypeedit;
-   sliderwave: tslider;
-   freqwav: tintegeredit;
-   sliderfreqwave: tslider;
-   volwav: tintegeredit;
-   harmonwave: tintegeredit;
-   Oddwave: tbooleanedit;
-   tgroupbox1: tgroupbox;
-   viewnoise: tbooleaneditradio;
-   viewfile: tbooleaneditradio;
-   viewpiano: tbooleaneditradio;
-   viewinput: tbooleaneditradio;
-   viewwave: tbooleaneditradio;
-   tsigslider3: tsigslider;
-   onpianoon: tbooleanedit;
-   tsigkeyboard1: tsigkeyboard;
-   tenvelopeedit1: tenvelopeedit;
-   tlabel2: tlabel;
-   tlabel3: tlabel;
-   tlabel4: tlabel;
-   onwavon: tbooleanedit;
-   scaleosci: tbooleanedit;
-   tfacecomp5: tfacecomp;
-   bquit: tbutton;
+    oscion: tbooleanedit;
+    spectrumon: tbooleanedit;
+    tlayouter1: tlayouter;
+    tgroupbox2: tgroupbox;
+    bstop: TButton;
+    bstart: TButton;
+    tfilenameeditx1: tfilenameeditx;
+    sliderfile: tslider;
+    volfile: tintegeredit;
+    oninputon: tbooleanedit;
+    tgroupbox5: tgroupbox;
+    slidermic: tslider;
+    volmic: tintegeredit;
+    onoiseon: tbooleanedit;
+    tgroupbox3: tgroupbox;
+    sampcount: tslider;
+    tsigslider1: tsigslider;
+    kinded: tenumtypeedit;
+    sampcountdi: tintegerdisp;
+    noiseamp: tintegerdisp;
+    tgroupbox4: tgroupbox;
+    wavetype: tenumtypeedit;
+    sliderwave: tslider;
+    freqwav: tintegeredit;
+    sliderfreqwave: tslider;
+    volwav: tintegeredit;
+    harmonwave: tintegeredit;
+    Oddwave: tbooleanedit;
+    tgroupbox1: tgroupbox;
+    viewnoise: tbooleaneditradio;
+    viewfile: tbooleaneditradio;
+    viewpiano: tbooleaneditradio;
+    viewinput: tbooleaneditradio;
+    viewwave: tbooleaneditradio;
+    tsigslider3: tsigslider;
+    onpianoon: tbooleanedit;
+    tsigkeyboard1: tsigkeyboard;
+    tenvelopeedit1: tenvelopeedit;
+    tlabel2: tlabel;
+    tlabel3: tlabel;
+    tlabel4: tlabel;
+    onwavon: tbooleanedit;
+    scaleosci: tbooleanedit;
+    tfacecomp5: tfacecomp;
+    bquit: TButton;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -123,15 +160,13 @@ type
     procedure onchangemic(const Sender: TObject);
     procedure onsetampnoise(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure onresizeform(const Sender: TObject);
-   procedure onshowoscilloscope(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onshowspectrum(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onscale(const sender: TObject; var avalue: Boolean;
-                   var accept: Boolean);
-   procedure onquit(const sender: TObject);
-   procedure evonfft(const sender: tsigsamplerfft;
-                   const abuffer: samplerbufferty);
+    procedure onshowoscilloscope(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onshowspectrum(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onscale(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+    procedure onquit(const Sender: TObject);
+    procedure evonfft(const Sender: tsigsamplerfft; const abuffer: samplerbufferty);
+    procedure evonshowhint(const Sender: TObject; var info: hintinfoty);
+    procedure evonmouseclient(const Sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -300,7 +335,7 @@ begin
     fftw_init(ordir + 'lib/FreeBSD/32bit/'); 
     {$endif} {$ENDIF}
 
-   uos_mseLoadLib(PA_FileName, SF_FileName);
+  uos_mseLoadLib(PA_FileName, SF_FileName);
 
   cont.inputtype := 0;            // from synth/noise
   tsigcontroller1.inputtype := 0; // from synth/piano
@@ -339,22 +374,25 @@ begin
     fft.sampler.controller         := tsigcontroller1;
     fft.sampler.inputs[0].Source   := tsigfilter1.output;
   end;
-  
-   if viewwave.Value then
-   begin
-      scope.sampler.controller       := tsigcontroller4;
-      scope.sampler.inputs[0].Source := tsignoise4.output;
-      fft.sampler.controller         := tsigcontroller4;
-      fft.sampler.inputs[0].Source   := tsignoise4.output;
-    end;
 
-  if scaleosci.value then scope.xrange := 0.2 else scope.xrange := 0.1;
-  
-  caption :=  'WavvieW ' + versiontext + ' for ' + platformtext;
+  if viewwave.Value then
+  begin
+    scope.sampler.controller       := tsigcontroller4;
+    scope.sampler.inputs[0].Source := tsignoise4.output;
+    fft.sampler.controller         := tsigcontroller4;
+    fft.sampler.inputs[0].Source   := tsignoise4.output;
+  end;
+
+  if scaleosci.Value then
+    scope.xrange := 0.2
+  else
+    scope.xrange := 0.1;
+
+  Caption := 'WavvieW ' + versiontext + ' for ' + platformtext;
 
   hasinit := True;
   tsigkeyboard1.keywidth := tsigkeyboard1.Width div 32;
-  
+
 end;
 
 procedure tmainfo.onfileactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -569,81 +607,73 @@ begin
     tsigkeyboard1.keywidth := round(tsigkeyboard1.Width / 32);
 end;
 
-procedure tmainfo.onshowoscilloscope(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
+procedure tmainfo.onshowoscilloscope(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
-if not avalue then
-begin
-scope.visible := false;
-tsplitter1.left := 0;
-tsplitter1.visible := false;
-end else
-begin
-tsplitter1.left := width div 2;
-tsplitter1.visible := true;
-scope.visible := true;
-end;
-end;
-
-
-procedure tmainfo.onshowspectrum(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-
-if not avalue then
-begin
-fft.visible := false;
-tsplitter1.left := width - tsplitter1.width;
-tsplitter1.visible := false;
-end else
-begin
-tsplitter1.left := width div 2;
-tsplitter1.visible := true;
-fft.visible := true;
-end;
-end;
-
-procedure tmainfo.onscale(const sender: TObject; var avalue: Boolean;
-               var accept: Boolean);
-begin
-if avalue then scope.xrange := 0.2 else scope.xrange := 0.1;
-
-end;
-
-procedure tmainfo.onquit(const sender: TObject);
-begin
-application.terminate;
-end;
-
-procedure tmainfo.evonfft(const sender: tsigsamplerfft;
-               const abuffer: samplerbufferty);
-{
-var
-i, i2  : integer;
-freq: double;
-}
-begin
- {
- i := 0;
- i2 := 0;
- freq := 0.0;
- 
-  //Sender.lockapplication();
- // writeln('fft ' + inttostr(length(abuffer)));
-//  writeln('fft ' + inttostr(length(abuffer[0])));
-  for i := 0 to length(abuffer[0]) -1 
-  // for i := 0 to 100 
-  do if abuffer[0][i] > freq then
+  if not avalue then
   begin
-   abuffer[0][i] := freq;
-//   writeln('fft ' + floattostr(abuffer[0][i]));  
-     i2 := i;
-   end;
-   
-  writeln('fft freq pos = ' + inttostr(i2));
- 
-    Sender.unlockapplication();
-  }  
+    scope.Visible      := False;
+    tsplitter1.left    := 0;
+    tsplitter1.Visible := False;
+  end
+  else
+  begin
+    tsplitter1.left    := Width div 2;
+    tsplitter1.Visible := True;
+    scope.Visible      := True;
+  end;
+end;
+
+
+procedure tmainfo.onshowspectrum(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+
+  if not avalue then
+  begin
+    fft.Visible        := False;
+    tsplitter1.left    := Width - tsplitter1.Width;
+    tsplitter1.Visible := False;
+  end
+  else
+  begin
+    tsplitter1.left    := Width div 2;
+    tsplitter1.Visible := True;
+    fft.Visible        := True;
+  end;
+end;
+
+procedure tmainfo.onscale(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
+begin
+  if avalue then
+    scope.xrange := 0.2
+  else
+    scope.xrange := 0.1;
+
+end;
+
+procedure tmainfo.onquit(const Sender: TObject);
+begin
+  application.terminate;
+end;
+
+procedure tmainfo.evonfft(const Sender: tsigsamplerfft; const abuffer: samplerbufferty);
+begin
+
+end;
+
+procedure tmainfo.evonshowhint(const Sender: TObject; var info: hintinfoty);
+begin
+  //info.caption := 'Hello';
+end;
+
+procedure tmainfo.evonmouseclient(const Sender: twidget; var ainfo: mouseeventinfoty);
+begin
+  if Sender is tsigscopefft then
+{
+writeln('===================');
+writeln('x,y = ' + inttostr(ainfo.pos.x) + ',' +inttostr( ainfo.pos.y));
+writeln('log x = ' + floattostr(ln(ainfo.pos.x)));
+};
+
 end;
 
 end.

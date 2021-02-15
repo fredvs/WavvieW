@@ -2309,21 +2309,23 @@ begin
       //  if intodd = 1 then intodd := 0; 
       //  writeln('length(fbuffer3) = '+ inttostr(length(fbuffer3)));
       // writeln('length(acount) = '+ inttostr(acount));
-      
+
       for int1 := acount - 1 downto 0 do
       begin
         if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
 
           if length(fbuffer3) > 0 then
-            begin
-              if channels = 1 then
-                asample := fbuffer3[int2];
+          begin
+            if channels = 1 then
+              if int2 > -1 then
+                asample := fbuffer3[int2] * 1;
 
-              if channels = 2 then
+            if channels = 2 then
+              if int2 - 1 > -1 then
                 asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2);
 
-              int2 := int2 - channels;
-            end;
+            int2 := int2 - channels;
+          end;
 
         internalstep;
       end;
@@ -2391,7 +2393,7 @@ begin
 
   x := 0;
 
-  while x < (length(TheBuffer)) do
+  while x <= (length(TheBuffer)) - channels do
   begin
 
     sf2 := 0;
@@ -2413,9 +2415,9 @@ begin
     Inc(x, channels);
   end;
 
-  i := trunc(aPosL) div 1024;
+  i := trunc(aPosL / 1024);
   PosInTableLeft := aPosL - (i * 1024);
-  i := trunc(aPosR) div 1024;
+  i := trunc(aPosR / 1024);
   PosInTableRight := aPosR - (i * 1024);
 
 end;
@@ -2438,7 +2440,6 @@ var
   thesample: single;
 begin
   l     := 1024;
-  ;
   nPI_l := 2 * PI / l;
 
   for i := 0 to l - 1 do  // LookUpTable
@@ -2446,48 +2447,38 @@ begin
 
     if typewave = 0 then  // sine
     begin
+      thesample   := sin(i * nPI_l);
+      if thesample > 1 then
+        thesample := 1;
+      if thesample < -1 then
+        thesample := -1;
+
       if Channel = 1 then
-      begin
-        thesample   := sin(i * nPI_l);
-        if thesample > 1 then
-          thesample := 1;
-        if thesample < -1 then
-          thesample := -1;
-        LookupTableLeft[i] := thesample;
-        //   writeln( floattostr((LookupTableLeft[i])) + ' left ');
-      end;
+        LookupTableLeft[i]  := thesample//   writeln( floattostr((LookupTableLeft[i])) + ' left ');
+      ;
       if Channel = 2 then
-      begin
-        thesample   := sin(i * nPI_l);
-        if thesample > 1 then
-          thesample := 1;
-        if thesample < -1 then
-          thesample := -1;
-        LookupTableRight[i] := thesample;
-        //  writeln(  'right  ' + 
-        //    floattostr((LookupTableRight[i])));
-      end;
+        LookupTableRight[i] := thesample//  writeln(  'right  ' + floattostr((LookupTableRight[i])));
+      ;
     end;
 
     if typewave = 1 then // square
     begin
+      if sin(i * nPI_l) >= 0 then
+        thesample := 1
+      else
+        thesample := -1;
+
       if Channel = 1 then
-        if sin(i * nPI_l) >= 0 then
-          LookupTableLeft[i] := 1
-        else
-          LookupTableLeft[i] := -1;
+        LookupTableLeft[i]  := thesample;
       if Channel = 2 then
-        if sin(i * nPI_l) >= 0 then
-          LookupTableRight[i] := 1
-        else
-          LookupTableRight[i] := -1;
+        LookupTableRight[i] := thesample;
     end;
 
     if typewave = 2 then // triangle
     begin
       if Channel = 1 then
       begin
-        if i < 513 then
+        if i < (l div 2) + 1 then
           thesample := (((l - (i * 2)) / (l / 2))) - 1
         else
           thesample := LookupTableLeft[l - i];
@@ -2501,7 +2492,7 @@ begin
 
       if Channel = 2 then
       begin
-        if i < 513 then
+        if i < (l div 2) + 1 then
           thesample := (((l - (i * 2)) / (l / 2))) - 1
         else
           thesample := LookupTableRight[l - i];
