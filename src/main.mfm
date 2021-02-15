@@ -3,18 +3,18 @@ object mainfo: tmainfo
   bounds_x = 173
   bounds_y = 29
   bounds_cx = 1024
-  bounds_cy = 484
+  bounds_cy = 503
   bounds_cxmin = 1024
   container.frame.localprops = []
   container.frame.localprops1 = []
   container.face.localprops = []
-  container.face.template = tfacecomp1
+  container.face.template = tfacecomp5
   container.onclientmouseevent = evonmouseclient
   container.bounds = (
     0
     0
     1024
-    484
+    503
   )
   font.color = -1610612731
   font.name = 'stf_default'
@@ -149,7 +149,7 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 1022
-    bounds_cy = 305
+    bounds_cy = 324
     anchors = [an_left, an_top, an_right, an_bottom]
     object tsplitter1: tsplitter
       color = -1610612734
@@ -157,7 +157,7 @@ object mainfo: tmainfo
       bounds_x = 508
       bounds_y = 0
       bounds_cx = 4
-      bounds_cy = 305
+      bounds_cy = 324
       anchors = [an_left]
       options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
       linkleft = scope
@@ -185,7 +185,7 @@ object mainfo: tmainfo
       bounds_x = 512
       bounds_y = 0
       bounds_cx = 508
-      bounds_cy = 305
+      bounds_cy = 324
       anchors = [an_right]
       traces.count = 1
       traces.options = [cto_smooth, cto_logx, cto_logy]
@@ -306,7 +306,7 @@ object mainfo: tmainfo
       bounds_x = 0
       bounds_y = 0
       bounds_cx = 508
-      bounds_cy = 305
+      bounds_cy = 324
       anchors = [an_left]
       traces.count = 1
       traces.xrange = 0.1
@@ -520,10 +520,90 @@ object mainfo: tmainfo
     color = -2147483645
     taborder = 6
     bounds_x = 0
-    bounds_y = 311
+    bounds_y = 330
     bounds_cx = 1020
     bounds_cy = 170
     anchors = [an_left, an_right, an_bottom]
+    object tgroupbox6: tgroupbox
+      color = -2147483645
+      frame.caption = '                              '
+      frame.captionpos = cp_top
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        9
+        0
+        0
+      )
+      taborder = 14
+      bounds_x = 560
+      bounds_y = 55
+      bounds_cx = 208
+      bounds_cy = 46
+      anchors = [an_left, an_bottom]
+      object tsigslider3: tsigslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.caption = 'Vol'
+        frame.captionpos = cp_left
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = []
+        frame.template = tframecomp1
+        frame.outerframe = (
+          21
+          0
+          0
+          0
+        )
+        face.localprops = []
+        hint = 'Volume of piano'
+        bounds_x = 8
+        bounds_y = 19
+        bounds_cx = 148
+        bounds_cy = 21
+        anchors = [an_left, an_bottom]
+        statfile = sta
+        value = 0.5
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face.template = tfacecomp1
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.localprops = [fal_image]
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onsetsliderpiano
+        controller = tsigcontroller1
+        max = 1
+      end
+      object volpiano: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 1
+        bounds_x = 158
+        bounds_y = 19
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        value = 50
+        reffontheight = 15
+      end
+    end
     object tgroupbox3: tgroupbox
       color = -2147483645
       frame.caption = '                                    '
@@ -559,9 +639,9 @@ object mainfo: tmainfo
           0
         )
         hint = 'Samples count of noise'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 120
-        bounds_cx = 121
+        bounds_cx = 118
         bounds_cy = 21
         statfile = sta
         scrollbar.buttonlength = 16
@@ -600,7 +680,7 @@ object mainfo: tmainfo
         hint = 'Amplitude of noise'
         bounds_x = 8
         bounds_y = 70
-        bounds_cx = 122
+        bounds_cx = 118
         bounds_cy = 21
         statfile = sta
         value = 0.3
@@ -790,9 +870,9 @@ object mainfo: tmainfo
         )
         taborder = 1
         hint = 'Volume of Wave'
-        bounds_x = 9
+        bounds_x = 8
         bounds_y = 62
-        bounds_cx = 121
+        bounds_cx = 118
         bounds_cy = 21
         value = 0.5
         scrollbar.buttonlength = 16
@@ -1154,6 +1234,7 @@ object mainfo: tmainfo
         }
         controller.compact = False
         controller.showhidden = False
+        controller.options = [fdo_file, fdo_savelastdir]
         reffontheight = 15
       end
       object sliderfile: tslider
@@ -1172,9 +1253,9 @@ object mainfo: tmainfo
         )
         taborder = 3
         hint = 'Volume of Audio File'
-        bounds_x = 9
+        bounds_x = 8
         bounds_y = 78
-        bounds_cx = 114
+        bounds_cx = 118
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1196,30 +1277,25 @@ object mainfo: tmainfo
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfilevol
       end
-      object volfile: tintegeredit
+      object volfile: tintegerdisp
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 4
-        hint = 'Volume'
         bounds_x = 128
         bounds_y = 78
         bounds_cx = 42
         bounds_cy = 21
-        statfile = sta
-        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-        onchange = onchangefile
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
         value = 50
-        valuedefault = 50
-        valuemax = 100
         reffontheight = 15
       end
     end
     object tgroupbox5: tgroupbox
       color = -2147483645
-      frame.caption = '                                  '
+      frame.caption = '                                    '
       frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
@@ -1252,8 +1328,8 @@ object mainfo: tmainfo
         )
         hint = 'Volume of Input from Device'
         bounds_x = 8
-        bounds_y = 20
-        bounds_cx = 114
+        bounds_y = 21
+        bounds_cx = 118
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1275,46 +1351,41 @@ object mainfo: tmainfo
         scrollbar.colorglyph = -1610612730
         onsetvalue = onmicvol
       end
-      object volmic: tintegeredit
+      object volmic: tintegerdisp
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 1
-        hint = 'Volume of Input from Device'
         bounds_x = 128
-        bounds_y = 22
+        bounds_y = 21
         bounds_cx = 42
         bounds_cy = 21
-        statfile = sta
-        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-        onchange = onchangemic
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
         value = 50
-        valuedefault = 50
-        valuemax = 100
         reffontheight = 15
       end
     end
     object oninputon: tbooleanedit
       color = -2147483645
-      frame.caption = 'Dev Input Activate'
+      frame.caption = 'Dev Input   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
       frame.template = tframecomp2
       frame.outerframe = (
-        119
+        127
         1
         0
         2
       )
       taborder = 1
       hint = 'Activate Device Input (Mic/Line In)'
-      bounds_x = 34
+      bounds_x = 30
       bounds_y = 113
-      bounds_cx = 132
+      bounds_cx = 140
       bounds_cy = 17
       anchors = [an_left, an_bottom]
       onsetvalue = oninputactivate
@@ -1360,7 +1431,7 @@ object mainfo: tmainfo
       bounds_x = 560
       bounds_y = 2
       bounds_cx = 208
-      bounds_cy = 52
+      bounds_cy = 51
       anchors = [an_left, an_bottom]
       object viewnoise: tbooleaneditradio
         frame.caption = 'Noise'
@@ -1463,70 +1534,25 @@ object mainfo: tmainfo
         onsetvalue = onwaveview
       end
     end
-    object tsigslider3: tsigslider
-      color = -2147483645
-      frame.levelo = 0
-      frame.caption = 'Vol'
-      frame.captionpos = cp_left
-      frame.localprops = [frl_levelo]
-      frame.localprops1 = []
-      frame.template = tframecomp1
-      frame.outerframe = (
-        21
-        0
-        0
-        0
-      )
-      face.localprops = []
-      taborder = 7
-      hint = 'Volume of piano'
-      bounds_x = 654
-      bounds_y = 61
-      bounds_cx = 109
-      bounds_cy = 21
-      anchors = [an_left, an_bottom]
-      statfile = sta
-      value = 0.5
-      scrollbar.buttonlength = 16
-      scrollbar.buttonendlength = -1
-      scrollbar.face.localprops = []
-      scrollbar.face.template = tfacecomp1
-      scrollbar.face1.localprops = []
-      scrollbar.face1.template = tfacecomp3
-      scrollbar.face2.localprops = []
-      scrollbar.face2.template = tfacecomp4
-      scrollbar.facebutton.image.origformat = 'png'
-      scrollbar.facebutton.localprops = [fal_image]
-      scrollbar.facebutton.template = tfacecomp2
-      scrollbar.faceendbutton.localprops = []
-      scrollbar.faceendbutton.template = tfacecomp2
-      scrollbar.framebutton.optionsskin = [fso_flat]
-      scrollbar.framebutton.localprops = [frl_optionsskin]
-      scrollbar.framebutton.localprops1 = []
-      scrollbar.framebutton.template = tframecomp2
-      scrollbar.colorglyph = -1610612730
-      controller = tsigcontroller1
-      max = 1
-    end
     object onpianoon: tbooleanedit
       color = -2147483645
-      frame.caption = 'Activate'
+      frame.caption = 'Piano   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
       frame.template = tframecomp2
       frame.outerframe = (
-        55
+        99
         1
         0
         2
       )
-      taborder = 8
+      taborder = 7
       hint = 'Activate Piano'
-      bounds_x = 576
-      bounds_y = 65
-      bounds_cx = 68
+      bounds_x = 611
+      bounds_y = 55
+      bounds_cx = 112
       bounds_cy = 17
       anchors = [an_left, an_bottom]
       onsetvalue = onpianoactivate
@@ -9869,11 +9895,11 @@ object mainfo: tmainfo
         414141013B3B3B012A2A2A0111111101B2958AFFB2958A2C
       }
       face.localprops = [fal_image]
-      taborder = 9
-      bounds_x = 562
-      bounds_y = 98
-      bounds_cx = 452
-      bounds_cy = 67
+      taborder = 8
+      bounds_x = 560
+      bounds_y = 106
+      bounds_cx = 457
+      bounds_cy = 58
       anchors = [an_left, an_top, an_right, an_bottom]
       value = 100
       keywidth = 12
@@ -9882,12 +9908,12 @@ object mainfo: tmainfo
     end
     object tenvelopeedit1: tenvelopeedit
       color = -2147483645
-      taborder = 10
+      taborder = 9
       hint = 'Envelope of Piano: Attack, Decay and Release.'
       bounds_x = 772
       bounds_y = 15
-      bounds_cx = 242
-      bounds_cy = 79
+      bounds_cx = 245
+      bounds_cy = 87
       anchors = [an_left, an_top, an_right]
       attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
       attack.frame.localprops = []
@@ -9896,8 +9922,8 @@ object mainfo: tmainfo
       attack.frame.zoomwidthstep = 1.5
       attack.bounds_x = 0
       attack.bounds_y = 0
-      attack.bounds_cx = 80
-      attack.bounds_cy = 79
+      attack.bounds_cx = 81
+      attack.bounds_cy = 87
       attack.traces.count = 2
       attack.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       attack.traces.xrange = 0.1
@@ -9922,7 +9948,7 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      attack.colorchart = 3356465
+      attack.colorchart = 2500900
       attack.xrange = 0.1
       attack.yrange = 1
       attack.xdials.range = 0.1
@@ -9933,10 +9959,10 @@ object mainfo: tmainfo
       decay.frame.template = tframecomp1
       decay.frame.zoomwidthstep = 1.5
       decay.taborder = 1
-      decay.bounds_x = 84
+      decay.bounds_x = 85
       decay.bounds_y = 0
-      decay.bounds_cx = 81
-      decay.bounds_cy = 79
+      decay.bounds_cx = 82
+      decay.bounds_cy = 87
       decay.traces.count = 2
       decay.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       decay.traces.xrange = 10
@@ -9961,7 +9987,7 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      decay.colorchart = 3356465
+      decay.colorchart = 2500900
       decay.xrange = 10
       decay.yrange = 1
       decay.xdials.count = 1
@@ -9985,10 +10011,10 @@ object mainfo: tmainfo
       release.frame.template = tframecomp1
       release.frame.zoomwidthstep = 1.5
       release.taborder = 2
-      release.bounds_x = 169
+      release.bounds_x = 171
       release.bounds_y = 0
-      release.bounds_cx = 73
-      release.bounds_cy = 79
+      release.bounds_cx = 74
+      release.bounds_cy = 87
       release.traces.count = 2
       release.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       release.traces.xrange = 1
@@ -10013,23 +10039,23 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      release.colorchart = 3356465
+      release.colorchart = 2500900
       release.xrange = 1
       release.yrange = 1
       release.xdials.range = 1
       release.ydials.range = 1
       splitter1.color = -2147483645
       splitter1.taborder = 3
-      splitter1.bounds_x = 80
+      splitter1.bounds_x = 81
       splitter1.bounds_y = 0
       splitter1.bounds_cx = 4
-      splitter1.bounds_cy = 79
+      splitter1.bounds_cy = 87
       splitter2.color = -2147483645
       splitter2.taborder = 4
-      splitter2.bounds_x = 165
+      splitter2.bounds_x = 167
       splitter2.bounds_y = 0
       splitter2.bounds_cx = 4
-      splitter2.bounds_cy = 79
+      splitter2.bounds_cy = 87
       statfile = sta
       envelope.controller = tsigcontroller1
       envelope.trigger.gain = 1
@@ -10056,7 +10082,7 @@ object mainfo: tmainfo
     object tlabel2: tlabel
       optionswidget1 = [ow1_fontglyphheight, ow1_autoheight]
       color = -2147483645
-      taborder = 11
+      taborder = 10
       bounds_x = 858
       bounds_y = 0
       bounds_cx = 85
@@ -10068,7 +10094,7 @@ object mainfo: tmainfo
     end
     object tlabel3: tlabel
       color = -2147483645
-      taborder = 12
+      taborder = 11
       bounds_x = 950
       bounds_y = 0
       bounds_cx = 45
@@ -10080,7 +10106,7 @@ object mainfo: tmainfo
     object tlabel4: tlabel
       optionswidget1 = [ow1_fontglyphheight, ow1_autoheight]
       color = -2147483645
-      taborder = 13
+      taborder = 12
       bounds_x = 770
       bounds_y = 0
       bounds_cx = 85
@@ -10104,7 +10130,7 @@ object mainfo: tmainfo
         0
         2
       )
-      taborder = 14
+      taborder = 13
       hint = 'Activate Wave Generator'
       bounds_x = 397
       bounds_y = 1
@@ -10266,8 +10292,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
-    audio.format = sfm_f32
-    audio.latency = 0.1
+    audio.latency = 0.3
     left = 744
     top = 152
   end
@@ -10451,6 +10476,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.format = sfm_f32
     audio.latency = 0.1
     left = 880
     top = 216
@@ -10490,6 +10516,7 @@ object mainfo: tmainfo
         expstart = -Inf
         expend = -Inf
       end>
+    audio.format = sfm_f32
     audio.latency = 0.1
     left = 880
     top = 112
@@ -10513,5 +10540,20 @@ object mainfo: tmainfo
     template.fade_direction = gd_down
     left = 568
     top = 224
+  end
+  object tfacecomp6: tfacecomp
+    template.fade_pos.count = 2
+    template.fade_pos.items = (
+      0
+      1
+    )
+    template.fade_color.count = 2
+    template.fade_color.items = (
+      3290672
+      0
+    )
+    template.fade_direction = gd_down
+    left = 696
+    top = 40
   end
 end

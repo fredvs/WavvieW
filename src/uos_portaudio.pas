@@ -2,7 +2,7 @@
 
 {This is the Dynamic loading version of PortAudio Pascal Wrapper.
  Load library with pa_load() and release with pa_unload().
- License : modified LGPL. 
+ License : modified LGPL.
  Fred van Stappen / fiens@hotmail.com 
  Reference counting added by Max Karpushin / homeplaner@yandex.ru} 
 

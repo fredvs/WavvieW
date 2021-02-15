@@ -4,53 +4,16 @@ unit main;
 interface
 
 uses
-  msetypes,
-  mseglob,
-  mseguiglob,
-  mseguiintf,
-  mseapplication,
-  msestat,
-  msemenus,
-  msegui,
-  msegraphics,
-  msegraphutils,
-  mseevent,
-  mseclasses,
-  msewidgets,
-  mseforms,
-  uos_mseaudio,
-  uos_msesigaudio,
-  msesignal,
-  msestrings,
-  msesignoise,
-  msechartedit,
-  msedataedits,
-  mseedit,
-  mseificomp,
-  mseificompglob,
-  mseifiglob,
-  msesiggui,
-  msestatfile,
-  msesigfft,
-  msesigfftgui,
-  msegraphedits,
-  msescrollbar,
-  msedispwidgets,
-  mserichstring,
-  msesplitter,
-  msesimplewidgets,
-  msefilter,
-  mseact,
-  msestream,
-  SysUtils,
-  msebitmap,
-  msedropdownlist,
-  msefiledialogx,
-  Math,
-  msefftw;
+ msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
+ uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
+ mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
+ msesigfftgui,msegraphedits,msescrollbar,msedispwidgets,mserichstring,
+ msesplitter,msesimplewidgets,msefilter,mseact,msestream,SysUtils,msebitmap,
+ msedropdownlist,msefiledialogx,Math,msefftw;
 
 const
-  versiontext = '1.2';
+  versiontext = '1.4';
 
 type
   tmainfo = class(tmainform)
@@ -93,11 +56,9 @@ type
     bstart: TButton;
     tfilenameeditx1: tfilenameeditx;
     sliderfile: tslider;
-    volfile: tintegeredit;
     oninputon: tbooleanedit;
     tgroupbox5: tgroupbox;
     slidermic: tslider;
-    volmic: tintegeredit;
     onoiseon: tbooleanedit;
     tgroupbox3: tgroupbox;
     sampcount: tslider;
@@ -119,7 +80,6 @@ type
     viewpiano: tbooleaneditradio;
     viewinput: tbooleaneditradio;
     viewwave: tbooleaneditradio;
-    tsigslider3: tsigslider;
     onpianoon: tbooleanedit;
     tsigkeyboard1: tsigkeyboard;
     tenvelopeedit1: tenvelopeedit;
@@ -130,6 +90,12 @@ type
     scaleosci: tbooleanedit;
     tfacecomp5: tfacecomp;
     bquit: TButton;
+   tfacecomp6: tfacecomp;
+   tgroupbox6: tgroupbox;
+   tsigslider3: tsigslider;
+   volpiano: tintegerdisp;
+   volfile: tintegerdisp;
+   volmic: tintegerdisp;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -167,6 +133,8 @@ type
     procedure evonfft(const Sender: tsigsamplerfft; const abuffer: samplerbufferty);
     procedure evonshowhint(const Sender: TObject; var info: hintinfoty);
     procedure evonmouseclient(const Sender: twidget; var ainfo: mouseeventinfoty);
+   procedure onsetsliderpiano(const sender: TObject; var avalue: realty;
+                   var accept: Boolean);
   end;
 
 var
@@ -280,6 +248,8 @@ begin
   arb[2] := '"*.ogg" "*.OGG"';
   arb[3] := '"*.flac" "*.FLAC"';
   arb[4] := '"*.*"';
+  
+   tfilenameeditx1.controller.captionopen := 'Choose a wav, ogg or flac audio file';
 
   tfilenameeditx1.controller.filterlist.asarraya := ara;
   tfilenameeditx1.controller.filterlist.asarrayb := arb;
@@ -418,11 +388,13 @@ end;
 
 procedure tmainfo.onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
+ //application.processmessages;
   if hasinit then
     if avalue then
       tsigoutaudio1.audio.active := True
     else
       tsigoutaudio1.audio.active := False;
+  // application.processmessages; 
 end;
 
 procedure tmainfo.onfileview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -667,13 +639,19 @@ end;
 
 procedure tmainfo.evonmouseclient(const Sender: twidget; var ainfo: mouseeventinfoty);
 begin
-  if Sender is tsigscopefft then
+//  if Sender is tsigscopefft then
 {
 writeln('===================');
 writeln('x,y = ' + inttostr(ainfo.pos.x) + ',' +inttostr( ainfo.pos.y));
 writeln('log x = ' + floattostr(ln(ainfo.pos.x)));
 };
 
+end;
+
+procedure tmainfo.onsetsliderpiano(const sender: TObject; var avalue: realty;
+               var accept: Boolean);
+begin
+  volpiano.Value := round(100 * avalue);
 end;
 
 end.

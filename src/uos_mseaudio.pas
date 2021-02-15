@@ -201,13 +201,18 @@ begin
     fthread.terminate;
     application.waitforthread(fthread);
     FreeAndNil(fthread);
+    sleep(20);
     if Assigned(HandlePAIn) then
     begin
       Pa_StopStream(HandlePAIn);
       Pa_CloseStream(HandlePAIn);
     end;
+      if Assigned(HandlePAOut) then
+    begin
     Pa_StopStream(HandlePAOut);
     Pa_CloseStream(HandlePAOut);
+    end;
+    if Assigned(HandleSF) then
     sf_close(HandleSF);
   end;
   factive := False;
@@ -220,6 +225,7 @@ begin
     @
 {$endif}
     threadproc, False, fstacksizekb);
+    sleep(20);
   factive := True;
 end;
 

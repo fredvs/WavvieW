@@ -298,7 +298,7 @@ makeoptions=6
  -B
  -XX -Xs
  -FUunits
- -O3
+ -O1
 makeoptpurpose=6
  
  
@@ -530,7 +530,7 @@ makeoptionson=6
  194
  252
  4095
- 4095
+ 0
 compilerusedon=29
  3891
  4
@@ -562,12 +562,12 @@ compilerusedon=29
  0
  0
 debuggerusedon=6
- 4095
+ 4091
  0
  0
  0
  0
- 0
+ 4
 exeusedon=15
  3903
  0
@@ -823,8 +823,14 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=SetWaveForm
+finddtext=inputtyp
 findhistory=20
+ inputtyp
+ fdk_none
+ actcaption
+ caption
+ fnopanel
+ tsigaudioout
  SetWaveForm
  1024
  2048
@@ -839,23 +845,17 @@ findhistory=20
  wavetype
  inputtype
  latency
- initializefftw
- initializedynlib
- SetWavetable
- VLeft
- sf_r
- LookupTableRight
 findoptions=1
 editpos=9
+ 0,32
  0,-1073741823
- 0,5
- 0,2482
- 0,5
  0,-1073741823
- 0,0
  0,-1073741823
- 0,275
- 0,92
+ 0,-1073741823
+ 0,7
+ 0,-1073741823
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
@@ -871,20 +871,20 @@ sourcefiles=9
  ${PROJECTDIR}/msesignal.pas
  ${PROJECTDIR}/wavview.pas
  ${PROJECTDIR}/about.pas
- /home/fred/mseide-msegui/lib/common/math/msesigfft.pas
- /home/fred/mseide-msegui/lib/common/kernel/msetypes.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/msesigfftgui.pas
+ ${PROJECTDIR}/uos_portaudio.pas
+ ${PROJECTDIR}/msefiledialogx.pas
 relpaths=9
  uos_mseaudio.pas
  uos_msesigaudio.pas
  msesignal.pas
  wavview.pas
  about.pas
- ../mseide-msegui/lib/common/math/msesigfft.pas
- mseide-msegui/lib/common/kernel/msetypes.pas
  main.pas
  msesigfftgui.pas
+ uos_portaudio.pas
+ msefiledialogx.pas
 ismoduletexts=9
  0
  0
@@ -908,20 +908,10 @@ nomenumodules=2
  0
  0
 [sourcefo.files_tab]
-order=9
- 0
- 1
- 4
- 6
- 7
- 5
- 2
- 3
- 8
 firsttab=0
-index=6
+index=5
 [layout]
-windowlayout=613
+windowlayout=603
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -935,8 +925,8 @@ windowlayout=613
  ny=0
  ncx=0
  ncy=0
- x=141
- y=144
+ x=115
+ y=103
  cx=1224
  cy=621
  rcx=0
@@ -953,15 +943,15 @@ windowlayout=613
  ny=0
  ncx=0
  ncy=0
- x=29
- y=45
+ x=420
+ y=172
  cx=497
  cy=314
  rcx=0
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1388,11 +1378,11 @@ windowlayout=613
  nx=0
  ny=0
  ncx=1356
- ncy=14
+ ncy=10
  x=0
  y=0
  cx=1356
- cy=14
+ cy=10
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1402,17 +1392,20 @@ windowlayout=613
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/msesignal.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
-  /home/fred/WavvieW/src/wavview.pas
+  /home/fred/WavvieW/src/uos_mseaudio.pas
+  /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW/src/about.pas
-  /home/fred/WavvieW/src/main.pas
+  /home/fred/WavvieW/src/uos_msesigaudio.pas
+  /home/fred/WavvieW/src/uos_portaudio.pas
   /home/fred/WavvieW/src/msesigfftgui.pas
+  /home/fred/WavvieW/src/main.pas
   /home/fred/WavvieW/src/msefftw.pas
   /home/fred/WavvieW/src/uos_msefftw.pas
+  /home/fred/WavvieW/src/wavview.pas
   /home/fred/WavvieW_pr/src/wavview.pas
   /home/fred/WavvieW/src/uos_msesigaudionew.pas
-  /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW/src/uos_msesignal.pas
   /home/fred/NoiseGenerator/src/msesignal.pas
   /home/fred/noisegenerator/src/noisegenerator.pas
@@ -1421,11 +1414,8 @@ windowlayout=613
   /home/fred/mseuniverse/samples/signal/noisegen/mseaudiouos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudiouos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/uos_portaudio.pas
-  /home/fred/uos/src/uos_portaudio.pas
-  /home/fred/uos/src/uos.pas
-  /home/fred/mseuniverse/samples/signal/noisegen/msesigaudio.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -1445,18 +1435,8 @@ windowlayout=613
  rcx=0
  rcy=0
  [sourcefo.files_tab]
- order=9
-  0
-  1
-  4
-  6
-  7
-  5
-  2
-  3
-  8
  firsttab=0
- index=6
+ index=5
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1500,7 +1480,7 @@ windowlayout=613
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=_mse_aboutfo_mse_
  parent=
  mdistate=3
  nx=0
@@ -1510,7 +1490,7 @@ windowlayout=613
  x=173
  y=29
  cx=1034
- cy=484
+ cy=503
  rcx=0
  rcy=0
  wsize=0
@@ -1519,7 +1499,7 @@ windowlayout=613
  [_mse_aboutfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=_mse_mainfo_mse_
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
