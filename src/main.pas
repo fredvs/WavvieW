@@ -48,8 +48,6 @@ type
     tsignoise4: tsignoise;
     tsigoutaudio4: tsigoutaudio;
     tsigcontroller4: tsigcontroller;
-    oscion: tbooleanedit;
-    spectrumon: tbooleanedit;
     tlayouter1: tlayouter;
     tgroupbox2: tgroupbox;
     bstop: TButton;
@@ -71,7 +69,6 @@ type
     sliderwave: tslider;
     freqwav: tintegeredit;
     sliderfreqwave: tslider;
-    volwav: tintegeredit;
     harmonwave: tintegeredit;
     Oddwave: tbooleanedit;
     tgroupbox1: tgroupbox;
@@ -97,6 +94,9 @@ type
    volfile: tintegerdisp;
    volmic: tintegerdisp;
    tfacecomp7: tfacecomp;
+   oscion: tbooleanedit;
+   spectrumon: tbooleanedit;
+   volwav: tintegerdisp;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -547,6 +547,16 @@ begin
       isodd, isodd,
       freqwav.Value, freqwav.Value,
       volwav.Value / 100, volwav.Value / 100);
+    {  
+       bvalue   := round(avalue * avalue * 10000);
+  if bvalue > 10000 then
+    bvalue := 10000;
+  if bvalue < 100 then
+    bvalue := 100;
+  freqwav.Value := bvalue;
+     }
+      
+     sliderfreqwave.value := sqrt(freqwav.Value) / 100;
 
 {TypeWaveL, TypeWaveR,
 AHarmonicsL,AHarmonicsR : Integer;
@@ -608,12 +618,14 @@ begin
     scope.Visible      := False;
     tsplitter1.left    := 0;
     tsplitter1.Visible := False;
+    scaleosci.Visible  := false;
   end
   else
   begin
     tsplitter1.left    := Width div 2;
     tsplitter1.Visible := True;
     scope.Visible      := True;
+    scaleosci.Visible  := true;
   end;
 end;
 
@@ -626,12 +638,16 @@ begin
     fft.Visible        := False;
     tsplitter1.left    := Width - tsplitter1.Width;
     tsplitter1.Visible := False;
+    average.Visible  := false;
+    averagecount.Visible  := false;
   end
   else
   begin
     tsplitter1.left    := Width div 2;
     tsplitter1.Visible := True;
     fft.Visible        := True;
+    average.Visible  := True;
+    averagecount.Visible  := True;
   end;
 end;
 

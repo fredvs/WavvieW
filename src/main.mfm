@@ -176,8 +176,7 @@ object mainfo: tmainfo
     object fft: tsigscopefft
       frame.leveli = -1
       frame.colorclient = -2147483645
-      frame.caption = ' '
-      frame.captionpos = cp_top
+      frame.caption = '     FFT Spectrum'
       frame.localprops = [frl_leveli, frl_firight, frl_colorclient]
       frame.localprops1 = []
       frame.template = tframecomp2
@@ -298,9 +297,9 @@ object mainfo: tmainfo
     object scope: tsigscope
       frame.levelo = -1
       frame.colorclient = -2147483645
-      frame.caption = ' '
+      frame.caption = '     Oscilloscope'
       frame.localprops = [frl_levelo, frl_firight, frl_colorclient]
-      frame.localprops1 = []
+      frame.localprops1 = [frl1_captiondist]
       frame.template = tframecomp2
       frame.outerframe = (
         0
@@ -474,60 +473,9 @@ object mainfo: tmainfo
     caption = 'About'
     onexecute = onabout
   end
-  object oscion: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Oscilloscope'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      79
-      1
-      0
-      2
-    )
-    taborder = 4
-    hint = 'Oscilloscope ON-OFF'
-    bounds_x = 16
-    bounds_y = 1
-    bounds_cx = 92
-    bounds_cy = 17
-    statfile = sta
-    onsetvalue = onshowoscilloscope
-    value = True
-    valuedefault = True
-  end
-  object spectrumon: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Spectrum'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      66
-      1
-      0
-      2
-    )
-    taborder = 5
-    hint = 'FFT Spectrum ON-OFF'
-    bounds_x = 805
-    bounds_y = 1
-    bounds_cx = 79
-    bounds_cy = 17
-    anchors = [an_top, an_right]
-    statfile = sta
-    onsetvalue = onshowspectrum
-    value = True
-    valuedefault = True
-  end
   object tlayouter1: tlayouter
     color = -2147483645
-    taborder = 6
+    taborder = 4
     bounds_x = 0
     bounds_y = 330
     bounds_cx = 1020
@@ -907,7 +855,7 @@ object mainfo: tmainfo
         frame.localprops1 = []
         frame.template = tframecomp2
         face.localprops = []
-        face.template = tfacecomp1
+        face.template = tfacecomp7
         taborder = 2
         hint = 'Frequency in HZ'
         bounds_x = 120
@@ -962,26 +910,6 @@ object mainfo: tmainfo
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfreqwave
       end
-      object volwav: tintegeredit
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = tframecomp2
-        face.localprops = []
-        face.template = tfacecomp1
-        taborder = 4
-        hint = 'Volume'
-        bounds_x = 128
-        bounds_y = 62
-        bounds_cx = 42
-        bounds_cy = 21
-        statfile = sta
-        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
-        onchange = onchangewave
-        value = 50
-        valuedefault = 50
-        valuemax = 100
-        reffontheight = 15
-      end
       object harmonwave: tintegeredit
         frame.caption = 'Harm'
         frame.captionpos = cp_left
@@ -995,8 +923,8 @@ object mainfo: tmainfo
           0
         )
         face.localprops = []
-        face.template = tfacecomp1
-        taborder = 5
+        face.template = tfacecomp7
+        taborder = 4
         hint = 'Number or Harmonics'
         bounds_x = 12
         bounds_y = 126
@@ -1021,7 +949,7 @@ object mainfo: tmainfo
           0
           2
         )
-        taborder = 6
+        taborder = 5
         hint = 'Odd Harmonics only'
         bounds_x = 118
         bounds_y = 130
@@ -1030,6 +958,22 @@ object mainfo: tmainfo
         anchors = [an_right, an_bottom]
         statfile = sta
         onchange = onchangewave
+      end
+      object volwav: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 6
+        bounds_x = 128
+        bounds_y = 62
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangewave
+        value = 50
+        reffontheight = 15
       end
     end
     object tgroupbox2: tgroupbox
@@ -1456,20 +1400,19 @@ object mainfo: tmainfo
       object viewnoise: tbooleaneditradio
         frame.caption = 'Noise'
         frame.captionpos = cp_top
-        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           10
-          21
+          18
           11
           0
         )
         bounds_x = 124
-        bounds_y = 23
+        bounds_y = 34
         bounds_cx = 34
-        bounds_cy = 34
+        bounds_cy = 31
         statfile = sta
         onsetvalue = onnoiseview
         value = True
@@ -1477,86 +1420,133 @@ object mainfo: tmainfo
       object viewfile: tbooleaneditradio
         frame.caption = 'File'
         frame.captionpos = cp_top
-        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           4
-          21
+          18
           5
           0
         )
         taborder = 1
         bounds_x = 10
-        bounds_y = 23
+        bounds_y = 34
         bounds_cx = 22
-        bounds_cy = 34
+        bounds_cy = 31
         statfile = sta
         onsetvalue = onfileview
       end
       object viewpiano: tbooleaneditradio
         frame.caption = 'Piano'
         frame.captionpos = cp_top
-        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           10
-          21
+          18
           11
           0
         )
         taborder = 2
         bounds_x = 164
-        bounds_y = 23
+        bounds_y = 34
         bounds_cx = 34
-        bounds_cy = 34
+        bounds_cy = 31
         statfile = sta
         onsetvalue = onpianoview
       end
       object viewinput: tbooleaneditradio
         frame.caption = 'Mic'
         frame.captionpos = cp_top
-        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           4
-          21
+          18
           5
           0
         )
         taborder = 3
         bounds_x = 50
-        bounds_y = 23
+        bounds_y = 34
         bounds_cx = 22
-        bounds_cy = 34
+        bounds_cy = 31
         statfile = sta
         onsetvalue = oninputview
       end
       object viewwave: tbooleaneditradio
         frame.caption = 'Wave'
         frame.captionpos = cp_top
-        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           11
-          21
+          18
           11
           0
         )
         taborder = 4
         bounds_x = 83
-        bounds_y = 23
+        bounds_y = 34
         bounds_cx = 35
-        bounds_cy = 34
+        bounds_cy = 31
         statfile = sta
         onsetvalue = onwaveview
+      end
+      object oscion: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Oscilloscope'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          79
+          1
+          0
+          2
+        )
+        taborder = 5
+        hint = 'Oscilloscope ON-OFF'
+        bounds_x = 8
+        bounds_y = 17
+        bounds_cx = 92
+        bounds_cy = 17
+        statfile = sta
+        onsetvalue = onshowoscilloscope
+        value = True
+        valuedefault = True
+      end
+      object spectrumon: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Spectrum'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          66
+          1
+          0
+          2
+        )
+        taborder = 6
+        hint = 'FFT Spectrum ON-OFF'
+        bounds_x = 121
+        bounds_y = 17
+        bounds_cx = 79
+        bounds_cy = 17
+        anchors = [an_top, an_right]
+        statfile = sta
+        onsetvalue = onshowspectrum
+        value = True
+        valuedefault = True
       end
     end
     object onpianoon: tbooleanedit
@@ -9973,7 +9963,7 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      attack.colorchart = 2500900
+      attack.colorchart = 1253898
       attack.xrange = 0.1
       attack.yrange = 1
       attack.xdials.range = 0.1
@@ -10012,7 +10002,7 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      decay.colorchart = 2500900
+      decay.colorchart = 1253898
       decay.xrange = 10
       decay.yrange = 1
       decay.xdials.count = 1
@@ -10064,7 +10054,7 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_stockglyphs, cto_xordered]
           imagenr = 48
         end>
-      release.colorchart = 2500900
+      release.colorchart = 1253898
       release.xrange = 1
       release.yrange = 1
       release.xdials.range = 1
@@ -10179,9 +10169,9 @@ object mainfo: tmainfo
       0
       2
     )
-    taborder = 7
+    taborder = 5
     hint = 'Scale factor of Oscilloscope'
-    bounds_x = 125
+    bounds_x = 109
     bounds_y = 1
     bounds_cx = 71
     bounds_cy = 17
@@ -10194,7 +10184,7 @@ object mainfo: tmainfo
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp1
-    taborder = 8
+    taborder = 6
     hint = 'Terminate WavvieW'
     bounds_x = 972
     bounds_y = 2
@@ -10589,8 +10579,8 @@ object mainfo: tmainfo
     )
     template.fade_color.count = 2
     template.fade_color.items = (
-      16755200
-      12550144
+      4931385
+      0
     )
     template.fade_direction = gd_down
     left = 272
