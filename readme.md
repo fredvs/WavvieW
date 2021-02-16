@@ -1,8 +1,11 @@
-# WavvieW.
+# WavvieW. The signal producer and analyzer.
 
 WavvieW analyzes the build-in noise-wave-generator-synhtesizer, audio files, input-mic and shows the result with his oscilloscope and FFT-spectrum...
 
-![WavvieW](https://user-images.githubusercontent.com/3421249/107672808-9fb07280-6c95-11eb-8ec6-6abe462388c8.png)
+There are compiled executable for Linux 32/64, Windows 32/64, FreeBSD 64 and ARM RPi.
+ => https://github.com/fredvs/WavvieW/releases/ 
+
+![WavvieW](https://user-images.githubusercontent.com/3421249/108062199-bd952300-7059-11eb-960a-41023d37387f.png)
 
 WavvieW is deeply inspired by msesignal from mseide-msegui.
 

@@ -854,7 +854,7 @@ editpos=9
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,549
+ 0,3
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -927,8 +927,8 @@ windowlayout=603
  ny=0
  ncx=0
  ncy=0
- x=50
- y=350
+ x=63
+ y=144
  cx=1224
  cy=621
  rcx=0
@@ -953,7 +953,7 @@ windowlayout=603
  rcy=0
  wsize=0
  active=0
- visible=1
+ visible=0
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1137,10 +1137,10 @@ windowlayout=603
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=538
- width0=240
+ propcolwidthref=553
+ width0=247
  sortdescend0=0
- width1=292
+ width1=300
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1417,7 +1417,7 @@ windowlayout=603
   /home/fred/mseuniverse/samples/signal/noisegen/msesigaudiouos.pas
   /home/fred/mseuniverse/samples/signal/noisegen/uos_portaudio.pas
  [debuggerfo.project_options]
- value=1
+ value=6
  [debuggerfo.hints]
  value=0
  [sourcefo]
@@ -1501,7 +1501,7 @@ windowlayout=603
  [_mse_aboutfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=_mse_mainfo_mse_
  parent=
  mdistate=3
  nx=0
