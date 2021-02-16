@@ -243,11 +243,11 @@ compnamedialog=5
  y=268
  cx=300
  cy=203
-bmpfiledialog=31
+bmpfiledialog=33
  [filedialog]
  filenamescust=0
  filenames=1
-  /home/fred/WavvieW/src/WVW.png
+  /home/fred/WavvieW/src/wvw.png
  filecolwidth=150
  x=0
  y=0
@@ -264,7 +264,9 @@ bmpfiledialog=31
  splitterplaces=243
  splitterlateral=126
  lastdir=/home/fred/WavvieW/src/
- filehistory=8
+ filehistory=10
+  /home/fred/WavvieW/src/wvw.png
+  /home/fred/WavvieW/src/wvw2.png
   /home/fred/WavvieW/src/WVW.png
   /home/fred/WavvieW/src/WVW.ico
   /home/fred/strumpract/src/uos.png
@@ -852,7 +854,7 @@ editpos=9
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 0,558
+ 14,459
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -931,7 +933,7 @@ windowlayout=603
  cy=621
  rcx=0
  rcy=0
- wsize=6
+ wsize=0
  active=1
  visible=1
  [targetconsolefo]
@@ -1045,7 +1047,7 @@ windowlayout=603
  x=0
  y=0
  cx=205
- cy=519
+ cy=451
  rcx=0
  rcy=0
  [projecttreefo.grid]
@@ -1231,9 +1233,9 @@ windowlayout=603
  ncx=0
  ncy=0
  x=0
- y=582
- cx=1356
- cy=107
+ y=507
+ cx=1212
+ cy=93
  rcx=0
  rcy=0
  [componentstorefo]
@@ -1365,8 +1367,8 @@ windowlayout=603
  ncy=0
  x=0
  y=0
- cx=1356
- cy=57
+ cx=1212
+ cy=50
  rcx=0
  rcy=0
  [debuggerfo.basedock]
@@ -1377,12 +1379,12 @@ windowlayout=603
  mdistate=0
  nx=0
  ny=0
- ncx=1356
- ncy=10
+ ncx=1197
+ ncy=0
  x=0
  y=0
- cx=1356
- cy=10
+ cx=1212
+ cy=-2
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1395,6 +1397,7 @@ windowlayout=603
  value=/home/fred/WavvieW/src/main.pas
  history=20
   /home/fred/WavvieW/src/main.pas
+  /home/fred/WavvieW/src/wavview.pas
   /home/fred/WavvieW/src/uos_mseaudio.pas
   /home/fred/WavvieW/src/msesignal.pas
   /home/fred/WavvieW/src/about.pas
@@ -1403,7 +1406,6 @@ windowlayout=603
   /home/fred/WavvieW/src/msesigfftgui.pas
   /home/fred/WavvieW/src/msefftw.pas
   /home/fred/WavvieW/src/uos_msefftw.pas
-  /home/fred/WavvieW/src/wavview.pas
   /home/fred/WavvieW_pr/src/wavview.pas
   /home/fred/WavvieW/src/uos_msesigaudionew.pas
   /home/fred/WavvieW/src/uos_msesignal.pas
@@ -1430,8 +1432,8 @@ windowlayout=603
  ncy=0
  x=208
  y=0
- cx=1148
- cy=519
+ cx=1004
+ cy=451
  rcx=0
  rcy=0
  [sourcefo.files_tab]
@@ -1472,9 +1474,9 @@ windowlayout=603
  ncx=0
  ncy=0
  x=0
- y=60
- cx=1356
- cy=519
+ y=53
+ cx=1212
+ cy=451
  rcx=0
  rcy=0
  [_mse_mainfo_mse_]

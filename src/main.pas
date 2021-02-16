@@ -59,7 +59,7 @@ type
     oninputon: tbooleanedit;
     tgroupbox5: tgroupbox;
     slidermic: tslider;
-    onoiseon: tbooleanedit;
+    onnoiseon: tbooleanedit;
     tgroupbox3: tgroupbox;
     sampcount: tslider;
     tsigslider1: tsigslider;
@@ -96,6 +96,7 @@ type
    volpiano: tintegerdisp;
    volfile: tintegerdisp;
    volmic: tintegerdisp;
+   tfacecomp7: tfacecomp;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -381,9 +382,16 @@ procedure tmainfo.onnoiseactivate(const Sender: TObject; var avalue: Boolean; va
 begin
   if hasinit then
     if avalue then
-      out.audio.active := True
+    begin
+      onnoiseon.color := $3B4F00;
+  
+      out.audio.active := True;
+      end
     else
+     begin
+      onnoiseon.color := cl_transparent;
       out.audio.active := False;
+     end; 
 end;
 
 procedure tmainfo.onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -391,10 +399,16 @@ begin
  //application.processmessages;
   if hasinit then
     if avalue then
-      tsigoutaudio1.audio.active := True
+    begin
+      onpianoon.color := $3B4F00;
+      tsigoutaudio1.audio.active := True;
+      end
     else
+    begin
+      onpianoon.color := cl_transparent;
       tsigoutaudio1.audio.active := False;
   // application.processmessages; 
+  end;
 end;
 
 procedure tmainfo.onfileview(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -441,12 +455,16 @@ procedure tmainfo.oninputactivate(const Sender: TObject; var avalue: Boolean; va
 begin
   if avalue then
   begin
+    oninputon.color := $3B4F00;
     tsigoutaudio3.audio.active := True;
     sleep(10);
     onchangemic(Sender);
   end
   else
+  begin
+    oninputon.color := cl_transparent;
     tsigoutaudio3.audio.active := False;
+  end;  
 end;
 
 procedure tmainfo.onabout(const Sender: TObject);
@@ -482,12 +500,16 @@ begin
   if hasinit then
     if avalue then
     begin
+      onwavon.color := $3B4F00;
       tsigoutaudio4.audio.active := True;
       sleep(10);
       onchangewave(Sender);
     end
     else
+     begin
+      onwavon.color := cl_transparent;
       tsigoutaudio4.audio.active := False;
+     end; 
 
 end;
 
