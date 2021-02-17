@@ -97,6 +97,14 @@ type
    oscion: tbooleanedit;
    spectrumon: tbooleanedit;
    volwav: tintegerdisp;
+   noise2: tsignoise;
+   tsignoise42: tsignoise;
+   tsignoise22: tsignoise;
+   tsignoise32: tsignoise;
+   leftspectrum: tbooleanedit;
+   rightspectrum: tbooleanedit;
+   rightosci: tbooleanedit;
+   leftosci: tbooleanedit;
     procedure onclosexe(const Sender: TObject);
     procedure samcountsetexe(const Sender: TObject; var avalue: realty; var accept: Boolean);
     procedure typinitexe(const Sender: tenumtypeedit);
@@ -136,6 +144,14 @@ type
     procedure evonmouseclient(const Sender: twidget; var ainfo: mouseeventinfoty);
    procedure onsetsliderpiano(const sender: TObject; var avalue: realty;
                    var accept: Boolean);
+   procedure osetleftspectrum(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onrightspectrum(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onleftosci(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
+   procedure onsetrightosci(const sender: TObject; var avalue: Boolean;
+                   var accept: Boolean);
   end;
 
 var
@@ -172,6 +188,7 @@ end;
 procedure tmainfo.kindsetexe(const Sender: TObject; var avalue: integer; var accept: Boolean);
 begin
   noise.kind := noisekindty(avalue);
+  noise2.kind := noise.kind;
 end;
 
 procedure tmainfo.averagesetev(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
@@ -214,8 +231,11 @@ begin
   begin
     scope.sampler.controller       := cont;
     scope.sampler.inputs[0].Source := noise.output;
+    scope.sampler.inputs[1].Source := noise2.output;
     fft.sampler.controller         := cont;
     fft.sampler.inputs[0].Source   := noise.output;
+    fft.sampler.inputs[1].Source := noise2.output;
+   
   end;
 end;
 
@@ -225,8 +245,12 @@ begin
   begin
     scope.sampler.controller       := tsigcontroller1;
     scope.sampler.inputs[0].Source := tsigfilter1.output;
+    scope.sampler.inputs[1].Source := tsigfilter1.output;
+  
     fft.sampler.controller         := tsigcontroller1;
     fft.sampler.inputs[0].Source   := tsigfilter1.output;
+    fft.sampler.inputs[1].Source := tsigfilter1.output;
+  
   end;
 end;
 
@@ -318,40 +342,50 @@ begin
   begin
     scope.sampler.controller       := tsigcontroller3;
     scope.sampler.inputs[0].Source := tsignoise3.output;
+    scope.sampler.inputs[1].Source := tsignoise32.output;
     fft.sampler.controller         := tsigcontroller3;
     fft.sampler.inputs[0].Source   := tsignoise3.output;
+    fft.sampler.inputs[1].Source := tsignoise32.output;
   end;
 
   if viewfile.Value then
   begin
     scope.sampler.controller       := tsigcontroller2;
     scope.sampler.inputs[0].Source := tsignoise2.output;
+    scope.sampler.inputs[1].Source := tsignoise22.output;
     fft.sampler.controller         := tsigcontroller2;
     fft.sampler.inputs[0].Source   := tsignoise2.output;
+    fft.sampler.inputs[1].Source   := tsignoise22.output;
   end;
 
   if viewnoise.Value then
   begin
     scope.sampler.controller       := cont;
     scope.sampler.inputs[0].Source := noise.output;
+    scope.sampler.inputs[1].Source := noise2.output;
     fft.sampler.controller         := cont;
     fft.sampler.inputs[0].Source   := noise.output;
+    fft.sampler.inputs[1].Source   := noise2.output;
   end;
 
   if viewpiano.Value then
   begin
     scope.sampler.controller       := tsigcontroller1;
     scope.sampler.inputs[0].Source := tsigfilter1.output;
+    scope.sampler.inputs[1].Source := tsigfilter1.output;
     fft.sampler.controller         := tsigcontroller1;
     fft.sampler.inputs[0].Source   := tsigfilter1.output;
+    fft.sampler.inputs[1].Source   := tsigfilter1.output;
   end;
 
   if viewwave.Value then
   begin
     scope.sampler.controller       := tsigcontroller4;
     scope.sampler.inputs[0].Source := tsignoise4.output;
+    scope.sampler.inputs[1].Source := tsignoise42.output;
     fft.sampler.controller         := tsigcontroller4;
     fft.sampler.inputs[0].Source   := tsignoise4.output;
+    fft.sampler.inputs[1].Source   := tsignoise42.output;
   end;
 
   if scaleosci.Value then
@@ -417,8 +451,10 @@ begin
   begin
     scope.sampler.controller       := tsigcontroller2;
     scope.sampler.inputs[0].Source := tsignoise2.output;
-    fft.sampler.controller         := tsigcontroller2;
+    scope.sampler.inputs[1].Source := tsignoise22.output;
+     fft.sampler.controller         := tsigcontroller2;
     fft.sampler.inputs[0].Source   := tsignoise2.output;
+    fft.sampler.inputs[1].Source   := tsignoise22.output;
   end;
 end;
 
@@ -446,8 +482,10 @@ begin
   begin
     scope.sampler.controller       := tsigcontroller3;
     scope.sampler.inputs[0].Source := tsignoise3.output;
+    scope.sampler.inputs[1].Source := tsignoise32.output;
     fft.sampler.controller         := tsigcontroller3;
     fft.sampler.inputs[0].Source   := tsignoise3.output;
+    fft.sampler.inputs[1].Source   := tsignoise32.output;
   end;
 end;
 
@@ -573,8 +611,11 @@ begin
     begin
       scope.sampler.controller       := tsigcontroller4;
       scope.sampler.inputs[0].Source := tsignoise4.output;
+      scope.sampler.inputs[1].Source := tsignoise42.output;
       fft.sampler.controller         := tsigcontroller4;
       fft.sampler.inputs[0].Source   := tsignoise4.output;
+      fft.sampler.inputs[1].Source   := tsignoise42.output;
+ 
     end;
 end;
 
@@ -619,6 +660,8 @@ begin
     tsplitter1.left    := 0;
     tsplitter1.Visible := False;
     scaleosci.Visible  := false;
+    leftosci.Visible  := false;
+    rightosci.Visible  := false;
   end
   else
   begin
@@ -626,6 +669,8 @@ begin
     tsplitter1.Visible := True;
     scope.Visible      := True;
     scaleosci.Visible  := true;
+    leftosci.Visible  := true;
+    rightosci.Visible  := true;
   end;
 end;
 
@@ -640,6 +685,8 @@ begin
     tsplitter1.Visible := False;
     average.Visible  := false;
     averagecount.Visible  := false;
+    leftspectrum.Visible  := false;
+    rightspectrum.Visible  := false;
   end
   else
   begin
@@ -648,6 +695,8 @@ begin
     fft.Visible        := True;
     average.Visible  := True;
     averagecount.Visible  := True;
+    leftspectrum.Visible  := True;
+    rightspectrum.Visible  := True;
   end;
 end;
 
@@ -690,6 +739,36 @@ procedure tmainfo.onsetsliderpiano(const sender: TObject; var avalue: realty;
                var accept: Boolean);
 begin
   volpiano.Value := round(100 * avalue);
+end;
+
+procedure tmainfo.osetleftspectrum(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if avalue then fft.traces[0].color := cl_green else
+fft.traces[0].color := cl_transparent;
+end;
+
+procedure tmainfo.onrightspectrum(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if avalue then fft.traces[1].color := cl_ltred else
+fft.traces[1].color := cl_transparent;
+
+end;
+
+procedure tmainfo.onleftosci(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if avalue then scope.traces[0].color := cl_green else
+scope.traces[0].color := cl_transparent;
+end;
+
+procedure tmainfo.onsetrightosci(const sender: TObject; var avalue: Boolean;
+               var accept: Boolean);
+begin
+if avalue then scope.traces[1].color := cl_ltred else
+scope.traces[1].color := cl_transparent;
+
 end;
 
 end.

@@ -968,7 +968,8 @@ type
     foptions: sigcontrolleroptionsty;
     fstepcount: integer;
     ftimer: tsimpletimer;
-    asample: single;
+    fsampleLeft: single;
+    fsampleRight: single;
     // For Wave generator
     LookupTableLeft, LookupTableRight: array [0..1023] of single;
     PosInTableLeft, PosInTableRight: double;
@@ -2246,23 +2247,28 @@ var
   po1: psighandlernodeinfoty;
 begin
   po1 := Pointer(fexecinfo);
+  
+ //  writeln('fexechigh ' + inttostr(fexechigh));
+
 
   for int1 := 0 to fexechigh do
   begin
     po1^.handler(psighandlerinfoty(po1));
+    
+      if not po1^.handlerinfo.discard then
+      begin
+   //     writeln('dest ' + inttostr(po1^.desthigh));
 
-    if not po1^.handlerinfo.discard then
       for int2 := 0 to po1^.desthigh do
         with po1^.dest[int2] do
         begin
-
-          if inputtype = 0 then
-            dest^ := Source^;
+          if inputtype = 0 then dest^ := Source^;
+          
           if (inputtype = 1) or (inputtype = 2) or (inputtype = 3) then
-
-            //if  intodd = 0 then
-            dest^ := asample;
-            // else dest^ := -1 * asample;
+           begin
+           if int1 > 0 then  dest^ := fsampleright
+           else dest^ := fsampleleft;
+           end;
 
           if sca.hasscale then
           begin
@@ -2274,8 +2280,8 @@ begin
             if sca.hasmax and (dest^ > max) then
               dest^ := max;
           end;
-
         end;
+     end;
     Inc(po1);
   end;
 end;
@@ -2304,7 +2310,7 @@ begin
     lock;
     try
 
-      int2 := length(fbuffer3) - 1;
+      int2 := length(fbuffer3) - 2;
 
       //  if intodd = 1 then intodd := 0; 
       //  writeln('length(fbuffer3) = '+ inttostr(length(fbuffer3)));
@@ -2318,11 +2324,18 @@ begin
           begin
             if channels = 1 then
               if int2 > -1 then
-                asample := fbuffer3[int2] * 1;
+              begin
+                fsampleleft := fbuffer3[int2];
+                fsampleright := fsampleleft;
+              end;  
 
             if channels = 2 then
               if int2 - 1 > -1 then
-                asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2);
+              begin
+               // asample := ((fbuffer3[int2] + fbuffer3[int2 - 1]) / 2);
+                fsampleleft := fbuffer3[int2 -1];
+                fsampleright := fbuffer3[int2];
+              end;  
 
             int2 := int2 - channels;
           end;
@@ -2356,7 +2369,7 @@ begin
       TheBuffer[x] := 1;
     if TheBuffer[x] < -1 then
       TheBuffer[x] := -1;
-    TheBuffer[x + 1] := TheBuffer[x] * VRight;
+    TheBuffer[x + 1] := TheBuffer[x+1] * VRight;
     if TheBuffer[x + 1] > 1 then
       TheBuffer[x + 1] := 1;
     if TheBuffer[x + 1] < -1 then

@@ -431,8 +431,9 @@ var
     
      latency := PAParamIn.SuggestedLatency;
         
-     if controller1.inputtype = 0 then
-    PAParamOut.channelCount := 1 else
+    if controller1.inputtype = 0 then 
+    controller1.channels := 2;  
+   // PAParamOut.channelCount := 1 else
     PAParamOut.channelCount := controller1.channels;  
    
     if fformat = sfm_s16 then

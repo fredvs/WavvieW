@@ -1,7 +1,7 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 173
-  bounds_y = 29
+  bounds_x = 175
+  bounds_y = 202
   bounds_cx = 1024
   bounds_cy = 503
   bounds_cxmin = 1024
@@ -195,7 +195,7 @@ object mainfo: tmainfo
       bounds_cx = 508
       bounds_cy = 324
       anchors = [an_right]
-      traces.count = 1
+      traces.count = 2
       traces.options = [cto_smooth, cto_logx, cto_logy]
       traces.xrange = 1
       traces.xserrange = 22050
@@ -212,6 +212,16 @@ object mainfo: tmainfo
           options = [cto_smooth, cto_logx, cto_logy]
           hint_captionx = 'freqx'
           hint_captiony = 'freqY'
+        end      
+        item
+          color = -1610612717
+          widthmm = 0.3
+          xserrange = 22050
+          xrange = 22000
+          xstart = 10
+          yrange = 0.999
+          ystart = 0.0001
+          options = [cto_smooth, cto_logx, cto_logy]
         end>
       facechart.localprops = []
       facechart.template = tfacecomp1
@@ -269,11 +279,19 @@ object mainfo: tmainfo
       fitframe_top = 7
       fitframe_bottom = 17
       sampler.controller = cont
-      sampler.inputs.count = 1
+      sampler.inputs.count = 2
       sampler.inputs.items = <      
         item
           source = noise.output
           gain = 4
+          min = -Inf
+          max = -Inf
+          expstart = -Inf
+          expend = -Inf
+        end      
+        item
+          source = noise2.output
+          gain = 1
           min = -Inf
           max = -Inf
           expstart = -Inf
@@ -316,7 +334,7 @@ object mainfo: tmainfo
       bounds_cx = 508
       bounds_cy = 324
       anchors = [an_left]
-      traces.count = 1
+      traces.count = 2
       traces.xrange = 0.1
       traces.xserrange = 1
       traces.yrange = 1
@@ -324,6 +342,14 @@ object mainfo: tmainfo
         item
           xdatalist.dummy = 0
           color = -1610612728
+          widthmm = 0.3
+          xserrange = 1
+          xrange = 0.1
+          yrange = 4
+          ystart = -2
+        end      
+        item
+          color = -1610612717
           widthmm = 0.3
           xserrange = 1
           xrange = 0.1
@@ -383,8 +409,15 @@ object mainfo: tmainfo
       fitframe_right = 18
       fitframe_bottom = 17
       sampler.controller = tsigcontroller1
-      sampler.inputs.count = 1
+      sampler.inputs.count = 2
       sampler.inputs.items = <      
+        item
+          gain = 1
+          min = -Inf
+          max = -Inf
+          expstart = -Inf
+          expend = -Inf
+        end      
         item
           source = tsigfilter1.output
           gain = 1
@@ -410,24 +443,17 @@ object mainfo: tmainfo
   object averagecount: tintegerdisp
     optionswidget1 = [ow1_fontglyphheight]
     color = -2147483645
-    frame.caption = 'Count'
     frame.captionpos = cp_left
     frame.localprops = []
     frame.localprops1 = []
     frame.template = tframecomp2
-    frame.outerframe = (
-      39
-      0
-      0
-      0
-    )
     face.localprops = []
     face.template = tfacecomp1
     taborder = 1
     hint = 'Average count'
-    bounds_x = 714
+    bounds_x = 705
     bounds_y = 0
-    bounds_cx = 76
+    bounds_cx = 37
     bounds_cy = 18
     anchors = [an_top, an_right]
     reffontheight = 15
@@ -10195,14 +10221,128 @@ object mainfo: tmainfo
     caption = 'Quit'
     onexecute = onquit
   end
+  object leftspectrum: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Left'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.font.color = -1610612728
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      29
+      1
+      0
+      2
+    )
+    taborder = 7
+    hint = 'Show Left Channel'
+    bounds_x = 756
+    bounds_y = 1
+    bounds_cx = 42
+    bounds_cy = 17
+    anchors = [an_top, an_right]
+    statfile = sta
+    onsetvalue = osetleftspectrum
+    value = True
+    valuedefault = True
+  end
+  object rightspectrum: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Right'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.font.color = -1610612717
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      38
+      1
+      0
+      2
+    )
+    taborder = 8
+    hint = 'Show Right Channel'
+    bounds_x = 811
+    bounds_y = 1
+    bounds_cx = 51
+    bounds_cy = 17
+    anchors = [an_top, an_right]
+    statfile = sta
+    onsetvalue = onrightspectrum
+    value = True
+    valuedefault = True
+  end
+  object rightosci: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Right'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.font.color = -1610612717
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      38
+      1
+      0
+      2
+    )
+    taborder = 9
+    hint = 'Show Right Channel'
+    bounds_x = 259
+    bounds_y = 1
+    bounds_cx = 51
+    bounds_cy = 17
+    statfile = sta
+    onsetvalue = onsetrightosci
+    value = True
+    valuedefault = True
+  end
+  object leftosci: tbooleanedit
+    color = -2147483645
+    frame.caption = 'Left'
+    frame.captionpos = cp_left
+    frame.captiondist = 4
+    frame.font.color = -1610612728
+    frame.font.name = 'stf_default'
+    frame.font.localprops = [flp_color]
+    frame.localprops = []
+    frame.localprops1 = [frl1_captiondist]
+    frame.template = tframecomp2
+    frame.outerframe = (
+      29
+      1
+      0
+      2
+    )
+    taborder = 10
+    hint = 'Show Left Channel'
+    bounds_x = 204
+    bounds_y = 1
+    bounds_cx = 42
+    bounds_cy = 17
+    statfile = sta
+    onsetvalue = onleftosci
+    value = True
+    valuedefault = True
+  end
   object cont: tsigcontroller
     samplefrequ = 44100
-    left = 128
-    top = 80
+    left = 400
+    top = 192
   end
   object out: tsigoutaudio
     controller = cont
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
       item
         source = noise.output
@@ -10211,10 +10351,18 @@ object mainfo: tmainfo
         max = -Inf
         expstart = -Inf
         expend = -Inf
+      end    
+      item
+        source = noise2.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
       end>
     audio.latency = 0.1
-    left = 128
-    top = 128
+    left = 400
+    top = 216
   end
   object noise: tsignoise
     controller = cont
@@ -10231,13 +10379,13 @@ object mainfo: tmainfo
     offset.expstart = -Inf
     offset.expend = -Inf
     cutofffrequ = 0.0001
-    left = 128
-    top = 104
+    left = 400
+    top = 256
   end
   object sta: tstatfile
     filename = 'stat.ini'
-    left = 128
-    top = 152
+    left = 344
+    top = 80
   end
   object tfacecomp1: tfacecomp
     template.fade_pos.count = 2
@@ -10297,8 +10445,16 @@ object mainfo: tmainfo
   end
   object tsigoutaudio1: tsigoutaudio
     controller = tsigcontroller1
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
+      item
+        source = tsigfilter1.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end    
       item
         source = tsigfilter1.output
         gain = 1
@@ -10308,15 +10464,23 @@ object mainfo: tmainfo
         expend = -Inf
       end>
     audio.latency = 0.3
-    left = 744
-    top = 152
+    left = 568
+    top = 272
   end
   object tsigfilter1: tsigfilter
     controller = tsigcontroller1
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
       item
         source = tsignoise1.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end    
+      item
+        source = tenvelopeedit1.envelope.output
         gain = 1
         min = -Inf
         max = -Inf
@@ -10350,8 +10514,8 @@ object mainfo: tmainfo
     amplitude.expend = 1
     amplitude.value = 0.01
     kind = sfk_bp2bilinear
-    left = 744
-    top = 128
+    left = 568
+    top = 248
   end
   object tsignoise1: tsignoise
     controller = tsigcontroller1
@@ -10368,18 +10532,19 @@ object mainfo: tmainfo
     offset.max = -Inf
     offset.expstart = -Inf
     offset.expend = -Inf
+    kind = nk_brown
     cutofffrequ = 0.1
-    left = 744
-    top = 104
+    left = 568
+    top = 224
   end
   object tsigcontroller1: tsigcontroller
     samplefrequ = 44100
-    left = 744
-    top = 80
+    left = 568
+    top = 200
   end
   object tsigoutaudio2: tsigoutaudio
     controller = tsigcontroller2
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
       item
         source = tsignoise2.output
@@ -10388,16 +10553,24 @@ object mainfo: tmainfo
         max = -Inf
         expstart = -Inf
         expend = -Inf
+      end    
+      item
+        source = tsignoise22.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
       end>
     audio.format = sfm_f32
     audio.latency = 0.1
-    left = 600
-    top = 128
+    left = 40
+    top = 200
   end
   object tsigcontroller2: tsigcontroller
     samplefrequ = 44100
-    left = 608
-    top = 72
+    left = 40
+    top = 128
   end
   object tsignoise2: tsignoise
     controller = tsigcontroller2
@@ -10414,8 +10587,8 @@ object mainfo: tmainfo
     offset.expend = -Inf
     kind = nk_brown
     cutofffrequ = 0.0001
-    left = 600
-    top = 104
+    left = 40
+    top = 152
   end
   object tfacecomp2: tfacecomp
     template.fade_pos.count = 2
@@ -10458,8 +10631,8 @@ object mainfo: tmainfo
       4540994
       0
     )
-    left = 560
-    top = 184
+    left = 376
+    top = 144
   end
   object tsignoise3: tsignoise
     controller = tsigcontroller3
@@ -10476,12 +10649,12 @@ object mainfo: tmainfo
     offset.expend = -Inf
     kind = nk_brown
     cutofffrequ = 0.0001
-    left = 880
-    top = 240
+    left = 48
+    top = 280
   end
   object tsigoutaudio3: tsigoutaudio
     controller = tsigcontroller3
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
       item
         source = tsignoise3.output
@@ -10490,16 +10663,23 @@ object mainfo: tmainfo
         max = -Inf
         expstart = -Inf
         expend = -Inf
+      end    
+      item
+        source = tsignoise32.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
       end>
-    audio.format = sfm_f32
     audio.latency = 0.1
-    left = 880
-    top = 216
+    left = 48
+    top = 256
   end
   object tsigcontroller3: tsigcontroller
     samplefrequ = 44100
-    left = 880
-    top = 192
+    left = 48
+    top = 232
   end
   object tsignoise4: tsignoise
     controller = tsigcontroller4
@@ -10516,12 +10696,12 @@ object mainfo: tmainfo
     offset.expend = -Inf
     kind = nk_brown
     cutofffrequ = 0.0001
-    left = 880
-    top = 136
+    left = 232
+    top = 256
   end
   object tsigoutaudio4: tsigoutaudio
     controller = tsigcontroller4
-    inputs.count = 1
+    inputs.count = 2
     inputs.items = <    
       item
         source = tsignoise4.output
@@ -10530,16 +10710,23 @@ object mainfo: tmainfo
         max = -Inf
         expstart = -Inf
         expend = -Inf
+      end    
+      item
+        source = tsignoise42.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
       end>
-    audio.format = sfm_f32
     audio.latency = 0.1
-    left = 880
-    top = 112
+    left = 232
+    top = 232
   end
   object tsigcontroller4: tsigcontroller
     samplefrequ = 44100
-    left = 880
-    top = 88
+    left = 232
+    top = 208
   end
   object tfacecomp5: tfacecomp
     template.fade_pos.count = 2
@@ -10553,8 +10740,8 @@ object mainfo: tmainfo
       726022
     )
     template.fade_direction = gd_down
-    left = 568
-    top = 224
+    left = 320
+    top = 136
   end
   object tfacecomp6: tfacecomp
     template.fade_pos.count = 2
@@ -10583,7 +10770,79 @@ object mainfo: tmainfo
       0
     )
     template.fade_direction = gd_down
-    left = 272
-    top = 216
+    left = 264
+    top = 40
+  end
+  object noise2: tsignoise
+    controller = cont
+    amplitude.source = tsigslider1.output
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    cutofffrequ = 0.0001
+    left = 400
+    top = 232
+  end
+  object tsignoise42: tsignoise
+    controller = tsigcontroller4
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    kind = nk_brown
+    cutofffrequ = 0.0001
+    left = 232
+    top = 280
+  end
+  object tsignoise22: tsignoise
+    controller = tsigcontroller2
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    kind = nk_brown
+    cutofffrequ = 0.0001
+    left = 40
+    top = 176
+  end
+  object tsignoise32: tsignoise
+    controller = tsigcontroller3
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 1
+    offset.gain = 1
+    offset.min = -Inf
+    offset.max = -Inf
+    offset.expstart = -Inf
+    offset.expend = -Inf
+    kind = nk_brown
+    cutofffrequ = 0.0001
+    left = 48
+    top = 304
   end
 end
