@@ -1047,7 +1047,7 @@ object mainfo: tmainfo
           0
         )
         taborder = 3
-        hint = 'Frequency of Wave in Hz'
+        hint = 'Frequency of Wave in Hz Left'
         bounds_x = 2
         bounds_y = 76
         bounds_cx = 174
@@ -1090,7 +1090,7 @@ object mainfo: tmainfo
           0
         )
         taborder = 9
-        hint = 'Frequency of Wave in Hz'
+        hint = 'Frequency of Wave in Hz Right'
         bounds_x = 2
         bounds_y = 172
         bounds_cx = 174
@@ -1230,7 +1230,7 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp7
         taborder = 2
-        hint = 'Left Frequency in Hz'
+        hint = 'Frequency in Hz Left'
         bounds_x = 80
         bounds_y = 76
         bounds_cx = 85
@@ -1246,7 +1246,7 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object harmonwaveL: tintegeredit
-        frame.caption = 'H L'
+        frame.caption = 'H-L'
         frame.captionpos = cp_left
         frame.captiondist = 3
         frame.font.color = -1610612716
@@ -1264,7 +1264,7 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp7
         taborder = 4
-        hint = 'Number or Harmonics'
+        hint = 'Number or Harmonics Left'
         bounds_x = 23
         bounds_y = 122
         bounds_cx = 69
@@ -1293,7 +1293,7 @@ object mainfo: tmainfo
           2
         )
         taborder = 5
-        hint = 'Odd Harmonics only'
+        hint = 'Odd Harmonics only Left'
         bounds_x = 123
         bounds_y = 122
         bounds_cx = 39
@@ -1396,7 +1396,7 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp7
         taborder = 8
-        hint = 'Number or Harmonics'
+        hint = 'Number or Harmonics Right'
         bounds_x = 22
         bounds_y = 218
         bounds_cx = 70
@@ -1482,7 +1482,7 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp7
         taborder = 12
-        hint = 'Right Frequency in Hz'
+        hint = 'Frequency in Hz Right'
         bounds_x = 80
         bounds_y = 172
         bounds_cx = 85
@@ -1540,7 +1540,7 @@ object mainfo: tmainfo
           2
         )
         taborder = 14
-        hint = 'Odd Harmonics only'
+        hint = 'Odd Harmonics only Right'
         bounds_x = 122
         bounds_y = 218
         bounds_cx = 40
