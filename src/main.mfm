@@ -1,9 +1,9 @@
 object mainfo: tmainfo
   visible = False
-  bounds_x = 175
-  bounds_y = 202
+  bounds_x = 160
+  bounds_y = 76
   bounds_cx = 1024
-  bounds_cy = 503
+  bounds_cy = 600
   bounds_cxmin = 1024
   container.frame.localprops = []
   container.frame.localprops1 = []
@@ -14,7 +14,7 @@ object mainfo: tmainfo
     0
     0
     1024
-    503
+    600
   )
   font.color = -1610612731
   font.name = 'stf_default'
@@ -158,7 +158,7 @@ object mainfo: tmainfo
     bounds_x = 0
     bounds_y = 0
     bounds_cx = 1022
-    bounds_cy = 324
+    bounds_cy = 313
     anchors = [an_left, an_top, an_right, an_bottom]
     object tsplitter1: tsplitter
       color = -1610612734
@@ -166,7 +166,7 @@ object mainfo: tmainfo
       bounds_x = 508
       bounds_y = 0
       bounds_cx = 4
-      bounds_cy = 324
+      bounds_cy = 313
       anchors = [an_left]
       options = [spo_hmove, spo_hprop, spo_dockleft, spo_docktop, spo_dockright, spo_dockbottom]
       linkleft = scope
@@ -193,7 +193,7 @@ object mainfo: tmainfo
       bounds_x = 512
       bounds_y = 0
       bounds_cx = 508
-      bounds_cy = 324
+      bounds_cy = 313
       anchors = [an_right]
       traces.count = 2
       traces.options = [cto_smooth, cto_logx, cto_logy]
@@ -202,7 +202,7 @@ object mainfo: tmainfo
       traces.yrange = 1
       traces.items = <      
         item
-          color = -1610612728
+          color = -1610612716
           widthmm = 0.3
           xserrange = 22050
           xrange = 22000
@@ -332,7 +332,7 @@ object mainfo: tmainfo
       bounds_x = 0
       bounds_y = 0
       bounds_cx = 508
-      bounds_cy = 324
+      bounds_cy = 313
       anchors = [an_left]
       traces.count = 2
       traces.xrange = 0.1
@@ -341,7 +341,7 @@ object mainfo: tmainfo
       traces.items = <      
         item
           xdatalist.dummy = 0
-          color = -1610612728
+          color = -1610612716
           widthmm = 0.3
           xserrange = 1
           xrange = 0.1
@@ -440,55 +440,13 @@ object mainfo: tmainfo
       sampler.refreshus = 500000
     end
   end
-  object averagecount: tintegerdisp
-    optionswidget1 = [ow1_fontglyphheight]
-    color = -2147483645
-    frame.captionpos = cp_left
-    frame.localprops = []
-    frame.localprops1 = []
-    frame.template = tframecomp2
-    face.localprops = []
-    face.template = tfacecomp1
-    taborder = 1
-    hint = 'Average count'
-    bounds_x = 705
-    bounds_y = 0
-    bounds_cx = 37
-    bounds_cy = 18
-    anchors = [an_top, an_right]
-    reffontheight = 15
-  end
-  object average: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Average'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      55
-      1
-      0
-      2
-    )
-    taborder = 2
-    hint = 'Average of FFT'
-    bounds_x = 634
-    bounds_y = 1
-    bounds_cx = 68
-    bounds_cy = 17
-    anchors = [an_top, an_right]
-    statfile = sta
-    onsetvalue = averagesetev
-  end
   object babout: tbutton
     frame.optionsskin = [fso_flat]
     frame.localprops = [frl_optionsskin]
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp1
-    taborder = 3
+    taborder = 1
     hint = 'About WavvieW'
     bounds_x = 912
     bounds_y = 2
@@ -501,11 +459,11 @@ object mainfo: tmainfo
   end
   object tlayouter1: tlayouter
     color = -2147483645
-    taborder = 4
+    taborder = 2
     bounds_x = 0
-    bounds_y = 330
+    bounds_y = 314
     bounds_cx = 1020
-    bounds_cy = 170
+    bounds_cy = 280
     anchors = [an_left, an_right, an_bottom]
     object tgroupbox6: tgroupbox
       color = -2147483645
@@ -522,31 +480,32 @@ object mainfo: tmainfo
       )
       taborder = 14
       bounds_x = 376
-      bounds_y = 113
+      bounds_y = 179
       bounds_cx = 178
-      bounds_cy = 49
-      anchors = [an_left, an_bottom]
+      bounds_cy = 95
       object tsigslider3: tsigslider
         color = -2147483645
         frame.levelo = 0
-        frame.caption = 'Vol'
+        frame.caption = 'Vol L'
         frame.captionpos = cp_left
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_levelo]
         frame.localprops1 = []
         frame.template = tframecomp1
         frame.outerframe = (
-          21
+          32
           0
           0
           0
         )
         face.localprops = []
         hint = 'Volume of piano'
-        bounds_x = 8
+        bounds_x = 5
         bounds_y = 21
-        bounds_cx = 118
+        bounds_cx = 121
         bounds_cy = 21
-        anchors = [an_left, an_bottom]
         statfile = sta
         value = 0.5
         scrollbar.buttonlength = 16
@@ -586,6 +545,93 @@ object mainfo: tmainfo
         value = 50
         reffontheight = 15
       end
+      object volpianoR: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 2
+        bounds_x = 128
+        bounds_y = 46
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        value = 50
+        reffontheight = 15
+      end
+      object tsigslider32: tsigslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.caption = 'Vol R'
+        frame.captionpos = cp_left
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_levelo]
+        frame.localprops1 = []
+        frame.template = tframecomp1
+        frame.outerframe = (
+          33
+          0
+          0
+          0
+        )
+        face.localprops = []
+        taborder = 3
+        hint = 'Volume of piano Right'
+        bounds_x = 4
+        bounds_y = 46
+        bounds_cx = 122
+        bounds_cy = 21
+        statfile = sta
+        value = 0.5
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face.template = tfacecomp1
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.image.origformat = 'png'
+        scrollbar.facebutton.localprops = [fal_image]
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onsetsliderpianoR
+        controller = tsigcontroller1
+        max = 1
+      end
+      object linkpianochan: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Link Left-Right'
+        frame.captionpos = cp_left
+        frame.captiondist = 10
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          100
+          1
+          0
+          2
+        )
+        taborder = 4
+        hint = 'Link Left+Right Channels'
+        bounds_x = 33
+        bounds_y = 72
+        bounds_cx = 113
+        bounds_cy = 17
+        statfile = sta
+        value = True
+        valuedefault = True
+      end
     end
     object tgroupbox3: tgroupbox
       color = -2147483645
@@ -603,28 +649,30 @@ object mainfo: tmainfo
       taborder = 4
       onshowhint = evonshowhint
       bounds_x = 376
-      bounds_y = 2
+      bounds_y = 8
       bounds_cx = 178
-      bounds_cy = 106
-      anchors = [an_left, an_bottom]
-      object sampcount: tslider
+      bounds_cy = 166
+      object sampcountR: tslider
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Cres'
+        frame.caption = 'Cre R'
         frame.captionpos = cp_left
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          29
+          35
           0
           0
           0
         )
         hint = 'Samples count of noise'
-        bounds_x = 8
-        bounds_y = 80
-        bounds_cx = 118
+        bounds_x = 3
+        bounds_y = 119
+        bounds_cx = 124
         bounds_cy = 21
         statfile = sta
         scrollbar.buttonlength = 16
@@ -643,27 +691,30 @@ object mainfo: tmainfo
         scrollbar.framebutton.localprops1 = []
         scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
-        onsetvalue = samcountsetexe
+        onsetvalue = samcountsetexeR
       end
       object tsigslider1: tsigslider
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Amp'
+        frame.caption = 'Amp R'
         frame.captionpos = cp_left
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          31
+          43
           0
           0
           0
         )
         taborder = 1
-        hint = 'Amplitude of noise'
-        bounds_x = 8
-        bounds_y = 52
-        bounds_cx = 118
+        hint = 'Amplitude of noise right'
+        bounds_x = 4
+        bounds_y = 96
+        bounds_cx = 122
         bounds_cy = 21
         statfile = sta
         value = 0.3
@@ -683,7 +734,7 @@ object mainfo: tmainfo
         scrollbar.framebutton.localprops1 = []
         scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
-        onsetvalue = onsetampnoise
+        onsetvalue = onsetampnoiseR
         controller = cont
         max = 1
         options = [sieo_expzero]
@@ -713,12 +764,15 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp1
         taborder = 2
-        hint = 'Kind of Noise'
+        hint = 'Kind of Noise Left Channel'
         bounds_x = 2
         bounds_y = 23
-        bounds_cx = 173
+        bounds_cx = 85
         bounds_cy = 22
         statfile = sta
+        font.color = -1610612716
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
         value = 0
         valuemin = 0
@@ -736,7 +790,7 @@ object mainfo: tmainfo
         oninit = typinitexe
         reffontheight = 15
       end
-      object sampcountdi: tintegerdisp
+      object sampcountdiR: tintegerdisp
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
@@ -744,13 +798,13 @@ object mainfo: tmainfo
         face.template = tfacecomp1
         taborder = 3
         bounds_x = 128
-        bounds_y = 80
+        bounds_y = 119
         bounds_cx = 42
         bounds_cy = 21
         textflags = [tf_xcentered, tf_right, tf_ycentered]
         reffontheight = 15
       end
-      object noiseamp: tintegerdisp
+      object noiseampR: tintegerdisp
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
@@ -758,33 +812,129 @@ object mainfo: tmainfo
         face.template = tfacecomp1
         taborder = 4
         bounds_x = 128
-        bounds_y = 52
+        bounds_y = 96
         bounds_cx = 42
         bounds_cy = 21
         textflags = [tf_xcentered, tf_right, tf_ycentered]
         reffontheight = 15
       end
-    end
-    object tgroupbox4: tgroupbox
-      color = -2147483645
-      frame.caption = '                                    '
-      frame.captionpos = cp_top
-      frame.localprops = []
-      frame.localprops1 = []
-      frame.template = tframecomp2
-      frame.outerframe = (
-        0
-        9
-        0
-        0
-      )
-      taborder = 5
-      bounds_x = 192
-      bounds_y = 2
-      bounds_cx = 178
-      bounds_cy = 160
-      anchors = [an_left, an_bottom]
-      object wavetype: tenumtypeedit
+      object sampcountdiL: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 5
+        bounds_x = 128
+        bounds_y = 73
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        reffontheight = 15
+      end
+      object sampcountL: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = 'Cre L'
+        frame.captionpos = cp_left
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          34
+          0
+          0
+          0
+        )
+        taborder = 6
+        hint = 'Samples count of noise'
+        bounds_x = 5
+        bounds_y = 73
+        bounds_cx = 123
+        bounds_cy = 21
+        statfile = sta
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = samcountsetexeL
+      end
+      object noiseampL: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 7
+        bounds_x = 128
+        bounds_y = 50
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        reffontheight = 15
+      end
+      object tsigslider1L: tsigslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = 'Amp L'
+        frame.captionpos = cp_left
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          42
+          0
+          0
+          0
+        )
+        taborder = 8
+        hint = 'Amplitude of noise left'
+        bounds_x = 5
+        bounds_y = 50
+        bounds_cx = 121
+        bounds_cy = 21
+        statfile = sta
+        value = 0.3
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onsetampnoiseL
+        controller = cont
+        max = 1
+        options = [sieo_expzero]
+      end
+      object kindedR: tenumtypeedit
         color = -2147483645
         frame.captionpos = cp_left
         frame.localprops = []
@@ -808,17 +958,201 @@ object mainfo: tmainfo
           end>
         face.localprops = []
         face.template = tfacecomp1
-        hint = 'Kind of Wave'
-        bounds_x = 2
+        taborder = 9
+        hint = 'Kind of Noise Right Channel'
+        bounds_x = 90
         bounds_y = 23
-        bounds_cx = 173
+        bounds_cx = 85
         bounds_cy = 22
         statfile = sta
+        font.color = -1610612717
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+        value = 0
+        valuemin = 0
+        onsetvalue = kindsetexeR
+        dropdown.colorclient = -1610612734
+        dropdown.facetemplate = tfacecomp1
+        dropdown.cols.count = 1
+        dropdown.cols.colorselect = 17664
+        dropdown.cols.facetemplate = tfacecomp1
+        dropdown.cols.items = <        
+          item
+            colorselect = 17664
+            facetemplate = tfacecomp1
+          end>
+        oninit = typinitexe
+        reffontheight = 15
+      end
+      object linknoisechan: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Link Left-Right'
+        frame.captionpos = cp_left
+        frame.captiondist = 10
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          100
+          1
+          0
+          2
+        )
+        taborder = 10
+        hint = 'Link Left+Right Channels'
+        bounds_x = 33
+        bounds_y = 144
+        bounds_cx = 113
+        bounds_cy = 17
+        statfile = sta
+        value = True
+        valuedefault = True
+      end
+    end
+    object tgroupbox4: tgroupbox
+      color = -2147483645
+      frame.caption = '                                    '
+      frame.captionpos = cp_top
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        9
+        0
+        0
+      )
+      taborder = 5
+      bounds_x = 192
+      bounds_y = 8
+      bounds_cx = 178
+      bounds_cy = 266
+      object sliderfreqwaveL: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = '  Freq L'
+        frame.captionpos = cp_topleft
+        frame.captiondist = 3
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          0
+          20
+          0
+          0
+        )
+        taborder = 3
+        hint = 'Frequency of Wave in Hz'
+        bounds_x = 2
+        bounds_y = 76
+        bounds_cx = 174
+        bounds_cy = 41
+        value = 0.3
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onfreqwaveL
+      end
+      object sliderfreqwaveR: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = '  Freq R'
+        frame.captionpos = cp_topleft
+        frame.captiondist = 3
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          0
+          20
+          0
+          0
+        )
+        taborder = 9
+        hint = 'Frequency of Wave in Hz'
+        bounds_x = 2
+        bounds_y = 172
+        bounds_cx = 174
+        bounds_cy = 41
+        value = 0.3
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onfreqwaveR
+      end
+      object wavetypeL: tenumtypeedit
+        color = -2147483645
+        frame.captionpos = cp_left
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp1
+        frame.button.colorglyph = -1610612730
+        frame.button.face.localprops = []
+        frame.button.face.template = tfacecomp2
+        frame.button.frame.localprops = [frl_optionsskin]
+        frame.button.frame.localprops1 = []
+        frame.button.frame.template = tframecomp2
+        frame.buttons.count = 1
+        frame.buttons.items = <        
+          item
+            colorglyph = -1610612730
+            face.localprops = []
+            face.template = tfacecomp2
+            frame.localprops = [frl_optionsskin]
+            frame.localprops1 = []
+            frame.template = tframecomp2
+          end>
+        face.localprops = []
+        face.template = tfacecomp1
+        hint = 'Kind of Wave Left Channel'
+        bounds_x = 2
+        bounds_y = 20
+        bounds_cx = 85
+        bounds_cy = 22
+        statfile = sta
+        font.color = -1610612716
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
         onchange = onchangewave
         value = 0
         valuedefault = 0
         valuemin = 0
+        onsetvalue = onsetwavekindL
         dropdown.colorclient = -1610612734
         dropdown.facetemplate = tfacecomp1
         dropdown.cols.count = 1
@@ -837,25 +1171,29 @@ object mainfo: tmainfo
           end>
         reffontheight = 15
       end
-      object sliderwave: tslider
+      object sliderwaveL: tslider
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol'
+        frame.caption = 'Vol L'
         frame.captionpos = cp_left
+        frame.captiondist = 0
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          21
+          31
           0
           0
           0
         )
         taborder = 1
-        hint = 'Volume of Wave'
-        bounds_x = 8
-        bounds_y = 62
-        bounds_cx = 118
+        hint = 'Volume of Wave Left'
+        bounds_x = 6
+        bounds_y = 50
+        bounds_cx = 120
         bounds_cy = 21
         value = 0.5
         scrollbar.buttonlength = 16
@@ -874,9 +1212,9 @@ object mainfo: tmainfo
         scrollbar.framebutton.localprops1 = []
         scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
-        onsetvalue = onvolwave
+        onsetvalue = onvolwaveL
       end
-      object freqwav: tintegeredit
+      object freqwavL: tintegeredit
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
@@ -884,40 +1222,223 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 2
         hint = 'Frequency in HZ'
-        bounds_x = 120
-        bounds_y = 94
-        bounds_cx = 50
-        bounds_cy = 21
+        bounds_x = 104
+        bounds_y = 76
+        bounds_cx = 66
+        bounds_cy = 18
         statfile = sta
         textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
         onchange = onchangewave
+        onsetvalue = onvaluefreqL
         value = 440
         valuedefault = 440
         valuemin = 100
         valuemax = 10000
         reffontheight = 15
       end
-      object sliderfreqwave: tslider
-        color = -2147483645
-        frame.levelo = 0
-        frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Fre'
+      object harmonwaveL: tintegeredit
+        frame.caption = 'Harm L'
         frame.captionpos = cp_left
-        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
-        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.captiondist = 3
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
         frame.outerframe = (
-          22
+          49
           0
           0
           0
         )
-        taborder = 3
-        hint = 'Frequency of Wave in Hz'
-        bounds_x = 8
-        bounds_y = 94
-        bounds_cx = 110
+        face.localprops = []
+        face.template = tfacecomp7
+        taborder = 4
+        hint = 'Number or Harmonics'
+        bounds_x = 7
+        bounds_y = 122
+        bounds_cx = 93
+        bounds_cy = 18
+        statfile = sta
+        onchange = onchangewave
+        onsetvalue = onsetharmL
+        valuemax = 20
+        reffontheight = 15
+      end
+      object OddwaveL: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Odd L'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          42
+          1
+          0
+          2
+        )
+        taborder = 5
+        hint = 'Odd Harmonics only'
+        bounds_x = 115
+        bounds_y = 122
+        bounds_cx = 55
+        bounds_cy = 17
+        anchors = [an_top, an_right]
+        statfile = sta
+        onchange = onchangewave
+        onsetvalue = onsetoddL
+      end
+      object volwavL: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 6
+        bounds_x = 128
+        bounds_y = 52
+        bounds_cx = 42
+        bounds_cy = 18
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangewave
+        value = 50
+        reffontheight = 15
+      end
+      object wavetypeR: tenumtypeedit
+        color = -2147483645
+        frame.captionpos = cp_left
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp1
+        frame.button.colorglyph = -1610612730
+        frame.button.face.localprops = []
+        frame.button.face.template = tfacecomp2
+        frame.button.frame.localprops = [frl_optionsskin]
+        frame.button.frame.localprops1 = []
+        frame.button.frame.template = tframecomp2
+        frame.buttons.count = 1
+        frame.buttons.items = <        
+          item
+            colorglyph = -1610612730
+            face.localprops = []
+            face.template = tfacecomp2
+            frame.localprops = [frl_optionsskin]
+            frame.localprops1 = []
+            frame.template = tframecomp2
+          end>
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 7
+        hint = 'Kind of Wave Right Channel'
+        bounds_x = 90
+        bounds_y = 20
+        bounds_cx = 85
+        bounds_cy = 22
+        statfile = sta
+        font.color = -1610612717
+        font.name = 'stf_default'
+        font.localprops = [flp_color]
+        textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+        onchange = onchangewave
+        value = 0
+        valuedefault = 0
+        valuemin = 0
+        onsetvalue = onsetwavekindR
+        dropdown.colorclient = -1610612734
+        dropdown.facetemplate = tfacecomp1
+        dropdown.cols.count = 1
+        dropdown.cols.colorselect = 17664
+        dropdown.cols.facetemplate = tfacecomp1
+        dropdown.cols.items = <        
+          item
+            colorselect = 17664
+            facetemplate = tfacecomp1
+            data = (
+              'wk_sine'
+              'wk_square'
+              'wk_triangle'
+              'wk_sawtooth'
+            )
+          end>
+        reffontheight = 15
+      end
+      object harmonwaveR: tintegeredit
+        frame.caption = 'Harm R'
+        frame.captionpos = cp_left
+        frame.captiondist = 3
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          50
+          0
+          0
+          0
+        )
+        face.localprops = []
+        face.template = tfacecomp7
+        taborder = 8
+        hint = 'Number or Harmonics'
+        bounds_x = 6
+        bounds_y = 218
+        bounds_cx = 94
+        bounds_cy = 18
+        statfile = sta
+        onchange = onchangewave
+        onsetvalue = onsetharmR
+        valuemax = 20
+        reffontheight = 15
+      end
+      object volwavR: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 10
+        bounds_x = 128
+        bounds_y = 148
+        bounds_cx = 42
+        bounds_cy = 18
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangewave
+        value = 50
+        reffontheight = 15
+      end
+      object sliderwaveR: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = 'Vol R'
+        frame.captionpos = cp_left
+        frame.captiondist = 0
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          32
+          0
+          0
+          0
+        )
+        taborder = 11
+        hint = 'Volume of Wave left'
+        bounds_x = 5
+        bounds_y = 146
+        bounds_cx = 121
         bounds_cy = 21
-        value = 0.3
+        value = 0.5
         scrollbar.buttonlength = 16
         scrollbar.buttonendlength = -1
         scrollbar.face.localprops = []
@@ -934,72 +1455,82 @@ object mainfo: tmainfo
         scrollbar.framebutton.localprops1 = []
         scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
-        onsetvalue = onfreqwave
+        onsetvalue = onvolwaveR
       end
-      object harmonwave: tintegeredit
-        frame.caption = 'Harm'
-        frame.captionpos = cp_left
+      object freqwavR: tintegeredit
         frame.localprops = []
         frame.localprops1 = []
         frame.template = tframecomp2
-        frame.outerframe = (
-          36
-          0
-          0
-          0
-        )
         face.localprops = []
         face.template = tfacecomp7
-        taborder = 4
-        hint = 'Number or Harmonics'
-        bounds_x = 12
-        bounds_y = 126
-        bounds_cx = 80
-        bounds_cy = 21
+        taborder = 12
+        hint = 'Frequency in HZ'
+        bounds_x = 104
+        bounds_y = 172
+        bounds_cx = 66
+        bounds_cy = 18
         statfile = sta
+        textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
         onchange = onchangewave
-        valuemax = 20
+        onsetvalue = onvaluefreqR
+        value = 440
+        valuedefault = 440
+        valuemin = 100
+        valuemax = 10000
         reffontheight = 15
       end
-      object Oddwave: tbooleanedit
+      object linkwavchan: tbooleanedit
         color = -2147483645
-        frame.caption = 'Odd'
+        frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
-        frame.captiondist = 4
+        frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          31
+          100
           1
           0
           2
         )
-        taborder = 5
-        hint = 'Odd Harmonics only'
-        bounds_x = 118
-        bounds_y = 130
-        bounds_cx = 44
+        taborder = 13
+        hint = 'Link Left+Right Channels'
+        bounds_x = 33
+        bounds_y = 241
+        bounds_cx = 113
         bounds_cy = 17
-        anchors = [an_right, an_bottom]
+        anchors = [an_left, an_bottom]
+        statfile = sta
+        value = True
+        valuedefault = True
+      end
+      object OddwaveR: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Odd R'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          43
+          1
+          0
+          2
+        )
+        taborder = 14
+        hint = 'Odd Harmonics only'
+        bounds_x = 114
+        bounds_y = 218
+        bounds_cx = 56
+        bounds_cy = 17
+        anchors = [an_top, an_right]
         statfile = sta
         onchange = onchangewave
-      end
-      object volwav: tintegerdisp
-        frame.localprops = []
-        frame.localprops1 = []
-        frame.template = tframecomp2
-        face.localprops = []
-        face.template = tfacecomp1
-        taborder = 6
-        bounds_x = 128
-        bounds_y = 62
-        bounds_cx = 42
-        bounds_cy = 21
-        textflags = [tf_xcentered, tf_right, tf_ycentered]
-        onchange = onchangewave
-        value = 50
-        reffontheight = 15
+        onsetvalue = onsetoddR
       end
     end
     object tgroupbox2: tgroupbox
@@ -1016,10 +1547,9 @@ object mainfo: tmainfo
         0
       )
       bounds_x = 8
-      bounds_y = 2
+      bounds_y = 8
       bounds_cx = 178
-      bounds_cy = 106
-      anchors = [an_left, an_bottom]
+      bounds_cy = 166
       object bstop: tbutton
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
@@ -1028,9 +1558,9 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp1
         bounds_x = 96
-        bounds_y = 50
+        bounds_y = 106
         bounds_cx = 68
-        bounds_cy = 26
+        bounds_cy = 32
         state = [as_localcaption, as_localonexecute]
         caption = 'Stop'
         onexecute = onstop
@@ -1044,9 +1574,9 @@ object mainfo: tmainfo
         face.template = tfacecomp1
         taborder = 1
         bounds_x = 12
-        bounds_y = 50
+        bounds_y = 106
         bounds_cx = 74
-        bounds_cy = 26
+        bounds_cy = 32
         state = [as_localcaption, as_localonexecute]
         caption = 'Start'
         onexecute = onstart
@@ -1082,7 +1612,7 @@ object mainfo: tmainfo
         taborder = 2
         hint = 'Audio file: wav, ogg or flac.'
         bounds_x = 2
-        bounds_y = 23
+        bounds_y = 20
         bounds_cx = 173
         bounds_cy = 22
         statfile = sta
@@ -1229,21 +1759,24 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol'
+        frame.caption = 'Vol L'
         frame.captionpos = cp_left
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          21
+          32
           0
           0
           0
         )
         taborder = 3
-        hint = 'Volume of Audio File'
-        bounds_x = 8
-        bounds_y = 78
-        bounds_cx = 118
+        hint = 'Volume left of Audio File'
+        bounds_x = 5
+        bounds_y = 50
+        bounds_cx = 121
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1273,6 +1806,22 @@ object mainfo: tmainfo
         face.template = tfacecomp1
         taborder = 4
         bounds_x = 128
+        bounds_y = 50
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangefile
+        value = 50
+        reffontheight = 15
+      end
+      object volfileR: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 5
+        bounds_x = 128
         bounds_y = 78
         bounds_cx = 42
         bounds_cy = 21
@@ -1280,6 +1829,73 @@ object mainfo: tmainfo
         onchange = onchangefile
         value = 50
         reffontheight = 15
+      end
+      object sliderfileR: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = 'Vol R'
+        frame.captionpos = cp_left
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          33
+          0
+          0
+          0
+        )
+        taborder = 6
+        hint = 'Volume right of Audio File'
+        bounds_x = 4
+        bounds_y = 78
+        bounds_cx = 122
+        bounds_cy = 21
+        statfile = sta
+        value = 0.5
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onfilevolR
+      end
+      object linkfilechan: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Link Left-Right'
+        frame.captionpos = cp_left
+        frame.captiondist = 10
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          100
+          1
+          0
+          2
+        )
+        taborder = 7
+        hint = 'Link Left+Right Channels'
+        bounds_x = 33
+        bounds_y = 144
+        bounds_cx = 113
+        bounds_cy = 17
+        statfile = sta
+        value = True
+        valuedefault = True
       end
     end
     object tgroupbox5: tgroupbox
@@ -1297,28 +1913,30 @@ object mainfo: tmainfo
       )
       taborder = 2
       bounds_x = 8
-      bounds_y = 113
+      bounds_y = 179
       bounds_cx = 178
-      bounds_cy = 49
-      anchors = [an_left, an_bottom]
+      bounds_cy = 95
       object slidermic: tslider
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol'
+        frame.caption = 'Vol L'
         frame.captionpos = cp_left
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          21
+          32
           0
           0
           0
         )
-        hint = 'Volume of Input from Device'
-        bounds_x = 8
+        hint = 'Volume left of Input from Device'
+        bounds_x = 5
         bounds_y = 21
-        bounds_cx = 118
+        bounds_cx = 121
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1356,6 +1974,89 @@ object mainfo: tmainfo
         value = 50
         reffontheight = 15
       end
+      object volmicR: tintegerdisp
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        taborder = 2
+        bounds_x = 128
+        bounds_y = 45
+        bounds_cx = 42
+        bounds_cy = 21
+        textflags = [tf_xcentered, tf_right, tf_ycentered]
+        onchange = onchangemic
+        value = 50
+        reffontheight = 15
+      end
+      object slidermicR: tslider
+        color = -2147483645
+        frame.levelo = 0
+        frame.hiddenedges = [edg_right, edg_left]
+        frame.caption = 'Vol R'
+        frame.captionpos = cp_left
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
+        frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
+        frame.outerframe = (
+          33
+          0
+          0
+          0
+        )
+        taborder = 3
+        hint = 'Volume right of Input from Device'
+        bounds_x = 4
+        bounds_y = 45
+        bounds_cx = 122
+        bounds_cy = 21
+        statfile = sta
+        value = 0.5
+        scrollbar.buttonlength = 16
+        scrollbar.buttonendlength = -1
+        scrollbar.face.localprops = []
+        scrollbar.face1.localprops = []
+        scrollbar.face1.template = tfacecomp3
+        scrollbar.face2.localprops = []
+        scrollbar.face2.template = tfacecomp4
+        scrollbar.facebutton.localprops = []
+        scrollbar.facebutton.template = tfacecomp2
+        scrollbar.faceendbutton.localprops = []
+        scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.localprops = [frl_optionsskin]
+        scrollbar.framebutton.localprops1 = []
+        scrollbar.framebutton.template = tframecomp2
+        scrollbar.colorglyph = -1610612730
+        onsetvalue = onvolmicR
+      end
+      object linkmicchan: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Link Left-Right'
+        frame.captionpos = cp_left
+        frame.captiondist = 10
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          100
+          1
+          0
+          2
+        )
+        taborder = 4
+        hint = 'Link Left+Right Channels'
+        bounds_x = 33
+        bounds_y = 72
+        bounds_cx = 113
+        bounds_cy = 17
+        statfile = sta
+        value = True
+        valuedefault = True
+      end
     end
     object oninputon: tbooleanedit
       color = -2147483645
@@ -1374,10 +2075,9 @@ object mainfo: tmainfo
       taborder = 1
       hint = 'Activate Device Input (Mic/Line In)'
       bounds_x = 30
-      bounds_y = 113
+      bounds_y = 179
       bounds_cx = 140
       bounds_cy = 17
-      anchors = [an_left, an_bottom]
       onsetvalue = oninputactivate
     end
     object onnoiseon: tbooleanedit
@@ -1397,15 +2097,14 @@ object mainfo: tmainfo
       taborder = 3
       hint = 'Activate Noise Generator'
       bounds_x = 398
-      bounds_y = 2
+      bounds_y = 8
       bounds_cx = 140
       bounds_cy = 17
-      anchors = [an_left, an_bottom]
       onsetvalue = onnoiseactivate
     end
     object tgroupbox1: tgroupbox
       color = -2147483645
-      frame.caption = ' View Source '
+      frame.caption = '                '
       frame.captionpos = cp_top
       frame.localprops = []
       frame.localprops1 = []
@@ -1419,160 +2118,87 @@ object mainfo: tmainfo
       taborder = 6
       hint = 'Input for the Viewers'
       bounds_x = 560
-      bounds_y = 2
-      bounds_cx = 208
-      bounds_cy = 72
+      bounds_y = 16
+      bounds_cx = 100
+      bounds_cy = 80
       anchors = [an_left, an_bottom]
-      object viewnoise: tbooleaneditradio
-        frame.caption = 'Noise'
-        frame.captionpos = cp_top
+      object leftosci: tbooleanedit
+        color = -2147483645
+        frame.caption = 'L'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          10
-          18
-          11
+          13
+          1
           0
+          2
         )
-        bounds_x = 124
-        bounds_y = 34
-        bounds_cx = 34
-        bounds_cy = 31
+        hint = 'Show Left Channel'
+        bounds_x = 14
+        bounds_y = 28
+        bounds_cx = 26
+        bounds_cy = 17
         statfile = sta
-        onsetvalue = onnoiseview
+        onsetvalue = onleftosci
         value = True
+        valuedefault = True
       end
-      object viewfile: tbooleaneditradio
-        frame.caption = 'File'
-        frame.captionpos = cp_top
+      object rightosci: tbooleanedit
+        color = -2147483645
+        frame.caption = 'R'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          4
-          18
-          5
+          14
+          1
           0
+          2
         )
         taborder = 1
-        bounds_x = 10
-        bounds_y = 34
-        bounds_cx = 22
-        bounds_cy = 31
+        hint = 'Show Right Channel'
+        bounds_x = 53
+        bounds_y = 28
+        bounds_cx = 27
+        bounds_cy = 17
         statfile = sta
-        onsetvalue = onfileview
+        onsetvalue = onsetrightosci
+        value = True
+        valuedefault = True
       end
-      object viewpiano: tbooleaneditradio
-        frame.caption = 'Piano'
-        frame.captionpos = cp_top
+      object scaleosci: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Scale X2'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          10
-          18
-          11
+          58
+          1
           0
+          2
         )
         taborder = 2
-        bounds_x = 164
-        bounds_y = 34
-        bounds_cx = 34
-        bounds_cy = 31
-        statfile = sta
-        onsetvalue = onpianoview
-      end
-      object viewinput: tbooleaneditradio
-        frame.caption = 'Mic'
-        frame.captionpos = cp_top
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
-        frame.outerframe = (
-          4
-          18
-          5
-          0
-        )
-        taborder = 3
-        bounds_x = 50
-        bounds_y = 34
-        bounds_cx = 22
-        bounds_cy = 31
-        statfile = sta
-        onsetvalue = oninputview
-      end
-      object viewwave: tbooleaneditradio
-        frame.caption = 'Wave'
-        frame.captionpos = cp_top
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
-        frame.outerframe = (
-          11
-          18
-          11
-          0
-        )
-        taborder = 4
-        bounds_x = 83
-        bounds_y = 34
-        bounds_cx = 35
-        bounds_cy = 31
-        statfile = sta
-        onsetvalue = onwaveview
-      end
-      object oscion: tbooleanedit
-        color = -2147483645
-        frame.caption = 'Oscilloscope'
-        frame.captionpos = cp_left
-        frame.captiondist = 4
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
-        frame.outerframe = (
-          79
-          1
-          0
-          2
-        )
-        taborder = 5
-        hint = 'Oscilloscope ON-OFF'
-        bounds_x = 8
-        bounds_y = 17
-        bounds_cx = 92
+        hint = 'Scale factor of Oscilloscope'
+        bounds_x = 13
+        bounds_y = 52
+        bounds_cx = 71
         bounds_cy = 17
         statfile = sta
-        onsetvalue = onshowoscilloscope
-        value = True
-        valuedefault = True
-      end
-      object spectrumon: tbooleanedit
-        color = -2147483645
-        frame.caption = 'Spectrum'
-        frame.captionpos = cp_left
-        frame.captiondist = 4
-        frame.localprops = []
-        frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
-        frame.outerframe = (
-          66
-          1
-          0
-          2
-        )
-        taborder = 6
-        hint = 'FFT Spectrum ON-OFF'
-        bounds_x = 121
-        bounds_y = 17
-        bounds_cx = 79
-        bounds_cy = 17
-        anchors = [an_top, an_right]
-        statfile = sta
-        onsetvalue = onshowspectrum
-        value = True
-        valuedefault = True
+        onsetvalue = onscale
       end
     end
     object onpianoon: tbooleanedit
@@ -1592,10 +2218,9 @@ object mainfo: tmainfo
       taborder = 7
       hint = 'Activate Piano'
       bounds_x = 412
-      bounds_y = 113
+      bounds_y = 179
       bounds_cx = 112
       bounds_cy = 17
-      anchors = [an_left, an_bottom]
       onsetvalue = onpianoactivate
     end
     object tsigkeyboard1: tsigkeyboard
@@ -9938,9 +10563,9 @@ object mainfo: tmainfo
       face.localprops = [fal_image]
       taborder = 8
       bounds_x = 560
-      bounds_y = 82
+      bounds_y = 186
       bounds_cx = 457
-      bounds_cy = 82
+      bounds_cy = 90
       anchors = [an_left, an_top, an_right, an_bottom]
       value = 100
       keywidth = 12
@@ -9952,9 +10577,9 @@ object mainfo: tmainfo
       taborder = 9
       hint = 'Envelope of Piano: Attack, Decay and Release.'
       bounds_x = 772
-      bounds_y = 15
+      bounds_y = 23
       bounds_cx = 245
-      bounds_cy = 63
+      bounds_cy = 156
       anchors = [an_left, an_top, an_right]
       attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
       attack.frame.localprops = []
@@ -9964,7 +10589,7 @@ object mainfo: tmainfo
       attack.bounds_x = 0
       attack.bounds_y = 0
       attack.bounds_cx = 81
-      attack.bounds_cy = 63
+      attack.bounds_cy = 156
       attack.traces.count = 2
       attack.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       attack.traces.xrange = 0.1
@@ -10003,7 +10628,7 @@ object mainfo: tmainfo
       decay.bounds_x = 85
       decay.bounds_y = 0
       decay.bounds_cx = 82
-      decay.bounds_cy = 63
+      decay.bounds_cy = 156
       decay.traces.count = 2
       decay.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       decay.traces.xrange = 10
@@ -10055,7 +10680,7 @@ object mainfo: tmainfo
       release.bounds_x = 171
       release.bounds_y = 0
       release.bounds_cx = 74
-      release.bounds_cy = 63
+      release.bounds_cy = 156
       release.traces.count = 2
       release.traces.options = [cto_smooth, cto_stockglyphs, cto_xordered]
       release.traces.xrange = 1
@@ -10090,13 +10715,13 @@ object mainfo: tmainfo
       splitter1.bounds_x = 81
       splitter1.bounds_y = 0
       splitter1.bounds_cx = 4
-      splitter1.bounds_cy = 63
+      splitter1.bounds_cy = 156
       splitter2.color = -2147483645
       splitter2.taborder = 4
       splitter2.bounds_x = 167
       splitter2.bounds_y = 0
       splitter2.bounds_cx = 4
-      splitter2.bounds_cy = 63
+      splitter2.bounds_cy = 156
       statfile = sta
       envelope.controller = tsigcontroller1
       envelope.trigger.gain = 1
@@ -10125,19 +10750,19 @@ object mainfo: tmainfo
       color = -2147483645
       taborder = 10
       bounds_x = 858
-      bounds_y = 0
+      bounds_y = 6
       bounds_cx = 85
       bounds_cy = 15
       anchors = [an_left, an_right, an_bottom]
-      caption = 'Decay'
+      caption = 'Piano Decay'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
     object tlabel3: tlabel
       color = -2147483645
       taborder = 11
-      bounds_x = 950
-      bounds_y = 0
+      bounds_x = 958
+      bounds_y = 6
       bounds_cx = 45
       bounds_cy = 15
       anchors = [an_right, an_bottom]
@@ -10149,11 +10774,11 @@ object mainfo: tmainfo
       color = -2147483645
       taborder = 12
       bounds_x = 770
-      bounds_y = 0
+      bounds_y = 6
       bounds_cx = 85
       bounds_cy = 15
       anchors = [an_left, an_bottom]
-      caption = 'Attack'
+      caption = 'Piano Attack'
       textflags = [tf_xcentered, tf_ycentered]
       reffontheight = 15
     end
@@ -10174,35 +10799,300 @@ object mainfo: tmainfo
       taborder = 13
       hint = 'Activate Wave Generator'
       bounds_x = 213
-      bounds_y = 2
+      bounds_y = 8
       bounds_cx = 141
       bounds_cy = 17
-      anchors = [an_left, an_bottom]
       onsetvalue = onwaveactivate
     end
-  end
-  object scaleosci: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Scale X2'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      58
-      1
-      0
-      2
-    )
-    taborder = 5
-    hint = 'Scale factor of Oscilloscope'
-    bounds_x = 109
-    bounds_y = 1
-    bounds_cx = 71
-    bounds_cy = 17
-    statfile = sta
-    onsetvalue = onscale
+    object tgroupbox7: tgroupbox
+      color = -2147483645
+      frame.caption = ' View Source '
+      frame.captionpos = cp_top
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        9
+        0
+        0
+      )
+      taborder = 15
+      hint = 'Input for the Viewers'
+      bounds_x = 560
+      bounds_y = 102
+      bounds_cx = 208
+      bounds_cy = 64
+      anchors = [an_left, an_bottom]
+      object viewpiano: tbooleaneditradio
+        frame.caption = 'Piano'
+        frame.captionpos = cp_top
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          10
+          18
+          11
+          0
+        )
+        bounds_x = 164
+        bounds_y = 17
+        bounds_cx = 34
+        bounds_cy = 31
+        statfile = sta
+        onsetvalue = onpianoview
+      end
+      object viewnoise: tbooleaneditradio
+        frame.caption = 'Noise'
+        frame.captionpos = cp_top
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          10
+          18
+          11
+          0
+        )
+        taborder = 1
+        bounds_x = 124
+        bounds_y = 17
+        bounds_cx = 34
+        bounds_cy = 31
+        statfile = sta
+        onsetvalue = onnoiseview
+        value = True
+      end
+      object viewwave: tbooleaneditradio
+        frame.caption = 'Wave'
+        frame.captionpos = cp_top
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          11
+          18
+          11
+          0
+        )
+        taborder = 2
+        bounds_x = 83
+        bounds_y = 17
+        bounds_cx = 35
+        bounds_cy = 31
+        statfile = sta
+        onsetvalue = onwaveview
+      end
+      object viewinput: tbooleaneditradio
+        frame.caption = 'Mic'
+        frame.captionpos = cp_top
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          4
+          18
+          5
+          0
+        )
+        taborder = 3
+        bounds_x = 50
+        bounds_y = 17
+        bounds_cx = 22
+        bounds_cy = 31
+        statfile = sta
+        onsetvalue = oninputview
+      end
+      object viewfile: tbooleaneditradio
+        frame.caption = 'File'
+        frame.captionpos = cp_top
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          4
+          18
+          5
+          0
+        )
+        taborder = 4
+        bounds_x = 10
+        bounds_y = 17
+        bounds_cx = 22
+        bounds_cy = 31
+        statfile = sta
+        onsetvalue = onfileview
+      end
+    end
+    object tgroupbox8: tgroupbox
+      color = -2147483645
+      frame.caption = '                    '
+      frame.captionpos = cp_top
+      frame.localprops = []
+      frame.localprops1 = []
+      frame.template = tframecomp2
+      frame.outerframe = (
+        0
+        9
+        0
+        0
+      )
+      taborder = 16
+      hint = 'Input for the Viewers'
+      bounds_x = 668
+      bounds_y = 16
+      bounds_cx = 100
+      bounds_cy = 80
+      anchors = [an_left, an_bottom]
+      object averagecount: tintegerdisp
+        optionswidget1 = [ow1_fontglyphheight]
+        color = -2147483645
+        frame.captionpos = cp_left
+        frame.localprops = []
+        frame.localprops1 = []
+        frame.template = tframecomp2
+        face.localprops = []
+        face.template = tfacecomp1
+        hint = 'Average count'
+        bounds_x = 51
+        bounds_y = 52
+        bounds_cx = 37
+        bounds_cy = 18
+        reffontheight = 15
+      end
+      object average: tbooleanedit
+        color = -2147483645
+        frame.caption = 'Ave'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          28
+          1
+          0
+          2
+        )
+        taborder = 1
+        hint = 'Average of FFT spectrum'
+        bounds_x = 7
+        bounds_y = 52
+        bounds_cx = 41
+        bounds_cy = 17
+        statfile = sta
+        onsetvalue = averagesetev
+      end
+      object rightspectrum: tbooleanedit
+        color = -2147483645
+        frame.caption = 'R'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612717
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          14
+          1
+          0
+          2
+        )
+        taborder = 2
+        hint = 'Show Right Channel'
+        bounds_x = 53
+        bounds_y = 28
+        bounds_cx = 27
+        bounds_cy = 17
+        statfile = sta
+        onsetvalue = onrightspectrum
+        value = True
+        valuedefault = True
+      end
+      object leftspectrum: tbooleanedit
+        color = -2147483645
+        frame.caption = 'L'
+        frame.captionpos = cp_left
+        frame.captiondist = 4
+        frame.font.color = -1610612716
+        frame.font.name = 'stf_default'
+        frame.font.localprops = [flp_color]
+        frame.localprops = []
+        frame.localprops1 = [frl1_captiondist]
+        frame.template = tframecomp2
+        frame.outerframe = (
+          13
+          1
+          0
+          2
+        )
+        taborder = 3
+        hint = 'Show Left Channel'
+        bounds_x = 14
+        bounds_y = 28
+        bounds_cx = 26
+        bounds_cy = 17
+        statfile = sta
+        onsetvalue = osetleftspectrum
+        value = True
+        valuedefault = True
+      end
+    end
+    object oscion: tbooleanedit
+      color = -2147483645
+      frame.caption = 'Oscillo'
+      frame.captionpos = cp_left
+      frame.captiondist = 4
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = tframecomp2
+      frame.outerframe = (
+        44
+        1
+        0
+        2
+      )
+      taborder = 17
+      hint = 'Oscilloscope ON-OFF'
+      bounds_x = 582
+      bounds_y = 16
+      bounds_cx = 57
+      bounds_cy = 17
+      anchors = [an_left, an_bottom]
+      statfile = sta
+      onsetvalue = onshowoscilloscope
+      value = True
+      valuedefault = True
+    end
+    object spectrumon: tbooleanedit
+      color = -2147483645
+      frame.caption = 'Spectrum'
+      frame.captionpos = cp_left
+      frame.captiondist = 4
+      frame.localprops = []
+      frame.localprops1 = [frl1_captiondist]
+      frame.template = tframecomp2
+      frame.outerframe = (
+        66
+        1
+        0
+        2
+      )
+      taborder = 18
+      hint = 'FFT Spectrum ON-OFF'
+      bounds_x = 680
+      bounds_y = 16
+      bounds_cx = 79
+      bounds_cy = 17
+      anchors = [an_left, an_bottom]
+      statfile = sta
+      onsetvalue = onshowspectrum
+      value = True
+      valuedefault = True
+    end
   end
   object bquit: tbutton
     frame.optionsskin = [fso_flat]
@@ -10210,7 +11100,7 @@ object mainfo: tmainfo
     frame.localprops1 = []
     face.localprops = []
     face.template = tfacecomp1
-    taborder = 6
+    taborder = 3
     hint = 'Terminate WavvieW'
     bounds_x = 972
     bounds_y = 2
@@ -10220,120 +11110,6 @@ object mainfo: tmainfo
     state = [as_localcaption, as_localhint, as_localonexecute]
     caption = 'Quit'
     onexecute = onquit
-  end
-  object leftspectrum: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Left'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.font.color = -1610612728
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      29
-      1
-      0
-      2
-    )
-    taborder = 7
-    hint = 'Show Left Channel'
-    bounds_x = 756
-    bounds_y = 1
-    bounds_cx = 42
-    bounds_cy = 17
-    anchors = [an_top, an_right]
-    statfile = sta
-    onsetvalue = osetleftspectrum
-    value = True
-    valuedefault = True
-  end
-  object rightspectrum: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Right'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.font.color = -1610612717
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      38
-      1
-      0
-      2
-    )
-    taborder = 8
-    hint = 'Show Right Channel'
-    bounds_x = 811
-    bounds_y = 1
-    bounds_cx = 51
-    bounds_cy = 17
-    anchors = [an_top, an_right]
-    statfile = sta
-    onsetvalue = onrightspectrum
-    value = True
-    valuedefault = True
-  end
-  object rightosci: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Right'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.font.color = -1610612717
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      38
-      1
-      0
-      2
-    )
-    taborder = 9
-    hint = 'Show Right Channel'
-    bounds_x = 259
-    bounds_y = 1
-    bounds_cx = 51
-    bounds_cy = 17
-    statfile = sta
-    onsetvalue = onsetrightosci
-    value = True
-    valuedefault = True
-  end
-  object leftosci: tbooleanedit
-    color = -2147483645
-    frame.caption = 'Left'
-    frame.captionpos = cp_left
-    frame.captiondist = 4
-    frame.font.color = -1610612728
-    frame.font.name = 'stf_default'
-    frame.font.localprops = [flp_color]
-    frame.localprops = []
-    frame.localprops1 = [frl1_captiondist]
-    frame.template = tframecomp2
-    frame.outerframe = (
-      29
-      1
-      0
-      2
-    )
-    taborder = 10
-    hint = 'Show Left Channel'
-    bounds_x = 204
-    bounds_y = 1
-    bounds_cx = 42
-    bounds_cy = 17
-    statfile = sta
-    onsetvalue = onleftosci
-    value = True
-    valuedefault = True
   end
   object cont: tsigcontroller
     samplefrequ = 44100
@@ -10366,7 +11142,7 @@ object mainfo: tmainfo
   end
   object noise: tsignoise
     controller = cont
-    amplitude.source = tsigslider1.output
+    amplitude.source = tsigslider1L.output
     amplitude.gain = 1
     amplitude.min = -Inf
     amplitude.max = -Inf
@@ -10456,7 +11232,7 @@ object mainfo: tmainfo
         expend = -Inf
       end    
       item
-        source = tsigfilter1.output
+        source = tsigfilter2.output
         gain = 1
         min = -Inf
         max = -Inf
@@ -10469,18 +11245,10 @@ object mainfo: tmainfo
   end
   object tsigfilter1: tsigfilter
     controller = tsigcontroller1
-    inputs.count = 2
+    inputs.count = 1
     inputs.items = <    
       item
         source = tsignoise1.output
-        gain = 1
-        min = -Inf
-        max = -Inf
-        expstart = -Inf
-        expend = -Inf
-      end    
-      item
-        source = tenvelopeedit1.envelope.output
         gain = 1
         min = -Inf
         max = -Inf
@@ -10720,8 +11488,8 @@ object mainfo: tmainfo
         expend = -Inf
       end>
     audio.latency = 0.1
-    left = 232
-    top = 232
+    left = 272
+    top = 200
   end
   object tsigcontroller4: tsigcontroller
     samplefrequ = 44100
@@ -10844,5 +11612,47 @@ object mainfo: tmainfo
     cutofffrequ = 0.0001
     left = 48
     top = 304
+  end
+  object tsigfilter2: tsigfilter
+    controller = tsigcontroller1
+    inputs.count = 1
+    inputs.items = <    
+      item
+        source = tsignoise1.output
+        gain = 1
+        min = -Inf
+        max = -Inf
+        expstart = -Inf
+        expend = -Inf
+      end>
+    frequency.source = tsigkeyboard1.output0
+    frequency.gain = 1
+    frequency.min = -Inf
+    frequency.max = -Inf
+    frequency.expstart = -Inf
+    frequency.expend = -Inf
+    frequency.value = 0.005
+    frequfact.gain = 1
+    frequfact.min = -Inf
+    frequfact.max = -Inf
+    frequfact.expstart = -Inf
+    frequfact.expend = -Inf
+    frequfact.value = 1
+    qfactor.gain = 1
+    qfactor.min = -Inf
+    qfactor.max = -Inf
+    qfactor.expstart = -Inf
+    qfactor.expend = -Inf
+    qfactor.value = 500
+    amplitude.source = tsigslider32.output
+    amplitude.gain = 1
+    amplitude.min = -Inf
+    amplitude.max = -Inf
+    amplitude.expstart = 0.01
+    amplitude.expend = 1
+    amplitude.value = 0.01
+    kind = sfk_bp2bilinear
+    left = 688
+    top = 248
   end
 end

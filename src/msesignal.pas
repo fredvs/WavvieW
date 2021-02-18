@@ -1026,7 +1026,8 @@ type
     intodd: shortint;
     SoundFilename: string;
     Channels: integer;
-
+    initbuf: integer;
+    
     procedure SetVolume(VolL, VolR: single);
 
     procedure FillBufferVolume(var TheBuffer: array of single);
@@ -2577,13 +2578,14 @@ begin
   finphash        := tsiginfohash.Create;
   foutphash       := tsiginfohash.Create;
   inputtype       := 0;
+  initbuf         := 0;
   intodd          := 0;
   PosInTableLeft  := 0.0;
   PosInTableRight := 0.0;
   freqLsine       := 440;
   freqRsine       := 440;
-  VLeft           := 0.5;
-  VRight          := 0.5;
+  VLeft           := 0.0;
+  VRight          := 0.0;
   inherited;
 end;
 

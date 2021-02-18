@@ -415,7 +415,7 @@ var
       controller1.SetWaveTable(0, 1,  0, 0); 
       controller1.SetWaveTable(0, 2,  0, 0); 
       controller1.channels := 2;
-      //controller1.WaveFillBuffer(FBuffer2);
+      controller1.WaveFillBuffer(FBuffer2);
       end;
     
      // output
@@ -526,6 +526,7 @@ var
     end;
 
      sfnumframes := 100 ;
+     controller1.initbuf := 0;
 
     while (not Sender.terminated) and (sfnumframes > 10)  do
     begin
@@ -568,7 +569,7 @@ var
           if (controller1.inputtype = 3) then
         begin
           //writeln('wavebuffer');
-       //  for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+        // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
           controller1.WaveFillBuffer(FBuffer2);
           fbuffer3 := fbuffer2;
          end; 
@@ -578,16 +579,32 @@ var
         info.Source    := Pointer(fsigout.fbuffer);
         info.dest      := Pointer(fbuffer);
         convert(info);
+        
+        if controller1.initbuf < 16 then
+        begin
+        if (controller1.inputtype = 0) then
+          for i := 0 to length(fbuffer) - 1 do
+            fbuffer[i] := 0
+            //round(fbuffer[i] * controller1.initbuf / 20)
+         else for i := 0 to length(fbuffer2) - 1 do
+          fbuffer2[i] := 0.0 ;
+          // fbuffer2[i] * controller1.initbuf / 20 ;
+        end;  
+               
+       if controller1.initbuf < 20 then inc(controller1.initbuf);   
+       
+        
       finally
         controller1.unlock;
       end;
       if Assigned(HandlePAOut) then
       begin
-        if controller1.inputtype = 0 then
+          if controller1.inputtype = 0 then
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
         if (controller1.inputtype = 1) or (controller1.inputtype = 2) or (controller1.inputtype = 3) then
-          Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2)  div controller1.channels);
+                Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2)  div controller1.channels);
+     
       end
       else
         break;
