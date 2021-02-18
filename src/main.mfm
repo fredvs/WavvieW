@@ -486,7 +486,7 @@ object mainfo: tmainfo
       object tsigslider3: tsigslider
         color = -2147483645
         frame.levelo = 0
-        frame.caption = 'Vol L'
+        frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.font.color = -1610612716
         frame.font.name = 'stf_default'
@@ -495,16 +495,16 @@ object mainfo: tmainfo
         frame.localprops1 = []
         frame.template = tframecomp1
         frame.outerframe = (
-          32
+          22
           0
           0
           0
         )
         face.localprops = []
-        hint = 'Volume of piano'
-        bounds_x = 5
+        hint = 'Volume Left of piano'
+        bounds_x = 7
         bounds_y = 21
-        bounds_cx = 121
+        bounds_cx = 119
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -563,7 +563,7 @@ object mainfo: tmainfo
       object tsigslider32: tsigslider
         color = -2147483645
         frame.levelo = 0
-        frame.caption = 'Vol R'
+        frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.font.color = -1610612717
         frame.font.name = 'stf_default'
@@ -572,17 +572,17 @@ object mainfo: tmainfo
         frame.localprops1 = []
         frame.template = tframecomp1
         frame.outerframe = (
-          33
+          23
           0
           0
           0
         )
         face.localprops = []
         taborder = 3
-        hint = 'Volume of piano Right'
-        bounds_x = 4
+        hint = 'Volume Right of Piano'
+        bounds_x = 6
         bounds_y = 46
-        bounds_cx = 122
+        bounds_cx = 120
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -656,7 +656,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Cre R'
+        frame.caption = 'C-R'
         frame.captionpos = cp_left
         frame.font.color = -1610612717
         frame.font.name = 'stf_default'
@@ -664,15 +664,15 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          35
+          23
           0
           0
           0
         )
         hint = 'Samples count of noise'
-        bounds_x = 3
+        bounds_x = 7
         bounds_y = 119
-        bounds_cx = 124
+        bounds_cx = 120
         bounds_cy = 21
         statfile = sta
         scrollbar.buttonlength = 16
@@ -697,7 +697,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Amp R'
+        frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.font.color = -1610612717
         frame.font.name = 'stf_default'
@@ -705,16 +705,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          43
+          23
           0
           0
           0
         )
         taborder = 1
         hint = 'Amplitude of noise right'
-        bounds_x = 4
+        bounds_x = 8
         bounds_y = 96
-        bounds_cx = 122
+        bounds_cx = 118
         bounds_cy = 21
         statfile = sta
         value = 0.3
@@ -836,7 +836,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Cre L'
+        frame.caption = 'C-L'
         frame.captionpos = cp_left
         frame.font.color = -1610612716
         frame.font.name = 'stf_default'
@@ -844,16 +844,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          34
+          22
           0
           0
           0
         )
         taborder = 6
         hint = 'Samples count of noise'
-        bounds_x = 5
+        bounds_x = 9
         bounds_y = 73
-        bounds_cx = 123
+        bounds_cx = 119
         bounds_cy = 21
         statfile = sta
         scrollbar.buttonlength = 16
@@ -892,7 +892,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Amp L'
+        frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.font.color = -1610612716
         frame.font.name = 'stf_default'
@@ -900,16 +900,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          42
+          22
           0
           0
           0
         )
         taborder = 8
         hint = 'Amplitude of noise left'
-        bounds_x = 5
+        bounds_x = 9
         bounds_y = 50
-        bounds_cx = 121
+        bounds_cx = 117
         bounds_cy = 21
         statfile = sta
         value = 0.3
@@ -1032,7 +1032,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = '  Freq L'
+        frame.caption = ' F-L'
         frame.captionpos = cp_topleft
         frame.captiondist = 3
         frame.font.color = -1610612716
@@ -1075,7 +1075,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = '  Freq R'
+        frame.caption = ' F-R'
         frame.captionpos = cp_topleft
         frame.captiondist = 3
         frame.font.color = -1610612717
@@ -1175,7 +1175,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol L'
+        frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.captiondist = 0
         frame.font.color = -1610612716
@@ -1184,16 +1184,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          31
+          21
           0
           0
           0
         )
         taborder = 1
         hint = 'Volume of Wave Left'
-        bounds_x = 6
+        bounds_x = 8
         bounds_y = 50
-        bounds_cx = 120
+        bounds_cx = 118
         bounds_cy = 21
         value = 0.5
         scrollbar.buttonlength = 16
@@ -1215,16 +1215,25 @@ object mainfo: tmainfo
         onsetvalue = onvolwaveL
       end
       object freqwavL: tintegeredit
+        frame.caption = 'Hz'
+        frame.captionpos = cp_right
+        frame.captiondist = 2
         frame.localprops = []
-        frame.localprops1 = []
+        frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
+        frame.outerframe = (
+          0
+          0
+          19
+          0
+        )
         face.localprops = []
         face.template = tfacecomp7
         taborder = 2
-        hint = 'Frequency in HZ'
-        bounds_x = 104
+        hint = 'Left Frequency in Hz'
+        bounds_x = 80
         bounds_y = 76
-        bounds_cx = 66
+        bounds_cx = 85
         bounds_cy = 18
         statfile = sta
         textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -1237,7 +1246,7 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object harmonwaveL: tintegeredit
-        frame.caption = 'Harm L'
+        frame.caption = 'H L'
         frame.captionpos = cp_left
         frame.captiondist = 3
         frame.font.color = -1610612716
@@ -1247,7 +1256,7 @@ object mainfo: tmainfo
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          49
+          25
           0
           0
           0
@@ -1256,9 +1265,9 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 4
         hint = 'Number or Harmonics'
-        bounds_x = 7
+        bounds_x = 23
         bounds_y = 122
-        bounds_cx = 93
+        bounds_cx = 69
         bounds_cy = 18
         statfile = sta
         onchange = onchangewave
@@ -1268,7 +1277,7 @@ object mainfo: tmainfo
       end
       object OddwaveL: tbooleanedit
         color = -2147483645
-        frame.caption = 'Odd L'
+        frame.caption = 'O-L'
         frame.captionpos = cp_left
         frame.captiondist = 4
         frame.font.color = -1610612716
@@ -1278,16 +1287,16 @@ object mainfo: tmainfo
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          42
+          26
           1
           0
           2
         )
         taborder = 5
         hint = 'Odd Harmonics only'
-        bounds_x = 115
+        bounds_x = 123
         bounds_y = 122
-        bounds_cx = 55
+        bounds_cx = 39
         bounds_cy = 17
         anchors = [an_top, an_right]
         statfile = sta
@@ -1369,7 +1378,7 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object harmonwaveR: tintegeredit
-        frame.caption = 'Harm R'
+        frame.caption = 'H-R'
         frame.captionpos = cp_left
         frame.captiondist = 3
         frame.font.color = -1610612717
@@ -1379,7 +1388,7 @@ object mainfo: tmainfo
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          50
+          26
           0
           0
           0
@@ -1388,9 +1397,9 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 8
         hint = 'Number or Harmonics'
-        bounds_x = 6
+        bounds_x = 22
         bounds_y = 218
-        bounds_cx = 94
+        bounds_cx = 70
         bounds_cy = 18
         statfile = sta
         onchange = onchangewave
@@ -1418,7 +1427,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol R'
+        frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.captiondist = 0
         frame.font.color = -1610612717
@@ -1427,16 +1436,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_captiondist, frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          32
+          22
           0
           0
           0
         )
         taborder = 11
         hint = 'Volume of Wave left'
-        bounds_x = 5
+        bounds_x = 7
         bounds_y = 146
-        bounds_cx = 121
+        bounds_cx = 119
         bounds_cy = 21
         value = 0.5
         scrollbar.buttonlength = 16
@@ -1458,16 +1467,25 @@ object mainfo: tmainfo
         onsetvalue = onvolwaveR
       end
       object freqwavR: tintegeredit
+        frame.caption = 'Hz'
+        frame.captionpos = cp_righttop
+        frame.captiondist = 2
         frame.localprops = []
-        frame.localprops1 = []
+        frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
+        frame.outerframe = (
+          0
+          0
+          19
+          0
+        )
         face.localprops = []
         face.template = tfacecomp7
         taborder = 12
-        hint = 'Frequency in HZ'
-        bounds_x = 104
+        hint = 'Right Frequency in Hz'
+        bounds_x = 80
         bounds_y = 172
-        bounds_cx = 66
+        bounds_cx = 85
         bounds_cy = 18
         statfile = sta
         textflags = [tf_xcentered, tf_right, tf_ycentered, tf_noselect]
@@ -1506,7 +1524,7 @@ object mainfo: tmainfo
       end
       object OddwaveR: tbooleanedit
         color = -2147483645
-        frame.caption = 'Odd R'
+        frame.caption = 'O-R'
         frame.captionpos = cp_left
         frame.captiondist = 4
         frame.font.color = -1610612717
@@ -1516,16 +1534,16 @@ object mainfo: tmainfo
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
-          43
+          27
           1
           0
           2
         )
         taborder = 14
         hint = 'Odd Harmonics only'
-        bounds_x = 114
+        bounds_x = 122
         bounds_y = 218
-        bounds_cx = 56
+        bounds_cx = 40
         bounds_cy = 17
         anchors = [an_top, an_right]
         statfile = sta
@@ -1759,7 +1777,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol L'
+        frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.font.color = -1610612716
         frame.font.name = 'stf_default'
@@ -1767,16 +1785,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          32
+          22
           0
           0
           0
         )
         taborder = 3
         hint = 'Volume left of Audio File'
-        bounds_x = 5
+        bounds_x = 7
         bounds_y = 50
-        bounds_cx = 121
+        bounds_cx = 119
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1834,7 +1852,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol R'
+        frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.font.color = -1610612717
         frame.font.name = 'stf_default'
@@ -1842,16 +1860,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          33
+          23
           0
           0
           0
         )
         taborder = 6
         hint = 'Volume right of Audio File'
-        bounds_x = 4
+        bounds_x = 6
         bounds_y = 78
-        bounds_cx = 122
+        bounds_cx = 120
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1920,7 +1938,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol L'
+        frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.font.color = -1610612716
         frame.font.name = 'stf_default'
@@ -1928,15 +1946,15 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          32
+          22
           0
           0
           0
         )
         hint = 'Volume left of Input from Device'
-        bounds_x = 5
+        bounds_x = 7
         bounds_y = 21
-        bounds_cx = 121
+        bounds_cx = 119
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -1994,7 +2012,7 @@ object mainfo: tmainfo
         color = -2147483645
         frame.levelo = 0
         frame.hiddenedges = [edg_right, edg_left]
-        frame.caption = 'Vol R'
+        frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.font.color = -1610612717
         frame.font.name = 'stf_default'
@@ -2002,16 +2020,16 @@ object mainfo: tmainfo
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
         frame.localprops1 = [frl1_foleft, frl1_fotop, frl1_foright, frl1_fobottom]
         frame.outerframe = (
-          33
+          23
           0
           0
           0
         )
         taborder = 3
         hint = 'Volume right of Input from Device'
-        bounds_x = 4
+        bounds_x = 6
         bounds_y = 45
-        bounds_cx = 122
+        bounds_cx = 120
         bounds_cy = 21
         statfile = sta
         value = 0.5
@@ -10827,39 +10845,41 @@ object mainfo: tmainfo
       object viewpiano: tbooleaneditradio
         frame.caption = 'Piano'
         frame.captionpos = cp_top
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           10
-          18
+          21
           11
           0
         )
         bounds_x = 164
-        bounds_y = 17
+        bounds_y = 20
         bounds_cx = 34
-        bounds_cy = 31
+        bounds_cy = 34
         statfile = sta
         onsetvalue = onpianoview
       end
       object viewnoise: tbooleaneditradio
         frame.caption = 'Noise'
         frame.captionpos = cp_top
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           10
-          18
+          21
           11
           0
         )
         taborder = 1
         bounds_x = 124
-        bounds_y = 17
+        bounds_y = 20
         bounds_cx = 34
-        bounds_cy = 31
+        bounds_cy = 34
         statfile = sta
         onsetvalue = onnoiseview
         value = True
@@ -10867,60 +10887,63 @@ object mainfo: tmainfo
       object viewwave: tbooleaneditradio
         frame.caption = 'Wave'
         frame.captionpos = cp_top
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           11
-          18
+          21
           11
           0
         )
         taborder = 2
         bounds_x = 83
-        bounds_y = 17
+        bounds_y = 20
         bounds_cx = 35
-        bounds_cy = 31
+        bounds_cy = 34
         statfile = sta
         onsetvalue = onwaveview
       end
       object viewinput: tbooleaneditradio
         frame.caption = 'Mic'
         frame.captionpos = cp_top
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           4
-          18
+          21
           5
           0
         )
         taborder = 3
         bounds_x = 50
-        bounds_y = 17
+        bounds_y = 20
         bounds_cx = 22
-        bounds_cy = 31
+        bounds_cy = 34
         statfile = sta
         onsetvalue = oninputview
       end
       object viewfile: tbooleaneditradio
         frame.caption = 'File'
         frame.captionpos = cp_top
+        frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
         frame.template = tframecomp2
         frame.outerframe = (
           4
-          18
+          21
           5
           0
         )
         taborder = 4
         bounds_x = 10
-        bounds_y = 17
+        bounds_y = 20
         bounds_cx = 22
-        bounds_cy = 31
+        bounds_cy = 34
         statfile = sta
         onsetvalue = onfileview
       end
@@ -10955,7 +10978,7 @@ object mainfo: tmainfo
         face.localprops = []
         face.template = tfacecomp1
         hint = 'Average count'
-        bounds_x = 51
+        bounds_x = 53
         bounds_y = 52
         bounds_cx = 37
         bounds_cy = 18
@@ -11508,8 +11531,8 @@ object mainfo: tmainfo
       726022
     )
     template.fade_direction = gd_down
-    left = 320
-    top = 136
+    left = 248
+    top = 112
   end
   object tfacecomp6: tfacecomp
     template.fade_pos.count = 2

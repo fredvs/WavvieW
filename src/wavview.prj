@@ -64,8 +64,9 @@ findinfiledialog=71
  filefilterindex=0
  filefilter="*.pas" "*.pp" "*.inc"
  [findinfileadialogfo.findtext]
- value=kinded
+ value=error
  history=20
+  error
   kinded
   samplerbufferty
   tsigscopefft
@@ -85,7 +86,6 @@ findinfiledialog=71
   HandleSt
   pa_sample_spec
   ppa_simple
-  
  [findinfileadialogfo]
  stackedunder=
  x=530
@@ -846,34 +846,39 @@ findhistory=20
  1023
  buffullev
 findoptions=1
-editpos=6
+editpos=7
  0,-1073741823
  0,-1073741823
  0,-1073741823
  0,-1073741823
- 20,15
- 0,0
+ 84,140
+ 0,-1073741823
+ 0,-1073741823
 bookmarks0=0
 bookmarks1=0
 bookmarks2=0
 bookmarks3=0
 bookmarks4=0
 bookmarks5=0
-sourcefiles=6
+bookmarks6=0
+sourcefiles=7
  ${PROJECTDIR}/uos_mseaudio.pas
  ${PROJECTDIR}/uos_msesigaudio.pas
  ${PROJECTDIR}/msesignal.pas
  ${PROJECTDIR}/wavview.pas
  ${PROJECTDIR}/main.pas
  ${PROJECTDIR}/uos_portaudio.pas
-relpaths=6
+ ${PROJECTDIR}/msefiledialogx.pas
+relpaths=7
  uos_mseaudio.pas
  uos_msesigaudio.pas
  msesignal.pas
  wavview.pas
  main.pas
  uos_portaudio.pas
-ismoduletexts=6
+ msefiledialogx.pas
+ismoduletexts=7
+ 0
  0
  0
  0
@@ -1373,7 +1378,7 @@ windowlayout=584
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/about.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
   /home/fred/WavvieW/src/main.pas
   /home/fred/WavvieW/src/uos_msesigaudio.pas

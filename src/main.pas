@@ -535,11 +535,15 @@ procedure tmainfo.onstart(const Sender: TObject);
 begin
   if hasinit then
   begin
+  if fileexists(tfilenameeditx1.controller.filename) then
+     begin
     tsigoutaudio2.audio.active    := False;
     tsigcontroller2.SoundFilename := tfilenameeditx1.controller.filename;
     tsigoutaudio2.audio.active    := True;
     sleep(10);
     onchangefile(Sender);
+    end else
+       showerror('File does not exist: ' + tfilenameeditx1.controller.filename,'Error');
   end;
 end;
 
