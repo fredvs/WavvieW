@@ -535,11 +535,11 @@ modulefiles=1
 befcommandon=0
 makeoptionson=6
  4095
- 7
+ 3
  194
  252
  4095
- 0
+ 4
 compilerusedon=29
  3891
  4
@@ -857,14 +857,14 @@ findhistory=20
 findoptions=1
 editpos=12
  0,-1073741823
- 38,588
  0,-1073741823
  0,-1073741823
  0,-1073741823
+ 4,5
  0,-1073741823
- 0,7331
  0,-1073741823
  0,-1073741823
+ 0,13
  0,-1073741823
  0,-1073741823
  0,-1073741823
@@ -900,7 +900,7 @@ relpaths=12
  wavview.pas
  main.pas
  uos_portaudio.pas
- ../uos.pas
+ uos.pas
  uos_mpg123.pas
  uos_libsndfile.pas
  main.pas
@@ -930,19 +930,19 @@ nomenumodules=1
 [sourcefo.files_tab]
 order=12
  0
- 8
- 6
+ 1
+ 2
+ 4
  5
  3
- 4
- 2
+ 6
  7
- 1
+ 8
+ 10
  11
  9
- 10
 firsttab=0
-index=8
+index=3
 [layout]
 windowlayout=597
  [mainfo.basedock]
@@ -984,7 +984,7 @@ windowlayout=597
  rcy=0
  wsize=0
  active=0
- visible=0
+ visible=1
  [threadsfo]
  splitdir=0
  useroptions=268451945
@@ -1425,11 +1425,11 @@ windowlayout=597
  [debuggerfo.edit_compiler]
  value=Pascal
  [debuggerfo.file_history]
- value=/home/fred/WavvieW/src/uos_msesigaudio.pas
+ value=/home/fred/WavvieW/src/main.pas
  history=20
+  /home/fred/WavvieW/src/uos_libsndfile.pas
   /home/fred/uos.pas
   /home/fred/uos/examples/simpleplayer_fpGUI.pas
-  /home/fred/WavvieW/src/uos_libsndfile.pas
   /home/fred/WavvieW/src/msesignoise.pas
   /home/fred/uos/examples/uos.pas
   /home/fred/uossawtooth2/examples/uos.pas
@@ -1470,19 +1470,19 @@ windowlayout=597
  [sourcefo.files_tab]
  order=12
   0
-  8
-  6
+  1
+  2
+  4
   5
   3
-  4
-  2
+  6
   7
-  1
+  8
+  10
   11
   9
-  10
  firsttab=0
- index=8
+ index=3
  [confideufo.fontname]
  value=stf_default
  [confideufo.usedefaulteditoroptions]
@@ -1526,7 +1526,7 @@ windowlayout=597
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=objectinspectorfo
+ stackedunder=mainfo
  parent=
  mdistate=3
  nx=0

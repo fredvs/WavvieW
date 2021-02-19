@@ -488,7 +488,7 @@ object mainfo: tmainfo
         frame.levelo = 0
         frame.caption = 'V-L'
         frame.captionpos = cp_left
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_levelo]
@@ -565,7 +565,7 @@ object mainfo: tmainfo
         frame.levelo = 0
         frame.caption = 'V-R'
         frame.captionpos = cp_left
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_levelo]
@@ -658,7 +658,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'C-R'
         frame.captionpos = cp_left
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -699,7 +699,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-R'
         frame.captionpos = cp_left
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -770,7 +770,7 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
-        font.color = -1610612716
+        font.color = 13107143
         font.name = 'stf_default'
         font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
@@ -838,7 +838,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'C-L'
         frame.captionpos = cp_left
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -894,7 +894,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-L'
         frame.captionpos = cp_left
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -965,7 +965,7 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
-        font.color = -1610612717
+        font.color = 16766164
         font.name = 'stf_default'
         font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
@@ -1035,7 +1035,7 @@ object mainfo: tmainfo
         frame.caption = ' F-L'
         frame.captionpos = cp_topleft
         frame.captiondist = 3
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1078,7 +1078,7 @@ object mainfo: tmainfo
         frame.caption = ' F-R'
         frame.captionpos = cp_topleft
         frame.captiondist = 3
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1144,7 +1144,7 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
-        font.color = -1610612716
+        font.color = 13762513
         font.name = 'stf_default'
         font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
@@ -1178,7 +1178,7 @@ object mainfo: tmainfo
         frame.caption = 'V-L'
         frame.captionpos = cp_left
         frame.captiondist = 0
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1249,7 +1249,7 @@ object mainfo: tmainfo
         frame.caption = 'H-L'
         frame.captionpos = cp_left
         frame.captiondist = 3
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -1280,7 +1280,7 @@ object mainfo: tmainfo
         frame.caption = 'O-L'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -1350,7 +1350,7 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
-        font.color = -1610612717
+        font.color = 16766164
         font.name = 'stf_default'
         font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
@@ -1381,7 +1381,7 @@ object mainfo: tmainfo
         frame.caption = 'H-R'
         frame.captionpos = cp_left
         frame.captiondist = 3
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -1430,7 +1430,7 @@ object mainfo: tmainfo
         frame.caption = 'V-R'
         frame.captionpos = cp_left
         frame.captiondist = 0
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1527,7 +1527,7 @@ object mainfo: tmainfo
         frame.caption = 'O-R'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -1779,7 +1779,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-L'
         frame.captionpos = cp_left
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1854,7 +1854,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-R'
         frame.captionpos = cp_left
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -1940,7 +1940,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-L'
         frame.captionpos = cp_left
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -2014,7 +2014,7 @@ object mainfo: tmainfo
         frame.hiddenedges = [edg_right, edg_left]
         frame.caption = 'V-R'
         frame.captionpos = cp_left
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_hiddenedges, frl_fileft, frl_fitop, frl_firight, frl_fibottom]
@@ -2145,7 +2145,7 @@ object mainfo: tmainfo
         frame.caption = 'L'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -2172,7 +2172,7 @@ object mainfo: tmainfo
         frame.caption = 'R'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -11012,7 +11012,7 @@ object mainfo: tmainfo
         frame.caption = 'R'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612717
+        frame.font.color = 16768734
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
@@ -11040,7 +11040,7 @@ object mainfo: tmainfo
         frame.caption = 'L'
         frame.captionpos = cp_left
         frame.captiondist = 4
-        frame.font.color = -1610612716
+        frame.font.color = 14090198
         frame.font.name = 'stf_default'
         frame.font.localprops = [flp_color]
         frame.localprops = []
