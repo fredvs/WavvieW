@@ -23,6 +23,7 @@ uses
   msetypes,
   uos_portaudio,
   uos_libsndfile,
+  uos_mpg123,
   msesys,
   msestrings;
 
@@ -82,6 +83,7 @@ type
     HandlePAIn: Pointer;
     HandlePAOut: Pointer;
     HandleSF: Pointer;
+    HandleMP: Pointer;
     procedure initnames; virtual;
     procedure loaded; override;
     procedure run; virtual;
@@ -127,7 +129,7 @@ type
     property onerror;
   end;
 
-function uos_mseLoadLib(PA_FileName, SF_FileName: string): integer;
+function uos_mseLoadLib(PA_FileName, SF_FileName, MP_FileName: string): integer;
 function uos_mseUnLoadLib(): integer;
 
 implementation
@@ -137,18 +139,19 @@ uses
   msesysintf,
   mseapplication;
 
-function uos_mseLoadLib(PA_FileName, SF_FileName: string): integer;
+function uos_mseLoadLib(PA_FileName, SF_FileName, MP_FileName: string): integer;
 begin
-  if Pa_Load(PChar(PA_FileName)) then
-    Pa_Initialize();
-
-  Sf_Load(SF_FileName);
+  if Pa_Load(PChar(PA_FileName)) then  Pa_Initialize();
+   Sf_Load(SF_FileName);
+   mp_Load(Mp_FileName);
+   mpg123_init();
 end;
 
 function uos_mseUnLoadLib(): integer;
 begin
   sf_Unload();
-  pa_unload;
+  pa_unload();
+  mp_unload();
 end;
 
 { tcustomaudioout }
@@ -214,6 +217,12 @@ begin
     end;
     if Assigned(HandleSF) then
     sf_close(HandleSF);
+    
+    if Assigned(HandleMP) then
+    begin
+    mpg123_close(HandleMP);
+    mpg123_delete(HandleMP);
+    end;
   end;
   factive := False;
 end;

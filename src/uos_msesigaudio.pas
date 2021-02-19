@@ -27,6 +27,8 @@ interface
  {$endif}
 {$endif}
 uses
+  ctypes,
+  uos_mpg123,
   uos_mseaudio,
   uos_portaudio,
   msesignal,
@@ -89,7 +91,7 @@ type
   end;
 
 var
-fbuffer3: array of single;
+  fbuffer3: array of single;
 
 implementation
 
@@ -208,7 +210,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      pinteger(dest)^ := round(do1 * $7fffffff);
+      Objpas.pinteger(dest)^ := round(do1 * $7fffffff);
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -240,7 +242,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      pinteger(dest)^ := round(do1 * $7fffff);
+      Objpas.pinteger(dest)^ := round(do1 * $7fffff);
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -307,7 +309,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      pinteger(dest)^ := swapendian(integer(round(do1 * $7fffffff)));
+      Objpas.pinteger(dest)^ := swapendian(integer(round(do1 * $7fffffff)));
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -345,7 +347,7 @@ begin
         do1 := 1;
       if do1 < -1 then
         do1 := -1;
-      pinteger(dest)^ := swapendian(integer(round(do1 * $7fffff)));
+      Objpas.pinteger(dest)^ := swapendian(integer(round(do1 * $7fffff)));
       Inc(Source);
       Inc(pinteger(dest));
     end;
@@ -353,28 +355,52 @@ end;
 
 function tsigaudioout.threadproc(Sender: tmsethread): integer;
 var
-  int1, i: integer;
+  int1, i, encoding: integer;
   datasize1, blocksize1, bufferlength1, valuehigh1: integer;
   controller1: tsigcontroller;
+  mpsamplefrequ: longword;
   convert: convertprocty;
   info: convertinfoty;
   sfInfo: TSF_INFO;
+  mpinfo: Tmpg123_frameinfo;
   PAParamIn, PAParamOut: PaStreamParameters;
   err: integer;
   sfnumframes: integer = 10;
- begin
+  sfnumframes2: size_t = 10;
+begin
   Result      := 0;
   controller1 := fsigout.controller;
+  HandleSF    := nil;
+  HandleMP    := nil;
 
   if controller1 <> nil then
   begin
     factive := True;
-    
+
     if controller1.inputtype = 1 then // from file
     begin
       HandleSF := sf_open(controller1.SoundFilename, SFM_READ, sfInfo);
-      controller1.samplefrequ := SFinfo.samplerate;
-      controller1.channels := SFinfo.channels;
+      if Assigned(HandleSF) then
+      begin
+        controller1.samplefrequ := SFinfo.samplerate;
+        controller1.channels    := SFinfo.channels;
+      end
+      else
+      begin
+        HandleMP := mpg123_new(nil, Err);
+        writeln('err mp3 ' + IntToStr(err));
+        if Err = 0 then
+        begin
+          mpg123_format_none(HandleMP);
+          mpg123_format(HandleMP, 44100, 2, MPG123_ENC_FLOAT_32);
+          mpg123_open(HandleMP, PChar(controller1.SoundFilename));
+          // mpg123_getformat(HandleMP, mpsamplefrequ, controller1.channels, encoding);
+
+          controller1.channels    := 2;
+          controller1.samplefrequ := 44100;
+        end;
+      end;
+
     end;
 
     if controller1.inputtype = 2 then // input of sound card
@@ -384,7 +410,7 @@ var
       PAParamIn.SuggestedLatency := 0.0;
 
       latency := PAParamIn.SuggestedLatency;
-    
+
       if fformat = sfm_s16 then
         PAParamIn.SampleFormat := paInt16
       else if fformat = sfm_s32 then
@@ -394,11 +420,11 @@ var
       else
         PAParamIn.SampleFormat := paFloat32;
 
-       if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
+      if ((Pa_GetDeviceInfo(PAParamIn.device)^.maxInputChannels)) > 1 then
         PAParamIn.channelCount := 2
       else
         PAParamIn.channelCount := 1;
-     
+
       controller1.channels := PAParamIn.channelCount;
 
       err := Pa_OpenStream(@HandlePAIn, @PAParamIn, nil, controller1.samplefrequ,
@@ -409,33 +435,33 @@ var
       else
         raiseerror(err);
     end;
-    
-     if controller1.inputtype = 3 then // WaveForm
-      begin
-      controller1.SetWaveTable(0, 1,  0, 0); 
-      controller1.SetWaveTable(0, 2,  0, 0); 
+
+    if controller1.inputtype = 3 then // WaveForm
+    begin
+      controller1.SetWaveTable(0, 1, 0, 0);
+      controller1.SetWaveTable(0, 2, 0, 0);
       controller1.channels := 2;
       controller1.WaveFillBuffer(FBuffer2);
-      end;
-    
-     // output
+    end;
+
+    // output
     PAParamOut.hostApiSpecificStreamInfo := nil;
-    PAParamOut.device           := Pa_GetDefaultOutputDevice();
-    
+    PAParamOut.device := Pa_GetDefaultOutputDevice();
+
     {$if defined(cpuarm) or defined(cpuaarch64)}
       PAParamOut.SuggestedLatency := 0.3;
-     {$else} 
-      PAParamOut.SuggestedLatency :=
+     {$else}
+    PAParamOut.SuggestedLatency :=
       ((Pa_GetDeviceInfo(PAParamOut.device)^.defaultHighOutputLatency)) * 1;
     {$endif}
-    
-     latency := PAParamIn.SuggestedLatency;
-        
-    if controller1.inputtype = 0 then 
-    controller1.channels := 2;  
-   // PAParamOut.channelCount := 1 else
-    PAParamOut.channelCount := controller1.channels;  
-   
+
+    latency := PAParamIn.SuggestedLatency;
+
+    if controller1.inputtype = 0 then
+      controller1.channels  := 2;
+    // PAParamOut.channelCount := 1 else
+    PAParamOut.channelCount := controller1.channels;
+
     if fformat = sfm_s16 then
       PAParamOut.SampleFormat := paInt16
     else if fformat = sfm_s32 then
@@ -444,6 +470,8 @@ var
       PAParamOut.SampleFormat := paFloat32
     else
       PAParamOut.SampleFormat := paFloat32;
+
+    //    PAParamOut.SampleFormat := paFloat32;
 
     err := Pa_OpenStream(@HandlePAOut, nil, @PAParamOut,
       controller1.samplefrequ, 512, paClipOff, nil, nil);
@@ -462,7 +490,7 @@ var
       datasize1 := 4
     else
       datasize1 := 4;
-    
+
     blocksize1     := fblocksize;
     valuehigh1     := fsigout.inputs.Count * blocksize1;
     bufferlength1  := datasize1 * valuehigh1;
@@ -471,8 +499,8 @@ var
     setlength(fbuffer, bufferlength1);
     setlength(fbuffer2, blocksize1 * controller1.channels);
     setlength(fbuffer3, length(fbuffer2));
-  
-      case fformat of
+
+    case fformat of
       sfm_u8, sfm_8alaw, sfm_8ulaw: convert := @convert8;
       sfm_s16
 {$ifdef endian_little},sfm_s16le{$else}
@@ -525,10 +553,10 @@ var
       else Exit;
     end;
 
-     sfnumframes := 100 ;
-     controller1.initbuf := 0;
+    sfnumframes         := 100;
+    controller1.initbuf := 0;
 
-    while (not Sender.terminated) and (sfnumframes > 10)  do
+    while (not Sender.terminated) and (sfnumframes > 10) do
     begin
 
       controller1.lock;
@@ -541,70 +569,79 @@ var
         begin
           //writeln('sndfile');
           //  for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
-           if fformat = sfm_s16 then
-          sfnumframes :=  sf_read_short(HandleSF, @fbuffer2[0], length(fbuffer2))
+          if fformat = sfm_s16 then
+            sfnumframes := sf_read_short(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_s32 then
-          sfnumframes :=  sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2))
+            sfnumframes := sf_read_int(HandleSF, @fbuffer2[0], length(fbuffer2))
           else if fformat = sfm_f32 then
-          begin
-            sfnumframes := sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
-          end
+            sfnumframes := sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2))
           else
             sfnumframes := sf_read_float(HandleSF, @fbuffer2[0], length(fbuffer2));
-         
+
           controller1.FillBufferVolume(fbuffer2);
           fbuffer3 := fbuffer2;
-          
+        end;
+
+        if (controller1.inputtype = 1) and (HandleMP <> nil) then
+        begin
+
+          mpg123_read(HandleMP, @fBuffer2[0], length(fbuffer2) * datasize1, sfnumframes2);
+          controller1.FillBufferVolume(fbuffer2);
+
+          if controller1.initbuf > 1 then
+            sfnumframes := integer(sfnumframes2);
+          // writeln('sfnumframes2 ' + inttostr(sfnumframes2));
+          fbuffer3      := fbuffer2;
+
         end;
 
         if (controller1.inputtype = 2) and (HandlePAin <> nil) then
         begin
-         // writeln('mic');
-         // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          // writeln('mic');
+          // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
           Pa_ReadStream(HandlePAin, @fbuffer2[0], length(fbuffer2) div controller1.channels);
-          controller1.FillBufferVolume(fbuffer2); 
+          controller1.FillBufferVolume(fbuffer2);
           fbuffer3 := fbuffer2;
         end;
-        
-          if (controller1.inputtype = 3) then
+
+        if (controller1.inputtype = 3) then
         begin
           //writeln('wavebuffer');
-        // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
+          // for i := 0 to length(fbuffer2) - 1 do fbuffer2[i] := 0.0;// clear input
           controller1.WaveFillBuffer(FBuffer2);
           fbuffer3 := fbuffer2;
-         end; 
-          
+        end;
+
         fsigout.fbufpo := Pointer(fsigout.fbuffer);
         controller1.step(blocksize1);
         info.Source    := Pointer(fsigout.fbuffer);
         info.dest      := Pointer(fbuffer);
         convert(info);
-        
+
         if controller1.initbuf < 16 then
-        begin
-        if (controller1.inputtype = 0) then
-          for i := 0 to length(fbuffer) - 1 do
-            fbuffer[i] := 0
-            //round(fbuffer[i] * controller1.initbuf / 20)
-         else for i := 0 to length(fbuffer2) - 1 do
-          fbuffer2[i] := 0.0 ;
-          // fbuffer2[i] * controller1.initbuf / 20 ;
-        end;  
-               
-       if controller1.initbuf < 20 then inc(controller1.initbuf);   
-       
-        
+          if (controller1.inputtype = 0) then
+            for i := 0 to length(fbuffer) - 1 do
+              fbuffer[i]  := 0
+          //round(fbuffer[i] * controller1.initbuf / 20)
+          else
+            for i         := 0 to length(fbuffer2) - 1 do
+              fbuffer2[i] := 0.0// fbuffer2[i] * controller1.initbuf / 20 ;
+        ;
+
+        if controller1.initbuf < 20 then
+          Inc(controller1.initbuf);
+
       finally
         controller1.unlock;
       end;
       if Assigned(HandlePAOut) then
       begin
-          if controller1.inputtype = 0 then
+        if controller1.inputtype = 0 then
           Pa_WriteStream(HandlePAOut, @fBuffer[0], length(fbuffer) div datasize1 div fchannels);
 
         if (controller1.inputtype = 1) or (controller1.inputtype = 2) or (controller1.inputtype = 3) then
-                Pa_WriteStream(HandlePAOut, @fbuffer2[0], length(fbuffer2)  div controller1.channels);
-     
+          Pa_WriteStream(HandlePAOut, @fbuffer2[0],
+            length(fbuffer2) div controller1.channels);
       end
       else
         break;

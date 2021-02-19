@@ -329,29 +329,32 @@ end;
 
 procedure tmainfo.oncreated(const Sender: TObject);
 var
-  PA_FileName, SF_FileName, ordir: string;
+  PA_FileName, SF_FileName, MP_FileName, ordir: string;
   ara, arb: msestringarty;
 begin
-  setlength(ara, 5);
-  setlength(arb, 5);
+  setlength(ara, 6);
+  setlength(arb, 6);
 
   ara[0] := 'All sound files';
   ara[1] := 'wav';
   ara[2] := 'ogg';
   ara[3] := 'flac';
-  ara[4] := 'All';
+  ara[4] := 'mp3';
+  ara[5] := 'All';
 
-  arb[0] := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"';
+  arb[0] := '"*.wav" "*.ogg" "*.flac" "*.mp3" "*.WAV" "*.OGG" "*.FLAC" "*.MP3"';
   arb[1] := '"*.wav" "*.WAV"';
   arb[2] := '"*.ogg" "*.OGG"';
   arb[3] := '"*.flac" "*.FLAC"';
-  arb[4] := '"*.*"';
+  arb[4] := '"*.mp3" "*.MP3"';
+  arb[5] := '"*.*"';
   
-   tfilenameeditx1.controller.captionopen := 'Choose a wav, ogg or flac audio file';
+   tfilenameeditx1.controller.captionopen := 'Choose a wav, ogg, mp3 or flac audio file';
 
   tfilenameeditx1.controller.filterlist.asarraya := ara;
   tfilenameeditx1.controller.filterlist.asarrayb := arb;
-  tfilenameeditx1.controller.filter := '"*.wav" "*.ogg" "*.flac" "*.WAV" "*.OGG" "*.FLAC"';
+  tfilenameeditx1.controller.filter :=
+   '"*.wav" "*.ogg" "*.flac" "*.mp3" "*.WAV" "*.OGG" "*.FLAC" "*.MP3"';
 
   ordir := IncludeTrailingBackslash(ExtractFilePath(ParamStr(0)));
 
@@ -359,51 +362,61 @@ begin
      {$if defined(cpu64)}
     PA_FileName := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
     SF_FileName := ordir + 'lib\Windows\64bit\LibSndFile-64.dll';
+    MP_FileName := ordir + 'lib\Windows\64bit\LibMpg123-64.dll';
+
     fftw_init(ordir + 'lib\Windows\64bit\');
     
      {$else}
     PA_FileName := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
     SF_FileName := ordir + 'lib\Windows\32bit\LibSndFile-32.dll';
-    fftw_init(ordir + 'lib\Windows\32bit\');
+    MP_FileName := ordir + 'lib\Windows\32bit\LibMpg123-32.dll';
+      fftw_init(ordir + 'lib\Windows\32bit\');
      {$endif}
  {$ENDIF}
 
      {$if defined(CPUAMD64) and defined(linux) }
   SF_FileName := ordir + 'lib/Linux/64bit/LibSndFile-64.so';
   PA_FileName := ordir + 'lib/Linux/64bit/LibPortaudio-64.so'; 
+  MP_FileName := ordir + 'lib/Linux/64bit/LibMpg123-64.so';
   fftw_init(ordir + 'lib/Linux/64bit/');
      {$ENDIF}
 
    {$if defined(cpu86) and defined(linux)}
     PA_FileName := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
-    SF_FileName := ordir + 'lib/Linux/32bit/LibSndFile-32.so';   
+    SF_FileName := ordir + 'lib/Linux/32bit/LibSndFile-32.so'; 
+    MP_FileName := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
+     
     fftw_init(ordir + 'lib/Linux/32bit/');
      {$ENDIF}
 
   {$if defined(linux) and defined(cpuaarch64)}
   PA_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
   SF_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so';
+  MP_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so';
    fftw_init(ordir + 'lib/Linux/aarch64_raspberrypi/');
   {$ENDIF}
 
   {$if defined(linux) and defined(cpuarm)}
     PA_FileName := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
     SF_FileName := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so'; 
-    fftw_init(ordir + 'lib/Linux/arm_raspberrypi/'); 
+    MP_FileName := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
+     fftw_init(ordir + 'lib/Linux/arm_raspberrypi/'); 
     {$ENDIF}
 
  {$IFDEF freebsd}
     {$if defined(cpu64)}
     PA_FileName := ordir + 'lib/FreeBSD/64bit/libportaudio-64.so';
     SF_FileName := ordir + 'lib/FreeBSD/64bit/libsndfile-64.so';
+    MP_FileName := ordir + 'lib/FreeBSD/64bit/libmpg123-64.so';
     fftw_init(ordir + 'lib/FreeBSD/64bit/'); 
     {$else}
     PA_FileName := ordir + 'lib/FreeBSD/32bit/libportaudio-32.so';
     SF_FileName := ordir + 'lib/FreeBSD/32bit/libsndfile-32.so';
-    fftw_init(ordir + 'lib/FreeBSD/32bit/'); 
+    MP_FileName := ordir + 'lib/FreeBSD/32bit/libmpg123-32.so';
+     fftw_init(ordir + 'lib/FreeBSD/32bit/'); 
     {$endif} {$ENDIF}
 
-  uos_mseLoadLib(PA_FileName, SF_FileName);
+  uos_mseLoadLib(PA_FileName, SF_FileName, MP_FileName);
 
   cont.inputtype := 0;            // from synth/noise
   tsigcontroller1.inputtype := 0; // from synth/piano
