@@ -355,7 +355,7 @@ end;
 
 function tsigaudioout.threadproc(Sender: tmsethread): integer;
 var
-  int1, i, encoding: integer;
+  int1, i, encoding, mpchan: integer;
   datasize1, blocksize1, bufferlength1, valuehigh1: integer;
   controller1: tsigcontroller;
   mpsamplefrequ: longword;
@@ -388,13 +388,13 @@ begin
       else
       begin
         HandleMP := mpg123_new(nil, Err);
-        writeln('err mp3 ' + IntToStr(err));
+        //writeln('err mp3 ' + IntToStr(err));
         if Err = 0 then
         begin
           mpg123_format_none(HandleMP);
           mpg123_format(HandleMP, 44100, 2, MPG123_ENC_FLOAT_32);
           mpg123_open(HandleMP, PChar(controller1.SoundFilename));
-          // mpg123_getformat(HandleMP, mpsamplefrequ, controller1.channels, encoding);
+          //mpg123_getformat(HandleMP, mpsamplefrequ, mpchan, encoding);
 
           controller1.channels    := 2;
           controller1.samplefrequ := 44100;
@@ -618,17 +618,17 @@ begin
         info.dest      := Pointer(fbuffer);
         convert(info);
 
-        if controller1.initbuf < 16 then
+    // {
+        if controller1.initbuf < 2 then
           if (controller1.inputtype = 0) then
             for i := 0 to length(fbuffer) - 1 do
               fbuffer[i]  := 0
-          //round(fbuffer[i] * controller1.initbuf / 20)
           else
             for i         := 0 to length(fbuffer2) - 1 do
-              fbuffer2[i] := 0.0// fbuffer2[i] * controller1.initbuf / 20 ;
-        ;
+              fbuffer2[i] := 0.0;
+      //  }
 
-        if controller1.initbuf < 20 then
+        if controller1.initbuf < 2 then
           Inc(controller1.initbuf);
 
       finally

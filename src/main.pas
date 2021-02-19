@@ -363,10 +363,8 @@ begin
     PA_FileName := ordir + 'lib\Windows\64bit\LibPortaudio-64.dll';
     SF_FileName := ordir + 'lib\Windows\64bit\LibSndFile-64.dll';
     MP_FileName := ordir + 'lib\Windows\64bit\LibMpg123-64.dll';
-
     fftw_init(ordir + 'lib\Windows\64bit\');
-    
-     {$else}
+      {$else}
     PA_FileName := ordir + 'lib\Windows\32bit\LibPortaudio-32.dll';
     SF_FileName := ordir + 'lib\Windows\32bit\LibSndFile-32.dll';
     MP_FileName := ordir + 'lib\Windows\32bit\LibMpg123-32.dll';
@@ -385,7 +383,6 @@ begin
     PA_FileName := ordir + 'lib/Linux/32bit/LibPortaudio-32.so';
     SF_FileName := ordir + 'lib/Linux/32bit/LibSndFile-32.so'; 
     MP_FileName := ordir + 'lib/Linux/32bit/LibMpg123-32.so';
-     
     fftw_init(ordir + 'lib/Linux/32bit/');
      {$ENDIF}
 
@@ -393,14 +390,14 @@ begin
   PA_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libportaudio_aarch64.so';
   SF_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libsndfile_aarch64.so';
   MP_FileName := ordir + 'lib/Linux/aarch64_raspberrypi/libmpg123_aarch64.so';
-   fftw_init(ordir + 'lib/Linux/aarch64_raspberrypi/');
+  fftw_init(ordir + 'lib/Linux/aarch64_raspberrypi/');
   {$ENDIF}
 
   {$if defined(linux) and defined(cpuarm)}
     PA_FileName := ordir + 'lib/Linux/arm_raspberrypi/libportaudio-arm.so';
     SF_FileName := ordir + 'lib/Linux/arm_raspberrypi/libsndfile-arm.so'; 
     MP_FileName := ordir + 'lib/Linux/arm_raspberrypi/libmpg123-arm.so';
-     fftw_init(ordir + 'lib/Linux/arm_raspberrypi/'); 
+    fftw_init(ordir + 'lib/Linux/arm_raspberrypi/'); 
     {$ENDIF}
 
  {$IFDEF freebsd}
@@ -516,7 +513,7 @@ end;
 
 procedure tmainfo.onpianoactivate(const Sender: TObject; var avalue: Boolean; var accept: Boolean);
 begin
- //application.processmessages;
+//application.processmessages;
   if hasinit then
     if avalue then
     begin
