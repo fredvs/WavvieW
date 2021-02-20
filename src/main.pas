@@ -13,7 +13,7 @@ uses
  msedropdownlist,msefiledialogx,Math,msefftw;
 
 const
-  versiontext = '1.5';
+  versiontext = '1.6';
 
 type
   tmainfo = class(tmainform)
