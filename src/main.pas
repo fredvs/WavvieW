@@ -5,6 +5,7 @@ interface
 
 uses
  msetypes,mseglob,mseguiglob,mseguiintf,mseapplication,msestat,msemenus,msegui,
+ mseeditglob,
  msegraphics,msegraphutils,mseevent,mseclasses,msewidgets,mseforms,uos_mseaudio,
  uos_msesigaudio,msesignal,msestrings,msesignoise,msechartedit,msedataedits,
  mseedit,mseificomp,mseificompglob,mseifiglob,msesiggui,msestatfile,msesigfft,
@@ -214,6 +215,8 @@ type
                    var accept: Boolean);
    procedure onsetoddR(const sender: TObject; var avalue: Boolean;
                    var accept: Boolean);
+   procedure onkey(const sender: twidget; var ainfo: keyeventinfoty);
+   procedure onmousev(const sender: twidget; var ainfo: mouseeventinfoty);
   end;
 
 var
@@ -1080,6 +1083,36 @@ if linkwavchan.value then
     begin
      oddwaveL.Value := avalue;
     end;  
+end;
+
+procedure tmainfo.onkey(const sender: twidget; var ainfo: keyeventinfoty);
+begin
+{
+if (ainfo.eventkind =   ek_keypress)  then
+      begin
+    wavetypeL.optionsedit := wavetypeL.optionsedit + [oe_readonly];
+    end;
+    
+if (ainfo.eventkind =  ek_keyrelease)  then
+      begin
+    wavetypeL.optionsedit := wavetypeL.optionsedit - [oe_readonly];
+    end;   
+    } 
+end;
+
+procedure tmainfo.onmousev(const sender: twidget; var ainfo: mouseeventinfoty);
+begin
+
+ if (ainfo.eventkind = ek_buttonrelease)  then
+      begin
+      wavetypeL.optionsedit := wavetypeL.optionsedit - [oe_readonly];
+     end; 
+     
+ if (ainfo.eventkind = ek_buttonpress)  then
+      begin
+      wavetypeL.optionsedit := wavetypeL.optionsedit + [oe_readonly];
+     end; 
+        
 end;
 
 end.

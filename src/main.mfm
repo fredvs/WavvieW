@@ -622,6 +622,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 4
         hint = 'Link Left+Right Channels'
         bounds_x = 33
@@ -999,6 +1011,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 10
         hint = 'Link Left+Right Channels'
         bounds_x = 33
@@ -1144,11 +1168,14 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
+        optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
         font.color = 13762513
         font.name = 'stf_default'
         font.localprops = [flp_color]
         textflags = [tf_xcentered, tf_ycentered, tf_noselect]
+        textflagsactive = [tf_ycentered, tf_noselect]
         onchange = onchangewave
+        onclientmouseevent = onmousev
         value = 0
         valuedefault = 0
         valuemin = 0
@@ -1292,6 +1319,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 5
         hint = 'Odd Harmonics only Left'
         bounds_x = 123
@@ -1350,6 +1389,8 @@ object mainfo: tmainfo
         bounds_cx = 85
         bounds_cy = 22
         statfile = sta
+        empty_text = 'wk_sine'
+        optionsedit = [oe_undoonesc, oe_closequery, oe_checkmrcancel, oe_shiftreturn, oe_eatreturn, oe_resetselectonexit, oe_exitoncursor, oe_endonenter, oe_autoselect, oe_autoselectonfirstclick, oe_focusrectonreadonly, oe_notnull]
         font.color = 16766164
         font.name = 'stf_default'
         font.localprops = [flp_color]
@@ -1511,6 +1552,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 13
         hint = 'Link Left+Right Channels'
         bounds_x = 33
@@ -1539,6 +1592,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 14
         hint = 'Odd Harmonics only Right'
         bounds_x = 122
@@ -1769,6 +1834,9 @@ object mainfo: tmainfo
           FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
         }
         controller.compact = False
+        controller.showoptions = False
+        controller.hidehistory = False
+        controller.hideicons = False
         controller.showhidden = False
         controller.options = [fdo_file, fdo_savelastdir]
         reffontheight = 15
@@ -1905,6 +1973,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 7
         hint = 'Link Left+Right Channels'
         bounds_x = 33
@@ -2065,6 +2145,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 4
         hint = 'Link Left+Right Channels'
         bounds_x = 33
@@ -2090,12 +2182,25 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 1
       hint = 'Activate Device Input (Mic/Line In)'
       bounds_x = 30
       bounds_y = 179
       bounds_cx = 140
       bounds_cy = 17
+      colorglyph = -1610612728
       onsetvalue = oninputactivate
     end
     object onnoiseon: tbooleanedit
@@ -2112,12 +2217,25 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 3
       hint = 'Activate Noise Generator'
       bounds_x = 398
       bounds_y = 8
       bounds_cx = 140
       bounds_cy = 17
+      colorglyph = -1610612728
       onsetvalue = onnoiseactivate
     end
     object tgroupbox1: tgroupbox
@@ -2157,6 +2275,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         hint = 'Show Left Channel'
         bounds_x = 14
         bounds_y = 28
@@ -2184,6 +2314,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 1
         hint = 'Show Right Channel'
         bounds_x = 53
@@ -2209,6 +2351,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 2
         hint = 'Scale factor of Oscilloscope'
         bounds_x = 13
@@ -2233,12 +2387,25 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 7
       hint = 'Activate Piano'
       bounds_x = 412
       bounds_y = 179
       bounds_cx = 112
       bounds_cy = 17
+      colorglyph = -1610612728
       onsetvalue = onpianoactivate
     end
     object tsigkeyboard1: tsigkeyboard
@@ -10814,12 +10981,25 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 13
       hint = 'Activate Wave Generator'
       bounds_x = 213
       bounds_y = 8
       bounds_cx = 141
       bounds_cy = 17
+      colorglyph = -1610612728
       onsetvalue = onwaveactivate
     end
     object tgroupbox7: tgroupbox
@@ -10855,11 +11035,24 @@ object mainfo: tmainfo
           11
           0
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         bounds_x = 164
         bounds_y = 20
         bounds_cx = 34
         bounds_cy = 34
         statfile = sta
+        colorglyph = -1610612728
         onsetvalue = onpianoview
       end
       object viewnoise: tbooleaneditradio
@@ -10875,12 +11068,25 @@ object mainfo: tmainfo
           11
           0
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 1
         bounds_x = 124
         bounds_y = 20
         bounds_cx = 34
         bounds_cy = 34
         statfile = sta
+        colorglyph = -1610612728
         onsetvalue = onnoiseview
         value = True
       end
@@ -10897,12 +11103,25 @@ object mainfo: tmainfo
           11
           0
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 2
         bounds_x = 83
         bounds_y = 20
         bounds_cx = 35
         bounds_cy = 34
         statfile = sta
+        colorglyph = -1610612728
         onsetvalue = onwaveview
       end
       object viewinput: tbooleaneditradio
@@ -10918,12 +11137,25 @@ object mainfo: tmainfo
           5
           0
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 3
         bounds_x = 50
         bounds_y = 20
         bounds_cx = 22
         bounds_cy = 34
         statfile = sta
+        colorglyph = -1610612728
         onsetvalue = oninputview
       end
       object viewfile: tbooleaneditradio
@@ -10939,12 +11171,25 @@ object mainfo: tmainfo
           5
           0
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 4
         bounds_x = 10
         bounds_y = 20
         bounds_cx = 22
         bounds_cy = 34
         statfile = sta
+        colorglyph = -1610612728
         onsetvalue = onfileview
       end
     end
@@ -10998,6 +11243,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 1
         hint = 'Average of FFT spectrum'
         bounds_x = 7
@@ -11024,6 +11281,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 2
         hint = 'Show Right Channel'
         bounds_x = 53
@@ -11052,6 +11321,18 @@ object mainfo: tmainfo
           0
           2
         )
+        face.fade_pos.count = 2
+        face.fade_pos.items = (
+          0
+          1
+        )
+        face.fade_color.count = 2
+        face.fade_color.items = (
+          -1610612731
+          7039851
+        )
+        face.fade_direction = gd_down
+        face.localprops = [fal_fadirection]
         taborder = 3
         hint = 'Show Left Channel'
         bounds_x = 14
@@ -11078,6 +11359,18 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 17
       hint = 'Oscilloscope ON-OFF'
       bounds_x = 582
@@ -11086,6 +11379,7 @@ object mainfo: tmainfo
       bounds_cy = 17
       anchors = [an_left, an_bottom]
       statfile = sta
+      colorglyph = -1610612728
       onsetvalue = onshowoscilloscope
       value = True
       valuedefault = True
@@ -11104,6 +11398,18 @@ object mainfo: tmainfo
         0
         2
       )
+      face.fade_pos.count = 2
+      face.fade_pos.items = (
+        0
+        1
+      )
+      face.fade_color.count = 2
+      face.fade_color.items = (
+        -1610612731
+        7039851
+      )
+      face.fade_direction = gd_down
+      face.localprops = [fal_fadirection]
       taborder = 18
       hint = 'FFT Spectrum ON-OFF'
       bounds_x = 680
@@ -11112,6 +11418,7 @@ object mainfo: tmainfo
       bounds_cy = 17
       anchors = [an_left, an_bottom]
       statfile = sta
+      colorglyph = -1610612728
       onsetvalue = onshowspectrum
       value = True
       valuedefault = True
