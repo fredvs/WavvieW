@@ -14,7 +14,7 @@ uses
  msedropdownlist,msefiledialogx,Math,msefftw;
 
 const
-  versiontext = '1.6';
+  versiontext = '1.8';
 
 type
   tmainfo = class(tmainform)
@@ -27,9 +27,6 @@ type
     fft: tsigscopefft;
     scope: tsigscope;
     tfacecomp1: tfacecomp;
-    tframecomp1: tframecomp;
-    tframecomp2: tframecomp;
-    timagelist3: timagelist;
     tsigoutaudio1: tsigoutaudio;
     tsigfilter1: tsigfilter;
     tsignoise1: tsignoise;

@@ -176,10 +176,16 @@ object mainfo: tmainfo
     object fft: tsigscopefft
       frame.leveli = -1
       frame.colorclient = -2147483645
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '     FFT Spectrum'
       frame.localprops = [frl_leveli, frl_firight, frl_colorclient]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
         18
@@ -315,10 +321,16 @@ object mainfo: tmainfo
     object scope: tsigscope
       frame.levelo = -1
       frame.colorclient = -2147483645
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '     Oscilloscope'
       frame.localprops = [frl_levelo, frl_firight, frl_colorclient]
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         0
         18
@@ -467,22 +479,29 @@ object mainfo: tmainfo
     anchors = [an_left, an_right, an_bottom]
     object tgroupbox6: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                              '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 14
       bounds_x = 376
-      bounds_y = 179
+      bounds_y = 180
       bounds_cx = 178
-      bounds_cy = 95
+      bounds_cy = 94
       object tsigslider3: tsigslider
         color = -2147483645
         frame.levelo = 0
@@ -493,7 +512,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_levelo]
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.outerframe = (
           22
           0
@@ -502,7 +520,7 @@ object mainfo: tmainfo
         )
         face.localprops = []
         hint = 'Volume Left of piano'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 21
         bounds_cx = 119
         bounds_cy = 21
@@ -521,23 +539,39 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onsetsliderpiano
         controller = tsigcontroller1
         max = 1
       end
       object volpiano: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 1
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 21
         bounds_cx = 42
         bounds_cy = 21
@@ -546,13 +580,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object volpianoR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 2
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 46
         bounds_cx = 42
         bounds_cy = 21
@@ -570,7 +612,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = [frl_levelo]
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.outerframe = (
           23
           0
@@ -580,7 +621,7 @@ object mainfo: tmainfo
         face.localprops = []
         taborder = 3
         hint = 'Volume Right of Piano'
-        bounds_x = 6
+        bounds_x = 7
         bounds_y = 46
         bounds_cx = 120
         bounds_cy = 21
@@ -599,10 +640,18 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onsetsliderpianoR
         controller = tsigcontroller1
@@ -610,12 +659,20 @@ object mainfo: tmainfo
       end
       object linkpianochan: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
         frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           100
           1
@@ -636,7 +693,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 4
         hint = 'Link Left+Right Channels'
-        bounds_x = 33
+        bounds_x = 34
         bounds_y = 72
         bounds_cx = 113
         bounds_cy = 17
@@ -647,23 +704,30 @@ object mainfo: tmainfo
     end
     object tgroupbox3: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                                    '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 4
       onshowhint = evonshowhint
       bounds_x = 376
-      bounds_y = 8
+      bounds_y = 9
       bounds_cx = 178
-      bounds_cy = 166
+      bounds_cy = 165
       object sampcountR: tslider
         color = -2147483645
         frame.levelo = 0
@@ -682,7 +746,7 @@ object mainfo: tmainfo
           0
         )
         hint = 'Samples count of noise'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 119
         bounds_cx = 120
         bounds_cy = 21
@@ -698,10 +762,18 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = samcountsetexeR
       end
@@ -724,7 +796,7 @@ object mainfo: tmainfo
         )
         taborder = 1
         hint = 'Amplitude of noise right'
-        bounds_x = 8
+        bounds_x = 9
         bounds_y = 96
         bounds_cx = 118
         bounds_cy = 21
@@ -741,10 +813,18 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onsetampnoiseR
         controller = cont
@@ -753,31 +833,51 @@ object mainfo: tmainfo
       end
       object kinded: tenumtypeedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
         frame.captionpos = cp_left
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.button.colorglyph = -1610612730
         frame.button.face.localprops = []
         frame.button.face.template = tfacecomp2
+        frame.button.frame.framei_left = 4
+        frame.button.frame.framei_top = 2
+        frame.button.frame.framei_right = 4
+        frame.button.frame.framei_bottom = 2
+        frame.button.frame.frameimage_left = -4
+        frame.button.frame.frameimage_right = -4
+        frame.button.frame.frameimage_top = -4
+        frame.button.frame.frameimage_bottom = -4
+        frame.button.frame.optionsskin = [fso_flat]
         frame.button.frame.localprops = [frl_optionsskin]
         frame.button.frame.localprops1 = []
-        frame.button.frame.template = tframecomp2
         frame.buttons.count = 1
         frame.buttons.items = <        
           item
             colorglyph = -1610612730
             face.localprops = []
             face.template = tfacecomp2
+            frame.framei_left = 4
+            frame.framei_top = 2
+            frame.framei_right = 4
+            frame.framei_bottom = 2
+            frame.frameimage_left = -4
+            frame.frameimage_right = -4
+            frame.frameimage_top = -4
+            frame.frameimage_bottom = -4
+            frame.optionsskin = [fso_flat]
             frame.localprops = [frl_optionsskin]
             frame.localprops1 = []
-            frame.template = tframecomp2
           end>
         face.localprops = []
         face.template = tfacecomp1
         taborder = 2
         hint = 'Kind of Noise Left Channel'
-        bounds_x = 2
+        bounds_x = 3
         bounds_y = 23
         bounds_cx = 85
         bounds_cy = 22
@@ -803,13 +903,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object sampcountdiR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 3
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 119
         bounds_cx = 42
         bounds_cy = 21
@@ -817,13 +925,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object noiseampR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 4
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 96
         bounds_cx = 42
         bounds_cy = 21
@@ -831,13 +947,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object sampcountdiL: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 5
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 73
         bounds_cx = 42
         bounds_cy = 21
@@ -863,7 +987,7 @@ object mainfo: tmainfo
         )
         taborder = 6
         hint = 'Samples count of noise'
-        bounds_x = 9
+        bounds_x = 10
         bounds_y = 73
         bounds_cx = 119
         bounds_cy = 21
@@ -879,21 +1003,37 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = samcountsetexeL
       end
       object noiseampL: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 7
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 50
         bounds_cx = 42
         bounds_cy = 21
@@ -919,7 +1059,7 @@ object mainfo: tmainfo
         )
         taborder = 8
         hint = 'Amplitude of noise left'
-        bounds_x = 9
+        bounds_x = 10
         bounds_y = 50
         bounds_cx = 117
         bounds_cy = 21
@@ -936,10 +1076,18 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onsetampnoiseL
         controller = cont
@@ -948,31 +1096,51 @@ object mainfo: tmainfo
       end
       object kindedR: tenumtypeedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
         frame.captionpos = cp_left
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.button.colorglyph = -1610612730
         frame.button.face.localprops = []
         frame.button.face.template = tfacecomp2
+        frame.button.frame.framei_left = 4
+        frame.button.frame.framei_top = 2
+        frame.button.frame.framei_right = 4
+        frame.button.frame.framei_bottom = 2
+        frame.button.frame.frameimage_left = -4
+        frame.button.frame.frameimage_right = -4
+        frame.button.frame.frameimage_top = -4
+        frame.button.frame.frameimage_bottom = -4
+        frame.button.frame.optionsskin = [fso_flat]
         frame.button.frame.localprops = [frl_optionsskin]
         frame.button.frame.localprops1 = []
-        frame.button.frame.template = tframecomp2
         frame.buttons.count = 1
         frame.buttons.items = <        
           item
             colorglyph = -1610612730
             face.localprops = []
             face.template = tfacecomp2
+            frame.framei_left = 4
+            frame.framei_top = 2
+            frame.framei_right = 4
+            frame.framei_bottom = 2
+            frame.frameimage_left = -4
+            frame.frameimage_right = -4
+            frame.frameimage_top = -4
+            frame.frameimage_bottom = -4
+            frame.optionsskin = [fso_flat]
             frame.localprops = [frl_optionsskin]
             frame.localprops1 = []
-            frame.template = tframecomp2
           end>
         face.localprops = []
         face.template = tfacecomp1
         taborder = 9
         hint = 'Kind of Noise Right Channel'
-        bounds_x = 90
+        bounds_x = 91
         bounds_y = 23
         bounds_cx = 85
         bounds_cy = 22
@@ -999,12 +1167,20 @@ object mainfo: tmainfo
       end
       object linknoisechan: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
         frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           100
           1
@@ -1025,7 +1201,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 10
         hint = 'Link Left+Right Channels'
-        bounds_x = 33
+        bounds_x = 34
         bounds_y = 144
         bounds_cx = 113
         bounds_cy = 17
@@ -1036,22 +1212,29 @@ object mainfo: tmainfo
     end
     object tgroupbox4: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                                    '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 5
       bounds_x = 192
-      bounds_y = 8
+      bounds_y = 9
       bounds_cx = 178
-      bounds_cy = 266
+      bounds_cy = 265
       object sliderfreqwaveL: tslider
         color = -2147483645
         frame.levelo = 0
@@ -1072,7 +1255,7 @@ object mainfo: tmainfo
         )
         taborder = 3
         hint = 'Frequency of Wave in Hz Left'
-        bounds_x = 2
+        bounds_x = 3
         bounds_y = 76
         bounds_cx = 174
         bounds_cy = 41
@@ -1088,10 +1271,18 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfreqwaveL
       end
@@ -1115,7 +1306,7 @@ object mainfo: tmainfo
         )
         taborder = 9
         hint = 'Frequency of Wave in Hz Right'
-        bounds_x = 2
+        bounds_x = 3
         bounds_y = 172
         bounds_cx = 174
         bounds_cy = 41
@@ -1131,39 +1322,67 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfreqwaveR
       end
       object wavetypeL: tenumtypeedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
         frame.captionpos = cp_left
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.button.colorglyph = -1610612730
         frame.button.face.localprops = []
         frame.button.face.template = tfacecomp2
+        frame.button.frame.framei_left = 4
+        frame.button.frame.framei_top = 2
+        frame.button.frame.framei_right = 4
+        frame.button.frame.framei_bottom = 2
+        frame.button.frame.frameimage_left = -4
+        frame.button.frame.frameimage_right = -4
+        frame.button.frame.frameimage_top = -4
+        frame.button.frame.frameimage_bottom = -4
+        frame.button.frame.optionsskin = [fso_flat]
         frame.button.frame.localprops = [frl_optionsskin]
         frame.button.frame.localprops1 = []
-        frame.button.frame.template = tframecomp2
         frame.buttons.count = 1
         frame.buttons.items = <        
           item
             colorglyph = -1610612730
             face.localprops = []
             face.template = tfacecomp2
+            frame.framei_left = 4
+            frame.framei_top = 2
+            frame.framei_right = 4
+            frame.framei_bottom = 2
+            frame.frameimage_left = -4
+            frame.frameimage_right = -4
+            frame.frameimage_top = -4
+            frame.frameimage_bottom = -4
+            frame.optionsskin = [fso_flat]
             frame.localprops = [frl_optionsskin]
             frame.localprops1 = []
-            frame.template = tframecomp2
           end>
         face.localprops = []
         face.template = tfacecomp1
         hint = 'Kind of Wave Left Channel'
-        bounds_x = 2
+        bounds_x = 3
         bounds_y = 20
         bounds_cx = 85
         bounds_cy = 22
@@ -1218,7 +1437,7 @@ object mainfo: tmainfo
         )
         taborder = 1
         hint = 'Volume of Wave Left'
-        bounds_x = 8
+        bounds_x = 9
         bounds_y = 50
         bounds_cx = 118
         bounds_cy = 21
@@ -1234,20 +1453,36 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onvolwaveL
       end
       object freqwavL: tintegeredit
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Hz'
         frame.captionpos = cp_right
         frame.captiondist = 2
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           0
           0
@@ -1258,7 +1493,7 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 2
         hint = 'Frequency in Hz Left'
-        bounds_x = 80
+        bounds_x = 81
         bounds_y = 76
         bounds_cx = 85
         bounds_cy = 18
@@ -1273,6 +1508,15 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object harmonwaveL: tintegeredit
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'H-L'
         frame.captionpos = cp_left
         frame.captiondist = 3
@@ -1281,7 +1525,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           25
           0
@@ -1292,7 +1535,7 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 4
         hint = 'Number or Harmonics Left'
-        bounds_x = 23
+        bounds_x = 24
         bounds_y = 122
         bounds_cx = 69
         bounds_cy = 18
@@ -1304,6 +1547,15 @@ object mainfo: tmainfo
       end
       object OddwaveL: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'O-L'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -1312,7 +1564,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           26
           1
@@ -1333,7 +1584,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 5
         hint = 'Odd Harmonics only Left'
-        bounds_x = 123
+        bounds_x = 122
         bounds_y = 122
         bounds_cx = 39
         bounds_cy = 17
@@ -1343,13 +1594,21 @@ object mainfo: tmainfo
         onsetvalue = onsetoddL
       end
       object volwavL: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 6
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 52
         bounds_cx = 42
         bounds_cy = 18
@@ -1360,31 +1619,51 @@ object mainfo: tmainfo
       end
       object wavetypeR: tenumtypeedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
         frame.captionpos = cp_left
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp1
         frame.button.colorglyph = -1610612730
         frame.button.face.localprops = []
         frame.button.face.template = tfacecomp2
+        frame.button.frame.framei_left = 4
+        frame.button.frame.framei_top = 2
+        frame.button.frame.framei_right = 4
+        frame.button.frame.framei_bottom = 2
+        frame.button.frame.frameimage_left = -4
+        frame.button.frame.frameimage_right = -4
+        frame.button.frame.frameimage_top = -4
+        frame.button.frame.frameimage_bottom = -4
+        frame.button.frame.optionsskin = [fso_flat]
         frame.button.frame.localprops = [frl_optionsskin]
         frame.button.frame.localprops1 = []
-        frame.button.frame.template = tframecomp2
         frame.buttons.count = 1
         frame.buttons.items = <        
           item
             colorglyph = -1610612730
             face.localprops = []
             face.template = tfacecomp2
+            frame.framei_left = 4
+            frame.framei_top = 2
+            frame.framei_right = 4
+            frame.framei_bottom = 2
+            frame.frameimage_left = -4
+            frame.frameimage_right = -4
+            frame.frameimage_top = -4
+            frame.frameimage_bottom = -4
+            frame.optionsskin = [fso_flat]
             frame.localprops = [frl_optionsskin]
             frame.localprops1 = []
-            frame.template = tframecomp2
           end>
         face.localprops = []
         face.template = tfacecomp1
         taborder = 7
         hint = 'Kind of Wave Right Channel'
-        bounds_x = 90
+        bounds_x = 91
         bounds_y = 20
         bounds_cx = 85
         bounds_cy = 22
@@ -1419,6 +1698,15 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object harmonwaveR: tintegeredit
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'H-R'
         frame.captionpos = cp_left
         frame.captiondist = 3
@@ -1427,7 +1715,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           26
           0
@@ -1438,7 +1725,7 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 8
         hint = 'Number or Harmonics Right'
-        bounds_x = 22
+        bounds_x = 23
         bounds_y = 218
         bounds_cx = 70
         bounds_cy = 18
@@ -1449,13 +1736,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object volwavR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 10
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 148
         bounds_cx = 42
         bounds_cy = 18
@@ -1484,7 +1779,7 @@ object mainfo: tmainfo
         )
         taborder = 11
         hint = 'Volume of Wave left'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 146
         bounds_cx = 119
         bounds_cy = 21
@@ -1500,20 +1795,36 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onvolwaveR
       end
       object freqwavR: tintegeredit
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Hz'
         frame.captionpos = cp_righttop
         frame.captiondist = 2
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           0
           0
@@ -1524,7 +1835,7 @@ object mainfo: tmainfo
         face.template = tfacecomp7
         taborder = 12
         hint = 'Frequency in Hz Right'
-        bounds_x = 80
+        bounds_x = 81
         bounds_y = 172
         bounds_cx = 85
         bounds_cy = 18
@@ -1540,12 +1851,20 @@ object mainfo: tmainfo
       end
       object linkwavchan: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
         frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           100
           1
@@ -1566,8 +1885,8 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 13
         hint = 'Link Left+Right Channels'
-        bounds_x = 33
-        bounds_y = 241
+        bounds_x = 34
+        bounds_y = 239
         bounds_cx = 113
         bounds_cy = 17
         anchors = [an_left, an_bottom]
@@ -1577,6 +1896,15 @@ object mainfo: tmainfo
       end
       object OddwaveR: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'O-R'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -1585,7 +1913,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           27
           1
@@ -1606,7 +1933,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 14
         hint = 'Odd Harmonics only Right'
-        bounds_x = 122
+        bounds_x = 121
         bounds_y = 218
         bounds_cx = 40
         bounds_cy = 17
@@ -1618,29 +1945,33 @@ object mainfo: tmainfo
     end
     object tgroupbox2: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 0
+      frame.framei_top = 0
+      frame.framei_right = 0
+      frame.framei_bottom = 0
       frame.caption = ' Audio Files '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo, frl_framewidth, frl_fileft, frl_fitop, frl_firight, frl_fibottom, frl_frameimageleft, frl_frameimagetop, frl_frameimageright, frl_frameimagebottom]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       bounds_x = 8
-      bounds_y = 8
+      bounds_y = 9
       bounds_cx = 178
-      bounds_cy = 166
+      bounds_cy = 165
       object bstop: tbutton
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
-        frame.template = tframecomp1
         face.localprops = []
         face.template = tfacecomp1
-        bounds_x = 96
+        bounds_x = 97
         bounds_y = 106
         bounds_cx = 68
         bounds_cy = 32
@@ -1652,11 +1983,10 @@ object mainfo: tmainfo
         frame.optionsskin = [fso_flat]
         frame.localprops = [frl_optionsskin]
         frame.localprops1 = []
-        frame.template = tframecomp1
         face.localprops = []
         face.template = tfacecomp1
         taborder = 1
-        bounds_x = 12
+        bounds_x = 13
         bounds_y = 106
         bounds_cx = 74
         bounds_cy = 32
@@ -1666,35 +1996,55 @@ object mainfo: tmainfo
       end
       object tfilenameeditx1: tfilenameeditx
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 0
+        frame.framei_top = 0
+        frame.framei_right = 0
+        frame.framei_bottom = 0
         frame.colorclient = -2147483645
         frame.captionpos = cp_left
         frame.captiondist = 2
         frame.localprops = [frl_colorclient]
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp1
         frame.buttons.count = 1
         frame.buttons.items = <        
           item
             colorglyph = -1610612730
             face.localprops = []
             face.template = tfacecomp2
+            frame.framei_left = 4
+            frame.framei_top = 2
+            frame.framei_right = 4
+            frame.framei_bottom = 2
+            frame.frameimage_left = -4
+            frame.frameimage_right = -4
+            frame.frameimage_top = -4
+            frame.frameimage_bottom = -4
+            frame.optionsskin = [fso_flat]
             frame.localprops = [frl_optionsskin]
             frame.localprops1 = []
-            frame.template = tframecomp2
             imagenr = 17
           end>
         frame.button.colorglyph = -1610612730
         frame.button.face.localprops = []
         frame.button.face.template = tfacecomp2
+        frame.button.frame.framei_left = 4
+        frame.button.frame.framei_top = 2
+        frame.button.frame.framei_right = 4
+        frame.button.frame.framei_bottom = 2
+        frame.button.frame.frameimage_left = -4
+        frame.button.frame.frameimage_right = -4
+        frame.button.frame.frameimage_top = -4
+        frame.button.frame.frameimage_bottom = -4
+        frame.button.frame.optionsskin = [fso_flat]
         frame.button.frame.localprops = [frl_optionsskin]
         frame.button.frame.localprops1 = []
-        frame.button.frame.template = tframecomp2
         frame.button.imagenr = 17
         face.localprops = []
         face.template = tfacecomp1
         taborder = 2
         hint = 'Audio file: wav, ogg or flac.'
-        bounds_x = 2
+        bounds_x = 3
         bounds_y = 20
         bounds_cx = 173
         bounds_cy = 22
@@ -1860,7 +2210,7 @@ object mainfo: tmainfo
         )
         taborder = 3
         hint = 'Volume left of Audio File'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 50
         bounds_cx = 119
         bounds_cy = 21
@@ -1877,21 +2227,37 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfilevol
       end
       object volfile: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 4
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 50
         bounds_cx = 42
         bounds_cy = 21
@@ -1901,13 +2267,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object volfileR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 5
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 78
         bounds_cx = 42
         bounds_cy = 21
@@ -1935,7 +2309,7 @@ object mainfo: tmainfo
         )
         taborder = 6
         hint = 'Volume right of Audio File'
-        bounds_x = 6
+        bounds_x = 7
         bounds_y = 78
         bounds_cx = 120
         bounds_cy = 21
@@ -1952,21 +2326,37 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onfilevolR
       end
       object linkfilechan: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
         frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           100
           1
@@ -1987,7 +2377,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 7
         hint = 'Link Left+Right Channels'
-        bounds_x = 33
+        bounds_x = 34
         bounds_y = 144
         bounds_cx = 113
         bounds_cy = 17
@@ -1998,22 +2388,29 @@ object mainfo: tmainfo
     end
     object tgroupbox5: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                                    '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 2
       bounds_x = 8
-      bounds_y = 179
+      bounds_y = 180
       bounds_cx = 178
-      bounds_cy = 95
+      bounds_cy = 94
       object slidermic: tslider
         color = -2147483645
         frame.levelo = 0
@@ -2032,7 +2429,7 @@ object mainfo: tmainfo
           0
         )
         hint = 'Volume left of Input from Device'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 21
         bounds_cx = 119
         bounds_cy = 21
@@ -2049,21 +2446,37 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onmicvol
       end
       object volmic: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 1
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 21
         bounds_cx = 42
         bounds_cy = 21
@@ -2073,13 +2486,21 @@ object mainfo: tmainfo
         reffontheight = 15
       end
       object volmicR: tintegerdisp
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         taborder = 2
-        bounds_x = 128
+        bounds_x = 129
         bounds_y = 45
         bounds_cx = 42
         bounds_cy = 21
@@ -2107,7 +2528,7 @@ object mainfo: tmainfo
         )
         taborder = 3
         hint = 'Volume right of Input from Device'
-        bounds_x = 6
+        bounds_x = 7
         bounds_y = 45
         bounds_cx = 120
         bounds_cy = 21
@@ -2124,21 +2545,37 @@ object mainfo: tmainfo
         scrollbar.facebutton.template = tfacecomp2
         scrollbar.faceendbutton.localprops = []
         scrollbar.faceendbutton.template = tfacecomp2
+        scrollbar.framebutton.framei_left = 4
+        scrollbar.framebutton.framei_top = 2
+        scrollbar.framebutton.framei_right = 4
+        scrollbar.framebutton.framei_bottom = 2
+        scrollbar.framebutton.frameimage_left = -4
+        scrollbar.framebutton.frameimage_right = -4
+        scrollbar.framebutton.frameimage_top = -4
+        scrollbar.framebutton.frameimage_bottom = -4
         scrollbar.framebutton.optionsskin = [fso_flat]
+        scrollbar.framebutton.colorclient = -2147483645
         scrollbar.framebutton.localprops = [frl_optionsskin]
         scrollbar.framebutton.localprops1 = []
-        scrollbar.framebutton.template = tframecomp2
         scrollbar.colorglyph = -1610612730
         onsetvalue = onvolmicR
       end
       object linkmicchan: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Link Left-Right'
         frame.captionpos = cp_left
         frame.captiondist = 10
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           100
           1
@@ -2159,7 +2596,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 4
         hint = 'Link Left+Right Channels'
-        bounds_x = 33
+        bounds_x = 34
         bounds_y = 72
         bounds_cx = 113
         bounds_cy = 17
@@ -2170,12 +2607,20 @@ object mainfo: tmainfo
     end
     object oninputon: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Dev Input   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         127
         1
@@ -2205,12 +2650,20 @@ object mainfo: tmainfo
     end
     object onnoiseon: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Noise Gen   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         127
         1
@@ -2240,26 +2693,42 @@ object mainfo: tmainfo
     end
     object tgroupbox1: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 6
       hint = 'Input for the Viewers'
       bounds_x = 560
-      bounds_y = 16
+      bounds_y = 17
       bounds_cx = 100
-      bounds_cy = 80
+      bounds_cy = 79
       anchors = [an_left, an_bottom]
       object leftosci: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'L'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -2268,7 +2737,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           13
           1
@@ -2288,7 +2756,7 @@ object mainfo: tmainfo
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         hint = 'Show Left Channel'
-        bounds_x = 14
+        bounds_x = 15
         bounds_y = 28
         bounds_cx = 26
         bounds_cy = 17
@@ -2299,6 +2767,15 @@ object mainfo: tmainfo
       end
       object rightosci: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'R'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -2307,7 +2784,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           14
           1
@@ -2328,7 +2804,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 1
         hint = 'Show Right Channel'
-        bounds_x = 53
+        bounds_x = 54
         bounds_y = 28
         bounds_cx = 27
         bounds_cy = 17
@@ -2339,12 +2815,20 @@ object mainfo: tmainfo
       end
       object scaleosci: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Scale X2'
         frame.captionpos = cp_left
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           58
           1
@@ -2365,7 +2849,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 2
         hint = 'Scale factor of Oscilloscope'
-        bounds_x = 13
+        bounds_x = 14
         bounds_y = 52
         bounds_cx = 71
         bounds_cy = 17
@@ -2375,12 +2859,20 @@ object mainfo: tmainfo
     end
     object onpianoon: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Piano   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         99
         1
@@ -10767,9 +11259,10 @@ object mainfo: tmainfo
       bounds_cy = 156
       anchors = [an_left, an_top, an_right]
       attack.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+      attack.frame.framei_right = 0
+      attack.frame.framei_bottom = 0
       attack.frame.localprops = []
       attack.frame.localprops1 = []
-      attack.frame.template = tframecomp1
       attack.frame.zoomwidthstep = 1.5
       attack.bounds_x = 0
       attack.bounds_y = 0
@@ -10805,9 +11298,10 @@ object mainfo: tmainfo
       attack.xdials.range = 0.1
       attack.ydials.range = 1
       decay.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+      decay.frame.framei_right = 0
+      decay.frame.framei_bottom = 0
       decay.frame.localprops = []
       decay.frame.localprops1 = []
-      decay.frame.template = tframecomp1
       decay.frame.zoomwidthstep = 1.5
       decay.taborder = 1
       decay.bounds_x = 85
@@ -10857,9 +11351,10 @@ object mainfo: tmainfo
         end>
       decay.ydials.range = 1
       release.frame.optionsscroll = [oscr_drag, oscr_zoomwidth, oscr_zoomheight, oscr_mousewheel]
+      release.frame.framei_right = 0
+      release.frame.framei_bottom = 0
       release.frame.localprops = []
       release.frame.localprops1 = []
-      release.frame.template = tframecomp1
       release.frame.zoomwidthstep = 1.5
       release.taborder = 2
       release.bounds_x = 171
@@ -10969,12 +11464,20 @@ object mainfo: tmainfo
     end
     object onwavon: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Wave Gen   Activate'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         128
         1
@@ -11004,31 +11507,46 @@ object mainfo: tmainfo
     end
     object tgroupbox7: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = ' View Source '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 15
       hint = 'Input for the Viewers'
       bounds_x = 560
-      bounds_y = 102
+      bounds_y = 103
       bounds_cx = 208
-      bounds_cy = 64
+      bounds_cy = 63
       anchors = [an_left, an_bottom]
       object viewpiano: tbooleaneditradio
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Piano'
         frame.captionpos = cp_top
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           10
           21
@@ -11047,7 +11565,7 @@ object mainfo: tmainfo
         )
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
-        bounds_x = 164
+        bounds_x = 165
         bounds_y = 20
         bounds_cx = 34
         bounds_cy = 34
@@ -11056,12 +11574,20 @@ object mainfo: tmainfo
         onsetvalue = onpianoview
       end
       object viewnoise: tbooleaneditradio
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Noise'
         frame.captionpos = cp_top
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           10
           21
@@ -11081,7 +11607,7 @@ object mainfo: tmainfo
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         taborder = 1
-        bounds_x = 124
+        bounds_x = 125
         bounds_y = 20
         bounds_cx = 34
         bounds_cy = 34
@@ -11091,12 +11617,20 @@ object mainfo: tmainfo
         value = True
       end
       object viewwave: tbooleaneditradio
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Wave'
         frame.captionpos = cp_top
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           11
           21
@@ -11116,7 +11650,7 @@ object mainfo: tmainfo
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         taborder = 2
-        bounds_x = 83
+        bounds_x = 84
         bounds_y = 20
         bounds_cx = 35
         bounds_cy = 34
@@ -11125,12 +11659,20 @@ object mainfo: tmainfo
         onsetvalue = onwaveview
       end
       object viewinput: tbooleaneditradio
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Mic'
         frame.captionpos = cp_top
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           4
           21
@@ -11150,7 +11692,7 @@ object mainfo: tmainfo
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         taborder = 3
-        bounds_x = 50
+        bounds_x = 51
         bounds_y = 20
         bounds_cx = 22
         bounds_cy = 34
@@ -11159,12 +11701,20 @@ object mainfo: tmainfo
         onsetvalue = oninputview
       end
       object viewfile: tbooleaneditradio
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'File'
         frame.captionpos = cp_top
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           4
           21
@@ -11184,7 +11734,7 @@ object mainfo: tmainfo
         face.fade_direction = gd_down
         face.localprops = [fal_fadirection]
         taborder = 4
-        bounds_x = 10
+        bounds_x = 11
         bounds_y = 20
         bounds_cx = 22
         bounds_cy = 34
@@ -11195,35 +11745,50 @@ object mainfo: tmainfo
     end
     object tgroupbox8: tgroupbox
       color = -2147483645
+      frame.levelo = 1
+      frame.leveli = 0
+      frame.framei_left = 4
+      frame.framei_right = 4
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = '                    '
       frame.captionpos = cp_top
-      frame.localprops = []
+      frame.localprops = [frl_levelo]
       frame.localprops1 = []
-      frame.template = tframecomp2
       frame.outerframe = (
         0
-        9
+        8
         0
         0
       )
       taborder = 16
       hint = 'Input for the Viewers'
       bounds_x = 668
-      bounds_y = 16
+      bounds_y = 17
       bounds_cx = 100
-      bounds_cy = 80
+      bounds_cy = 79
       anchors = [an_left, an_bottom]
       object averagecount: tintegerdisp
         optionswidget1 = [ow1_fontglyphheight]
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.captionpos = cp_left
         frame.localprops = []
         frame.localprops1 = []
-        frame.template = tframecomp2
         face.localprops = []
         face.template = tfacecomp1
         hint = 'Average count'
-        bounds_x = 53
+        bounds_x = 54
         bounds_y = 52
         bounds_cx = 37
         bounds_cy = 18
@@ -11231,12 +11796,20 @@ object mainfo: tmainfo
       end
       object average: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'Ave'
         frame.captionpos = cp_left
         frame.captiondist = 4
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           28
           1
@@ -11257,7 +11830,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 1
         hint = 'Average of FFT spectrum'
-        bounds_x = 7
+        bounds_x = 8
         bounds_y = 52
         bounds_cx = 41
         bounds_cy = 17
@@ -11266,6 +11839,15 @@ object mainfo: tmainfo
       end
       object rightspectrum: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'R'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -11274,7 +11856,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           14
           1
@@ -11295,7 +11876,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 2
         hint = 'Show Right Channel'
-        bounds_x = 53
+        bounds_x = 54
         bounds_y = 28
         bounds_cx = 27
         bounds_cy = 17
@@ -11306,6 +11887,15 @@ object mainfo: tmainfo
       end
       object leftspectrum: tbooleanedit
         color = -2147483645
+        frame.levelo = 0
+        frame.framei_left = 4
+        frame.framei_top = 2
+        frame.framei_right = 4
+        frame.framei_bottom = 2
+        frame.frameimage_left = -4
+        frame.frameimage_top = -4
+        frame.frameimage_right = -4
+        frame.frameimage_bottom = -4
         frame.caption = 'L'
         frame.captionpos = cp_left
         frame.captiondist = 4
@@ -11314,7 +11904,6 @@ object mainfo: tmainfo
         frame.font.localprops = [flp_color]
         frame.localprops = []
         frame.localprops1 = [frl1_captiondist]
-        frame.template = tframecomp2
         frame.outerframe = (
           13
           1
@@ -11335,7 +11924,7 @@ object mainfo: tmainfo
         face.localprops = [fal_fadirection]
         taborder = 3
         hint = 'Show Left Channel'
-        bounds_x = 14
+        bounds_x = 15
         bounds_y = 28
         bounds_cx = 26
         bounds_cy = 17
@@ -11347,12 +11936,20 @@ object mainfo: tmainfo
     end
     object oscion: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Oscillo'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         44
         1
@@ -11386,12 +11983,20 @@ object mainfo: tmainfo
     end
     object spectrumon: tbooleanedit
       color = -2147483645
+      frame.levelo = 0
+      frame.framei_left = 4
+      frame.framei_top = 2
+      frame.framei_right = 4
+      frame.framei_bottom = 2
+      frame.frameimage_left = -4
+      frame.frameimage_top = -4
+      frame.frameimage_right = -4
+      frame.frameimage_bottom = -4
       frame.caption = 'Spectrum'
       frame.captionpos = cp_left
       frame.captiondist = 4
       frame.localprops = []
       frame.localprops1 = [frl1_captiondist]
-      frame.template = tframecomp2
       frame.outerframe = (
         66
         1
@@ -11507,47 +12112,6 @@ object mainfo: tmainfo
     template.fade_direction = gd_down
     left = 560
     top = 40
-  end
-  object tframecomp1: tframecomp
-    left = 432
-    top = 40
-  end
-  object tframecomp2: tframecomp
-    template.framei_left = 4
-    template.framei_top = 2
-    template.framei_right = 4
-    template.framei_bottom = 2
-    template.frameimage_list = timagelist3
-    template.frameimage_left = -4
-    template.frameimage_top = -4
-    template.frameimage_right = -4
-    template.frameimage_bottom = -4
-    left = 436
-    top = 65
-  end
-  object timagelist3: timagelist
-    width = 4
-    height = 4
-    count = 8
-    cornermask_topleft = #2#1
-    cornermask_bottomleft = #2#1
-    cornermask_bottomright = #2#1
-    cornermask_topright = #2#1
-    left = 438
-    top = 95
-    image = {
-      00000000020000000C0000000C000000E8000000000000000000000000000000
-      0000000000000000000000000000000000000000FFFFFF028B8B8B02A5A5A501
-      000000038B8B8B01FFFFFF048B8B8B01FFFFFF02A5A5A501000000038B8B8B01
-      FFFFFF038B8B8B01FFFFFF03A5A5A50100000003FFFFFF018B8B8B01FFFFFF02
-      8B8B8B01FFFFFF03A5A5A50100000003FFFFFF028B8B8B03FFFFFF068B8B8B01
-      FFFFFF038B8B8B02FFFFFF068B8B8B01FFFFFF038B8B8B01FFFFFF018B8B8B01
-      FFFFFF048B8B8B01FFFFFF048B8B8B07FFFFFF04D6D6D6018B8B8B03FFFFFF02
-      8B8B8B0400000004FFFFFF028B8B8B01FFFFFF04D6D6D60100000004FFFFFF03
-      8B8B8B01FFFFFF0400000004FFFFFF038B8B8B01FFFFFF04000000041C010000
-      1201000011020000110C00008008000080080000400800003F080000F3000000
-      040000000800000008000000
-    }
   end
   object tsigoutaudio1: tsigoutaudio
     controller = tsigcontroller1

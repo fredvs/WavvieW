@@ -17,6 +17,7 @@ order14=0
 order15=0
 order16=0
 order17=0
+order18=0
 [projectoptions]
 projectdir=/home/fred/WavvieW/src
 projectfilename=/home/fred/WavvieW/src/wavview.prj
@@ -188,7 +189,7 @@ options=114
  value=
  [projectoptionsfo.makegroupbox]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo.exceptionsgrid]
  propcolwidthref=637
  width0=77
@@ -209,7 +210,7 @@ options=114
  index=0
  [projectoptionsfo.setting_tab]
  firsttab=0
- index=2
+ index=0
  [projectoptionsfo]
  stackedunder=
  x=192
@@ -450,7 +451,7 @@ stripmessageesc=0
 copymessages=0
 closemessages=0
 enablepurpose=0
-enablesource=0
+enablesource=1
 checkmethods=1
 colorerror=-1610612717
 colorwarning=-1610612712
@@ -541,8 +542,8 @@ makeoptionson=6
  4095
  4
 compilerusedon=29
- 3891
- 4
+ 3895
+ 0
  8
  0
  0
@@ -832,8 +833,10 @@ envvarons=0
 [edit]
 hintwidth=0
 hintheight=0
-finddtext=fownerwidget.paint(bmp.canvas
+finddtext=tframe
 findhistory=20
+ tframe
+ frame
  fownerwidget.paint(bmp.canvas
  xfillrectangle
  xsync
@@ -852,26 +855,19 @@ findhistory=20
  sf_read_short
  mpg123_format
  HandleSt
- sfInfo
- sf_open
 findoptions=1
-editpos=3
+editpos=2
  0,-1073741823
- 5,15
- 0,-1073741823
+ 0,16
 bookmarks0=0
 bookmarks1=0
-bookmarks2=0
-sourcefiles=3
+sourcefiles=2
  ${PROJECTDIR}/wavview.pas
  ${PROJECTDIR}/main.pas
- /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
-relpaths=3
+relpaths=2
  wavview.pas
  main.pas
- mseide-msegui/lib/common/kernel/msegui.pas
-ismoduletexts=3
- 0
+ismoduletexts=2
  0
  0
 modules=1
@@ -886,7 +882,7 @@ nomenumodules=1
 firsttab=0
 index=1
 [layout]
-windowlayout=584
+windowlayout=561
  [mainfo.basedock]
  splitdir=2
  useroptions=268450944
@@ -909,6 +905,16 @@ windowlayout=584
  wsize=0
  active=1
  visible=1
+ [findmessagefo.findtext]
+ value=warning
+ history=3
+  not inlined
+  linux
+  used
+ [findmessagefo.casesensitive]
+ value=0
+ [findmessagefo.copytoclip]
+ value=1
  [targetconsolefo]
  splitdir=0
  useroptions=268451945
@@ -1091,7 +1097,7 @@ windowlayout=584
  [breakpointsfo]
  splitdir=0
  useroptions=268451947
- stackedunder=memoryfo
+ stackedunder=conflangfo
  parent=
  mdistate=0
  nx=0
@@ -1110,10 +1116,10 @@ windowlayout=584
  [breakpointsfo.bkptson]
  value=1
  [objectinspectorfo.grid]
- propcolwidthref=457
+ propcolwidthref=456
  width0=203
  sortdescend0=0
- width1=248
+ width1=247
  sortdescend1=0
  [symbolfo]
  splitdir=0
@@ -1240,7 +1246,6 @@ windowlayout=584
  width3=185
  sortdescend3=0
  [componentstorefo.storefiledialog]
- filenamescust=0
  filenames=1
   /home/fred/mseide-msegui/apps/ide/compstore/
  filecolwidth=0
@@ -1248,22 +1253,11 @@ windowlayout=584
  y=0
  cx=0
  cy=0
- panel=0
- noicon=0
- compact=0
- showhidden=0
- colnamewidth=0
- colsizewidth=0
- colextwidth=0
- coldatewidth=0
- splitterplaces=0
- splitterlateral=0
  lastdir=/home/fred/mseide-msegui/apps/ide/compstore/
  filehistory=0
  filefilterindex=0
  filefilter=
  [componentstorefo.groupfiledialog]
- filenamescust=0
  filenames=1
   /home/fred/mseide-msegui/apps/ide/compstore/
  filecolwidth=0
@@ -1271,38 +1265,17 @@ windowlayout=584
  y=0
  cx=0
  cy=0
- panel=0
- noicon=0
- compact=0
- showhidden=0
- colnamewidth=0
- colsizewidth=0
- colextwidth=0
- coldatewidth=0
- splitterplaces=0
- splitterlateral=0
  lastdir=/home/fred/mseide-msegui/apps/ide/compstore/
  filehistory=0
  filefilterindex=0
  filefilter=
  [componentstorefo.compfiledialog]
- filenamescust=0
  filenames=0
  filecolwidth=0
  x=0
  y=0
  cx=0
  cy=0
- panel=0
- noicon=0
- compact=0
- showhidden=0
- colnamewidth=0
- colsizewidth=0
- colextwidth=0
- coldatewidth=0
- splitterplaces=0
- splitterlateral=0
  lastdir=
  filehistory=0
  filefilterindex=0
@@ -1353,11 +1326,11 @@ windowlayout=584
  nx=0
  ny=0
  ncx=1224
- ncy=45
+ ncy=43
  x=0
  y=0
  cx=1239
- cy=43
+ cy=41
  rcx=0
  rcy=0
  [debuggerfo.edit_options]
@@ -1369,8 +1342,8 @@ windowlayout=584
  [debuggerfo.file_history]
  value=/home/fred/WavvieW/src/main.pas
  history=20
-  /home/fred/WavvieW/src/main.pas
   /home/fred/mseide-msegui/lib/common/kernel/msegui.pas
+  /home/fred/WavvieW/src/main.pas
   /home/fred/atest/test.prj
   /home/fred/ideu/src/ideU.prj
   /home/fred/mseide-msegui/apps/ide/mseide.prj
@@ -1455,7 +1428,7 @@ windowlayout=584
  [_mse_mainfo_mse_]
  splitdir=0
  useroptions=268451963
- stackedunder=targetconsolefo
+ stackedunder=objectinspectorfo
  parent=
  mdistate=3
  nx=0
